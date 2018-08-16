@@ -26,12 +26,12 @@
       </Label>
       <ImageView fitHeight="76.0" fitWidth="101.0" layoutX="116.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/اصناف.png" />
+            <Image url="@../../icons/Admin/اصناف.png" />
          </image>
       </ImageView>
       <ImageView id="Manager_Employee" fitHeight="69.0" fitWidth="76.0" layoutX="307.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #35889a;">
          <image>
-            <Image url="@../../images/موظفين.png" />
+            <Image url="@../../icons/Admin/موظفين.png" />
          </image>
       </ImageView>
       <Label layoutX="311.0" layoutY="149.0" prefHeight="20.0" prefWidth="62.0" text="الموظفين" textFill="WHITE">
@@ -41,7 +41,7 @@
       </Label>
       <ImageView id="Reports" fitHeight="76.0" fitWidth="70.0" layoutX="119.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #35889a;">
          <image>
-            <Image url="@../../images/تقارير.png" />
+            <Image url="@../../icons/Admin/تقارير.png" />
          </image>
       </ImageView>
       <Label layoutX="129.0" layoutY="284.0" prefHeight="20.0" prefWidth="50.0" text="التقارير" textFill="WHITE">
@@ -51,7 +51,7 @@
       </Label>
       <ImageView id="Manager_Suppliers" fitHeight="71.0" fitWidth="75.0" layoutX="305.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../images/الموردين.png" />
+            <Image url="@../../icons/Admin/الموردين.png" />
          </image>
       </ImageView>
       <Label layoutX="322.0" layoutY="284.0" prefHeight="20.0" prefWidth="50.0" text="الموردين" textFill="WHITE">
