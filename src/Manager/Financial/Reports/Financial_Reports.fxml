@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="Financial_Reports" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #343642;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Financial.Reports.Financial_ReportsController">
+   <children>
+      <Label fx:id="financial" layoutX="266.0" layoutY="40.0" text="الحسابات" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="F_date1" layoutX="417.0" layoutY="120.0" text="من" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="F_date2" layoutX="415.0" layoutY="164.0" text="الى" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Button layoutX="199.0" layoutY="326.0" mnemonicParsing="false" onAction="#Expenses_Reports" prefHeight="42.0" prefWidth="202.0" style="-fx-background-color: #35889a;" text="المصروفات/ارباح شامل " textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <DatePicker fx:id="F_Tdate1" layoutX="213.0" layoutY="118.0" />
+      <DatePicker fx:id="F_Tdate2" layoutX="213.0" layoutY="164.0" />
+      <Button layoutX="128.0" layoutY="252.0" mnemonicParsing="false" onAction="#invoices_Reports" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #35889a;" text="الفواتير" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="328.0" layoutY="252.0" mnemonicParsing="false" onAction="#Daily_Report" prefHeight="42.0" prefWidth="131.0" style="-fx-background-color: #35889a;" text="تقرير يومي" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

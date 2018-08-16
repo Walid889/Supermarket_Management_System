@@ -3,21 +3,35 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package supermarket.Manager;
+package Login;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
  *
  * @author lolo
  */
-public class Manager_SuppliersController implements Initializable {
-      HomeController x = new HomeController();
+public class LoginController implements Initializable {
+
+    @FXML
+    private AnchorPane login;
+    @FXML
+    private Label EnterCode;
+    @FXML
+    private Label Password;
+    @FXML
+    private TextField TEnterCode;
+    @FXML
+    private TextField TPassword;
+
     /**
      * Initializes the controller class.
      */
@@ -27,14 +41,7 @@ public class Manager_SuppliersController implements Initializable {
     }    
 
     @FXML
-    private void Suppliers_Reports(ActionEvent event) {
-         x.loadwindow("/supermarket/Manager/Sppliers_Reports.fxml", "Suppliers_Reports");
+    private void login(ActionEvent event) {
     }
-
-    @FXML
-    private void Manager_Home(ActionEvent event) {
-         x.loadwindow("/supermarket/Manager/Home.fxml", "Home");
-    }
-    
     
 }

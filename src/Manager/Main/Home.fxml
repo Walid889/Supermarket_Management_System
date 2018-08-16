@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="331.0" prefWidth="488.0" style="-fx-background-color: #343642;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="supermarket.Manager.HomeController">
+<AnchorPane id="AnchorPane" fx:id="Home" prefHeight="331.0" prefWidth="488.0" style="-fx-background-color: #343642;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Main.HomeController">
    <children>
-      <Label layoutX="199.0" layoutY="2.0" prefHeight="25.0" prefWidth="86.0" style="-fx-text-fill: #fff; -fx-font-size: 15;" text="المدير">
+      <Label fx:id="Manager" layoutX="199.0" layoutY="2.0" prefHeight="25.0" prefWidth="86.0" style="-fx-text-fill: #fff; -fx-font-size: 15;" text="المدير">
          <padding>
             <Insets left="25.0" />
          </padding>
