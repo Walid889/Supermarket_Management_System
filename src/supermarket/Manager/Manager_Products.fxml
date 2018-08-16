@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="996.0" style="-fx-background-color: #343642;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="supermarket.Manager.Manager_ProductsController">
+   <children>
+      <VBox layoutX="852.0" layoutY="9.0" prefHeight="586.0" prefWidth="144.0" style="-fx-background-color: #989c9d;">
+         <children>
+            <Button id="AddEmployee" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="37.0" prefWidth="108.0" style="-fx-background-color: #35889a;" text="أضافة" textAlignment="CENTER" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="40.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Button>
+            <Button id="EditEmployee" layoutX="10.0" layoutY="40.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="37.0" prefWidth="108.0" style="-fx-background-color: #35889a;" text="تعديل" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Button>
+            <Button id="RemoveEmployee" layoutX="10.0" layoutY="84.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="37.0" prefWidth="108.0" style="-fx-background-color: #35889a;" text="حذف" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Button>
+            <Button id="Manager_Reports" layoutX="10.0" layoutY="168.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Products_Reports" prefHeight="37.0" prefWidth="108.0" style="-fx-background-color: #35889a;" text="تقارير" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="10.0" />
+               </VBox.margin>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Button>
+            <Button id="Manager_Home" mnemonicParsing="false" onAction="#Manager_Home" prefHeight="32.0" prefWidth="108.0" style="-fx-background-color: #35889a;" text="الرئيسية" textFill="WHITE">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="100.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+      <Label contentDisplay="CENTER" layoutX="407.0" layoutY="14.0" prefHeight="27.0" prefWidth="73.0" text="الاصناف" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="802.0" layoutY="203.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="الكود" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="246.0" layoutY="68.0" minHeight="-Infinity" mnemonicParsing="false" prefHeight="37.0" prefWidth="73.0" style="-fx-background-color: #35889a;" text="بحث" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="792.0" layoutY="494.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="51.0" text="تصنيف" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="802.0" layoutY="459.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="المورد" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="772.0" layoutY="283.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="73.0" text="سعر الوحدة" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="802.0" layoutY="168.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="اسم " textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="802.0" layoutY="243.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="كمية" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <ChoiceBox layoutX="628.0" layoutY="460.0" prefHeight="25.0" prefWidth="144.0" style="-fx-background-color: #fff;" />
+      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="772.0" layoutY="320.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="73.0" text="سعر العلبة" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="772.0" layoutY="353.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="73.0" text="سعر الكرتونة" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="772.0" layoutY="389.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="73.0" text="الحد الادنى" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="772.0" layoutY="425.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="73.0" text="ت.الصلاحية" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TableView layoutX="12.0" layoutY="144.0" prefHeight="444.0" prefWidth="604.0">
+        <columns>
+          <TableColumn prefWidth="68.0" text="ت.صلاحية" />
+          <TableColumn prefWidth="61.0" text="حد ادنى" />
+            <TableColumn prefWidth="67.0" text="س.كرتونة" />
+            <TableColumn prefWidth="71.0" text="س.علبة" />
+            <TableColumn prefWidth="60.0" text="س.وحدة" />
+            <TableColumn prefWidth="61.0" text="مورد" />
+            <TableColumn prefWidth="59.0" text="تصنيف" />
+            <TableColumn minWidth="0.0" prefWidth="45.0" text="كمية" />
+            <TableColumn minWidth="0.0" prefWidth="50.0" text="كود" />
+            <TableColumn minWidth="0.0" prefWidth="61.0" text="اسم" />
+        </columns>
+      </TableView>
+      <ChoiceBox layoutX="628.0" layoutY="494.0" prefHeight="25.0" prefWidth="144.0" style="-fx-background-color: #fff;" />
+      <TextField layoutX="341.0" layoutY="74.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="300.0" />
+      <TextField layoutX="628.0" layoutY="181.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="144.0" />
+      <TextField layoutX="628.0" layoutY="216.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="144.0" />
+      <TextField layoutX="707.0" layoutY="249.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="65.0" />
+      <TextField layoutX="628.0" layoutY="283.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="144.0" />
+      <TextField layoutX="628.0" layoutY="320.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="144.0" />
+      <TextField layoutX="628.0" layoutY="353.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="144.0" />
+      <TextField layoutX="628.0" layoutY="388.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="144.0" />
+      <TextField layoutX="628.0" layoutY="426.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="26.0" prefWidth="144.0" />
+      <ChoiceBox layoutX="627.0" layoutY="250.0" prefHeight="25.0" prefWidth="73.0" style="-fx-background-color: #fff;" />
+   </children>
+</AnchorPane>

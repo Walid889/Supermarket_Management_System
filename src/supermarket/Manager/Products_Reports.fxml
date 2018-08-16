@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #343642;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="supermarket.Manager.Products_ReportsController">
+   <children>
+      <Label layoutX="245.0" layoutY="41.0" prefHeight="27.0" prefWidth="118.0" text="تقارير الاصناف" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <HBox layoutX="57.0" layoutY="168.0" prefHeight="65.0" prefWidth="491.0">
+         <children>
+            <Button layoutX="10.0" layoutY="10.0" minWidth="-Infinity" mnemonicParsing="false" prefHeight="65.0" prefWidth="137.0" style="-fx-background-color: #35889a;" text="التوالف" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="60.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+            <Button layoutX="149.0" layoutY="10.0" minWidth="-Infinity" mnemonicParsing="false" prefHeight="65.0" prefWidth="137.0" style="-fx-background-color: #35889a;" text="الجرد" textFill="WHITE">
+               <HBox.margin>
+                  <Insets left="90.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

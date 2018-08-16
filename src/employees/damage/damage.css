@@ -1,0 +1,26 @@
+.jfx-button
+{
+    -fx-background-color: #35889a;
+    -fx-text-fill: #FFF;
+}
+
+.jfx-button:hover
+{
+    -fx-background-color: #4aabc0;
+}
+
+.vbox
+{
+    -fx-background-color: #989c9d;
+}
+
+.vboxdamage
+
+{
+    -fx-background-color: #fff;
+}
+
+.pane
+{
+    -fx-background-color: #343642;
+}
