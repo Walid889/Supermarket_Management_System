@@ -10,8 +10,8 @@ package Classes;
  * @author Walid
  */
 public class Login {
-    Admin Adm;
-    Employee Emp;
+    Admin admin;
+    Employee employee;
         
     public boolean Log_in(String LogCode,String Password){
         return true;
