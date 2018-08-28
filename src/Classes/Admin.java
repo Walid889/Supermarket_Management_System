@@ -12,7 +12,7 @@ package Classes;
 public class Admin {
     private String Log_Code;
     private String Password;
-
+    
     public Admin(String Log_Code, String Password) {
         this.Log_Code = Log_Code;
         this.Password = Password;
