@@ -5,12 +5,14 @@
  */
 package Classes;
 
+import java.sql.Date;
+
 /**
  *
  * @author Walid
  */
-public class Common_Properties {
-    public long Serial;
-    public String Date;
-    Quantity Quan;
+public class Common_Properties extends Quantity{
+    public int Serial;
+    public Date Date;
+    
 }

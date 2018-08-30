@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="555.0" prefWidth="687.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="employees.expenses.ExpensesController">
+<AnchorPane id="AnchorPane" fx:id="loadPane" prefHeight="555.0" prefWidth="687.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employees.expenses.ExpensesController">
     <stylesheets>
         <URL value="@expenses.css" />
     </stylesheets>
@@ -56,5 +56,10 @@
          </font>
       </Label>
       <TextField layoutX="89.0" layoutY="444.0" />
+      <JFXButton layoutX="428.0" layoutY="448.0" onAction="#loadMAinOfExpenses" prefHeight="25.0" prefWidth="123.0" styleClass="jfx-button" stylesheets="@../sales/sales.css" text="الرئيسية">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

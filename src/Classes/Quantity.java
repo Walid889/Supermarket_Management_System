@@ -13,6 +13,47 @@ public class Quantity {
     private int boxesQuantity;   // The Quantity of Boxes of Product
     private int itemsInPacket;  // The Number of items in each packet
     private int packetsInBox;   // The Number of Packets in each Box
+
+    public int getItemsQuantity() {
+        return itemsQuantity;
+    }
+
+    public void setItemsQuantity(int itemsQuantity) {
+        this.itemsQuantity = itemsQuantity;
+    }
+
+    public int getPacketsQuantity() {
+        return packetsQuantity;
+    }
+
+    public void setPacketsQuantity(int packetsQuantity) {
+        this.packetsQuantity = packetsQuantity;
+    }
+
+    public int getBoxesQuantity() {
+        return boxesQuantity;
+    }
+
+    public void setBoxesQuantity(int boxesQuantity) {
+        this.boxesQuantity = boxesQuantity;
+    }
+
+    public int getItemsInPacket() {
+        return itemsInPacket;
+    }
+
+    public void setItemsInPacket(int itemsInPacket) {
+        this.itemsInPacket = itemsInPacket;
+    }
+
+    public int getPacketsInBox() {
+        return packetsInBox;
+    }
+
+    public void setPacketsInBox(int packetsInBox) {
+        this.packetsInBox = packetsInBox;
+    }
+    
     
     
     //Constructor to inialize all of them to be zero

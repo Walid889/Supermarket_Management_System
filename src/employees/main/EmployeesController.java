@@ -5,9 +5,29 @@
  */
 package employees.main;
 
+import com.jfoenix.controls.JFXButton;
+import database.DatabaseHandler;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
+import javafx.geometry.VPos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -16,13 +36,100 @@ import javafx.fxml.Initializable;
  */
 public class EmployeesController implements Initializable {
 
+    
+    @FXML
+    private JFXButton buyButton;
+    @FXML
+    private JFXButton salesButton;
+    @FXML
+    private JFXButton accountButton;
+    @FXML
+    private JFXButton damageButton;
+    @FXML
+    private JFXButton expensesButton;
+    @FXML
+    private JFXButton recallButton;
+    @FXML
+    private JFXButton shortfallsButton;
+    @FXML
+    private JFXButton signAsAdmin;
+    @FXML
+    private AnchorPane loadPane;
+    DatabaseHandler databaseHandler;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        System.out.println("hello!");
+       /* loadPane.heightProperty().addListener(new ChangeListener(){
+
+            @Override
+            public void changed(ObservableValue observable, Object oldValue, Object newValue) {
+                double height = (double) newValue;
+                loadPane.getChildren().set(index, loadPane);
+            }
+        });*/
+       databaseHandler=DatabaseHandler.getInstance();
     }    
+
+    @FXML
+    private void loadSales(ActionEvent event) {
+        loadWindow("/employees/sales/sales.fxml");
+    }
+
+    @FXML
+    private void loadAccount(ActionEvent event) {
+        loadWindow("/employees/account/account.fxml");
+    }
+
+    @FXML
+    private void loadDamage(ActionEvent event) {
+        loadWindow("/employees/damage/damage.fxml");
+    }
+
+    @FXML
+    private void loadExpenses(ActionEvent event) {
+        loadWindow("/employees/expenses/Expenses.fxml");
+    }
+
+    @FXML
+    private void loadRecall(ActionEvent event) {
+       loadWindow("/employees/recall/recall.fxml");
+        
+    }
+
+    @FXML
+    private void loadShortfalls(ActionEvent event) {
+    }
+
+    @FXML
+    private void loadBuying(ActionEvent event) {
+       loadWindow("/employees/buying/Buying.fxml");
+    }
+    
+    void loadWindow(String loc)
+    {
+        try {
+            AnchorPane pane = FXMLLoader.load(getClass().getResource(loc));
+            loadPane.getChildren().setAll(pane);
+           
+        } catch (IOException ex) {
+            Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       /* try {
+            Parent parent = FXMLLoader.load(getClass().getResource(loc));
+            Stage stage= new Stage(StageStyle.DECORATED);
+            stage.setTitle(title);
+            Image icon = new Image("/icons/my_account.png");
+            stage.getIcons().add(icon);
+            stage.setScene(new Scene(parent));
+            stage.show();
+        } 
+        catch (IOException ex) {
+            Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
+    }
+
     
 }

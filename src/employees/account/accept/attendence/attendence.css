@@ -11,3 +11,11 @@
 .jfx-button:hover {
     -fx-background-color: #4aabc0;
 }
+
+.back{
+    -fx-background-color: #343642;
+}
+
+.back:hover {
+    -fx-background-color: #343642;
+}
