@@ -38,6 +38,14 @@ public class DataHelper {
         }
         return false;
     }*/
+    
+    
+    
+    
+    
+    /****************************************************************************************************************/
+    /***********************************************SALES CONTROLLER*************************************************/
+
     public static boolean insertNewSale(Sales sal){
         try {
             PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
@@ -71,4 +79,22 @@ public class DataHelper {
         }
         return false;
     }
+    
+    public static boolean deleteSale(Sales sal) {
+        try {
+            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement( 
+                    "DELETE FROM sales WHERE sale_id = ?");
+            
+            statement.setInt(1, sal.getSerial());
+            int res = statement.executeUpdate();
+            if (res == 1) {
+                return true;
+            }
+        }
+        catch (SQLException ex) {
+        }
+        return false;
+    }
+    /****************************************************************************************************************/
+    /****************************************************************************************************************/
 }

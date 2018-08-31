@@ -14,6 +14,7 @@ import employees.main.EmployeesController;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,6 +27,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -272,15 +274,48 @@ public class SalesController extends NewSerial implements Initializable {
     }
     
     private void DeleteRow(){
-        Sales S=new Sales();
+        
         double c=billTabel.getSelectionModel().getSelectedItem().getCost();
-        try{
-        double p=Double.parseDouble(rest.getText());
-        rest.setText((c+p)+"");
-        }catch(Exception ex){}
-        billTabel.getItems().removeAll(billTabel.getSelectionModel().getSelectedItem());
-        TOTAL-=c;
-        totalPrice.setText(TOTAL+"");
+        Sales S=billTabel.getSelectionModel().getSelectedItem();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Deleting book");
+        alert.setContentText("Are you sure want to delete the book " + S.getName() + " ?");
+        Optional<ButtonType> answer = alert.showAndWait();
+        if (answer.get() == ButtonType.OK) {
+            
+            Boolean result = DataHelper.deleteSale(S);
+            
+            if (result) {
+                try{
+                double p=Double.parseDouble(rest.getText());
+                rest.setText((c+p)+"");
+                }catch(Exception ex){}
+
+                billTabel.getItems().removeAll(billTabel.getSelectionModel().getSelectedItem()); // delete item from ui table
+
+                TOTAL-=c;
+                totalPrice.setText(TOTAL+"");
+                
+                Alert AT=new Alert(Alert.AlertType.INFORMATION);
+                AT.setHeaderText(null);
+                AT.setContentText("Successfully Deleted !!");
+                AT.showAndWait();
+                return;
+            } else {
+                Alert AT=new Alert(Alert.AlertType.ERROR);
+                AT.setHeaderText(null);
+                AT.setContentText("Failed to Delete !!");
+                AT.showAndWait();
+                return;
+            }
+        } else {
+            Alert AT=new Alert(Alert.AlertType.ERROR);
+                AT.setHeaderText(null);
+                AT.setContentText("Deletion Canceled !!");
+                AT.showAndWait();
+                return;
+        }
+        
     }
 
     private void clear(){

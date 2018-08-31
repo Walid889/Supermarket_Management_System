@@ -46,17 +46,17 @@
     "/>
     
     <table-entry name="sales" col-data="
-                        sale_id int not null,
+                        sale_id int not null PRIMARY KEY,
                         sale_date date,
                         product_name varchar(200),
                         qty_kind varchar(200),
                         unit_price double,
                         current_qty integer,
                         cost double
-                        
+        
     "/>
     <table-entry name="bills" col-data="
-                        sale_id int not null,
+                        sale_id int not null PRIMARY KEY,
                         sale_date date,
                         total_price double,
                         paid_money double,
