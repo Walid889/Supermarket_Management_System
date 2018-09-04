@@ -15,8 +15,8 @@ import java.util.Date;
  * @author Walid
  */
 public class NewSerial {
-    private static int SalesSerial=1;
-    private static int BuyingSerial=1;
+    private static int SalesSerial;
+    private static int BuyingSerial;
 
     public static int getBuyingSerial() {
         return BuyingSerial;

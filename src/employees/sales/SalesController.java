@@ -112,6 +112,8 @@ public class SalesController extends NewSerial implements Initializable {
         quntityComboBox.setItems(list);
         quntityComboBox.setValue("قطعة");
         date.setText(gettDate());
+        setSalesSerial(DataHelper.getLastSerialToday(gettDate()));
+        
         billNumber.setText(getSalesSerial()+"");
         initTableViewCols();
         ser(); // Set Dinamic Serial Number and Date
@@ -249,25 +251,7 @@ public class SalesController extends NewSerial implements Initializable {
     
     
     /**************************************************************************/
-    private long checkData(){
-        String qu="SELECT number FROM sales ORDER BY number DESC FETCH FIRST ROW ONLY"; 
-        ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
-        long num = 0;
-        try {
-            if(rs.next()){
-                num=Integer.parseInt(rs.getString("number"))+1;
-                System.out.println("llllllllllll");}
-            else
-           {
-                num=1;
-                System.out.println("لسااااا");
-//              Alerts.showInfoAlert("اول فواتير اليوم ..");
-           }
-        } catch (SQLException ex) {
-            Logger.getLogger(SalesController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return num;
-    }
+    
     private void checksales(){
         String qu="SELECT * FROM sales";
         ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
@@ -309,8 +293,9 @@ public class SalesController extends NewSerial implements Initializable {
             S.setReminderMoney(Double.parseDouble(this.rest.getText()));
 
             boolean result = DataHelper.insertNewBill(S);
+            
+            increment_Sales(); //
             billNumber.setText(getSalesSerial()+"");
-            increment_Sales(); // increment_Serial_Sales
             System.out.println(getSalesSerial());
             TOTAL=0;
             
@@ -353,7 +338,7 @@ public class SalesController extends NewSerial implements Initializable {
             }
             S.setCost(S.CalcCostOfSoldItem(Double.parseDouble(productPrice.getText()),Double.parseDouble(Quntity.getText())));
             
-            long k=checkData();
+            long k=DataHelper.getLastOrderNumber();
             S.setNumber(k);
             boolean result = DataHelper.insertNewSale(S);
             SalesTabel.getItems().add(S);
@@ -437,8 +422,8 @@ public class SalesController extends NewSerial implements Initializable {
         }
     }
     private void clear(){
-        productName.setText("");
-        productPrice.setText("");
+        //productName.setText("");
+        //productPrice.setText("");
         Quntity.clear();
         totalPrice.clear();
         paid.clear();

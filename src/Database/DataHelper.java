@@ -2,6 +2,7 @@ package database;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import Classes.*;
+import java.sql.ResultSet;
 //import datamodel.employee1;
 //import library.assistant.data.model.MailServerInfo;
 //import library.assistant.ui.listmember.MemberListController.Member;
@@ -59,6 +60,7 @@ public class DataHelper {
             statement.setTime(9, sal.getTime());
             return statement.executeUpdate() > 0;
         } catch (SQLException ex) {
+            
         }
         return false;
     }
@@ -103,6 +105,46 @@ public class DataHelper {
         }
         return false;
     }
+    public static int getLastSerialToday(String D_date){
+        String qu="SELECT sale_id FROM sales where sale_date = '"+D_date+"'"+" ORDER BY sale_id DESC FETCH FIRST ROW ONLY ";
+        ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
+        int srl=0;
+        try {
+            if(rs.next()){
+                srl=rs.getInt("sale_id")+1;
+                System.out.println("llllllllllll");}
+            else
+           {
+                srl=1;
+                System.out.println("لسااااا");
+           }
+        } catch (SQLException ex) {
+            Alerts.showErrorAlert("لايوجد بيانات");
+        }
+        return srl;
+    }
+    
+    public static long getLastOrderNumber(){
+        String qu="SELECT number FROM sales ORDER BY number DESC FETCH FIRST ROW ONLY"; 
+        ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
+        long num = 0;
+        try {
+            if(rs.next()){
+                num=rs.getLong("number")+1;
+                System.out.println("llllllllllll");}
+            else
+           {
+                num=1;
+                System.out.println("لسااااا");
+//              Alerts.showInfoAlert("اول فواتير اليوم ..");
+           }
+        } catch (SQLException ex) {
+            Alerts.showErrorAlert("لايوجد بيانات");
+        }
+        return num;
+    }
+    
+    /****************************************************************************************************************/
     /****************************************************************************************************************/
     /*public static boolean cleanDBEfficiently(){
         try {

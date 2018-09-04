@@ -47,29 +47,20 @@
                         sup_reminder_price double
                         
     "/>
-    
     <table-entry name="sales" col-data="
-<<<<<<< HEAD
-                        number BIGINT not null primary key, 
-=======
->>>>>>> 505b484313aca1b58227f05bd083b7b3401771f7
-                        sale_id int not null,
+                        number BIGINT primary key ,
+                        sale_id int,
                         sale_date date,
                         product_name varchar(200),
                         qty_kind varchar(200),
                         unit_price double,
-                        current_qty integer,
-<<<<<<< HEAD
+                        current_qty int,
                         cost double,
                         t_time TIME
-        
-=======
-                        cost double
                         
->>>>>>> 505b484313aca1b58227f05bd083b7b3401771f7
-    "/>
+        "/>
     <table-entry name="bills" col-data="
-                        sale_id int not null,
+                        sale_id int,
                         sale_date date,
                         t_time TIME,
                         total_price double,
