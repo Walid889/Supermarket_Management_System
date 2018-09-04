@@ -5,7 +5,9 @@
  */
 package Serial_dinamic;
 
+import java.sql.Time;
 import java.text.SimpleDateFormat;
+import java.time.LocalTime;
 import java.util.Date;
 
 /**
@@ -50,4 +52,10 @@ public class NewSerial {
         simpleDF = new SimpleDateFormat ("yyyy-MM-dd");
         return simpleDF.format(today);
     }
+    
+    public Time gettTime(){
+        Time rightNow = Time.valueOf(LocalTime.now());
+        return rightNow;
+    }
+    
 }

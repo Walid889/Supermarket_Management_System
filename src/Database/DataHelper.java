@@ -49,15 +49,16 @@ public class DataHelper {
     public static boolean insertNewSale(Sales sal){
         try {
             PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
-                    "INSERT INTO sales (sale_id,sale_date,product_name,qty_kind,unit_price,current_qty,cost) VALUES(?,?,?,?,?,?,?)");
-            
-            statement.setInt(1,sal.getSerial());
-            statement.setDate(2,sal.getDate() );
-            statement.setString(3,sal.getName());
-            statement.setString(4,sal.getQuantityKind());
-            statement.setDouble(5,sal.getUintPrice());
-            statement.setInt(6,sal.getCurrentQuantity());
-            statement.setDouble(7,sal.getCost());
+                    "INSERT INTO sales (number,sale_id,sale_date,product_name,qty_kind,unit_price,current_qty,cost,t_time) VALUES(?,?,?,?,?,?,?,?,?)");
+            statement.setLong(1, sal.getNumber());
+            statement.setInt(2,sal.getSerial());
+            statement.setDate(3,sal.getDate() );
+            statement.setString(4,sal.getName());
+            statement.setString(5,sal.getQuantityKind());
+            statement.setDouble(6,sal.getUintPrice());
+            statement.setInt(7,sal.getCurrentQuantity());
+            statement.setDouble(8,sal.getCost());
+            statement.setTime(9, sal.getTime());
             return statement.executeUpdate() > 0;
         } catch (SQLException ex) {
         }
@@ -66,13 +67,14 @@ public class DataHelper {
     public static boolean insertNewBill(Sales sal){
         try {
             PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
-                    "INSERT INTO bills (sale_id,sale_date,total_price,paid_money,reminder_money) VALUES(?,?,?,?,?)");
+                    "INSERT INTO bills (sale_id,sale_date,t_time,total_price,paid_money,reminder_money) VALUES(?,?,?,?,?,?)");
             
             statement.setInt(1,sal.getSerial());
             statement.setDate(2,sal.getDate() );
-            statement.setDouble(3,sal.getTotalPrice());
-            statement.setDouble(4,sal.getPaid());
-            statement.setDouble(5,sal.getReminderMoney());
+            statement.setTime(3, sal.getTime());
+            statement.setDouble(4,sal.getTotalPrice());
+            statement.setDouble(5,sal.getPaid());
+            statement.setDouble(6,sal.getReminderMoney());
             
             return statement.executeUpdate() > 0;
         } catch (SQLException ex) {
@@ -83,15 +85,37 @@ public class DataHelper {
     public static boolean deleteSale(Sales sal) {
         try {
             PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement( 
-                    "DELETE FROM sales WHERE sale_id = ?");
+                    "DELETE FROM sales WHERE number = ?");
             
-            statement.setInt(1, sal.getSerial());
+            statement.setLong(1, sal.getNumber());
             int res = statement.executeUpdate();
             if (res == 1) {
                 return true;
             }
         }
-        catch (SQLException ex) {
+        catch (SQLException ex) {//    
+        }
+        return false;
+    }
+    
+    public static boolean deleteAllRowsInSalesTV(int serial) {
+        String qu = "DELETE FROM sales WHERE sale_id ="+serial+""; //
+        if(DatabaseHandler.getInstance().execAction(qu)){
+            return true;
+        }
+        return false;
+    }
+    /****************************************************************************************************************/
+    /*public static boolean cleanDBEfficiently(){
+        try {
+            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement( 
+                    "DELETE FROM sales WHERE number>1 and number<100000000000 ");
+            int res = statement.executeUpdate();
+            if (res == 1) {
+                return true;
+            }
+        }
+        catch (SQLException ex) {//    
         }
         return false;
     }

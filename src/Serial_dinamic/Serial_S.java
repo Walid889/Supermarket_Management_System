@@ -25,7 +25,7 @@ public class Serial_S extends NewSerial{
     
     class RemindTask extends TimerTask {
         public void run() {
-            setSalesSerial(0);
+            setSalesSerial(1);
             rep_sales();
             timer.cancel(); //Terminate the timer thread
         }
@@ -34,11 +34,11 @@ public class Serial_S extends NewSerial{
     private void rep_sales(){
         try {
             Thread.sleep(10*1000);
-            setSalesSerial(0);
+            setSalesSerial(1);
             Thread.sleep(10*1000);
-            setSalesSerial(0);
+            setSalesSerial(1);
             Thread.sleep(10*1000);
-            setSalesSerial(0);
+            setSalesSerial(1);
         } catch (InterruptedException ex) {
             Logger.getLogger(Serial_S.class.getName()).log(Level.SEVERE, null, ex);
         }

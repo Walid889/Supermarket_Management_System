@@ -6,6 +6,7 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -18,12 +19,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="loadPane" prefHeight="600.0" prefWidth="719.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employees.sales.SalesController">
+<AnchorPane id="AnchorPane" fx:id="loadPane" onKeyPressed="#A_N_B" prefHeight="600.0" prefWidth="719.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employees.sales.SalesController">
     <stylesheets>
         <URL value="@sales.css" />
     </stylesheets>
    <children>
-      <VBox layoutX="577.0" prefHeight="600.0" prefWidth="142.0" styleClass="vbox" stylesheets="@sales.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="577.0" onKeyPressed="#A_N_B" prefHeight="600.0" prefWidth="142.0" styleClass="vbox" stylesheets="@sales.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <JFXButton fx:id="saveBill" onAction="#AddNewBill" onKeyPressed="#A_N_B" prefHeight="25.0" prefWidth="120.0" styleClass="jfx-button" stylesheets="@sales.css" text="جديد" textAlignment="JUSTIFY" textFill="WHITE">
                <VBox.margin>
@@ -36,7 +37,7 @@
                   <DropShadow height="6.0" radius="2.5" spread="1.0" width="6.0" />
                </effect>
             </JFXButton>
-            <JFXButton fx:id="cancelBill" prefHeight="25.0" prefWidth="120.0" styleClass="jfx-button" stylesheets="@sales.css" text="إلغاء" textAlignment="JUSTIFY" textFill="WHITE">
+            <JFXButton onAction="#cancelBill" prefHeight="25.0" prefWidth="120.0" styleClass="jfx-button" stylesheets="@sales.css" text="إلغاء" textAlignment="JUSTIFY" textFill="WHITE">
                <VBox.margin>
                   <Insets left="12.0" top="30.0" />
                </VBox.margin>
@@ -47,7 +48,7 @@
                   <DropShadow height="6.0" radius="2.5" spread="1.0" width="6.0" />
                </effect>
             </JFXButton>
-            <JFXButton fx:id="freezeBill" prefHeight="25.0" prefWidth="120.0" styleClass="jfx-button" stylesheets="@sales.css" text="تجميد" textAlignment="JUSTIFY" textFill="WHITE">
+            <JFXButton onAction="#freezeBill" prefHeight="25.0" prefWidth="120.0" styleClass="jfx-button" stylesheets="@sales.css" text="تجميد" textAlignment="JUSTIFY" textFill="WHITE">
                <VBox.margin>
                   <Insets left="12.0" top="30.0" />
                </VBox.margin>
@@ -58,7 +59,7 @@
                   <DropShadow height="6.0" radius="2.5" spread="1.0" width="6.0" />
                </effect>
             </JFXButton>
-            <JFXButton fx:id="PreviousProcess" onAction="#loadMainOfSales" prefHeight="25.0" prefWidth="120.0" styleClass="jfx-button" stylesheets="@sales.css" text="عملية سابقة" textAlignment="JUSTIFY" textFill="WHITE">
+            <JFXButton onAction="#PreviousProcess" prefHeight="25.0" prefWidth="120.0" styleClass="jfx-button" stylesheets="@sales.css" text="عملية سابقة" textAlignment="JUSTIFY" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -69,7 +70,7 @@
                   <Insets bottom="15.0" left="12.0" top="160.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton fx:id="nextProcess" onAction="#loadMainOfSales" prefHeight="25.0" prefWidth="120.0" styleClass="jfx-button" stylesheets="@sales.css" text="عملية تالية" textAlignment="JUSTIFY" textFill="WHITE">
+            <JFXButton onAction="#NextProcess" prefHeight="25.0" prefWidth="120.0" styleClass="jfx-button" stylesheets="@sales.css" text="عملية تالية" textAlignment="JUSTIFY" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -93,7 +94,7 @@
             </JFXButton>
          </children>
       </VBox>
-      <Pane prefHeight="600.0" prefWidth="575.0" styleClass="pane" stylesheets="@sales.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="144.0" AnchorPane.topAnchor="0.0">
+      <Pane onKeyPressed="#A_N_B" prefHeight="600.0" prefWidth="575.0" styleClass="pane" stylesheets="@sales.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="144.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="date" accessibleRole="PARENT" layoutX="14.0" layoutY="21.0" prefHeight="21.0" prefWidth="89.0" text="2018-08-06" textFill="WHITE">
                <font>
@@ -123,17 +124,18 @@
                </effect>
             </Label>
             <TextField fx:id="billNumber" accessibleRole="PARENT" editable="false" layoutX="445.0" layoutY="23.0" prefHeight="25.0" prefWidth="41.0" />
-            <HBox accessibleRoleDescription="PARENT" layoutX="6.0" layoutY="110.0" prefHeight="369.0" prefWidth="563.0">
+            <HBox accessibleRoleDescription="PARENT" layoutX="6.0" layoutY="110.0" onKeyPressed="#A_N_B" prefHeight="369.0" prefWidth="563.0">
                <children>
                   <VBox prefHeight="343.0" prefWidth="317.0">
                      <children>
-                        <TableView fx:id="billTabel" onKeyPressed="#D_I_T" prefHeight="304.0" prefWidth="314.0">
+                        <TableView fx:id="SalesTabel" onKeyPressed="#D_I_T" prefHeight="293.0" prefWidth="297.0">
                           <columns>
                             <TableColumn fx:id="c_cost" prefWidth="75.0" text="التكلفة" />
                             <TableColumn fx:id="c_quantityKind" prefWidth="75.0" text="ن.الكمية" />
                               <TableColumn fx:id="c_quantity" prefWidth="75.0" text="الكمية" />
                               <TableColumn fx:id="c_price" prefWidth="75.0" text="السعر" />
                               <TableColumn fx:id="c_item" prefWidth="75.0" text="الصنف" />
+                              <TableColumn fx:id="c_num" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="ر.ف" />
                           </columns>
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -142,14 +144,31 @@
                               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                            </columnResizePolicy>
                         </TableView>
-                        <JFXButton fx:id="delete" onAction="#DeleteRow" prefHeight="25.0" prefWidth="79.0" text="مسح">
-                           <VBox.margin>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </VBox.margin>
-                           <font>
-                              <Font name="System Bold Italic" size="12.0" />
-                           </font>
-                        </JFXButton>
+                        <HBox prefHeight="42.0" prefWidth="317.0">
+                           <children>
+                              <CheckBox fx:id="AllCheckbox" mnemonicParsing="false" text="الكل" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </CheckBox>
+                              <JFXButton layoutX="20.0" layoutY="10.0" onAction="#DeleteAllRows" prefHeight="25.0" prefWidth="74.0" text="مسح الكل">
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="10.0" right="50.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                              <JFXButton onAction="#DeleteRow" prefHeight="25.0" prefWidth="74.0" text="مسح عنصر">
+                                 <font>
+                                    <Font name="System Bold Italic" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets left="50.0" />
+                                 </HBox.margin>
+                              </JFXButton>
+                           </children>
+                        </HBox>
                      </children>
                   </VBox>
                   <VBox alignment="CENTER" maxHeight="200.0" prefHeight="200.0" prefWidth="226.0" styleClass="vboxsale" stylesheets="@sales.css">
@@ -212,7 +231,7 @@
             <TextField fx:id="Quntity" accessibleRoleDescription="PARENT" layoutX="318.0" layoutY="485.0" onKeyPressed="#Q_A_K" prefHeight="25.0" prefWidth="52.0" />
             <TextField fx:id="totalPrice" accessibleRoleDescription="PARENT" layoutX="318.0" layoutY="563.0" />
             <TextField fx:id="paid" accessibleRoleDescription="PARENT" layoutX="63.0" layoutY="484.0" onKeyPressed="#E_P" />
-            <TextField fx:id="rest" accessibleRoleDescription="PARENT" layoutX="63.0" layoutY="561.0" onKeyPressed="#A_N_B" />
+            <TextField fx:id="rest" accessibleRoleDescription="PARENT" editable="false" layoutX="63.0" layoutY="561.0" onKeyPressed="#A_N_B" />
             <JFXButton accessibleRoleDescription="PARENT" layoutX="63.0" layoutY="522.0" onAction="#AddPaid" prefHeight="25.0" prefWidth="149.0" text="إدخال المدفوع">
                <font>
                   <Font name="System Bold Italic" size="12.0" />
@@ -223,7 +242,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXButton>
-            <JFXComboBox fx:id="quntityComboBox" accessibleRoleDescription="PARENT" focusColor="WHITE" labelFloat="true" layoutX="377.0" layoutY="485.0" prefHeight="25.0" prefWidth="89.0" promptText="عنصر" unFocusColor="WHITE" visibleRowCount="3">
+            <JFXComboBox fx:id="quntityComboBox" accessibleRoleDescription="PARENT" focusColor="WHITE" labelFloat="true" layoutX="377.0" layoutY="485.0" prefHeight="25.0" prefWidth="89.0" promptText="عنصر" styleClass="quntityComboBox" stylesheets="@sales.css" unFocusColor="#989c9d" visibleRowCount="3">
                <effect>
                   <Glow />
                </effect></JFXComboBox>
