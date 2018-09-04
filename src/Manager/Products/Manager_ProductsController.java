@@ -2,6 +2,7 @@
 package Manager.Products;
 
 import Manager.Main.HomeController;
+import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -71,19 +72,21 @@ public class Manager_ProductsController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    DatabaseHandler databaseHandler;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        databaseHandler=DatabaseHandler.getInstance();
     }    
 
     @FXML
     private void Products_Reports(ActionEvent event) {
-         x.loadwindow("/Manager/Products/Reports/Products_Reports.fxml", "products_Reports");
+         x.loadwindow(Manager_Products,"/Manager/Products/Reports/Products_Reports.fxml");
     }
     
     @FXML
     private void Manager_Home(ActionEvent event) {
-         x.loadwindow("/Manager/Main/Home.fxml", "Manager_Home");
+         x.loadwindow(Manager_Products,"/Manager/Main/Home.fxml");
     }
 
     @FXML

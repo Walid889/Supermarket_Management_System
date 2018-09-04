@@ -5,21 +5,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="Product_Reports" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #343642;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Products.Reports.Products_ReportsController">
+<AnchorPane id="AnchorPane" fx:id="Product_Reports" prefHeight="592.0" prefWidth="995.0" style="-fx-background-color: #343642;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Products.Reports.Products_ReportsController">
    <children>
-      <Label fx:id="Products" layoutX="245.0" layoutY="41.0" prefHeight="27.0" prefWidth="118.0" text="تقارير الاصناف" textFill="WHITE">
+      <Label fx:id="Products" layoutX="425.0" layoutY="63.0" prefHeight="31.0" prefWidth="151.0" text="تقارير الاصناف" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Button layoutX="149.0" layoutY="168.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#Damadge_Reports" prefHeight="65.0" prefWidth="137.0" style="-fx-background-color: #35889a;" text="التوالف" textFill="WHITE">
+      <Button layoutX="242.0" layoutY="223.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#Damadge_Reports" prefHeight="65.0" prefWidth="167.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="التوالف" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Button>
-      <Button layoutX="341.0" layoutY="168.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#Inventory_Reports" prefHeight="65.0" prefWidth="137.0" style="-fx-background-color: #35889a;" text="الجرد" textFill="WHITE">
+      <Button layoutX="567.0" layoutY="223.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#Inventory_Reports" prefHeight="65.0" prefWidth="167.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="الجرد" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="414.0" layoutY="355.0" minWidth="-Infinity" mnemonicParsing="false" onAction="#Manager_Home" prefHeight="65.0" prefWidth="167.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="الرئيسية" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
          </font>
       </Button>
    </children>

@@ -6,11 +6,14 @@
 package Manager.Reports;
 
 import Manager.Main.HomeController;
+import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -19,28 +22,35 @@ import javafx.fxml.Initializable;
  */
 public class ReportsController implements Initializable {
 
-       HomeController x = new HomeController();
+    HomeController x = new HomeController();
+    
+    DatabaseHandler databaseHandler;
+    @FXML
+    private AnchorPane Reports;
+    @FXML
+    private Label LReports;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        databaseHandler=DatabaseHandler.getInstance();
     }    
      @FXML
     private void loadproducts_Report(ActionEvent event) {
-        x.loadwindow("/Manager/Products/Reports/Products_Reports.fxml", "Products_Reports");
+        x.loadwindow(Reports,"/Manager/Products/Reports/Products_Reports.fxml");
     }
 
     @FXML
     private void loadFinancial_Reports(ActionEvent event) {
-        x.loadwindow("/Manager/Financial/Reports/Financial_Reports.fxml", "Financail_Reports");
+        x.loadwindow(Reports,"/Manager/Financial/Reports/Financial_Reports.fxml");
     }
 
     @FXML
     private void loadEmployee_Report(ActionEvent event) {
-        x.loadwindow("/Manager/Employee/Reports/Employee_Reports.fxml", "Employee_Reports");
+        x.loadwindow(Reports,"/Manager/Employee/Reports/Employee_Reports.fxml");
     }
 
     @FXML
     private void loadSuppliers_Report(ActionEvent event) {
-        x.loadwindow("/Manager/Suppliers/Reports/Sppliers_Reports.fxml", "Suppliers_Reports");
+        x.loadwindow(Reports,"/Manager/Suppliers/Reports/Sppliers_Reports.fxml");
     }
 }

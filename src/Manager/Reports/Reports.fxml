@@ -7,55 +7,63 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="Reports" prefHeight="419.0" prefWidth="600.0" style="-fx-background-color: #343642;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Reports.ReportsController">
+<AnchorPane id="AnchorPane" fx:id="Reports" prefHeight="592.0" prefWidth="995.0" style="-fx-background-color: #343642;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Reports.ReportsController">
    <children>
-      <Label fx:id="LReports" layoutX="271.0" layoutY="23.0" prefHeight="27.0" prefWidth="58.0" text="التقارير" textFill="WHITE">
+      <Label fx:id="LReports" layoutX="484.0" layoutY="28.0" prefHeight="32.0" prefWidth="78.0" text="التقارير" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="19.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Button layoutX="321.0" layoutY="90.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadproducts_Report" prefHeight="130.0" prefWidth="178.0" style="-fx-background-color: #35889a;" />
-      <Button layoutX="104.0" layoutY="90.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadFinancial_Reports" prefHeight="130.0" prefWidth="178.0" style="-fx-background-color: #35889a;" />
-      <Button layoutX="104.0" layoutY="240.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadEmployee_Report" prefHeight="130.0" prefWidth="178.0" style="-fx-background-color: #35889a;" />
-      <Button layoutX="321.0" layoutY="240.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadSuppliers_Report" prefHeight="130.0" prefWidth="178.0" style="-fx-background-color: #35889a;" />
-      <ImageView fitHeight="86.0" fitWidth="86.0" layoutX="150.0" layoutY="102.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../icons/Admin/الحسابات.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="98.0" fitWidth="105.0" layoutX="361.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../icons/Admin/تقارير%20الموردين.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="98.0" fitWidth="105.0" layoutX="144.0" layoutY="246.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../icons/Admin/تقارير%20موظفين.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="140.0" layoutY="338.0" text="تقارير الموظفين" textFill="WHITE">
+      <Button layoutX="605.0" layoutY="99.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadproducts_Report" prefHeight="178.0" prefWidth="229.0" style="-fx-background-color: #35889a; -fx-cursor:hand">
+         <graphic>
+            <ImageView fitHeight="105.0" fitWidth="165.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/تقارير%20اصناف.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="204.0" layoutY="99.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadFinancial_Reports" prefHeight="178.0" prefWidth="229.0" style="-fx-background-color: #35889a; -fx-cursor:hand">
+         <graphic>
+            <ImageView fitHeight="86.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/الحسابات.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="204.0" layoutY="352.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadEmployee_Report" prefHeight="178.0" prefWidth="229.0" style="-fx-background-color: #35889a; -fx-cursor:hand">
+         <graphic>
+            <ImageView fitHeight="98.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/تقارير%20موظفين.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Button layoutX="605.0" layoutY="352.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadSuppliers_Report" prefHeight="178.0" prefWidth="229.0" style="-fx-background-color: #35889a; -fx-cursor:hand">
+         <graphic>
+            <ImageView fitHeight="98.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/received_2014690272175496.png" />
+               </image>
+            </ImageView>
+         </graphic></Button>
+      <Label layoutX="258.0" layoutY="493.0" text="تقارير الموظفين" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="161.0" layoutY="186.0" text="الحسابات" textFill="WHITE">
+      <Label layoutX="282.0" layoutY="235.0" text="الحسابات" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="17.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="357.0" layoutY="338.0" text="تقارير الموردين" textFill="WHITE">
+      <Label layoutX="671.0" layoutY="493.0" text="تقارير الموردين" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <ImageView fitHeight="105.0" fitWidth="165.0" layoutX="358.0" layoutY="93.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../icons/Admin/تقارير%20اصناف.png" />
-         </image>
-      </ImageView>
-      <Label layoutX="357.0" layoutY="186.0" text="تقارير الاصناف" textFill="WHITE">
+      <Label layoutX="672.0" layoutY="236.0" text="تقارير الاصناف" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
    </children>

@@ -1,6 +1,7 @@
 
 package Manager.Main;
 
+import database.DatabaseHandler;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,51 +26,41 @@ public class HomeController implements Initializable {
     @FXML
     private Label Manager;
     
-    
+    DatabaseHandler databaseHandler;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    databaseHandler= DatabaseHandler.getInstance();
     }    
 
     @FXML
     private void loadManager_Products(ActionEvent event) throws IOException {
-        loadwindow("/Manager/Products/Manager_Products.fxml", "products");
-     //  AnchorPane pane= FXMLLoader.load(getClass().getResource("/supermarket/Manager/Manager_Products.fxml")); 
-       //Home.getChildren().setAll(pane);
-       
+        loadwindow(Home, "/Manager/Products/Manager_Products.fxml");
     }
 
     @FXML
     private void loadManager_Employee(ActionEvent event) throws IOException {
-         loadwindow("/Manager/Employee/Manager_Employee.fxml", "Employee");
-        /* AnchorPane pane= FXMLLoader.load(getClass().getResource("/supermarket/Manager/Manager_Employee.fxml")); 
-         Home.getChildren().setAll(pane);*/
+         loadwindow(Home, "/Manager/Employee/Manager_Employee.fxml");
     }
 
     @FXML
     private void loadReports(ActionEvent event) throws IOException {
-        loadwindow("/Manager/Reports/Reports.fxml", "Reports");
-        /* AnchorPane pane= FXMLLoader.load(getClass().getResource("/supermarket/Manager/Reports.fxml")); 
-        Home.getChildren().setAll(pane);*/
+        loadwindow(Home, "/Manager/Reports/Reports.fxml");
     }
 
     @FXML
     private void LoadManager_Suppliers(ActionEvent event) throws IOException {
-        loadwindow("/Manager/Suppliers/Manager_Suppliers.fxml", "Suppliers");
-        /* AnchorPane pane= FXMLLoader.load(getClass().getResource("/supermarket/Manager/Manager_Suppliers.fxml")); 
-        Home.getChildren().setAll(pane);*/
-    }
+         loadwindow(Home, "/Manager/Suppliers/Manager_Suppliers.fxml");
+    } 
     
-    public void loadwindow(String loc , String Title) {
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource(loc));
-            Stage stage = new Stage(StageStyle.DECORATED);
-            stage.setTitle(Title);
-            stage.setScene(new Scene(parent));
-            stage.show();
-            } catch (IOException ex) {
-            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public void loadwindow(AnchorPane p , String loc) { //
+        AnchorPane pane = null;
+           try {
+               pane = FXMLLoader.load(getClass().getResource(loc));
+           } catch (IOException ex) {
+               Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        p.getChildren().setAll(pane);
     }    
     
 }

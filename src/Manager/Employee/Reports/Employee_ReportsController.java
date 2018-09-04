@@ -5,6 +5,7 @@
  */
 package Manager.Employee.Reports;
 
+import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -41,9 +42,11 @@ public class Employee_ReportsController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    DatabaseHandler databaseHandler;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+       databaseHandler = DatabaseHandler.getInstance();
     }    
 
     @FXML
@@ -56,6 +59,10 @@ public class Employee_ReportsController implements Initializable {
 
     @FXML
     private void Attendance_Report(ActionEvent event) {
+    }
+
+    @FXML
+    private void Manager_Home(ActionEvent event) {
     }
     
 }

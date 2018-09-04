@@ -6,36 +6,41 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="Financial_Reports" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #343642;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Financial.Reports.Financial_ReportsController">
+<AnchorPane id="AnchorPane" fx:id="Financial_Reports" prefHeight="592.0" prefWidth="995.0" style="-fx-background-color: #343642; -fx-cursor:hand" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Financial.Reports.Financial_ReportsController">
    <children>
-      <Label fx:id="financial" layoutX="266.0" layoutY="40.0" text="الحسابات" textFill="WHITE">
+      <Label fx:id="financial" layoutX="487.0" layoutY="37.0" prefHeight="27.0" prefWidth="114.0" text="الحسابات" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="F_date1" layoutX="417.0" layoutY="120.0" text="من" textFill="WHITE">
+      <Label fx:id="F_date1" layoutX="647.0" layoutY="148.0" text="من" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="F_date2" layoutX="415.0" layoutY="164.0" text="الى" textFill="WHITE">
+      <Label fx:id="F_date2" layoutX="645.0" layoutY="204.0" text="الى" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="199.0" layoutY="326.0" mnemonicParsing="false" onAction="#Expenses_Reports" prefHeight="42.0" prefWidth="202.0" style="-fx-background-color: #35889a;" text="المصروفات/ارباح شامل " textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Button>
-      <DatePicker fx:id="F_Tdate1" layoutX="213.0" layoutY="118.0" />
-      <DatePicker fx:id="F_Tdate2" layoutX="213.0" layoutY="164.0" />
-      <Button layoutX="128.0" layoutY="252.0" mnemonicParsing="false" onAction="#invoices_Reports" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #35889a;" text="الفواتير" textFill="WHITE">
+      <Button layoutX="160.0" layoutY="334.0" mnemonicParsing="false" onAction="#Expenses_Reports" prefHeight="42.0" prefWidth="202.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="المصروفات/ارباح شامل " textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <Button layoutX="328.0" layoutY="252.0" mnemonicParsing="false" onAction="#Daily_Report" prefHeight="42.0" prefWidth="131.0" style="-fx-background-color: #35889a;" text="تقرير يومي" textFill="WHITE">
+      <DatePicker fx:id="F_Tdate1" layoutX="390.0" layoutY="146.0" prefHeight="25.0" prefWidth="227.0" />
+      <DatePicker fx:id="F_Tdate2" layoutX="390.0" layoutY="204.0" prefHeight="25.0" prefWidth="227.0" />
+      <Button layoutX="439.0" layoutY="334.0" mnemonicParsing="false" onAction="#invoices_Reports" prefHeight="42.0" prefWidth="141.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="الفواتير" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="650.0" layoutY="334.0" mnemonicParsing="false" onAction="#Daily_Report" prefHeight="42.0" prefWidth="141.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="تقرير يومي" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="452.0" layoutY="439.0" mnemonicParsing="false" onAction="#Manager_Home" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="الرئيسية" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

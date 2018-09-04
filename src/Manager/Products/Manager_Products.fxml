@@ -13,9 +13,9 @@
 
 <AnchorPane fx:id="Manager_Products" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="996.0" style="-fx-background-color: #343642;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Products.Manager_ProductsController">
    <children>
-      <VBox layoutX="852.0" layoutY="9.0" prefHeight="586.0" prefWidth="144.0" style="-fx-background-color: #989c9d;">
+      <VBox layoutX="852.0" layoutY="-4.0" prefHeight="599.0" prefWidth="146.0" style="-fx-background-color: #989c9d;">
          <children>
-            <Button id="AddEmployee" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Add_Product" prefHeight="37.0" prefWidth="108.0" style="-fx-background-color: #35889a;" text="أضافة" textAlignment="CENTER" textFill="WHITE">
+            <Button id="AddEmployee" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Add_Product" prefHeight="37.0" prefWidth="126.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="أضافة" textAlignment="CENTER" textFill="WHITE">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" top="40.0" />
                </VBox.margin>
@@ -26,7 +26,7 @@
                   <Insets left="10.0" />
                </padding>
             </Button>
-            <Button id="EditEmployee" layoutX="10.0" layoutY="40.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Edit_Product" prefHeight="37.0" prefWidth="108.0" style="-fx-background-color: #35889a;" text="تعديل" textAlignment="CENTER" textFill="WHITE">
+            <Button id="EditEmployee" layoutX="10.0" layoutY="40.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Edit_Product" prefHeight="37.0" prefWidth="126.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="تعديل" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -37,7 +37,7 @@
                   <Insets left="10.0" />
                </padding>
             </Button>
-            <Button id="RemoveEmployee" layoutX="10.0" layoutY="84.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Delete_Product" prefHeight="37.0" prefWidth="108.0" style="-fx-background-color: #35889a;" text="حذف" textAlignment="CENTER" textFill="WHITE">
+            <Button id="RemoveEmployee" layoutX="10.0" layoutY="84.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Delete_Product" prefHeight="37.0" prefWidth="125.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="حذف" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -48,7 +48,7 @@
                   <Insets left="10.0" />
                </padding>
             </Button>
-            <Button id="Manager_Reports" layoutX="10.0" layoutY="168.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Products_Reports" prefHeight="37.0" prefWidth="108.0" style="-fx-background-color: #35889a;" text="تقارير" textAlignment="CENTER" textFill="WHITE">
+            <Button id="Manager_Reports" layoutX="10.0" layoutY="168.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Products_Reports" prefHeight="37.0" prefWidth="126.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="تقارير" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -59,7 +59,7 @@
                   <Insets left="10.0" />
                </padding>
             </Button>
-            <Button id="Manager_Home" mnemonicParsing="false" onAction="#Manager_Home" prefHeight="32.0" prefWidth="108.0" style="-fx-background-color: #35889a;" text="الرئيسية" textFill="WHITE">
+            <Button id="Manager_Home" mnemonicParsing="false" onAction="#Manager_Home" prefHeight="39.0" prefWidth="130.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="الرئيسية" textFill="WHITE">
                <VBox.margin>
                   <Insets left="10.0" right="10.0" top="100.0" />
                </VBox.margin>
@@ -79,7 +79,7 @@
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Button layoutX="246.0" layoutY="68.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#Product_Search" prefHeight="37.0" prefWidth="73.0" style="-fx-background-color: #35889a;" text="بحث" textAlignment="RIGHT" textFill="WHITE">
+      <Button layoutX="246.0" layoutY="68.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#Product_Search" prefHeight="37.0" prefWidth="73.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="بحث" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>

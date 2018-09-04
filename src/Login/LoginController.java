@@ -5,6 +5,7 @@
  */
 package Login;
 
+import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -32,11 +33,13 @@ public class LoginController implements Initializable {
     @FXML
     private TextField TPassword;
 
+    DatabaseHandler databaseHandler;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        databaseHandler = DatabaseHandler.getInstance();
         // TODO
     }    
 
