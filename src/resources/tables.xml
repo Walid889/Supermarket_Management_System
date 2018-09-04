@@ -48,16 +48,28 @@
                         
     "/>
     <table-entry name="sales" col-data="
+<<<<<<< HEAD
                         number BIGINT not null primary key,
+=======
+                        number BIGINT not null primary key, 
+>>>>>>> 00fda2504fcdd3f94bd091744a6f390ff4393305
                         sale_id int not null,
                         sale_date date,
                         product_name varchar(200),
                         qty_kind varchar(200),
                         unit_price double,
+<<<<<<< HEAD
                         current_qty int,
                         cost double,
                         t_time TIME
 " />
+=======
+                        current_qty integer,
+                        cost double,
+                        t_time TIME
+                        cost double
+    "/>
+>>>>>>> 00fda2504fcdd3f94bd091744a6f390ff4393305
     <table-entry name="bills" col-data="
                         sale_id int,
                         sale_date date,
