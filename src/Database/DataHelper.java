@@ -8,20 +8,21 @@ import Classes.*;
 
 public class DataHelper {
 
-   /* public static boolean insertNewemployee(employee1 emp) {
+    public static boolean insertNewemployee(Employee emp) {
         try {
             PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
-                    "INSERT INTO employee1(id,name,phone,address,isAvail) VALUES(?,?,?,?,?)");
-            statement.setString(1, emp.getId());
-            statement.setString(2, emp.getName());
-            statement.setString(3, emp.getPhone());
-            statement.setString(4, emp.getAddress());
+                    "INSERT INTO employee1(emp_id,emp_name,emp_phone,emp_salary_hours,emp_address) VALUES(?,?,?,?,?)");
+            statement.setString(1, emp.getEmployeeId());
+            statement.setString(2, emp.getEmployeeName());
+            statement.setString(3, emp.getEmployeePhone());
+            statement.setDouble(4, emp.getEmployeeSalaryHours());
+            statement.setString(5, emp.getEmployeeAddress());
             return statement.executeUpdate() > 0;
         } catch (SQLException ex) {
-            LOGGER.log(Level.ERROR, "{}", ex);
+            
         }
         return false;
-    }*/
+    }
   /*public static boolean isEmployeeExists(String id) {
         try {
             String checkstmt = "SELECT COUNT(*) FROM employee1 WHERE id=?";
@@ -38,14 +39,6 @@ public class DataHelper {
         }
         return false;
     }*/
-    
-    
-    
-    
-    
-    /****************************************************************************************************************/
-    /***********************************************SALES CONTROLLER*************************************************/
-
     public static boolean insertNewSale(Sales sal){
         try {
             PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
@@ -79,22 +72,33 @@ public class DataHelper {
         }
         return false;
     }
-    
-    public static boolean deleteSale(Sales sal) {
-        try {
-            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement( 
-                    "DELETE FROM sales WHERE sale_id = ?");
-            
-            statement.setInt(1, sal.getSerial());
-            int res = statement.executeUpdate();
-            if (res == 1) {
-                return true;
-            }
-        }
-        catch (SQLException ex) {
+    public static boolean insertNewExpences(Expences E)
+    {
+        try{
+        PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
+                    "INSERT INTO shop_costs (price,reason,total) VALUES(?,?,?)");
+        statement.setDouble(1, E.getCost());
+        statement.setString(2, E.getReason());
+        statement.setDouble(3, E.getTotalCost());
+        return statement.executeUpdate() > 0;
+        } catch (SQLException ex)
+        {
         }
         return false;
     }
-    /****************************************************************************************************************/
-    /****************************************************************************************************************/
+    public static boolean insertNewSupplier(Suppliers s)
+    {
+        try{
+        PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
+                    "INSERT INTO suppliers1 (sup_name,sup_company_name,sup_category,sup_phone) VALUES(?,?,?,?)");
+        statement.setString(1, s.getSupplierName());
+        statement.setString(2, s.getSupplierCategory());
+        statement.setInt(3, s.getSupplierPhone());
+        statement.setString(4, s.getSalespersonName());
+        return statement.executeUpdate() > 0;
+        } catch (SQLException ex)
+        {
+        }
+        return false;
+    }
 }

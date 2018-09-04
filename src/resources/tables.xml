@@ -5,6 +5,7 @@
             emp_name varchar(200)
             ,emp_phone varchar(200)
             ,emp_address varchar(200)
+            ,emp_salary_hours double
             "/>
     <table-entry name="employee2" col-data="
             emp_start_time timestamp not null default current_timestamp
@@ -34,11 +35,13 @@
                         pro_supplier_name varchar(200)
                         
         "/>
-    <table-entry name="suppliers" col-data="
+    <table-entry name="suppliers1" col-data="
                         sup_name varchar(200),
                         sup_company_name varchar(200),
                         sup_category varchar(200),
-                        sup_phone varchar(200),
+                        sup_phone int
+                        "/>
+    <table-entry name="suppliers2" col-data="
                         sup_paid double,
                         sup_total_price double,
                         sup_reminder_price double
@@ -46,17 +49,17 @@
     "/>
     
     <table-entry name="sales" col-data="
-                        sale_id int not null PRIMARY KEY,
+                        sale_id int not null,
                         sale_date date,
                         product_name varchar(200),
                         qty_kind varchar(200),
                         unit_price double,
                         current_qty integer,
                         cost double
-        
+                        
     "/>
     <table-entry name="bills" col-data="
-                        sale_id int not null PRIMARY KEY,
+                        sale_id int not null,
                         sale_date date,
                         total_price double,
                         paid_money double,
@@ -64,7 +67,8 @@
     "/>
     <table-entry name="shop_costs" col-data="
                         price double,
-                        reason varchar(200)
+                        reason varchar(200),
+                        total double
     "/>
     
 </tables>

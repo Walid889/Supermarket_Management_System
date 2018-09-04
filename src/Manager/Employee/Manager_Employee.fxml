@@ -57,38 +57,38 @@
             </Button>
          </children>
       </VBox>
-      <Label fx:id="Employees" contentDisplay="CENTER" layoutX="289.0" layoutY="11.0" prefHeight="27.0" prefWidth="73.0" text="الموظفين" textAlignment="CENTER" textFill="WHITE">
+      <Label contentDisplay="CENTER" layoutX="289.0" layoutY="11.0" prefHeight="27.0" prefWidth="73.0" text="الموظفين" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font size="18.0" />
          </font>
       </Label>
-      <Label fx:id="E_name" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="577.0" layoutY="97.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="اسم " textAlignment="RIGHT" textFill="WHITE">
+      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="577.0" layoutY="97.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="اسم " textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="E_Code" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="577.0" layoutY="143.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="الكود" textAlignment="RIGHT" textFill="WHITE">
+      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="577.0" layoutY="143.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="الكود" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="E_phone" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="577.0" layoutY="184.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="تليفون" textAlignment="RIGHT" textFill="WHITE">
+      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="577.0" layoutY="184.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="تليفون" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="E_Address" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="576.0" layoutY="273.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="العنوان" textAlignment="RIGHT" textFill="WHITE">
+      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="576.0" layoutY="273.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="العنوان" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
       <TableView fx:id="E_tables" layoutX="8.0" layoutY="85.0" prefHeight="396.0" prefWidth="418.0">
          <columns>
-            <TableColumn prefWidth="94.0" text="العنوان " />
-            <TableColumn prefWidth="83.0" text="الاجر بالساعة" />
-            <TableColumn text="تليفون" />
-            <TableColumn prefWidth="79.0" text="الكود" />
-            <TableColumn prefWidth="81.0" text="الاسم" />
+            <TableColumn fx:id="t_address" prefWidth="94.0" text="العنوان " />
+            <TableColumn fx:id="t_salary" prefWidth="83.0" text="الاجر بالساعة" />
+            <TableColumn fx:id="t_phone" text="تليفون" />
+            <TableColumn fx:id="t_code" prefWidth="79.0" text="الكود" />
+            <TableColumn fx:id="t_name" prefWidth="81.0" text="الاسم" />
          </columns>
       </TableView>
       <Button layoutX="475.0" layoutY="437.0" mnemonicParsing="false" onAction="#Employee_Choice" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #35889a;" text="اختيار" textFill="WHITE">
@@ -100,7 +100,7 @@
       <TextField fx:id="E_Tcode" layoutX="436.0" layoutY="143.0" prefHeight="25.0" prefWidth="100.0" />
       <TextField fx:id="E_Tphone" layoutX="436.0" layoutY="185.0" prefHeight="25.0" prefWidth="100.0" />
       <TextArea fx:id="E_Taddress" layoutX="435.0" layoutY="273.0" prefHeight="137.0" prefWidth="100.0" />
-      <Label fx:id="E_Salary" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="545.0" layoutY="224.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="73.0" text="الاجر بالساعة" textAlignment="RIGHT" textFill="WHITE">
+      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="545.0" layoutY="224.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="73.0" text="الاجر بالساعة" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>

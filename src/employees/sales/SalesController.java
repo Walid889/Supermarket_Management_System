@@ -156,13 +156,13 @@ public class SalesController extends NewSerial implements Initializable {
     /********************* DELETE ROW FROM TABLE VIEW *************************/
     @FXML
     private void DeleteRow(ActionEvent event) {
-        this.DeleteRow();
+       // this.DeleteRow();
     }
     @FXML
     private void D_I_T(KeyEvent event) {
         if(event.getCode().equals(KeyCode.DELETE)) {
              // do something
-             this.DeleteRow();
+         //    this.DeleteRow();
         }
     }
     /**************************************************************************/
@@ -273,7 +273,7 @@ public class SalesController extends NewSerial implements Initializable {
         rest.setText(reminder+"");
     }
     
-    private void DeleteRow(){
+    /*private void DeleteRow(){
         
         double c=billTabel.getSelectionModel().getSelectedItem().getCost();
         Sales S=billTabel.getSelectionModel().getSelectedItem();
@@ -316,7 +316,7 @@ public class SalesController extends NewSerial implements Initializable {
                 return;
         }
         
-    }
+    }*/
 
     private void clear(){
         productName.setText("");
