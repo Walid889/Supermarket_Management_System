@@ -5,6 +5,7 @@
  */
 package Manager.Products.Reports;
 
+import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -28,9 +29,11 @@ public class Products_ReportsController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    DatabaseHandler databaseHandler;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        databaseHandler=DatabaseHandler.getInstance();
     }    
 
     @FXML
@@ -39,6 +42,10 @@ public class Products_ReportsController implements Initializable {
 
     @FXML
     private void Inventory_Reports(ActionEvent event) {
+    }
+
+    @FXML
+    private void Manager_Home(ActionEvent event) {
     }
     
 }

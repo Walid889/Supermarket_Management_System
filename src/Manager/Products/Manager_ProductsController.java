@@ -2,6 +2,7 @@
 package Manager.Products;
 
 import Manager.Main.HomeController;
+import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -71,9 +72,11 @@ public class Manager_ProductsController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    DatabaseHandler databaseHandler;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        databaseHandler=DatabaseHandler.getInstance();
     }    
 
     @FXML

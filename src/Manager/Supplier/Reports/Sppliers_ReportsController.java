@@ -3,14 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Manager.Financial.Reports;
+package Manager.Supplier.Reports;
 
-import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
@@ -18,47 +18,47 @@ import javafx.scene.layout.AnchorPane;
 /**
  * FXML Controller class
  *
- * @author lolo
+ * @author Walid
  */
-public class Financial_ReportsController implements Initializable {
+public class Sppliers_ReportsController implements Initializable {
 
     @FXML
-    private AnchorPane Financial_Reports;
+    private AnchorPane Suppliers_Reports;
     @FXML
-    private Label financial;
+    private Label S_name;
     @FXML
-    private Label F_date1;
+    private ComboBox<?> S_Cname;
     @FXML
-    private Label F_date2;
+    private Label S_Date1;
     @FXML
-    private DatePicker F_Tdate1;
+    private Label S_Date2;
     @FXML
-    private DatePicker F_Tdate2;
+    private DatePicker S_TData1;
+    @FXML
+    private DatePicker S_TDate2;
 
     /**
      * Initializes the controller class.
      */
-    DatabaseHandler databaseHandler;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        databaseHandler=DatabaseHandler.getInstance();
     }    
 
     @FXML
-    private void Expenses_Reports(ActionEvent event) {
-    }
-
-    @FXML
-    private void invoices_Reports(ActionEvent event) {
-    }
-
-    @FXML
-    private void Daily_Report(ActionEvent event) {
-    }
-
-    @FXML
     private void Manager_Home(ActionEvent event) {
+    }
+
+    @FXML
+    private void Supplier_Returns(ActionEvent event) {
+    }
+
+    @FXML
+    private void Supplier_Financial(ActionEvent event) {
+    }
+
+    @FXML
+    private void Suppliers_Invoices(ActionEvent event) {
     }
     
 }

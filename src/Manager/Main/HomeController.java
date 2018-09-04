@@ -1,6 +1,7 @@
 
 package Manager.Main;
 
+import database.DatabaseHandler;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,10 +26,11 @@ public class HomeController implements Initializable {
     @FXML
     private Label Manager;
     
-    
+    DatabaseHandler databaseHandler;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    databaseHandler= DatabaseHandler.getInstance();
     }    
 
     @FXML

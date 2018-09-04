@@ -8,6 +8,7 @@ package Manager.Employee;
 import Classes.Employee;
 import Manager.Main.HomeController;
 import database.DataHelper;
+import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -35,6 +36,18 @@ public class Manager_EmployeeController implements Initializable {
     @FXML
     private VBox Vbox;
     @FXML
+    private Label Employees;
+    @FXML
+    private Label E_name;
+    @FXML
+    private Label E_Code;
+    @FXML
+    private Label E_phone;
+    @FXML
+    private Label E_Address;
+    @FXML
+    private Label E_Salary;
+    @FXML
     private TableView<Employee> E_tables;
     @FXML
     private TextField E_Tname;
@@ -59,9 +72,15 @@ public class Manager_EmployeeController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
+    DatabaseHandler databaseHandler; 
+    @FXML
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+     databaseHandler= DatabaseHandler.getInstance();
      t_name.setCellValueFactory(new PropertyValueFactory<>("employeeName"));
      t_code.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
      t_phone.setCellValueFactory(new PropertyValueFactory<>("employeePhone"));
@@ -95,7 +114,7 @@ public class Manager_EmployeeController implements Initializable {
     private void Employee_Choice(ActionEvent event) {
     }
      private void AddEmployee(){
-         Employee E =new Employee();
+        Employee E =new Employee();
         E.setEmployeeName(E_Tname.getText());
         E.setEmployeeId(E_Tcode.getText());
         E.setEmployeePhone(E_Tphone.getText());

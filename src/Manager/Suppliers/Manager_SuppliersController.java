@@ -8,6 +8,7 @@ package Manager.Suppliers;
 import Classes.Suppliers;
 import Manager.Main.HomeController;
 import database.DataHelper;
+import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -16,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -40,6 +42,16 @@ public class Manager_SuppliersController implements Initializable {
     @FXML
     private VBox VBox;
     @FXML
+    private Label Suppliers;
+    @FXML
+    private Label S_name;
+    @FXML
+    private Label S_Type;
+    @FXML
+    private Label S_Phone;
+    @FXML
+    private Label S_Saller;
+    @FXML
     private TableView<Suppliers> S_Table;
     @FXML
     private TextField S_TSearch;
@@ -57,10 +69,12 @@ public class Manager_SuppliersController implements Initializable {
     private TableColumn<Suppliers, String> t_category;
     @FXML
     private TableColumn<Suppliers, String> t_name;
+    DatabaseHandler databaseHandler;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        databaseHandler=DatabaseHandler.getInstance();
         t_name.setCellValueFactory(new PropertyValueFactory<>("supplierName"));
         t_category.setCellValueFactory(new PropertyValueFactory<>("supplierCategory"));
         t_phone.setCellValueFactory(new PropertyValueFactory<>("supplierPhone"));
@@ -112,7 +126,6 @@ public class Manager_SuppliersController implements Initializable {
     }
     }
 
-    @FXML
     private void chechbox(DragEvent event) {
         ChoiceBox cd = new ChoiceBox();
     cd.setItems(FXCollections.observableArrayList(

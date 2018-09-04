@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Manger_Employee" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="490.0" prefWidth="748.0" style="-fx-background-color: #343642;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Employee.Manager_EmployeeController">
+<AnchorPane fx:id="Manger_Employee" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="995.0" style="-fx-background-color: #343642;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Employee.Manager_EmployeeController">
    <children>
-      <VBox fx:id="Vbox" layoutX="628.0" prefHeight="498.0" prefWidth="108.0" style="-fx-background-color: #989c9d;">
+      <VBox fx:id="Vbox" layoutX="848.0" layoutY="-2.0" prefHeight="592.0" prefWidth="146.0" style="-fx-background-color: #989c9d;">
          <children>
-            <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Add_Employee" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #35889a;" text="أضافة" textAlignment="CENTER" textFill="WHITE">
+            <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Add_Employee" prefHeight="37.0" prefWidth="121.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="أضافة" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -23,7 +23,7 @@
                   <Insets left="10.0" right="10.0" top="30.0" />
                </VBox.margin>
             </Button>
-            <Button layoutX="10.0" layoutY="40.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Edit_Employee" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #35889a;" text="تعديل" textAlignment="CENTER" textFill="WHITE">
+            <Button layoutX="10.0" layoutY="40.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Edit_Employee" prefHeight="37.0" prefWidth="126.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="تعديل" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -31,7 +31,7 @@
                   <Insets left="10.0" right="10.0" top="20.0" />
                </VBox.margin>
             </Button>
-            <Button layoutX="10.0" layoutY="84.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Delete_Employee" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #35889a;" text="حذف" textAlignment="CENTER" textFill="WHITE">
+            <Button layoutX="10.0" layoutY="84.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Delete_Employee" prefHeight="37.0" prefWidth="126.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="حذف" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -39,7 +39,7 @@
                   <Insets left="10.0" top="20.0" />
                </VBox.margin>
             </Button>
-            <Button layoutX="10.0" layoutY="168.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Employee_Reports" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #35889a;" text="تقارير" textAlignment="CENTER" textFill="WHITE">
+            <Button layoutX="10.0" layoutY="168.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Employee_Reports" prefHeight="37.0" prefWidth="128.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="تقارير" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -47,7 +47,7 @@
                   <Insets left="10.0" top="20.0" />
                </VBox.margin>
             </Button>
-            <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#Manager_Home" prefHeight="37.0" prefWidth="100.0" style="-fx-background-color: #35889a;" text="الرئيسية" textFill="WHITE">
+            <Button minWidth="-Infinity" mnemonicParsing="false" onAction="#Manager_Home" prefHeight="39.0" prefWidth="125.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="الرئيسية" textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
@@ -57,54 +57,54 @@
             </Button>
          </children>
       </VBox>
-      <Label contentDisplay="CENTER" layoutX="289.0" layoutY="11.0" prefHeight="27.0" prefWidth="73.0" text="الموظفين" textAlignment="CENTER" textFill="WHITE">
+      <Label fx:id="Employees" contentDisplay="CENTER" layoutX="401.0" layoutY="24.0" prefHeight="30.0" prefWidth="97.0" text="الموظفين" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font size="20.0" />
          </font>
       </Label>
-      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="577.0" layoutY="97.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="اسم " textAlignment="RIGHT" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="577.0" layoutY="143.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="الكود" textAlignment="RIGHT" textFill="WHITE">
+      <Label fx:id="E_name" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="782.0" layoutY="97.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="اسم " textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="577.0" layoutY="184.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="تليفون" textAlignment="RIGHT" textFill="WHITE">
+      <Label fx:id="E_Code" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="782.0" layoutY="143.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="الكود" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="576.0" layoutY="273.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="العنوان" textAlignment="RIGHT" textFill="WHITE">
+      <Label fx:id="E_phone" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="782.0" layoutY="184.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="تليفون" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TableView fx:id="E_tables" layoutX="8.0" layoutY="85.0" prefHeight="396.0" prefWidth="418.0">
+      <Label fx:id="E_Address" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="781.0" layoutY="273.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="العنوان" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="E_tables" layoutX="15.0" layoutY="88.0" prefHeight="424.0" prefWidth="543.0">
          <columns>
-            <TableColumn fx:id="t_address" prefWidth="94.0" text="العنوان " />
-            <TableColumn fx:id="t_salary" prefWidth="83.0" text="الاجر بالساعة" />
-            <TableColumn fx:id="t_phone" text="تليفون" />
-            <TableColumn fx:id="t_code" prefWidth="79.0" text="الكود" />
-            <TableColumn fx:id="t_name" prefWidth="81.0" text="الاسم" />
+            <TableColumn fx:id="t_address" prefWidth="128.0" text="العنوان " />
+            <TableColumn fx:id="t_salary" prefWidth="92.0" text="الاجر بالساعة" />
+            <TableColumn fx:id="t_phone" prefWidth="109.0" text="تليفون" />
+            <TableColumn fx:id="t_code" prefWidth="87.0" text="الكود" />
+            <TableColumn fx:id="t_name" prefWidth="124.0" text="الاسم" />
          </columns>
       </TableView>
-      <Button layoutX="475.0" layoutY="437.0" mnemonicParsing="false" onAction="#Employee_Choice" prefHeight="30.0" prefWidth="107.0" style="-fx-background-color: #35889a;" text="اختيار" textFill="WHITE">
+      <Button layoutX="236.0" layoutY="525.0" mnemonicParsing="false" onAction="#Employee_Choice" prefHeight="39.0" prefWidth="125.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="اختيار" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="14.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Button>
-      <TextField fx:id="E_Tname" layoutX="436.0" layoutY="97.0" prefHeight="25.0" prefWidth="100.0" />
-      <TextField fx:id="E_Tcode" layoutX="436.0" layoutY="143.0" prefHeight="25.0" prefWidth="100.0" />
-      <TextField fx:id="E_Tphone" layoutX="436.0" layoutY="185.0" prefHeight="25.0" prefWidth="100.0" />
-      <TextArea fx:id="E_Taddress" layoutX="435.0" layoutY="273.0" prefHeight="137.0" prefWidth="100.0" />
-      <Label alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="545.0" layoutY="224.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="73.0" text="الاجر بالساعة" textAlignment="RIGHT" textFill="WHITE">
+      <TextField fx:id="E_Tname" layoutX="577.0" layoutY="94.0" prefHeight="25.0" prefWidth="146.0" />
+      <TextField fx:id="E_Tcode" layoutX="577.0" layoutY="140.0" prefHeight="25.0" prefWidth="146.0" />
+      <TextField fx:id="E_Tphone" layoutX="577.0" layoutY="182.0" prefHeight="25.0" prefWidth="146.0" />
+      <TextArea fx:id="E_Taddress" layoutX="576.0" layoutY="270.0" prefHeight="137.0" prefWidth="146.0" style="-fx-vbar-policy : never" />
+      <Label fx:id="E_Salary" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="750.0" layoutY="224.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="73.0" text="الاجر بالساعة" textAlignment="RIGHT" textFill="WHITE">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="E_Tsalary" layoutX="436.0" layoutY="225.0" prefHeight="25.0" prefWidth="100.0" />
+      <TextField fx:id="E_Tsalary" layoutX="577.0" layoutY="222.0" prefHeight="25.0" prefWidth="146.0" />
    </children>
 </AnchorPane>

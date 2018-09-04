@@ -5,6 +5,7 @@
  */
 package Classes;
 
+import java.sql.Time;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 
@@ -13,6 +14,25 @@ import javafx.scene.control.TableView;
  * @author Walid
  */
 public class Sales extends Common_Properties{// Common_Methods is an Interface include Add , Update , Delete
+    private long number;
+    private Time time;
+
+    public Time getTime() {
+        return time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
+    }
+    
+    public long getNumber() {
+        return number;
+    }
+
+    public void setNumber(long number) {
+        this.number = number;
+    }
+    
     private String name;
     private double UintPrice;
     private int CurrentQuantity;

@@ -1,58 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="Suppliers_Reports" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #343642;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Suppliers.Reports.Sppliers_ReportsController">
+<AnchorPane id="AnchorPane" fx:id="Suppliers_Reports" prefHeight="592.0" prefWidth="995.0" style="-fx-background-color: #343642;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Supplier.Reports.Sppliers_ReportsController">
    <children>
-      <Label fx:id="S_name" alignment="CENTER" layoutX="381.0" layoutY="71.0" prefHeight="17.0" prefWidth="82.0" text="اسم المورد" textFill="WHITE">
+      <Label fx:id="S_name" alignment="CENTER" layoutX="605.0" layoutY="123.0" prefHeight="17.0" prefWidth="82.0" text="اسم المورد" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <ComboBox fx:id="S_Cname" layoutX="157.0" layoutY="67.0" prefHeight="25.0" prefWidth="210.0" style="-fx-background-color: #fff;" />
-      <Label fx:id="S_Date1" layoutX="408.0" layoutY="126.0" text="من" textFill="WHITE">
+      <ComboBox fx:id="S_Cname" layoutX="336.0" layoutY="125.0" prefHeight="25.0" prefWidth="242.0" style="-fx-background-color: #fff;" />
+      <Label fx:id="S_Date1" layoutX="633.0" layoutY="186.0" text="من" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="15.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <Label fx:id="S_Date2" layoutX="408.0" layoutY="170.0" text="الى" textFill="WHITE">
+      <Label fx:id="S_Date2" layoutX="633.0" layoutY="237.0" text="الى" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="16.0" />
+            <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <HBox fx:id="HBox" layoutX="65.0" layoutY="277.0" prefHeight="42.0" prefWidth="465.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#Suppliers_Returns" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #35889a;" text="المرتجعات" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-            <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#Suuplier_Financial" prefHeight="42.0" prefWidth="130.0" style="-fx-background-color: #35889a;" text="الحساب" textFill="WHITE">
-               <HBox.margin>
-                  <Insets left="35.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-            <Button layoutX="127.0" layoutY="10.0" mnemonicParsing="false" onAction="#Suppliers_Invoices" prefHeight="42.0" prefWidth="131.0" style="-fx-background-color: #35889a;" text="الفواتير" textFill="WHITE">
-               <HBox.margin>
-                  <Insets left="40.0" />
-               </HBox.margin>
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font>
-            </Button>
-         </children>
-      </HBox>
-      <DatePicker fx:id="S_TData1" layoutX="193.0" layoutY="124.0" />
-      <DatePicker fx:id="S_TDate2" layoutX="193.0" layoutY="170.0" />
+      <DatePicker fx:id="S_TData1" layoutX="397.0" layoutY="186.0" prefHeight="25.0" prefWidth="194.0" />
+      <DatePicker fx:id="S_TDate2" layoutX="397.0" layoutY="239.0" prefHeight="25.0" prefWidth="194.0" />
+      <Button layoutX="432.0" layoutY="447.0" mnemonicParsing="false" onAction="#Manager_Home" prefHeight="42.0" prefWidth="145.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="الرئيسية" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="206.0" layoutY="341.0" mnemonicParsing="false" onAction="#Supplier_Returns" prefHeight="42.0" prefWidth="145.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="المرتجعات" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="433.0" layoutY="341.0" mnemonicParsing="false" onAction="#Supplier_Financial" prefHeight="42.0" prefWidth="145.0" style="-fx-background-color: #35889a;-fx-cursor:hand" text="الحساب" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="656.0" layoutY="341.0" mnemonicParsing="false" onAction="#Suppliers_Invoices" prefHeight="42.0" prefWidth="159.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="الفواتير" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -6,11 +6,14 @@
 package Manager.Reports;
 
 import Manager.Main.HomeController;
+import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
@@ -19,10 +22,17 @@ import javafx.fxml.Initializable;
  */
 public class ReportsController implements Initializable {
 
-       HomeController x = new HomeController();
+    HomeController x = new HomeController();
+    
+    DatabaseHandler databaseHandler;
+    @FXML
+    private AnchorPane Reports;
+    @FXML
+    private Label LReports;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        databaseHandler=DatabaseHandler.getInstance();
     }    
      @FXML
     private void loadproducts_Report(ActionEvent event) {
