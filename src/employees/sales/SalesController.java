@@ -103,10 +103,8 @@ public class SalesController extends NewSerial implements Initializable {
     /***************************************************************************************************************/
     /******************************************INITIALIZATION*******************************************************/
     /***************************************************************************************************************/
-<<<<<<< HEAD
-=======
+
     DatabaseHandler databaseHandler;
->>>>>>> 505b484313aca1b58227f05bd083b7b3401771f7
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         databaseHandler = DatabaseHandler.getInstance();

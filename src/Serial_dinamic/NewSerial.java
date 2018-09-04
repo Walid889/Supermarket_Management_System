@@ -52,16 +52,10 @@ public class NewSerial {
         simpleDF = new SimpleDateFormat ("yyyy-MM-dd");
         return simpleDF.format(today);
     }
-<<<<<<< HEAD
-    
-=======
->>>>>>> 505b484313aca1b58227f05bd083b7b3401771f7
+
     public Time gettTime(){
         Time rightNow = Time.valueOf(LocalTime.now());
         return rightNow;
     }
-<<<<<<< HEAD
-    
-=======
->>>>>>> 505b484313aca1b58227f05bd083b7b3401771f7
+
 }

@@ -86,7 +86,6 @@ public class DataHelper {
                     "DELETE FROM sales WHERE number = ?");
             
             statement.setLong(1, sal.getNumber());
-<<<<<<< HEAD
             int res = statement.executeUpdate();
             if (res == 1) {
                 return true;
