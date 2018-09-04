@@ -36,21 +36,21 @@ public class ReportsController implements Initializable {
     }    
      @FXML
     private void loadproducts_Report(ActionEvent event) {
-        x.loadwindow("/Manager/Products/Reports/Products_Reports.fxml", "Products_Reports");
+        x.loadwindow(Reports,"/Manager/Products/Reports/Products_Reports.fxml");
     }
 
     @FXML
     private void loadFinancial_Reports(ActionEvent event) {
-        x.loadwindow("/Manager/Financial/Reports/Financial_Reports.fxml", "Financail_Reports");
+        x.loadwindow(Reports,"/Manager/Financial/Reports/Financial_Reports.fxml");
     }
 
     @FXML
     private void loadEmployee_Report(ActionEvent event) {
-        x.loadwindow("/Manager/Employee/Reports/Employee_Reports.fxml", "Employee_Reports");
+        x.loadwindow(Reports,"/Manager/Employee/Reports/Employee_Reports.fxml");
     }
 
     @FXML
     private void loadSuppliers_Report(ActionEvent event) {
-        x.loadwindow("/Manager/Suppliers/Reports/Sppliers_Reports.fxml", "Suppliers_Reports");
+        x.loadwindow(Reports,"/Manager/Suppliers/Reports/Sppliers_Reports.fxml");
     }
 }

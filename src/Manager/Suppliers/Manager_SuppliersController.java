@@ -83,12 +83,12 @@ public class Manager_SuppliersController implements Initializable {
 
     @FXML
     private void Suppliers_Reports(ActionEvent event) {
-         x.loadwindow("/Manager/Suppliers/Reports/Sppliers_Reports.fxml", "Suppliers_Reports");
+         x.loadwindow(Manager_Suppliers,"/Manager/Suppliers/Reports/Sppliers_Reports.fxml");
     }
 
     @FXML
     private void Manager_Home(ActionEvent event) {
-         x.loadwindow("/Manager/Main/Home.fxml", "Home");
+         x.loadwindow(Manager_Suppliers,"/Manager/Main/Home.fxml");
     }
 
     @FXML

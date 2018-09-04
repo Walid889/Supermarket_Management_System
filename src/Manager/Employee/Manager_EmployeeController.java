@@ -90,12 +90,12 @@ public class Manager_EmployeeController implements Initializable {
 
     @FXML
     private void Employee_Reports(ActionEvent event) {
-        x.loadwindow("/Manager/Employee/Reports/Employee_Reports.fxml", "Employee_Reports");
+        x.loadwindow(Manger_Employee,"/Manager/Employee/Reports/Employee_Reports.fxml");
     }
 
     @FXML
     private void Manager_Home(ActionEvent event) {
-        x.loadwindow("/Manager/Main/Home.fxml", "Home");
+        x.loadwindow(Manger_Employee,"/Manager/Main/Home.fxml");
     }
     @FXML
     private void Add_Employee(ActionEvent event) {
