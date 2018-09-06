@@ -5,9 +5,9 @@ package Classes;
 
 
 public class Price {
-    private double itemPrice;
-    private double packetPrice;
-    private double boxPrice;
+    protected double itemPrice;
+    protected double packetPrice;
+    protected double boxPrice;
     
     
     // Constractor to inialize price to zero
