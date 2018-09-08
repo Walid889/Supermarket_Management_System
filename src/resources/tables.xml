@@ -30,13 +30,16 @@
                         pro_bar varchar(200) primary key ,
                         pro_name varchar(200),
                         pro_category varchar(200),
-                        pro_price double,
-                        pro_qty integer,
-                        pro_minimum integer,
-                        pro_returned integer,
-                        pro_damaged integer,
-                        pro_supplier_name varchar(200)
-                        
+                        pro_supplier_name varchar(200),
+                        pro_qty_item int,
+                        pro_qty_packet int,
+                        pro_qty_box int,
+                        pro_All_qty int,
+                        pro_price_item double,
+                        pro_price_packet double,
+                        pro_price_box double,
+                        pro_minimum int,
+                        pro_expiration_date varchar(50)
         "/>
     <table-entry name="suppliers1" col-data="
                         number BIGINT not null primary key,
@@ -54,7 +57,10 @@
     "/>
     <table-entry name="sales" col-data="
                         number BIGINT not null primary key,
+<<<<<<< HEAD
                         number BIGINT not null primary key, 
+=======
+>>>>>>> 79f285b21ed689e0f3f2f835192f316be0600b5c
                         sale_id int not null,
                         sale_date date,
                         product_name varchar(200),
@@ -63,7 +69,11 @@
                         current_qty int,
                         cost double,
                         t_time TIME
+<<<<<<< HEAD
     "/>
+=======
+" />
+>>>>>>> 79f285b21ed689e0f3f2f835192f316be0600b5c
     <table-entry name="bills" col-data="
                         sale_id int,
                         sale_date date,

@@ -6,16 +6,20 @@
 .jfx-button {
     -fx-background-color: #35889a;
     -fx-text-fill: #FFF;
+    -fx-cursor: hand;
 }
 
 .jfx-button:hover {
     -fx-background-color: #4aabc0;
+    -fx-cursor: hand;
 }
 
 .back{
     -fx-background-color: #343642;
+    -fx-cursor: hand;
 }
 
 .back:hover {
     -fx-background-color: #343642;
+    -fx-cursor: hand;
 }

@@ -43,6 +43,45 @@ public class DataHelper {
     
     
     /****************************************************************************************************************/
+    /*********************************MANAGER_PRODUCT_CONTROLLER********GOODS****************************************/
+    
+    
+    public static boolean insertNewProduct(Goods go) {
+        try {
+            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
+                    "INSERT INTO product(pro_bar,pro_name,pro_category,pro_supplier_name,"
+                    + "pro_qty_item,pro_qty_packet,pro_qty_box,pro_All_qty,pro_price_item,pro_price_packet,"
+                    + "pro_price_box,pro_minimum,pro_expiration_date) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
+            statement.setString(1, go.getProductBarCode());
+            statement.setString(2, go.getProductName());
+            statement.setString(3, go.getProductCategory());
+            statement.setString(4, go.getProductSupplier());
+            statement.setInt(5, go.getItemsInPacket());
+            statement.setInt(6, go.getPacketsInBox());
+            statement.setInt(7, go.getBoxes());
+            statement.setLong(8, go.getAllQuantity());
+            statement.setDouble(9, go.getItemPrice());
+            statement.setDouble(10, go.getPacketPrice());
+            statement.setDouble(11, go.getBoxPrice());
+            statement.setInt(12, go.getProductMinQuantity());
+            statement.setString(13, go.getProductExpirationdate());
+            return statement.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            
+        }
+        return false;
+    }
+    
+    
+    
+    
+    
+    
+    /****************************************************************************************************************/
+    /****************************************************************************************************************/
+    
+    
+    /****************************************************************************************************************/
     /***********************************************SALES CONTROLLER*************************************************/
 
     public static boolean insertNewSale(Sales sal){
@@ -214,6 +253,11 @@ public class DataHelper {
         return false;
     }
     /****************************************************************************************************************/
+    /****************************************************************************************************************/
+    /****************************************************************************************************************/
+    /****************************************************************************************************************/
+    
+    
     
     
     public static boolean insertNewExpences(Expences E)

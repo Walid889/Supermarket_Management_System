@@ -17,142 +17,144 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="loadPane" prefHeight="600.0" prefWidth="719.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employees.recall.RecallController">
+<AnchorPane id="AnchorPane" fx:id="loadPane" prefHeight="697.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employees.recall.RecallController">
     <stylesheets>
         <URL value="@recall.css" />
     </stylesheets>
    <children>
-      <VBox layoutX="577.0" layoutY="-1.0" prefHeight="600.0" prefWidth="142.0" styleClass="vbox" stylesheets="@recall.css">
+      <VBox layoutX="577.0" layoutY="-1.0" prefHeight="697.0" prefWidth="196.0" styleClass="vbox" stylesheets="@recall.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXButton prefHeight="25.0" prefWidth="120.0" stylesheets="@recall.css" text="حفظ" textAlignment="JUSTIFY" textFill="WHITE">
+            <JFXButton prefHeight="25.0" prefWidth="160.0" stylesheets="@recall.css" text="حفظ" textAlignment="JUSTIFY" textFill="WHITE">
                <font>
-                  <Font name="System Bold Italic" size="20.0" />
+                  <Font name="System Bold Italic" size="25.0" />
                </font>
                <effect>
                   <DropShadow height="6.0" radius="2.5" spread="1.0" width="6.0" />
                </effect>
                <VBox.margin>
-                  <Insets left="11.0" top="90.0" />
+                  <Insets left="18.0" top="80.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton prefHeight="25.0" prefWidth="120.0" stylesheets="@recall.css" text="إلغاء" textAlignment="JUSTIFY" textFill="WHITE">
+            <JFXButton prefHeight="25.0" prefWidth="160.0" stylesheets="@recall.css" text="إلغاء" textAlignment="JUSTIFY" textFill="WHITE">
                <font>
-                  <Font name="System Bold Italic" size="20.0" />
+                  <Font name="System Bold Italic" size="25.0" />
                </font>
                <effect>
                   <DropShadow height="6.0" radius="2.5" spread="1.0" width="6.0" />
                </effect>
                <VBox.margin>
-                  <Insets left="11.0" top="30.0" />
+                  <Insets left="18.0" top="30.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton prefHeight="25.0" prefWidth="120.0" stylesheets="@recall.css" text="جديد" textAlignment="JUSTIFY" textFill="WHITE">
+            <JFXButton prefHeight="25.0" prefWidth="160.0" stylesheets="@recall.css" text="جديد" textAlignment="JUSTIFY" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
                <effect>
                   <DropShadow height="6.0" radius="2.5" spread="1.0" width="6.0" />
                </effect>
                <VBox.margin>
-                  <Insets left="11.0" top="30.0" />
+                  <Insets left="18.0" top="30.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton prefHeight="25.0" prefWidth="120.0" stylesheets="@recall.css" text="طباعة تقرير" textAlignment="JUSTIFY" textFill="WHITE">
+            <JFXButton prefHeight="25.0" prefWidth="160.0" stylesheets="@recall.css" text="طباعة تقرير" textAlignment="JUSTIFY" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
                <effect>
                   <DropShadow height="6.0" radius="2.5" spread="1.0" width="6.0" />
                </effect>
                <VBox.margin>
-                  <Insets left="11.0" top="30.0" />
+                  <Insets left="18.0" top="30.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton onAction="#loadMainOfRecall" prefHeight="25.0" prefWidth="120.0" stylesheets="@recall.css" text="الرئيسية" textAlignment="JUSTIFY" textFill="WHITE">
+            <JFXButton onAction="#loadMainOfRecall" prefHeight="25.0" prefWidth="160.0" stylesheets="@recall.css" text="الرئيسية" textAlignment="JUSTIFY" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
                <effect>
                   <DropShadow height="8.0" radius="3.5" spread="1.0" width="8.0" />
                </effect>
                <VBox.margin>
-                  <Insets left="11.0" top="150.0" />
+                  <Insets left="18.0" top="160.0" />
                </VBox.margin>
             </JFXButton>
          </children>
       </VBox>
-      <Pane layoutY="-1.0" prefHeight="600.0" prefWidth="575.0" styleClass="pane" stylesheets="@recall.css">
+      <Pane layoutY="-1.0" prefHeight="697.0" prefWidth="1168.0" styleClass="pane" stylesheets="@recall.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="date" layoutX="14.0" layoutY="21.0" prefHeight="21.0" prefWidth="89.0" text="22/10/2018" textFill="WHITE">
+            <Label fx:id="date" layoutX="14.0" layoutY="21.0" prefHeight="36.0" prefWidth="140.0" text="22/10/2018" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
                <effect>
                   <DropShadow height="9.0" radius="1.75" spread="0.2" width="0.0" />
                </effect>
             </Label>
-            <JFXTextField alignment="CENTER_RIGHT" focusColor="#35889a" labelFloat="true" layoutX="153.0" layoutY="19.0" prefHeight="25.0" prefWidth="262.0" promptText="ادخل إسم المنتج .." unFocusColor="#f1ebc7">
+            <JFXTextField alignment="CENTER_RIGHT" focusColor="#35889a" labelFloat="true" layoutX="356.0" layoutY="19.0" prefHeight="36.0" prefWidth="391.0" promptText="ادخل إسم المنتج .." unFocusColor="#f1ebc7">
                <padding>
                   <Insets left="5.0" right="5.0" />
                </padding>
-            </JFXTextField>
-            <JFXButton layoutX="153.0" layoutY="59.0" prefHeight="25.0" prefWidth="89.0" styleClass="jfx-button" stylesheets="@recall.css" text="بحث" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font size="20.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton layoutX="358.0" layoutY="66.0" prefHeight="54.0" prefWidth="120.0" styleClass="jfx-button" stylesheets="@recall.css" text="بحث" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
                </font>
             </JFXButton>
             <JFXListView layoutX="153.0" layoutY="44.0" prefHeight="400.0" prefWidth="262.0" visible="false" />
-            <Label layoutX="514.0" layoutY="23.0" text="مسلسل" textFill="WHITE">
+            <Label layoutX="1044.0" layoutY="17.0" text="مسلسل :" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
                <effect>
                   <DropShadow height="9.14" radius="1.8450000000000002" width="0.24" />
                </effect>
             </Label>
-            <TextField editable="false" layoutX="429.0" layoutY="23.0" prefHeight="25.0" prefWidth="80.0" />
-            <JFXRadioButton contentDisplay="RIGHT" layoutX="482.0" layoutY="60.0" text="من العميل" textFill="WHITE">
+            <TextField editable="false" layoutX="919.0" layoutY="15.0" prefHeight="30.0" prefWidth="100.0">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="20.0" />
+               </font></TextField>
+            <JFXRadioButton contentDisplay="RIGHT" layoutX="1012.0" layoutY="67.0" text="من العميل" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
                </font>
                <effect>
                   <DropShadow height="9.14" radius="4.07" width="9.14" />
                </effect>
             </JFXRadioButton>
-            <HBox layoutX="6.0" layoutY="110.0" prefHeight="369.0" prefWidth="563.0">
+            <HBox alignment="CENTER_LEFT" layoutX="6.0" layoutY="155.0" prefHeight="441.0" prefWidth="1159.0">
                <children>
-                  <VBox prefHeight="343.0" prefWidth="317.0">
-                     <children>
-                        <TableView prefHeight="343.0" prefWidth="313.0">
-                           <columns>
-                              <TableColumn prefWidth="75.0" text="C1" />
-                              <TableColumn prefWidth="75.0" text="C2" />
-                           </columns>
-                           <VBox.margin>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </VBox.margin>
-                        </TableView>
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER" maxHeight="200.0" prefHeight="200.0" prefWidth="226.0" styleClass="vboxrecall" stylesheets="@recall.css">
+                  <TableView prefHeight="397.0" prefWidth="675.0">
+                     <columns>
+                        <TableColumn prefWidth="75.0" text="C1" />
+                        <TableColumn prefWidth="75.0" text="C2" />
+                     </columns>
                      <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="70.0" />
+                        <Insets left="30.0" right="30.0" />
+                     </HBox.margin>
+                  </TableView>
+                  <VBox alignment="CENTER" maxHeight="308.0" prefHeight="308.0" prefWidth="333.0" styleClass="vboxrecall" stylesheets="@recall.css">
+                     <HBox.margin>
+                        <Insets left="30.0" right="30.0" />
                      </HBox.margin>
                      <children>
-                        <Label text="زبادى جهينة" textFill="#343642">
+                        <Label text="34654631654651" textFill="#343642">
                            <VBox.margin>
                               <Insets bottom="20.0" top="20.0" />
                            </VBox.margin>
                            <font>
-                              <Font name="System Bold" size="25.0" />
+                              <Font name="System Bold" size="35.0" />
                            </font>
                         </Label>
-                        <Label layoutX="10.0" layoutY="10.0" text="100 جم" textFill="#343642">
+                        <Label layoutX="10.0" layoutY="10.0" text="زبادى جهينه" textFill="#343642">
                            <VBox.margin>
                               <Insets bottom="20.0" top="20.0" />
                            </VBox.margin>
                            <font>
-                              <Font name="System Bold" size="25.0" />
+                              <Font name="System Bold" size="35.0" />
                            </font>
                         </Label>
                         <Label layoutX="10.0" layoutY="27.0" text="4.00 جنية" textFill="#343642">
@@ -160,25 +162,28 @@
                               <Insets bottom="20.0" top="20.0" />
                            </VBox.margin>
                            <font>
-                              <Font name="System Bold" size="25.0" />
+                              <Font name="System Bold" size="35.0" />
                            </font>
                         </Label>
                      </children>
                   </VBox>
                </children>
             </HBox>
-            <Label layoutX="350.0" layoutY="517.0" text="الكمية" textFill="WHITE">
+            <Label layoutX="420.0" layoutY="620.0" text="الكمية :" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="35.0" />
                </font>
                <effect>
                   <DropShadow height="9.14" radius="4.07" width="9.14" />
                </effect>
             </Label>
-            <TextField layoutX="194.0" layoutY="520.0" />
-            <JFXRadioButton contentDisplay="RIGHT" layoutX="482.0" layoutY="83.0" text="للشركة" textFill="WHITE">
+            <TextField layoutX="176.0" layoutY="621.0" prefHeight="30.0" prefWidth="233.0">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="25.0" />
+               </font></TextField>
+            <JFXRadioButton contentDisplay="RIGHT" layoutX="1012.0" layoutY="107.0" text="للشركة" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
                </font>
                <effect>
                   <DropShadow height="9.14" radius="4.07" width="9.14" />

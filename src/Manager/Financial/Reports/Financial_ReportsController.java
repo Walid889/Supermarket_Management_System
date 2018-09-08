@@ -5,6 +5,7 @@
  */
 package Manager.Financial.Reports;
 
+import Manager.Main.HomeController;
 import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,7 +22,8 @@ import javafx.scene.layout.AnchorPane;
  * @author lolo
  */
 public class Financial_ReportsController implements Initializable {
-
+    HomeController x = new HomeController();
+    
     @FXML
     private AnchorPane Financial_Reports;
     @FXML
@@ -59,6 +61,7 @@ public class Financial_ReportsController implements Initializable {
 
     @FXML
     private void Manager_Home(ActionEvent event) {
+        x.loadwindow(Financial_Reports, "/Manager/Main/Home.fxml");
     }
     
 }

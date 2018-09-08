@@ -6,6 +6,8 @@
 
 package Classes;
 
+import com.jfoenix.controls.JFXTextField;
+
 
 public class Quantity {
     private int itemsQuantity;   // The Quantity of Items of Product
@@ -159,5 +161,9 @@ public class Quantity {
         }
     
     
-    
+    public long calcQuantity(JFXTextField box,JFXTextField packet,JFXTextField item){
+            return Long.parseLong(box.getText())*
+                   Long.parseLong(packet.getText())*
+                   Long.parseLong(item.getText());
+    }
 }

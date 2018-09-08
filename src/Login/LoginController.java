@@ -6,7 +6,10 @@
 package Login;
 
 import Classes.Alerts;
+<<<<<<< HEAD
 import Classes.Login;
+=======
+>>>>>>> 79f285b21ed689e0f3f2f835192f316be0600b5c
 import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -17,7 +20,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javax.swing.JOptionPane;
+<<<<<<< HEAD
 import org.apache.commons.codec.digest.DigestUtils;
+=======
+>>>>>>> 79f285b21ed689e0f3f2f835192f316be0600b5c
 
 /**
  * FXML Controller class
@@ -51,6 +57,7 @@ public class LoginController implements Initializable {
 
     @FXML
     private void login(ActionEvent event) {
+<<<<<<< HEAD
         Login a = new Login();
  
             a.setcode(TEnterCode.getText());
@@ -67,6 +74,10 @@ public class LoginController implements Initializable {
                 
                 }
 
+=======
+        //JOptionPane.showMessageDialog(null , "Login With Admin");
+        //Alerts.ConfirmAlert("login with admin", "");    
+>>>>>>> 79f285b21ed689e0f3f2f835192f316be0600b5c
     }
     
 }

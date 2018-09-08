@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -8,109 +10,115 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Manager_Suppliers" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="592.0" prefWidth="995.0" style="-fx-background-color: #343642;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Suppliers.Manager_SuppliersController">
+<AnchorPane fx:id="Manager_Suppliers" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="697.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Suppliers.Manager_SuppliersController">
    <children>
-      <ChoiceBox fx:id="S_Ctype" layoutX="401.0" layoutY="92.0" prefHeight="25.0" prefWidth="175.0" style="-fx-background-color: #fff;" />
-      <VBox fx:id="VBox" layoutX="844.0" layoutY="-1.0" prefHeight="592.0" prefWidth="150.0" style="-fx-background-color: #989c9d;">
+      <VBox fx:id="VBox" layoutX="1180.0" prefHeight="697.0" prefWidth="196.0" styleClass="vbox" stylesheets="@Manager_Suppliers.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Button id="AddEmployee" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Add_Supplier" prefHeight="37.0" prefWidth="134.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="أضافة" textAlignment="CENTER" textFill="WHITE">
+            <JFXButton onAction="#Add_Supplier" prefHeight="25.0" prefWidth="160.0" styleClass="buttons" stylesheets="@Manager_Suppliers.css" text="إضافة" textFill="#f8f1f1">
                <VBox.margin>
-                  <Insets left="10.0" right="10.0" top="40.0" />
+                  <Insets left="18.0" top="80.0" />
                </VBox.margin>
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-            </Button>
-            <Button id="EditEmployee" layoutX="10.0" layoutY="40.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Edit_Supplier" prefHeight="37.0" prefWidth="134.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="تعديل" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
+            </JFXButton>
+            <JFXButton layoutX="10.0" layoutY="10.0" onAction="#Edit_Supplier" prefHeight="25.0" prefWidth="160.0" styleClass="buttons" stylesheets="@Manager_Suppliers.css" text="تعديل" textFill="#f8f1f1">
                <VBox.margin>
-                  <Insets left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-            </Button>
-            <Button id="RemoveEmployee" layoutX="10.0" layoutY="84.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Delete_Supplier" prefHeight="37.0" prefWidth="134.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="حذف" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-            </Button>
-            <Button id="Manager_Reports" layoutX="10.0" layoutY="168.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#Suppliers_Reports" prefHeight="37.0" prefWidth="131.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="تقارير" textAlignment="CENTER" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="10.0" right="10.0" top="10.0" />
-               </VBox.margin>
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-            </Button>
-            <Button id="Manager_Home" mnemonicParsing="false" onAction="#Manager_Home" prefHeight="39.0" prefWidth="138.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="الرئيسية" textFill="WHITE">
-               <VBox.margin>
-                  <Insets left="10.0" right="10.0" top="100.0" />
+                  <Insets left="18.0" top="30.0" />
                </VBox.margin>
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
-            </Button>
+            </JFXButton>
+            <JFXButton layoutX="10.0" layoutY="35.0" onAction="#Delete_Supplier" prefHeight="25.0" prefWidth="160.0" styleClass="buttons" stylesheets="@Manager_Suppliers.css" text="حذف" textFill="#f8f1f1">
+               <VBox.margin>
+                  <Insets left="18.0" top="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="10.0" layoutY="60.0" onAction="#Suppliers_Reports" prefHeight="25.0" prefWidth="160.0" styleClass="buttons" stylesheets="@Manager_Suppliers.css" text="تقارير" textFill="#f8f1f1">
+               <VBox.margin>
+                  <Insets left="18.0" top="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="10.0" layoutY="85.0" onAction="#Manager_Home" prefHeight="25.0" prefWidth="160.0" styleClass="buttons" stylesheets="@Manager_Suppliers.css" text="الرئيسية" textFill="#f8f1f1">
+               <VBox.margin>
+                  <Insets left="18.0" top="160.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font>
+            </JFXButton>
          </children>
       </VBox>
-      <Label fx:id="Suppliers" contentDisplay="CENTER" layoutX="503.0" layoutY="14.0" prefHeight="27.0" prefWidth="73.0" text="الموردين" textAlignment="CENTER" textFill="WHITE">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label fx:id="S_name" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="756.0" layoutY="176.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="اسم " textAlignment="RIGHT" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Button layoutX="293.0" layoutY="66.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#Suppliers_Search" prefHeight="37.0" prefWidth="73.0" style="-fx-background-color: #35889a; -fx-cursor:hand" text="بحث" textAlignment="RIGHT" textFill="WHITE">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Label fx:id="S_Type" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="576.0" layoutY="91.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="51.0" text="تصنيف" textAlignment="RIGHT" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="S_Phone" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="756.0" layoutY="226.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="41.0" text="تليفون" textAlignment="RIGHT" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="S_Saller" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="746.0" layoutY="282.0" minWidth="-Infinity" prefHeight="26.0" prefWidth="51.0" text="المندوب" textAlignment="RIGHT" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font>
-      </Label>
-      <TableView fx:id="S_Table" layoutX="92.0" layoutY="153.0" prefHeight="425.0" prefWidth="459.0">
-         <columns>
-            <TableColumn fx:id="t_supplier" prefWidth="102.0" text="المندوب" />
-            <TableColumn fx:id="t_phone" prefWidth="115.0" text="تليفون  " />
-            <TableColumn fx:id="t_category" prefWidth="118.0" text="تصنيف" />
-            <TableColumn fx:id="t_name" prefWidth="123.0" text="الاسم" />
-         </columns>
-      </TableView>
-      <TextField fx:id="S_TSearch" layoutX="393.0" layoutY="54.0" prefHeight="30.0" prefWidth="233.0" />
-      <TextField fx:id="S_Tname" layoutX="600.0" layoutY="177.0" prefHeight="25.0" prefWidth="144.0" />
-      <TextField fx:id="S_TPhone" layoutX="600.0" layoutY="227.0" prefHeight="25.0" prefWidth="144.0" />
-      <TextField fx:id="S_TSaller" layoutX="601.0" layoutY="283.0" prefHeight="25.0" prefWidth="144.0" />
+      <Pane prefHeight="697.0" prefWidth="1168.0" styleClass="pane" stylesheets="@Manager_Suppliers.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label fx:id="Suppliers" contentDisplay="CENTER" layoutX="530.0" prefHeight="45.0" prefWidth="109.0" text="الموردين" textAlignment="CENTER" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="S_name" alignment="CENTER" contentDisplay="RIGHT" layoutX="1000.0" layoutY="307.0" minWidth="-Infinity" prefHeight="45.0" prefWidth="79.0" text="اسم : " textAlignment="RIGHT" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Button layoutX="362.0" layoutY="89.0" minHeight="-Infinity" mnemonicParsing="false" onAction="#Suppliers_Search" prefHeight="52.0" prefWidth="117.0" styleClass="buttons" stylesheets="@Manager_Suppliers.css" text="بحث" textAlignment="RIGHT" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Button>
+            <Label fx:id="S_Type" alignment="CENTER" contentDisplay="RIGHT" layoutX="780.0" layoutY="118.0" minWidth="-Infinity" prefHeight="45.0" prefWidth="109.0" text="تصنيف :" textAlignment="RIGHT" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="S_Phone" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="980.0" layoutY="405.0" minWidth="-Infinity" prefHeight="45.0" prefWidth="99.0" text="تليفون :" textAlignment="RIGHT" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <Label fx:id="S_Saller" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="954.0" layoutY="501.0" minWidth="-Infinity" prefHeight="45.0" prefWidth="125.0" text="المندوب :" textAlignment="RIGHT" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="30.0" />
+               </font>
+            </Label>
+            <TableView fx:id="S_Table" layoutX="33.0" layoutY="194.0" prefHeight="481.0" prefWidth="636.0">
+               <columns>
+                  <TableColumn fx:id="t_supplier" prefWidth="165.00003051757812" text="المندوب" />
+                  <TableColumn fx:id="t_phone" prefWidth="128.0" text="تليفون  " />
+                  <TableColumn fx:id="t_category" prefWidth="190.0" text="تصنيف" />
+                  <TableColumn fx:id="t_name" prefWidth="184.0" text="الاسم" />
+               </columns>
+            </TableView>
+            <JFXTextField fx:id="S_TSearch" alignment="CENTER_RIGHT" focusColor="#4193c3" layoutX="500.0" layoutY="60.0" prefHeight="31.0" prefWidth="264.0" promptText="ادخل اسم المورد" styleClass="textfield" stylesheets="@Manager_Suppliers.css" unFocusColor="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXTextField>
+            <TextField fx:id="S_Tname" layoutX="723.0" layoutY="315.0" prefHeight="30.0" prefWidth="221.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></TextField>
+            <TextField fx:id="S_TPhone" layoutX="723.0" layoutY="413.0" prefHeight="30.0" prefWidth="221.0">
+               <font>
+                  <Font size="20.0" />
+               </font></TextField>
+            <TextField fx:id="S_TSaller" layoutX="723.0" layoutY="509.0" prefHeight="30.0" prefWidth="221.0">
+               <font>
+                  <Font size="20.0" />
+               </font></TextField>
+            <ChoiceBox fx:id="S_Ctype" layoutX="500.0" layoutY="128.0" prefHeight="30.0" prefWidth="264.0" style="-fx-background-color: #fff;" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

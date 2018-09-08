@@ -11,55 +11,64 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="loadPane" prefHeight="555.0" prefWidth="687.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employees.expenses.ExpensesController">
+<AnchorPane id="AnchorPane" fx:id="loadPane" prefHeight="697.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employees.expenses.ExpensesController">
     <stylesheets>
         <URL value="@expenses.css" />
     </stylesheets>
    <children>
-      <Label layoutX="137.0" layoutY="67.0" text="مصاريف اليوم" textFill="WHITE">
+      <Label layoutX="629.0" layoutY="37.0" text="مصاريف اليوم" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <TableView fx:id="table" layoutX="248.0" layoutY="130.0" prefHeight="444.0" prefWidth="512.0">
+        <columns>
+          <TableColumn fx:id="t_value" prefWidth="150.0" text="القيمة" />
+          <TableColumn fx:id="t_total" prefWidth="150.0" text="الاجمالى" />
+            <TableColumn fx:id="t_reason" prefWidth="150.0" text="السبب" />
+        </columns>
+      </TableView>
+      <Label layoutX="1016.0" layoutY="207.0" text="القيمة :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+         <effect>
+            <DropShadow height="9.14" radius="4.07" width="9.14" />
+         </effect>
+      </Label>
+      <TextField fx:id="value" layoutX="778.0" layoutY="205.0" prefHeight="30.0" prefWidth="220.0">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font></TextField>
+      <Label layoutX="1013.0" layoutY="281.0" text="السبب :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+         <effect>
+            <DropShadow height="9.14" radius="4.07" width="9.14" />
+         </effect>
+      </Label>
+      <TextArea fx:id="reason" layoutX="778.0" layoutY="281.0" prefHeight="200.0" prefWidth="220.0">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font></TextArea>
+      <JFXButton fx:id="add" layoutX="776.0" layoutY="503.0" onAction="#AddValue" prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@../sales/sales.css" text="تأكيد">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
-      </Label>
-      <TableView fx:id="table" layoutX="27.0" layoutY="115.0" prefHeight="313.0" prefWidth="355.0">
-        <columns>
-          <TableColumn fx:id="t_value" prefWidth="75.0" text="value" />
-          <TableColumn fx:id="t_total" prefWidth="75.0" text="total" />
-            <TableColumn fx:id="t_reason" prefWidth="75.0" text="reason" />
-        </columns>
-      </TableView>
-      <Label layoutX="595.0" layoutY="157.0" text="القيمة :" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-         <effect>
-            <DropShadow height="9.14" radius="4.07" width="9.14" />
-         </effect>
-      </Label>
-      <TextField fx:id="value" layoutX="403.0" layoutY="163.0" prefHeight="25.0" prefWidth="176.0" />
-      <Label layoutX="592.0" layoutY="201.0" text="السبب :" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="20.0" />
-         </font>
-         <effect>
-            <DropShadow height="9.14" radius="4.07" width="9.14" />
-         </effect>
-      </Label>
-      <TextArea fx:id="reason" layoutX="403.0" layoutY="205.0" prefHeight="200.0" prefWidth="176.0" />
-      <JFXButton fx:id="add" layoutX="428.0" layoutY="416.0" onAction="#AddValue" prefHeight="25.0" prefWidth="123.0" styleClass="jfx-button" stylesheets="@../sales/sales.css" text="تأكيد">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
       </JFXButton>
-      <Label layoutX="252.0" layoutY="441.0" text="الإجمالى :" textFill="WHITE">
+      <Label layoutX="584.0" layoutY="604.0" text="الإجمالى :" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <TextField fx:id="total_price" layoutX="89.0" layoutY="444.0" />
-      <JFXButton fx:id="home" layoutX="428.0" layoutY="448.0" onAction="#loadMAinOfExpenses" prefHeight="25.0" prefWidth="123.0" styleClass="jfx-button" stylesheets="@../sales/sales.css" text="الرئيسية">
+      <TextField fx:id="total_price" layoutX="348.0" layoutY="602.0" prefHeight="30.0" prefWidth="220.0">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="System Bold" size="25.0" />
+         </font></TextField>
+      <JFXButton fx:id="home" layoutX="776.0" layoutY="571.0" onAction="#loadMAinOfExpenses" prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@../sales/sales.css" text="الرئيسية">
+         <font>
+            <Font name="System Bold" size="25.0" />
          </font>
       </JFXButton>
    </children>

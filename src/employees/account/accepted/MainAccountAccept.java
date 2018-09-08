@@ -13,7 +13,7 @@ public class MainAccountAccept extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("acoountaccept.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("accountaccept.fxml"));
         
         Scene scene = new Scene(root);
         Image icon = new Image("/icons/my_account.png");

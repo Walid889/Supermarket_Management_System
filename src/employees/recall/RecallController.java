@@ -24,6 +24,7 @@ import javafx.scene.layout.AnchorPane;
  * @author NOUR
  */
 public class RecallController implements Initializable {
+    EmployeesController x = new EmployeesController();
     @FXML
     private AnchorPane loadPane;
     @FXML
@@ -39,12 +40,13 @@ public class RecallController implements Initializable {
 
     @FXML
     private void loadMainOfRecall(ActionEvent event) {
-    loadWindow ("/employees/main/employees.fxml");
+    //loadWindow ("/employees/main/employees.fxml");
+        x.loadwindow(loadPane, "/employees/main/employees.fxml");
     }
     
     
-    void loadWindow(String loc)
-    {
+   /* void loadWindow(String loc)
+   {
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource(loc));
             loadPane.getChildren().setAll(pane);
@@ -52,6 +54,6 @@ public class RecallController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }*/
     
 }
