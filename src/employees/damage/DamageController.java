@@ -24,6 +24,7 @@ import javafx.scene.layout.AnchorPane;
  * @author NOUR
  */
 public class DamageController implements Initializable {
+    EmployeesController x = new EmployeesController();
     @FXML
     private AnchorPane loadPane;
     @FXML
@@ -39,11 +40,12 @@ public class DamageController implements Initializable {
 
     @FXML
     private void loadMainOfDamage(ActionEvent event) {
-        loadWindow ("/employees/main/employees.fxml");
+       // loadWindow ("/employees/main/employees.fxml");
+       x.loadwindow(loadPane,"/employees/main/employees.fxml");
     }
     
     
-    void loadWindow(String loc)
+   /* void loadWindow(String loc)
     {
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource(loc));
@@ -52,5 +54,5 @@ public class DamageController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }*/
 }

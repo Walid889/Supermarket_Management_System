@@ -27,6 +27,7 @@ import javafx.scene.layout.AnchorPane;
  * @author NOUR
  */
 public class BuyingController implements Initializable {
+    EmployeesController x = new EmployeesController();
     @FXML
     private JFXButton save;
     @FXML
@@ -68,11 +69,12 @@ public class BuyingController implements Initializable {
 
     @FXML
     private void loadMainOfBuying(ActionEvent event) {
-        loadWindow ("/employees/main/employees.fxml");
+        //loadWindow ("/employees/main/employees.fxml");
+        x.loadwindow(loadPane,"/employees/main/employees.fxml");
     }
     
     
-    void loadWindow(String loc)
+   /* void loadWindow(String loc)
     {
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource(loc));
@@ -81,6 +83,6 @@ public class BuyingController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }*/
     
 }

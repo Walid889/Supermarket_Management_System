@@ -5,6 +5,7 @@
  */
 package employees.rackshortages;
 
+import employees.main.EmployeesController;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,6 +22,7 @@ import javafx.scene.layout.AnchorPane;
  * @author NOUR
  */
 public class RackshortagesController implements Initializable {
+    EmployeesController x =  new EmployeesController();
 
     @FXML
     private AnchorPane loadPane;
@@ -37,14 +39,15 @@ public class RackshortagesController implements Initializable {
 
     @FXML
     private void loadRackMain(ActionEvent event) {
-    loadWindow("/employees/main/employees.fxml");
+    //loadWindow("/employees/main/employees.fxml");
+        x.loadwindow(loadPane,"/employees/main/employees.fxml");
     }
     
-    void loadWindow(String loc){
+   /* void loadWindow(String loc){
         try{
             AnchorPane pane = FXMLLoader.load(getClass().getResource(loc));
             loadPane.getChildren().setAll(pane);
            
         }catch(IOException ex){}
-    }
+    }*/
 }

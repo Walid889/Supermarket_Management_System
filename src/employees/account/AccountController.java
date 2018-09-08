@@ -23,6 +23,7 @@ import javafx.scene.layout.AnchorPane;
  * @author NOUR
  */
 public class AccountController implements Initializable {
+    EmployeesController x = new EmployeesController();
     @FXML
     private AnchorPane loadPane;
 
@@ -36,15 +37,17 @@ public class AccountController implements Initializable {
 
     @FXML
     private void loadMainOfAccount(ActionEvent event) {
-        loadWindow("/employees/main/employees.fxml");
+        //loadWindow("/employees/main/employees.fxml");
+        x.loadwindow(loadPane,"/employees/main/employees.fxml");
     }
 
     @FXML
     private void loadAccount(ActionEvent event) {
-        loadWindow("/employees/account/accepted/acoountaccept.fxml");
+       // loadWindow("/employees/account/accepted/accountaccept.fxml");
+        x.loadwindow(loadPane,"/employees/account/accepted/accountaccept.fxml");
     }
     
-    void loadWindow(String loc)
+    /*void loadWindow(String loc)
     {
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource(loc));
@@ -53,6 +56,6 @@ public class AccountController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
+    }*/
     
 }

@@ -52,6 +52,7 @@ import javafx.stage.StageStyle;
  * @author NOUR
  */
 public class SalesController extends NewSerial implements Initializable {
+    EmployeesController x = new EmployeesController();
     @FXML
     private Label date;
     @FXML
@@ -436,16 +437,17 @@ public class SalesController extends NewSerial implements Initializable {
     /********************************* LOAD PAGES ************************************************/
     @FXML
     private void loadMainOfSales(ActionEvent event) {
-        loadWindow("/employees/main/employees.fxml");
+        //loadWindow("/employees/main/employees.fxml");
+        x.loadwindow(loadPane, "/employees/main/employees.fxml");
     }
     
-    void loadWindow(String loc){
+   /* void loadWindow(String loc){
         try{
             AnchorPane pane = FXMLLoader.load(getClass().getResource(loc));
             loadPane.getChildren().setAll(pane);
            
         }catch(IOException ex){}
-    }
+    }*/
     /*********************************************************************************************/
     
 }

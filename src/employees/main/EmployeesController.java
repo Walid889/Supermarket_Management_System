@@ -75,41 +75,51 @@ public class EmployeesController implements Initializable {
 
     @FXML
     private void loadSales(ActionEvent event) {
-        loadWindow("/employees/sales/sales.fxml");
+        loadwindow(loadPane,"/employees/sales/sales.fxml");
     }
 
     @FXML
     private void loadAccount(ActionEvent event) {
-        loadWindow("/employees/account/account.fxml");
+        loadwindow(loadPane,"/employees/account/account.fxml");
     }
 
     @FXML
     private void loadDamage(ActionEvent event) {
-        loadWindow("/employees/damage/damage.fxml");
+        loadwindow(loadPane,"/employees/damage/damage.fxml");
     }
 
     @FXML
     private void loadExpenses(ActionEvent event) {
-        loadWindow("/employees/expenses/Expenses.fxml");
+        loadwindow(loadPane,"/employees/expenses/Expenses.fxml");
     }
 
     @FXML
     private void loadRecall(ActionEvent event) {
-       loadWindow("/employees/recall/recall.fxml");
+        loadwindow(loadPane, "/employees/recall/recall.fxml");
         
     }
 
     @FXML
     private void loadShortfalls(ActionEvent event) {
-        loadWindow("/employees/rackshortages/rackshortages.fxml");
+        loadwindow(loadPane,"/employees/rackshortages/rackshortages.fxml");
     }
 
     @FXML
     private void loadBuying(ActionEvent event) {
-       loadWindow("/employees/buying/Buying.fxml");
+        loadwindow(loadPane,"/employees/buying/Buying.fxml");
     }
     
-    void loadWindow(String loc)
+    public void loadwindow(AnchorPane p , String loc) { 
+        AnchorPane pane = null;
+           try {
+               pane = FXMLLoader.load(getClass().getResource(loc));
+           } catch (IOException ex) {
+               Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
+           }
+        p.getChildren().setAll(pane);
+    }
+    
+   /* void loadWindow(String loc)
     {
         try {
             AnchorPane pane = FXMLLoader.load(getClass().getResource(loc));
@@ -117,7 +127,7 @@ public class EmployeesController implements Initializable {
            
         } catch (IOException ex) {
             Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
        /* try {
             Parent parent = FXMLLoader.load(getClass().getResource(loc));
             Stage stage= new Stage(StageStyle.DECORATED);
@@ -133,4 +143,4 @@ public class EmployeesController implements Initializable {
     }
 
     
-}
+
