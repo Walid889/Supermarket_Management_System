@@ -12,7 +12,7 @@
         <URL value="@acoountaccept.css" />
     </stylesheets>
    <children>
-      <JFXButton fx:id="accountaccept" layoutX="677.0" layoutY="316.0" onAction="#loadAccountAccept" prefHeight="75.0" prefWidth="316.0" text="الحضور والانصراف">
+      <JFXButton fx:id="accountacceptbutton" layoutX="677.0" layoutY="316.0" onAction="#loadAccountAccept" prefHeight="75.0" prefWidth="316.0" text="الحضور والانصراف">
          <font>
             <Font name="System Bold" size="35.0" />
          </font>
