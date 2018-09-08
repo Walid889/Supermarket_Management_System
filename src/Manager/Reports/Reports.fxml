@@ -1,70 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="Reports" prefHeight="592.0" prefWidth="995.0" style="-fx-background-color: #343642;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Reports.ReportsController">
+<AnchorPane id="AnchorPane" fx:id="Reports" prefHeight="697.0" prefWidth="1366.0" style="-fx-background-color: #343642;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Reports.ReportsController">
    <children>
-      <Label fx:id="LReports" layoutX="484.0" layoutY="28.0" prefHeight="32.0" prefWidth="78.0" text="التقارير" textFill="WHITE">
+      <Label fx:id="LReports" alignment="CENTER" layoutX="631.0" layoutY="27.0" prefHeight="45.0" prefWidth="125.0" text="التقارير" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="22.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Button layoutX="605.0" layoutY="99.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadproducts_Report" prefHeight="178.0" prefWidth="229.0" style="-fx-background-color: #35889a; -fx-cursor:hand">
+      <JFXButton contentDisplay="TOP" layoutX="297.0" layoutY="422.0" onAction="#loadEmployee_Report" prefHeight="218.0" prefWidth="294.0" stylesheets="@Reports.css" text="تقارير الموظفين" textFill="WHITE">
          <graphic>
-            <ImageView fitHeight="105.0" fitWidth="165.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/تقارير%20اصناف.png" />
+                  <Image url="@../../icons/Admin/تقارير%20موظفين.png" />
                </image>
             </ImageView>
-         </graphic></Button>
-      <Button layoutX="204.0" layoutY="99.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadFinancial_Reports" prefHeight="178.0" prefWidth="229.0" style="-fx-background-color: #35889a; -fx-cursor:hand">
+         </graphic>
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" layoutX="787.0" layoutY="422.0" onAction="#loadSuppliers_Report" prefHeight="218.0" prefWidth="294.0" stylesheets="@Reports.css" text="تقارير الموردين" textFill="WHITE">
          <graphic>
-            <ImageView fitHeight="86.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/الحسابات.png" />
+                  <Image url="@../../icons/Admin/received_2014690272175496.png" />
                </image>
             </ImageView>
-         </graphic></Button>
-      <Button layoutX="204.0" layoutY="352.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadEmployee_Report" prefHeight="178.0" prefWidth="229.0" style="-fx-background-color: #35889a; -fx-cursor:hand">
+         </graphic>
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" layoutX="787.0" layoutY="132.0" onAction="#loadproducts_Report" prefHeight="218.0" prefWidth="294.0" stylesheets="@Reports.css" text="تقارير الاصناف" textFill="WHITE">
          <graphic>
-            <ImageView fitHeight="98.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/تقارير%20موظفين.png" />
+                  <Image url="@../../icons/Admin/تقارير%20اصناف.png" />
                </image>
             </ImageView>
-         </graphic></Button>
-      <Button layoutX="605.0" layoutY="352.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#loadSuppliers_Report" prefHeight="178.0" prefWidth="229.0" style="-fx-background-color: #35889a; -fx-cursor:hand">
+         </graphic>
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </JFXButton>
+      <JFXButton contentDisplay="TOP" layoutX="297.0" layoutY="132.0" onAction="#loadFinancial_Reports" prefHeight="218.0" prefWidth="294.0" stylesheets="@Reports.css" text="الحسابات" textFill="WHITE">
          <graphic>
-            <ImageView fitHeight="98.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="128.0" fitWidth="128.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../images/received_2014690272175496.png" />
+                  <Image url="@../../icons/Admin/الحسابات.png" />
                </image>
             </ImageView>
-         </graphic></Button>
-      <Label layoutX="258.0" layoutY="493.0" text="تقارير الموظفين" textFill="WHITE">
+         </graphic>
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
-      </Label>
-      <Label layoutX="282.0" layoutY="235.0" text="الحسابات" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="671.0" layoutY="493.0" text="تقارير الموردين" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="672.0" layoutY="236.0" text="تقارير الاصناف" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
+      </JFXButton>
    </children>
 </AnchorPane>

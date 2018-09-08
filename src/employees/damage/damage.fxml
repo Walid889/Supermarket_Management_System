@@ -16,123 +16,125 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="loadPane" prefHeight="600.0" prefWidth="719.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employees.damage.DamageController">
+<AnchorPane id="AnchorPane" fx:id="loadPane" prefHeight="697.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employees.damage.DamageController">
     <stylesheets>
         <URL value="@damage.css" />
     </stylesheets>
    <children>
-      <VBox layoutX="577.0" prefHeight="600.0" prefWidth="142.0" styleClass="vbox" stylesheets="@damage.css">
+      <VBox layoutX="577.0" prefHeight="697.0" prefWidth="196.0" styleClass="vbox" stylesheets="@damage.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXButton prefHeight="25.0" prefWidth="120.0" styleClass="jfx-button" stylesheets="@damage.css" text="حفظ" textAlignment="JUSTIFY" textFill="WHITE">
+            <JFXButton prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@damage.css" text="حفظ" textAlignment="JUSTIFY" textFill="WHITE">
                <font>
-                  <Font name="System Bold Italic" size="20.0" />
+                  <Font name="System Bold Italic" size="25.0" />
                </font>
                <effect>
                   <DropShadow height="6.0" radius="2.5" spread="1.0" width="6.0" />
                </effect>
                <VBox.margin>
-                  <Insets left="11.0" top="100.0" />
+                  <Insets left="18.0" top="100.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton prefHeight="25.0" prefWidth="120.0" styleClass="jfx-button" stylesheets="@damage.css" text="إلغاء" textAlignment="JUSTIFY" textFill="WHITE">
+            <JFXButton prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@damage.css" text="إلغاء" textAlignment="JUSTIFY" textFill="WHITE">
                <font>
-                  <Font name="System Bold Italic" size="20.0" />
+                  <Font name="System Bold Italic" size="25.0" />
                </font>
                <effect>
                   <DropShadow height="6.0" radius="2.5" spread="1.0" width="6.0" />
                </effect>
                <VBox.margin>
-                  <Insets left="11.0" top="30.0" />
+                  <Insets left="18.0" top="30.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton prefHeight="25.0" prefWidth="120.0" styleClass="jfx-button" stylesheets="@damage.css" text="جديد" textAlignment="JUSTIFY" textFill="WHITE">
+            <JFXButton prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@damage.css" text="جديد" textAlignment="JUSTIFY" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
                <effect>
                   <DropShadow height="6.0" radius="2.5" spread="1.0" width="6.0" />
                </effect>
                <VBox.margin>
-                  <Insets left="11.0" top="30.0" />
+                  <Insets left="18.0" top="30.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton onAction="#loadMainOfDamage" prefHeight="25.0" prefWidth="120.0" styleClass="jfx-button" stylesheets="@damage.css" text="الرئيسية" textAlignment="JUSTIFY" textFill="WHITE">
+            <JFXButton onAction="#loadMainOfDamage" prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@damage.css" text="الرئيسية" textAlignment="JUSTIFY" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
                <effect>
                   <DropShadow height="8.0" radius="3.5" spread="1.0" width="8.0" />
                </effect>
                <VBox.margin>
-                  <Insets left="11.0" top="205.0" />
+                  <Insets left="18.0" top="200.0" />
                </VBox.margin>
             </JFXButton>
          </children>
       </VBox>
-      <Pane prefHeight="600.0" prefWidth="575.0" styleClass="pane" stylesheets="@damage.css">
+      <Pane prefHeight="697.0" prefWidth="1168.0" styleClass="pane" stylesheets="@damage.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="date" layoutX="14.0" layoutY="21.0" prefHeight="21.0" prefWidth="89.0" text="22/10/2018" textFill="WHITE">
+            <Label fx:id="date" alignment="CENTER" layoutX="20.0" layoutY="21.0" prefHeight="36.0" prefWidth="149.0" text="22/10/2018" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="15.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
                <effect>
                   <DropShadow height="9.0" radius="1.75" spread="0.2" width="0.0" />
                </effect>
             </Label>
-            <JFXTextField alignment="CENTER_RIGHT" focusColor="#35889a" labelFloat="true" layoutX="153.0" layoutY="19.0" prefHeight="25.0" prefWidth="262.0" promptText="ادخل إسم المنتج .." unFocusColor="#f1ebc7">
+            <JFXTextField alignment="CENTER_RIGHT" focusColor="#35889a" labelFloat="true" layoutX="376.0" layoutY="19.0" prefHeight="30.0" prefWidth="363.0" promptText="ادخل إسم المنتج .." unFocusColor="#f1ebc7">
                <padding>
                   <Insets left="5.0" right="5.0" />
                </padding>
-            </JFXTextField>
-            <JFXButton layoutX="153.0" layoutY="59.0" prefHeight="25.0" prefWidth="89.0" styleClass="jfx-button" stylesheets="@damage.css" text="بحث" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font size="20.0" />
+               </font>
+            </JFXTextField>
+            <JFXButton layoutX="380.0" layoutY="59.0" prefHeight="54.0" prefWidth="126.0" styleClass="jfx-button" stylesheets="@damage.css" text="بحث" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="25.0" />
                </font>
             </JFXButton>
             <JFXListView layoutX="153.0" layoutY="44.0" prefHeight="400.0" prefWidth="262.0" visible="false" />
-            <Label layoutX="514.0" layoutY="23.0" text="مسلسل" textFill="WHITE">
+            <Label layoutX="1044.0" layoutY="19.0" text="مسلسل :" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="14.0" />
+                  <Font name="System Bold" size="25.0" />
                </font>
                <effect>
                   <DropShadow height="9.14" radius="1.8450000000000002" width="0.24" />
                </effect>
             </Label>
-            <TextField editable="false" layoutX="429.0" layoutY="23.0" prefHeight="25.0" prefWidth="80.0" />
-            <HBox layoutX="6.0" layoutY="110.0" prefHeight="369.0" prefWidth="563.0" styleClass="pane" stylesheets="@../buying/buying.css">
+            <TextField editable="false" layoutX="932.0" layoutY="17.0" prefHeight="30.0" prefWidth="101.0">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font></TextField>
+            <HBox alignment="CENTER" layoutX="6.0" layoutY="126.0" prefHeight="440.0" prefWidth="1154.0" styleClass="pane" stylesheets="@../buying/buying.css">
                <children>
-                  <VBox prefHeight="343.0" prefWidth="317.0">
-                     <children>
-                        <TableView prefHeight="343.0" prefWidth="313.0">
-                           <columns>
-                              <TableColumn prefWidth="75.0" text="C1" />
-                              <TableColumn prefWidth="75.0" text="C2" />
-                           </columns>
-                           <VBox.margin>
-                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                           </VBox.margin>
-                        </TableView>
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER" maxHeight="200.0" prefHeight="200.0" prefWidth="226.0" styleClass="vboxdamage" stylesheets="@damage.css">
+                  <TableView prefHeight="440.0" prefWidth="505.0">
+                     <columns>
+                        <TableColumn prefWidth="75.0" text="C1" />
+                        <TableColumn prefWidth="75.0" text="C2" />
+                     </columns>
                      <HBox.margin>
-                        <Insets bottom="10.0" left="10.0" right="10.0" top="70.0" />
+                        <Insets left="60.0" right="60.0" />
+                     </HBox.margin>
+                  </TableView>
+                  <VBox alignment="CENTER" maxHeight="298.0" prefHeight="298.0" prefWidth="297.0" styleClass="vboxdamage" stylesheets="@damage.css">
+                     <HBox.margin>
+                        <Insets left="60.0" right="60.0" />
                      </HBox.margin>
                      <children>
-                        <Label text="زبادى جهينة" textFill="#343642">
+                        <Label text="463168464" textFill="#343642">
                            <VBox.margin>
                               <Insets bottom="20.0" top="20.0" />
                            </VBox.margin>
                            <font>
-                              <Font name="System Bold" size="25.0" />
+                              <Font name="System Bold" size="35.0" />
                            </font>
                         </Label>
-                        <Label layoutX="10.0" layoutY="10.0" text="100 جم" textFill="#343642">
+                        <Label layoutX="10.0" layoutY="10.0" text="زبادى جهينة" textFill="#343642">
                            <VBox.margin>
                               <Insets bottom="20.0" top="20.0" />
                            </VBox.margin>
                            <font>
-                              <Font name="System Bold" size="25.0" />
+                              <Font name="System Bold" size="35.0" />
                            </font>
                         </Label>
                         <Label layoutX="10.0" layoutY="27.0" text="4.00 جنية" textFill="#343642">
@@ -140,31 +142,37 @@
                               <Insets bottom="20.0" top="20.0" />
                            </VBox.margin>
                            <font>
-                              <Font name="System Bold" size="25.0" />
+                              <Font name="System Bold" size="35.0" />
                            </font>
                         </Label>
                      </children>
                   </VBox>
                </children>
             </HBox>
-            <Label layoutX="474.0" layoutY="529.0" text="الكمية" textFill="WHITE">
+            <Label layoutX="938.0" layoutY="589.0" text="الكمية :" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="30.0" />
                </font>
                <effect>
                   <DropShadow height="9.14" radius="4.07" width="9.14" />
                </effect>
             </Label>
-            <Label layoutX="217.0" layoutY="526.0" text="المدفوع" textFill="WHITE">
+            <Label layoutX="367.0" layoutY="586.0" text="المدفوع :" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="30.0" />
                </font>
                <effect>
                   <DropShadow height="9.14" radius="4.07" width="9.14" />
                </effect>
             </Label>
-            <TextField layoutX="318.0" layoutY="532.0" />
-            <TextField layoutX="63.0" layoutY="531.0" />
+            <TextField layoutX="710.0" layoutY="587.0" prefHeight="30.0" prefWidth="220.0">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font></TextField>
+            <TextField layoutX="138.0" layoutY="584.0" prefHeight="30.0" prefWidth="220.0">
+               <font>
+                  <Font name="System Bold" size="25.0" />
+               </font></TextField>
          </children>
       </Pane>
    </children>

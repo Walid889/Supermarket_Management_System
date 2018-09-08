@@ -5,6 +5,7 @@
  */
 package Login;
 
+import Classes.Alerts;
 import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -14,6 +15,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javax.swing.JOptionPane;
 
 /**
  * FXML Controller class
@@ -45,6 +47,8 @@ public class LoginController implements Initializable {
 
     @FXML
     private void login(ActionEvent event) {
+        //JOptionPane.showMessageDialog(null , "Login With Admin");
+        //Alerts.ConfirmAlert("login with admin", "");    
     }
     
 }

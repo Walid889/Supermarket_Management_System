@@ -1,7 +1,6 @@
 .jfx-button
 {
-    -fx-background-color: #35889a;
-    -fx-text-fill: #FFF;
+    -fx-background-color:  #35889a;
     -fx-cursor: hand;
 }
 
@@ -11,18 +10,12 @@
     -fx-cursor: hand;
 }
 
-.vbox
-{
-    -fx-background-color: #989c9d;
-}
-
-.vboxdamage
-
-{
-    -fx-background-color: #fff;
-}
-
 .pane
 {
     -fx-background-color: #343642;
+}
+
+.vbox
+{
+    -fx-background-color:  #989c9d;
 }

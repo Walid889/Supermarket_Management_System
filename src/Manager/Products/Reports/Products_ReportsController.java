@@ -5,6 +5,7 @@
  */
 package Manager.Products.Reports;
 
+import Manager.Main.HomeController;
 import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +21,7 @@ import javafx.scene.layout.AnchorPane;
  * @author lolo
  */
 public class Products_ReportsController implements Initializable {
-
+     HomeController x = new HomeController();
     @FXML
     private AnchorPane Product_Reports;
     @FXML
@@ -46,6 +47,7 @@ public class Products_ReportsController implements Initializable {
 
     @FXML
     private void Manager_Home(ActionEvent event) {
+        x.loadwindow(Product_Reports, "/Manager/Main/Home.fxml");
     }
     
 }

@@ -101,6 +101,7 @@ public class EmployeesController implements Initializable {
 
     @FXML
     private void loadShortfalls(ActionEvent event) {
+        loadWindow("/employees/rackshortages/rackshortages.fxml");
     }
 
     @FXML
