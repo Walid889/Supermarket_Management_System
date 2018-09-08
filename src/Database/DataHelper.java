@@ -81,7 +81,9 @@ public class DataHelper {
         }
         return false;
     }
-    
+    /////////////////////////////////////
+    ////////////////delete/////////////////////
+    //////////////////////////////////////////
     public static boolean deleteSale(Sales sal) {
         try {
             PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement( 
@@ -98,6 +100,39 @@ public class DataHelper {
         return false;
     }
     
+    public static boolean deleteSupplier(Suppliers sup) {
+        try {
+            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement( 
+                    "DELETE FROM suppliers1 WHERE number = ?");
+            
+            statement.setLong(1, sup.getNumber());
+            int res = statement.executeUpdate();
+            if (res == 1) {
+                return true;
+            }
+        }
+        catch (SQLException ex) {//    
+        }
+        return false;
+    }
+    public static boolean deleteEmployee(Employee emp) {
+        try {
+            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement( 
+                    "DELETE FROM employee1 WHERE number = ?");
+            
+            statement.setLong(1, emp.getNumber());
+            int res = statement.executeUpdate();
+            if (res == 1) {
+                return true;
+            }
+        }
+        catch (SQLException ex) {//    
+        }
+        return false;
+    }
+    /////////////////////////////////////////////////
+    ////////////////////////////////////////////////
+    ///////////////////////////////////////////////
     public static boolean deleteAllRowsInSalesTV(int serial) {
         String qu = "DELETE FROM sales WHERE sale_id ="+serial+""; //
         if(DatabaseHandler.getInstance().execAction(qu)){
@@ -105,6 +140,9 @@ public class DataHelper {
         }
         return false;
     }
+    /////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////
     public static int getLastSerialToday(String D_date){
         String qu="SELECT sale_id FROM sales where sale_date = '"+D_date+"'"+" ORDER BY sale_id DESC FETCH FIRST ROW ONLY ";
         ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
@@ -123,7 +161,10 @@ public class DataHelper {
         }
         return srl;
     }
-    
+    ///////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////
     public static long getLastOrderNumber(){
         String qu="SELECT number FROM sales ORDER BY number DESC FETCH FIRST ROW ONLY"; 
         ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
@@ -196,7 +237,7 @@ public class DataHelper {
                     "INSERT INTO suppliers1 (sup_name,sup_company_name,sup_category,sup_phone) VALUES(?,?,?,?)");
         statement.setString(1, s.getSupplierName());
         statement.setString(2, s.getSupplierCategory());
-        statement.setInt(3, s.getSupplierPhone());
+        statement.setString(3, s.getSupplierPhone());
         statement.setString(4, s.getSalespersonName());
         return statement.executeUpdate() > 0;
         } catch (SQLException ex)

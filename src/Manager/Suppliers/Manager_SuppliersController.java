@@ -112,7 +112,7 @@ public class Manager_SuppliersController implements Initializable {
          Suppliers s =new Suppliers();
         s.setSupplierName(S_Tname.getText());
         s.setSupplierCategory(S_Ctype.getTypeSelector());
-        s.setSupplierPhone(Integer.parseInt(S_TPhone.getText()));
+        s.setSupplierPhone(S_TPhone.getText());
         s.setSalespersonName(S_TSaller.getText());
         
         boolean result = DataHelper.insertNewSupplier(s);

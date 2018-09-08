@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tables>
     <table-entry name="employee1" col-data="
+            number BIGINT not null primary key,
             emp_id varchar(200),
             emp_name varchar(200)
             ,emp_phone varchar(200)
@@ -8,6 +9,7 @@
             ,emp_salary_hours double
             "/>
     <table-entry name="employee2" col-data="
+            number BIGINT not null primary key,
             emp_start_time timestamp not null default current_timestamp
             ,emp_finish_time timestamp not null default current_timestamp
             ,emp_salary double
@@ -24,6 +26,7 @@
                     "/>
     
     <table-entry name="product" col-data="
+                        number BIGINT not null primary key,
                         pro_bar varchar(200) primary key ,
                         pro_name varchar(200),
                         pro_category varchar(200),
@@ -36,40 +39,31 @@
                         
         "/>
     <table-entry name="suppliers1" col-data="
+                        number BIGINT not null primary key,
                         sup_name varchar(200),
                         sup_company_name varchar(200),
                         sup_category varchar(200),
                         sup_phone int
                         "/>
     <table-entry name="suppliers2" col-data="
+                        number BIGINT not null primary key,
                         sup_paid double,
                         sup_total_price double,
                         sup_reminder_price double
                         
     "/>
     <table-entry name="sales" col-data="
-<<<<<<< HEAD
                         number BIGINT not null primary key,
-=======
                         number BIGINT not null primary key, 
->>>>>>> 00fda2504fcdd3f94bd091744a6f390ff4393305
                         sale_id int not null,
                         sale_date date,
                         product_name varchar(200),
                         qty_kind varchar(200),
                         unit_price double,
-<<<<<<< HEAD
                         current_qty int,
                         cost double,
                         t_time TIME
-" />
-=======
-                        current_qty integer,
-                        cost double,
-                        t_time TIME
-                        cost double
     "/>
->>>>>>> 00fda2504fcdd3f94bd091744a6f390ff4393305
     <table-entry name="bills" col-data="
                         sale_id int,
                         sale_date date,

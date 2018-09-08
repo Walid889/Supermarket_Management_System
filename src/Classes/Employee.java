@@ -5,6 +5,7 @@
  */
 package Classes;
 
+import java.sql.Time;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -15,6 +16,24 @@ import org.apache.derby.client.am.DateTime;
  * @author Walid
  */
 public class Employee{// Common_Methods is an Interface include Add , Update , Delete
+    private long number;
+    private Time time;
+
+    public Time getTime() {
+        return time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
+    }
+    
+    public long getNumber() {
+        return number;
+    }
+
+    public void setNumber(long number) {
+        this.number = number;
+    }
     private String employeeName;
     private String employeeId;
     private String employeePhone;
