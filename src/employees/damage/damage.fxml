@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXListView?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
@@ -23,7 +24,7 @@
    <children>
       <VBox layoutX="577.0" prefHeight="697.0" prefWidth="196.0" styleClass="vbox" stylesheets="@damage.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXButton prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@damage.css" text="حفظ" textAlignment="JUSTIFY" textFill="WHITE">
+            <JFXButton onAction="#saveDamage" prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@damage.css" text="حفظ" textAlignment="JUSTIFY" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="25.0" />
                </font>
@@ -34,7 +35,7 @@
                   <Insets left="18.0" top="100.0" />
                </VBox.margin>
             </JFXButton>
-            <JFXButton prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@damage.css" text="إلغاء" textAlignment="JUSTIFY" textFill="WHITE">
+            <JFXButton onAction="#cancelDamage" prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@damage.css" text="إلغاء" textAlignment="JUSTIFY" textFill="WHITE">
                <font>
                   <Font name="System Bold Italic" size="25.0" />
                </font>
@@ -105,9 +106,9 @@
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></TextField>
-            <HBox alignment="CENTER" layoutX="6.0" layoutY="126.0" prefHeight="440.0" prefWidth="1154.0" styleClass="pane" stylesheets="@../buying/buying.css">
+            <HBox alignment="CENTER" layoutX="6.0" layoutY="126.0" prefHeight="423.0" prefWidth="1154.0" styleClass="pane" stylesheets="@../buying/buying.css">
                <children>
-                  <TableView prefHeight="440.0" prefWidth="505.0">
+                  <TableView prefHeight="392.0" prefWidth="502.0">
                      <columns>
                         <TableColumn prefWidth="75.0" text="C1" />
                         <TableColumn prefWidth="75.0" text="C2" />
@@ -149,31 +150,44 @@
                   </VBox>
                </children>
             </HBox>
-            <Label layoutX="938.0" layoutY="589.0" text="الكمية :" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="30.0" />
-               </font>
-               <effect>
-                  <DropShadow height="9.14" radius="4.07" width="9.14" />
-               </effect>
-            </Label>
-            <Label layoutX="367.0" layoutY="586.0" text="المدفوع :" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="30.0" />
-               </font>
-               <effect>
-                  <DropShadow height="9.14" radius="4.07" width="9.14" />
-               </effect>
-            </Label>
-            <TextField layoutX="710.0" layoutY="587.0" prefHeight="30.0" prefWidth="220.0">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font></TextField>
-            <TextField layoutX="138.0" layoutY="584.0" prefHeight="30.0" prefWidth="220.0">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font></TextField>
          </children>
       </Pane>
+      <TextField fx:id="Quntity" layoutX="695.0" layoutY="559.0" prefHeight="30.0" prefWidth="101.0">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </TextField>
+      <JFXButton layoutX="694.0" layoutY="621.0" onAction="#addQuntity" prefHeight="25.0" prefWidth="230.0" text="إدخال الكمية">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </JFXButton>
+      <TextField fx:id="paid" layoutX="149.0" layoutY="559.0" prefHeight="30.0" prefWidth="230.0">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </TextField>
+      <JFXButton layoutX="149.0" layoutY="621.0" onAction="#addPaid" prefHeight="30.0" prefWidth="230.0" text="إدخال المدفوع">
+         <font>
+            <Font name="System Bold Italic" size="25.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="393.0" layoutY="563.0" text="المدفوع :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+         <effect>
+            <DropShadow height="9.14" radius="4.07" width="9.14" />
+         </effect>
+      </Label>
+      <Label layoutX="951.0" layoutY="567.0" text="الكمية :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+         <effect>
+            <DropShadow height="9.14" radius="4.07" width="9.14" />
+         </effect>
+      </Label>
+      <JFXComboBox fx:id="quntityComboBox" focusColor="#35889a" layoutX="804.0" layoutY="571.0" prefHeight="30.0" prefWidth="120.0" promptText="عنصر" unFocusColor="WHITE" visibleRowCount="3" />
    </children>
 </AnchorPane>

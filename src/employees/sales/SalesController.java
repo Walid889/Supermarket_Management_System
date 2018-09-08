@@ -106,6 +106,8 @@ public class SalesController extends NewSerial implements Initializable {
     /***************************************************************************************************************/
 
     DatabaseHandler databaseHandler;
+    @FXML
+    private Label productBarcode;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         databaseHandler = DatabaseHandler.getInstance();
