@@ -6,13 +6,20 @@
 package Manager.Suppliers;
 
 import Classes.Alerts;
+import Classes.Goods;
 import Classes.Suppliers;
 import Manager.Main.HomeController;
 import database.DataHelper;
 import database.DatabaseHandler;
 import java.net.URL;
+import static java.nio.file.Files.list;
+import static java.util.Collections.list;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -126,9 +133,27 @@ public class Manager_SuppliersController implements Initializable {
             }
        
     }
-    
+    ObservableList<Suppliers> list= FXCollections.observableArrayList();
+        FilteredList filter=new FilteredList(list,e->true);
+
     @FXML
     private void Suppliers_Search(ActionEvent event) {
+        DataHelper.o(list);
+        S_TSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            filter.setPredicate(    (Predicate<? super Suppliers>)    (Suppliers go)->{
+                if(newValue.isEmpty() || newValue == null)
+                    return true;
+                if(newValue.contains(go.getSupplierName()))
+                    return true;
+                
+                return false;
+            });
+            
+        });
+        
+        SortedList st=new SortedList(filter);
+        st.comparatorProperty().bind(S_Table.comparatorProperty());
+        S_Table.setItems(st);
     }
     
     private void AddSupplier(){

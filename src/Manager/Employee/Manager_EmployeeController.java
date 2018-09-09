@@ -5,6 +5,7 @@
  */
 package Manager.Employee;
 
+import Classes.Alerts;
 import Classes.Employee;
 import Manager.Main.HomeController;
 import database.DataHelper;
@@ -136,10 +137,28 @@ public class Manager_EmployeeController implements Initializable {
 
     @FXML
     private void Delete_Employee(ActionEvent event) {
+        Employee G=E_tables.getSelectionModel().getSelectedItem();
+        
+        if (Alerts.ConfirmAlert("هل تريد مسح"+":", G.getEmployeeId())) {
+                Boolean result = DataHelper.deleteEmployee(G);
+                if (result) {
+                    Alerts.showInfoAlert("تم المسح !!");
+                    clear();
+                }
+                 else 
+                    Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
+            }
     }
 
     @FXML
     private void Employee_Choice(ActionEvent event) {
     }
-
+    private void clear()
+    {
+        E_Tname.clear();
+        E_Tcode.clear();
+        E_Tphone.clear();
+        E_Tsalary.clear();
+        E_Taddress.clear();
+    }
 }
