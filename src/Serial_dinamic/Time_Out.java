@@ -16,7 +16,7 @@ public class Time_Out {
     public int getHoursUntilTarget() {
         int targetHour=10;
         Calendar calendar = Calendar.getInstance();
-        int hour = calendar.get(Calendar.SECOND);
+        int hour = calendar.get(Calendar.MINUTE);
         return hour < targetHour ? targetHour - hour : targetHour - hour + 60;
     } 
     

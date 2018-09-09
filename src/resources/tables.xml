@@ -30,13 +30,11 @@
                         pro_supplier_name varchar(200),
                         pro_qty_item int,
                         pro_qty_packet int,
-                        pro_qty_box int,
                         pro_All_qty int,
                         pro_price_item double,
                         pro_price_packet double,
                         pro_price_box double,
-                        pro_minimum int,
-                        pro_expiration_date varchar(50)
+                        pro_minimum int
         "/>
     <table-entry name="suppliers1" col-data="
                         sup_name varchar(200),

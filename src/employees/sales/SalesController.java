@@ -12,6 +12,7 @@ import static Serial_dinamic.NewSerial.increment_Sales;
 import database.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXTextField;
 import employees.main.EmployeesController;
 import java.io.IOException;
 import java.net.URL;
@@ -45,6 +46,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import static org.controlsfx.control.WorldMapView.Country.TF;
+import org.controlsfx.control.textfield.TextFields;
 
 /**
  * FXML Controller class
@@ -105,6 +108,10 @@ public class SalesController extends NewSerial implements Initializable {
     /***************************************************************************************************************/
 
     DatabaseHandler databaseHandler;
+    @FXML
+    private JFXTextField T_Search;
+    @FXML
+    private Label productBarcode;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         databaseHandler = DatabaseHandler.getInstance();
@@ -117,7 +124,13 @@ public class SalesController extends NewSerial implements Initializable {
         billNumber.setText(getSalesSerial()+"");
         initTableViewCols();
         ser(); // Set Dinamic Serial Number and Date
+        DataHelper.checkDataBar(T_Search); // get barcode of all products
     }    
+    
+    
+    
+    
+    
     private  void initTableViewCols(){
         c_item.setCellValueFactory(new PropertyValueFactory<>("name"));
         c_price.setCellValueFactory(new PropertyValueFactory<>("UintPrice"));
@@ -346,8 +359,12 @@ public class SalesController extends NewSerial implements Initializable {
             TOTAL+=S.getCost();
             totalPrice.setText(TOTAL+"");
             System.out.println(k);
+            int qty=Integer.parseInt(Quntity.getText());
             if(result){
-                Alerts.showInfoAlert("تمت الاضافة !!");
+                boolean s= DataHelper.InterAction_B_Sales__Products_addQuan(productBarcode,qty );
+                if(s){
+                    Alerts.showInfoAlert("تمت الاضافة !!");
+                }
             }
             else
                 Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
@@ -387,12 +404,15 @@ public class SalesController extends NewSerial implements Initializable {
                     double p=Double.parseDouble(rest.getText());
                     rest.setText((c+p)+"");
                     }catch(Exception ex){}
+                    
+                    if(S.getQuantityKind().equals("قطعة"))
+                        
+                    
                     SalesTabel.getItems().removeAll(SalesTabel.getSelectionModel().getSelectedItem()); // delete item from ui table
                     TOTAL-=c;
                     totalPrice.setText(TOTAL+"");
                     AllCheckbox.setSelected(false); 
                     Alerts.showInfoAlert("تم المسح !!");
-                    return;
                 } else {
                     Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
                 }
@@ -445,6 +465,12 @@ public class SalesController extends NewSerial implements Initializable {
             loadPane.getChildren().setAll(pane);
            
         }catch(IOException ex){}
+    }
+
+    @FXML
+    private void searchButton(ActionEvent event) {
+        String barkey=T_Search.getText();
+        DataHelper.fillSalesWithInfoOfProduct(barkey,productBarcode, productName, productPrice);
     }
     /*********************************************************************************************/
     

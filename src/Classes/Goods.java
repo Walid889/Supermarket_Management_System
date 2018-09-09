@@ -14,11 +14,27 @@ public class Goods{
     private String productBarCode;
     private String productCategory;
     private String productSupplier;
+    
+    public Goods(){}
+
+    public Goods(String productName, String productBarCode, String productCategory, String productSupplier, int itemsInPacket, int PacketsInBox, double itemPrice, double packetPrice, double boxPrice, int productMinQuantity, long allQuantity) {
+        this.productName = productName;
+        this.productBarCode = productBarCode;
+        this.productCategory = productCategory;
+        this.productSupplier = productSupplier;
+        this.itemsInPacket = itemsInPacket;
+        this.PacketsInBox = PacketsInBox;
+        this.itemPrice = itemPrice;
+        this.packetPrice = packetPrice;
+        this.boxPrice = boxPrice;
+        this.productMinQuantity = productMinQuantity;
+        //this.productExpirationdate = productExpirationdate;
+        this.allQuantity = allQuantity;
+    }
     //private Price productPrice;
     //private Quantity productQuantity;
     private int itemsInPacket;
     private int PacketsInBox;
-    private int Boxes;
     private double itemPrice;
     private double packetPrice;
     private double boxPrice;
@@ -40,14 +56,6 @@ public class Goods{
 
     public void setPacketsInBox(int PacketsInBox) {
         this.PacketsInBox = PacketsInBox;
-    }
-
-    public int getBoxes() {
-        return Boxes;
-    }
-
-    public void setBoxes(int Boxes) {
-        this.Boxes = Boxes;
     }
 
     public double getItemPrice() {

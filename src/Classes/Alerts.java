@@ -30,7 +30,7 @@ public class Alerts extends Throwable{
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("إنتبه");
         //alert.setResult(ButtonType.CANCEL);
-        alert.setContentText(content+": "+Choise);
+        alert.setContentText(content+Choise);
         Optional<ButtonType> answer = alert.showAndWait();
         return answer.get() == ButtonType.OK;
     }
