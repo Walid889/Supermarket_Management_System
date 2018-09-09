@@ -5,13 +5,33 @@
  */
 package Classes;
 
+import java.sql.Time;
+
 /**
  *
  * @author Walid
  */
 public class Suppliers{// Common_Methods is an Interface include Add , Update , Delete
+    private long number;
+    private Time time;
+
+    public Time getTime() {
+        return time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
+    }
+    
+    public long getNumber() {
+        return number;
+    }
+
+    public void setNumber(long number) {
+        this.number = number;
+    }
     private String supplierName;
-    private int supplierPhone;
+    private String supplierPhone;
     private String supplierCategory;
     private String salespersonName;
 
@@ -31,11 +51,11 @@ public class Suppliers{// Common_Methods is an Interface include Add , Update , 
         this.supplierCategory = supplierCategory;
     }
 
-    public int getSupplierPhone() {
+    public String getSupplierPhone() {
         return supplierPhone;
     }
 
-    public void setSupplierPhone(int supplierPhone) {
+    public void setSupplierPhone(String supplierPhone) {
         this.supplierPhone = supplierPhone;
     }
 

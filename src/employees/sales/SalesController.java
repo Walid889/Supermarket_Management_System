@@ -55,6 +55,7 @@ import org.controlsfx.control.textfield.TextFields;
  * @author NOUR
  */
 public class SalesController extends NewSerial implements Initializable {
+    EmployeesController x = new EmployeesController();
     @FXML
     private Label date;
     @FXML
@@ -109,8 +110,11 @@ public class SalesController extends NewSerial implements Initializable {
 
     DatabaseHandler databaseHandler;
     @FXML
+<<<<<<< HEAD
     private JFXTextField T_Search;
     @FXML
+=======
+>>>>>>> e64d94c2cab4f9cac148bd514e7feebc0c69a56b
     private Label productBarcode;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -456,15 +460,17 @@ public class SalesController extends NewSerial implements Initializable {
     /********************************* LOAD PAGES ************************************************/
     @FXML
     private void loadMainOfSales(ActionEvent event) {
-        loadWindow("/employees/main/employees.fxml");
+        //loadWindow("/employees/main/employees.fxml");
+        x.loadwindow(loadPane, "/employees/main/employees.fxml");
     }
     
-    void loadWindow(String loc){
+   /* void loadWindow(String loc){
         try{
             AnchorPane pane = FXMLLoader.load(getClass().getResource(loc));
             loadPane.getChildren().setAll(pane);
            
         }catch(IOException ex){}
+<<<<<<< HEAD
     }
 
     @FXML
@@ -472,6 +478,9 @@ public class SalesController extends NewSerial implements Initializable {
         String barkey=T_Search.getText();
         DataHelper.fillSalesWithInfoOfProduct(barkey,productBarcode, productName, productPrice);
     }
+=======
+    }*/
+>>>>>>> e64d94c2cab4f9cac148bd514e7feebc0c69a56b
     /*********************************************************************************************/
     
 }

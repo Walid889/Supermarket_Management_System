@@ -24,7 +24,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.DragEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
@@ -112,7 +111,7 @@ public class Manager_SuppliersController implements Initializable {
          Suppliers s =new Suppliers();
         s.setSupplierName(S_Tname.getText());
         s.setSupplierCategory(S_Ctype.getTypeSelector());
-        s.setSupplierPhone(Integer.parseInt(S_TPhone.getText()));
+        s.setSupplierPhone(S_TPhone.getText());
         s.setSalespersonName(S_TSaller.getText());
         
         boolean result = DataHelper.insertNewSupplier(s);

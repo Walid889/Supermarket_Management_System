@@ -16,9 +16,9 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("employees.fxml"));
         
         Scene scene = new Scene(root);
-        Image icon = new Image("/icons/my_account.png");
+        Image icon = new Image("/icons/supermarket.png");
         stage.getIcons().add(icon);
-        stage.setTitle("الرئيسية");
+        stage.setTitle("سوبر ماركت ابو طارق");
         stage.setScene(scene);
         stage.show();
     }

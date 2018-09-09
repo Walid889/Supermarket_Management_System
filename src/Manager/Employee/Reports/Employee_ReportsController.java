@@ -5,6 +5,7 @@
  */
 package Manager.Employee.Reports;
 
+import Manager.Main.HomeController;
 import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,7 +24,9 @@ import javafx.scene.layout.AnchorPane;
  * @author lolo
  */
 public class Employee_ReportsController implements Initializable {
-
+  
+    HomeController x = new HomeController();
+    
     @FXML
     private AnchorPane E_Reports;
     @FXML
@@ -63,6 +66,7 @@ public class Employee_ReportsController implements Initializable {
 
     @FXML
     private void Manager_Home(ActionEvent event) {
+        x.loadwindow(E_Reports, "/Manager/Main/Home.fxml");
     }
     
 }

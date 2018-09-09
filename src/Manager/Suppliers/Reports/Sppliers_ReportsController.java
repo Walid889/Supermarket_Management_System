@@ -5,7 +5,9 @@
  */
 package Manager.Suppliers.Reports;
 
+import Manager.Main.HomeController;
 import database.DatabaseHandler;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -24,6 +26,8 @@ import javafx.scene.layout.HBox;
  */
 public class Sppliers_ReportsController implements Initializable {
 
+    HomeController x = new HomeController();
+    
     @FXML
     private AnchorPane Suppliers_Reports;
     @FXML
@@ -62,5 +66,8 @@ public class Sppliers_ReportsController implements Initializable {
     @FXML
     private void Suppliers_Invoices(ActionEvent event) {
     }
+    
+    
+   
     
 }

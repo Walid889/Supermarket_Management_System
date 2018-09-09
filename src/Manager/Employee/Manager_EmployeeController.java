@@ -21,6 +21,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
@@ -59,22 +60,21 @@ public class Manager_EmployeeController implements Initializable {
     private TextArea E_Taddress;
     @FXML
     private TextField E_Tsalary;
-    @FXML
+     @FXML
     private TableColumn<Employee, String> t_address;
-    @FXML
+     @FXML
     private TableColumn<Employee, Double> t_salary;
-    @FXML
+     @FXML
     private TableColumn<Employee, String> t_phone;
-    @FXML
+     @FXML
     private TableColumn<Employee, String> t_code;
-    @FXML
+     @FXML
     private TableColumn<Employee, String> t_name;
     /**
      * Initializes the controller class.
      */
     
     DatabaseHandler databaseHandler; 
-    @FXML
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -102,17 +102,6 @@ public class Manager_EmployeeController implements Initializable {
         this.AddEmployee();
     }
 
-    @FXML
-    private void Edit_Employee(ActionEvent event) {
-    }
-
-    @FXML
-    private void Delete_Employee(ActionEvent event) {
-    }
-
-    @FXML
-    private void Employee_Choice(ActionEvent event) {
-    }
      private void AddEmployee(){
         Employee E =new Employee();
         E.setEmployeeName(E_Tname.getText());
@@ -132,5 +121,25 @@ public class Manager_EmployeeController implements Initializable {
             return;
     }
     }  
+
+    @FXML
+    private void Up_down(KeyEvent event) {
+    }
+
+    @FXML
+    private void Key_pressed(KeyEvent event) {
+    }
+
+    @FXML
+    private void Edit_Employee(ActionEvent event) {
+    }
+
+    @FXML
+    private void Delete_Employee(ActionEvent event) {
+    }
+
+    @FXML
+    private void Employee_Choice(ActionEvent event) {
+    }
 
 }

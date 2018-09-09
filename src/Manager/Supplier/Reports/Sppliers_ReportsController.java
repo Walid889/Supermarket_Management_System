@@ -5,6 +5,7 @@
  */
 package Manager.Supplier.Reports;
 
+import Manager.Main.HomeController;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -21,7 +22,9 @@ import javafx.scene.layout.AnchorPane;
  * @author Walid
  */
 public class Sppliers_ReportsController implements Initializable {
-
+ 
+    HomeController x = new HomeController();
+    
     @FXML
     private AnchorPane Suppliers_Reports;
     @FXML
@@ -45,9 +48,6 @@ public class Sppliers_ReportsController implements Initializable {
         // TODO
     }    
 
-    @FXML
-    private void Manager_Home(ActionEvent event) {
-    }
 
     @FXML
     private void Supplier_Returns(ActionEvent event) {
@@ -59,6 +59,11 @@ public class Sppliers_ReportsController implements Initializable {
 
     @FXML
     private void Suppliers_Invoices(ActionEvent event) {
+    }
+
+    @FXML
+    private void Manager_Home(ActionEvent event) {
+        x.loadwindow(Suppliers_Reports,"/Manager/Main/Home.fxml");
     }
     
 }
