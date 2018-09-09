@@ -14,7 +14,7 @@ import java.sql.Time;
 public class Suppliers{// Common_Methods is an Interface include Add , Update , Delete
     private long number;
     private Time time;
-
+    
     public Time getTime() {
         return time;
     }
@@ -29,6 +29,15 @@ public class Suppliers{// Common_Methods is an Interface include Add , Update , 
 
     public void setNumber(long number) {
         this.number = number;
+    }
+    public Suppliers()
+    {}
+    public Suppliers(String a,String b,String c,String d)
+    {
+        this.salespersonName=a;
+        this.supplierPhone=b;
+        this.supplierCategory=c;
+        this.salespersonName=d;
     }
     private String supplierName;
     private String supplierPhone;

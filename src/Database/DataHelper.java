@@ -106,7 +106,70 @@ public class DataHelper {
         }
         return false;
     }
+    ///////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////
+    ///////////////////////////Suppliers////////////////////
     
+    
+    public static boolean updateSupplier(Suppliers s )
+    {
+        try {
+            
+            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
+                    "UPDATE suppliers1 SET  sup_name=?,sup_company_name=?,sup_category=?,sup_phone=?,");
+            
+            statement.setString(1, s.getSupplierName());
+            statement.setString(1, s.getSupplierPhone());
+            statement.setString(1, s.getSupplierCategory());
+            statement.setString(1, s.getSalespersonName());
+            //statement.setString(13, go.getProductExpirationdate());
+            return statement.executeUpdate() > 0;
+        }
+        catch (SQLException ex) {
+        }
+        return false;
+    }
+    public static void loadSuppliersData(TableView TV,TextField TF) {
+        ObservableList<Suppliers> list = FXCollections.observableArrayList();
+        ObservableList<String> list2 = FXCollections.observableArrayList();
+        list.clear();
+        String qu = "SELECT * FROM suppliers1";
+        ResultSet rs =DatabaseHandler.getInstance().execQuery(qu);
+        try {
+            while (rs.next()) {
+                String name=rs.getString("supplierName");
+                String phone=rs.getString("supplierPhone");
+                String category=rs.getString("supplierCategory");
+                String sales_name=rs.getString("salespersonName");
+                list.add(new Suppliers(name,phone,category,sales_name));
+                list2.add(phone);
+            }
+        } catch (SQLException ex) {
+            Alerts.showInfoAlert("لا يوجد موردين");
+        }
+        TV.setItems(list);
+        TextFields.bindAutoCompletion(TF, list2);
+    }
+    public static ObservableList<Suppliers> o(ObservableList<Suppliers> list){
+        list.clear();
+        String qu = "SELECT * FROM suppliers1";
+        ResultSet rs =DatabaseHandler.getInstance().execQuery(qu);
+        try {
+            while (rs.next()) {
+                String name=rs.getString("supplierName");
+                String phone=rs.getString("supplierPhone");
+                String category=rs.getString("supplierCategory");
+                String sales_name=rs.getString("salespersonName");
+               list.add(new Suppliers(name,phone,category,sales_name));
+            }
+        } catch (SQLException ex) {
+            Alerts.showInfoAlert("لا يوجد موردين");
+        }
+        return list;
+    }
+    ///////////////////////////////////////
+    ////////////////////////////////////
+    ////////////////////////////////////
     public static void loadProductsData(TableView TV,TextField TF) {
         ObservableList<Goods> list = FXCollections.observableArrayList();
         ObservableList<String> list2 = FXCollections.observableArrayList();

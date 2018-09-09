@@ -207,7 +207,7 @@ public class Manager_ProductsController implements Initializable {
         boolean result=DataHelper.updateProductInfo(G,oldBar);
         if(result){
             Alerts.showInfoAlert("تم تعديل بيانات :"+G.getProductName());
-            clear();
+            clear();    
             DataHelper.loadProductsData(P_table,P_TSearch);
         }
         else

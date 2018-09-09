@@ -110,11 +110,9 @@ public class SalesController extends NewSerial implements Initializable {
 
     DatabaseHandler databaseHandler;
     @FXML
-<<<<<<< HEAD
     private JFXTextField T_Search;
     @FXML
-=======
->>>>>>> e64d94c2cab4f9cac148bd514e7feebc0c69a56b
+
     private Label productBarcode;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -480,7 +478,7 @@ public class SalesController extends NewSerial implements Initializable {
     }
 =======
     }*/
->>>>>>> e64d94c2cab4f9cac148bd514e7feebc0c69a56b
+
     /*********************************************************************************************/
     
 }
