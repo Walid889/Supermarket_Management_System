@@ -1,11 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Classes;
 
-import com.google.gson.Gson;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -15,23 +11,84 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.Alert;
 
-/**
- *
- * @author Walid
- */
-public class Login {
-     
-public static final String CONFIG_FILE = "config.txt";
-    
-    String code;
-    String password;
 
-    public Login() {
+public class Login {
+    
+    private String username;
+    private String password;
+    private String[][] accounts = {{"abotarek", "admin@55555"},{"emp", "12345678"}}; 
+
+    public Login() 
+    {
+         
         
+    }
+    public  void setuserName(String user){   // Set Usernamer to check
+        username=user;
+        
+    }
+    public  void setuserPassword(String pass){ // Set Password to check
+        password=pass;
         
     }
 
-    public String getcode() {
+    public int checkPassword()  // check if it admin or Empolyee or error login
+    {
+
+        if((username.equals(accounts[0][0])) && (password.equals(accounts[0][1]))) //admin
+            return 1;
+        
+        else if ((username.equals(accounts[1][0])) && (password.equals(accounts[1][1]))) //Employee
+            return 2;
+        else
+            return 3;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+/*    public String getcode() {
         return code;
     }
 
@@ -49,7 +106,7 @@ public static final String CONFIG_FILE = "config.txt";
         }else
             this.password = password;
     }
-public static Login getPreferences() {
+/*public static Login getPreferences() {
         Gson gson = new Gson();
         Login preferences = new Login();
         try {
@@ -105,4 +162,5 @@ public static Login getPreferences() {
             }
         }
     }
+*/
 }
