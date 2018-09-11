@@ -104,11 +104,8 @@
                   <DropShadow height="9.0" radius="1.75" spread="0.2" width="0.0" />
                </effect>
             </Label>
-<<<<<<< HEAD
-            <JFXTextField fx:id="T_Search" accessibleRole="PARENT" alignment="CENTER_RIGHT" focusColor="#35889a" labelFloat="true" layoutX="153.0" layoutY="19.0" prefHeight="25.0" prefWidth="262.0" promptText="ادخل إسم المنتج .." unFocusColor="WHITE">
-=======
-            <JFXTextField accessibleRole="PARENT" alignment="CENTER_RIGHT" focusColor="#35889a" labelFloat="true" layoutX="340.0" layoutY="15.0" prefHeight="36.0" prefWidth="375.0" promptText="ادخل إسم المنتج .." unFocusColor="WHITE">
->>>>>>> e64d94c2cab4f9cac148bd514e7feebc0c69a56b
+
+            <JFXTextField fx:id="T_Search" accessibleRole="PARENT" alignment="CENTER_RIGHT" focusColor="#35889a" labelFloat="true" layoutX="340.0" layoutY="15.0" onKeyPressed="#S_Field" prefHeight="36.0" prefWidth="375.0" promptText="ادخل إسم المنتج .." unFocusColor="WHITE">
                <padding>
                   <Insets left="5.0" right="5.0" />
                </padding>
@@ -116,11 +113,9 @@
                   <Font size="20.0" />
                </font>
             </JFXTextField>
-<<<<<<< HEAD
-            <JFXButton fx:id="search" accessibleRole="PARENT" layoutX="153.0" layoutY="59.0" onAction="#searchButton" prefHeight="25.0" prefWidth="89.0" text="بحث" textFill="WHITE">
-=======
-            <JFXButton fx:id="search" accessibleRole="PARENT" layoutX="344.0" layoutY="59.0" prefHeight="42.0" prefWidth="120.0" text="بحث" textFill="WHITE">
->>>>>>> e64d94c2cab4f9cac148bd514e7feebc0c69a56b
+
+            <JFXButton accessibleRole="PARENT" layoutX="344.0" layoutY="59.0" onAction="#searchButton" prefHeight="42.0" prefWidth="120.0" text="بحث" textFill="WHITE">
+
                <font>
                   <Font name="System Bold" size="20.0" />
                </font>
@@ -150,6 +145,7 @@
                               <TableColumn fx:id="c_price" prefWidth="75.0" text="السعر" />
                               <TableColumn fx:id="c_item" prefWidth="75.0" text="الصنف" />
                               <TableColumn fx:id="c_num" maxWidth="-1.0" minWidth="-1.0" prefWidth="-1.0" text="ر.ف" />
+                              <TableColumn fx:id="c_bar" prefWidth="75.0" text="باركود" />
                           </columns>
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -176,7 +172,7 @@
                                     <Insets left="10.0" />
                                  </HBox.margin>
                               </JFXButton>
-                              <JFXButton onAction="#DeleteRow" prefHeight="44.0" prefWidth="121.0" text="مسح عنصر">
+                              <JFXButton onAction="#DeleteRow" prefHeight="44.0" prefWidth="131.0" text="مسح عنصر">
                                  <font>
                                     <Font name="System Bold Italic" size="20.0" />
                                  </font>
@@ -199,12 +195,7 @@
                         <Insets left="50.0" right="20.0" />
                      </HBox.margin>
                      <children>
-<<<<<<< HEAD
-                        <Label fx:id="productBarcode" layoutX="63.0" layoutY="63.0" text="باركود" textFill="#4d505e">
-                           <font>
-                              <Font name="System Bold" size="25.0" />
-                           </font>
-=======
+
                         <Label fx:id="productBarcode" text="6465166546" textFill="#343642">
                            <font>
                               <Font name="System Bold" size="40.0" />
@@ -212,7 +203,7 @@
                            <VBox.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </VBox.margin>
->>>>>>> e64d94c2cab4f9cac148bd514e7feebc0c69a56b
+
                         </Label>
                         <Label fx:id="productName" text="زبادى جهينة" textFill="#343642">
                            <VBox.margin>

@@ -63,8 +63,6 @@ public class SalesController extends NewSerial implements Initializable {
     @FXML
     private JFXButton loadMain;
     @FXML
-    private JFXButton search;
-    @FXML
     private TextField billNumber;
     @FXML
     private Label productName;
@@ -110,12 +108,12 @@ public class SalesController extends NewSerial implements Initializable {
 
     DatabaseHandler databaseHandler;
     @FXML
-<<<<<<< HEAD
     private JFXTextField T_Search;
     @FXML
-=======
->>>>>>> e64d94c2cab4f9cac148bd514e7feebc0c69a56b
     private Label productBarcode;
+    @FXML
+    private TableColumn<Sales, String> c_bar;
+    ObservableList<String> listB=FXCollections.observableArrayList();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         databaseHandler = DatabaseHandler.getInstance();
@@ -123,17 +121,12 @@ public class SalesController extends NewSerial implements Initializable {
         quntityComboBox.setItems(list);
         quntityComboBox.setValue("قطعة");
         date.setText(gettDate());
-        setSalesSerial(DataHelper.getLastSerialToday(gettDate()));
-        
+        setSalesSerial(DataHelper.getLastSerialTodaySales(gettDate()));
         billNumber.setText(getSalesSerial()+"");
         initTableViewCols();
         ser(); // Set Dinamic Serial Number and Date
-        DataHelper.checkDataBar(T_Search); // get barcode of all products
+        DataHelper.checkDataBar(T_Search,listB); // get barcode of all products
     }    
-    
-    
-    
-    
     
     private  void initTableViewCols(){
         c_item.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -142,6 +135,7 @@ public class SalesController extends NewSerial implements Initializable {
         c_quantityKind.setCellValueFactory(new PropertyValueFactory<>("quantityKind"));
         c_cost.setCellValueFactory(new PropertyValueFactory<>("cost"));
         c_num.setCellValueFactory(new PropertyValueFactory<>("number"));
+        c_bar.setCellValueFactory(new PropertyValueFactory<>("barcodfiled"));
     }
     private void ser(){ // set dinamic serial to bills .. every 24 hours it set serial to 1 
         Serial_S z;
@@ -149,6 +143,28 @@ public class SalesController extends NewSerial implements Initializable {
         int s=t.getHoursUntilTarget();
         z=new Serial_S(s);
     }
+    /******************* Search with button or pressing enter ******************/
+    Price pra;
+    @FXML
+    private void S_Field(KeyEvent event) {
+        searrch();
+        productPrice.setText(pra.getItemPrice()+"");
+    }
+
+    @FXML
+    private void searchButton(ActionEvent event) {
+        clear();
+        searrch();
+        productPrice.setText(pra.getItemPrice()+"");
+        
+    }
+    
+    private void searrch(){
+        pra=new Price();
+        DataHelper.fillSalesWithInfoOfProduct(T_Search.getText(),productBarcode,productName,pra);
+        System.out.println(pra.getItemPrice());  
+    }
+    /***************************************************************************/
     /***************************************************************************************************************/
     /***************************************************************************************************************/
     /***************************************************************************************************************/
@@ -338,41 +354,40 @@ public class SalesController extends NewSerial implements Initializable {
             S.setSerial(Integer.parseInt(billNumber.getText()));
             Date JDBC_Date = Date.valueOf(this.date.getText());
             S.setDate(JDBC_Date);
+            S.setBarcodfiled(productBarcode.getText());
             S.setName(productName.getText());
-            S.setUintPrice(Double.parseDouble(productPrice.getText()));
-            
+            S.setQuantityKind(quntityComboBox.getValue());
             if(quntityComboBox.getValue().equals("قطعة")){
-                //S.setItemsQuantity(S.getCurrentQuantity());
-                S.setQuantityKind("قطعة");
+            S.setUintPrice(pra.getItemPrice());
+            S.setCost(S.CalcCostOfSoldItem(pra.getItemPrice(),Double.parseDouble(Quntity.getText())));
             }
             else if(quntityComboBox.getValue().equals("علبة")){
-                //S.setPacketsQuantity(S.getCurrentQuantity());
-                S.setQuantityKind("علبة");
+            S.setUintPrice(pra.getPacketPrice());
+            S.setCost(S.CalcCostOfSoldItem(pra.getPacketPrice(),Double.parseDouble(Quntity.getText())));
             }
             else if(quntityComboBox.getValue().equals("كرتونة")){
-                //S.setBoxesQuantity(S.getCurrentQuantity());
-                S.setQuantityKind("كرتونة");
+            S.setUintPrice(pra.getBoxPrice());
+            S.setCost(S.CalcCostOfSoldItem(pra.getBoxPrice(),Double.parseDouble(Quntity.getText())));
             }
-            S.setCost(S.CalcCostOfSoldItem(Double.parseDouble(productPrice.getText()),Double.parseDouble(Quntity.getText())));
-            
             long k=DataHelper.getLastOrderNumber();
             S.setNumber(k);
             boolean result = DataHelper.insertNewSale(S);
-            SalesTabel.getItems().add(S);
+            
 
             TOTAL+=S.getCost();
             totalPrice.setText(TOTAL+"");
             System.out.println(k);
             int qty=Integer.parseInt(Quntity.getText());
-            if(result){
-                boolean s= DataHelper.InterAction_B_Sales__Products_addQuan(productBarcode,qty );
-                if(s){
+            boolean s= DataHelper.InterAction_B_Sales__Products_addQuan(productBarcode,qty,quntityComboBox.getValue());
+            if(s){
+                if(result){
+                    SalesTabel.getItems().add(S);
                     Alerts.showInfoAlert("تمت الاضافة !!");
                 }
-            }
-            else
+                else
                 Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
-        
+            }
+            
             }catch(NumberFormatException es){
                 Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
             }
@@ -410,13 +425,20 @@ public class SalesController extends NewSerial implements Initializable {
                     }catch(Exception ex){}
                     
                     if(S.getQuantityKind().equals("قطعة"))
-                        
+                    {
+                        boolean rs=DataHelper.InterAction_B_Sales__Products_DeleteQuan(S.getBarcodfiled(), S.getCurrentQuantity(),S.getQuantityKind());
+                        if(rs)
+                            Alerts.showInfoAlert("تم المسح !!");
+                        else
+                            Alerts.showErrorAlert("لم يتم المسح ");
+                                   
+                    }
                     
                     SalesTabel.getItems().removeAll(SalesTabel.getSelectionModel().getSelectedItem()); // delete item from ui table
                     TOTAL-=c;
                     totalPrice.setText(TOTAL+"");
                     AllCheckbox.setSelected(false); 
-                    Alerts.showInfoAlert("تم المسح !!");
+                    
                 } else {
                     Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
                 }
@@ -430,6 +452,9 @@ public class SalesController extends NewSerial implements Initializable {
         else{
             if(AllCheckbox.isSelected()){
                 if(Alerts.ConfirmAlert("هل تريد مسح جميع عناصر الجدول ؟","")){
+                    SalesTabel.getItems().forEach((t) -> {
+                           boolean de=DataHelper.InterAction_B_Sales__Products_DeleteQuan(t.getBarcodfiled(), t.getCurrentQuantity(),t.getQuantityKind());
+                    });
                     boolean result=DataHelper.deleteAllRowsInSalesTV(getSalesSerial());
                     if(result){
                         SalesTabel.getItems().clear();
@@ -454,6 +479,7 @@ public class SalesController extends NewSerial implements Initializable {
         rest.clear();
         SalesTabel.getItems().clear();
     }
+    
     /**********************_____________END OF IMPELMTNTAION______________************************/
     
     
@@ -463,6 +489,8 @@ public class SalesController extends NewSerial implements Initializable {
         //loadWindow("/employees/main/employees.fxml");
         x.loadwindow(loadPane, "/employees/main/employees.fxml");
     }
+
+    
     
    /* void loadWindow(String loc){
         try{
@@ -480,7 +508,6 @@ public class SalesController extends NewSerial implements Initializable {
     }
 =======
     }*/
->>>>>>> e64d94c2cab4f9cac148bd514e7feebc0c69a56b
     /*********************************************************************************************/
     
 }

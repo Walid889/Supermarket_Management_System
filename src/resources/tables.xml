@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tables>
     <table-entry name="employee1" col-data="
-            number BIGINT not null primary key,
             emp_id varchar(200),
             emp_name varchar(200)
             ,emp_phone varchar(200)
@@ -9,7 +8,6 @@
             ,emp_salary_hours double
             "/>
     <table-entry name="employee2" col-data="
-            number BIGINT not null primary key,
             emp_start_time timestamp not null default current_timestamp
             ,emp_finish_time timestamp not null default current_timestamp
             ,emp_salary double
@@ -26,7 +24,6 @@
                     "/>
     
     <table-entry name="product" col-data="
-                        number BIGINT not null primary key,
                         pro_bar varchar(200) primary key ,
                         pro_name varchar(200),
                         pro_category varchar(200),
@@ -40,25 +37,21 @@
                         pro_minimum int
         "/>
     <table-entry name="suppliers1" col-data="
-                        number BIGINT not null primary key,
+                        number int primary key,
                         sup_name varchar(200),
                         sup_company_name varchar(200),
                         sup_category varchar(200),
                         sup_phone int
                         "/>
     <table-entry name="suppliers2" col-data="
-                        number BIGINT not null primary key,
+                        number int primary key,
                         sup_paid double,
                         sup_total_price double,
                         sup_reminder_price double
                         
     "/>
     <table-entry name="sales" col-data="
-                        number BIGINT not null primary key,
-<<<<<<< HEAD
                         number BIGINT not null primary key, 
-=======
->>>>>>> 79f285b21ed689e0f3f2f835192f316be0600b5c
                         sale_id int not null,
                         sale_date date,
                         product_name varchar(200),
@@ -67,11 +60,8 @@
                         current_qty int,
                         cost double,
                         t_time TIME
-<<<<<<< HEAD
     "/>
-=======
-" />
->>>>>>> 79f285b21ed689e0f3f2f835192f316be0600b5c
+
     <table-entry name="bills" col-data="
                         sale_id int,
                         sale_date date,
@@ -84,6 +74,26 @@
                         price double,
                         reason varchar(200),
                         total double
+    "/>
+    
+    <table-entry name="buy_bills" col-data="
+                        bill_id int,
+                        bill_date date,
+                        t_time TIME,
+                        supplier_name varchar(100),
+                        total_price double
+    "/>
+    
+    <table-entry name="buying" col-data="
+                        number BIGINT not null primary key, 
+                        buy_id int not null,
+                        buy_date date,
+                        product_name varchar(200),
+                        qty_kind varchar(200),
+                        unit_price double,
+                        current_qty int,
+                        cost double,
+                        t_time TIME
     "/>
     
 </tables>

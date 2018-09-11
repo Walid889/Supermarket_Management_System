@@ -16,7 +16,15 @@ import javafx.scene.control.TableView;
 public class Sales extends Common_Properties{// Common_Methods is an Interface include Add , Update , Delete
     private long number;
     private Time time;
+    private String barcodfiled;
 
+    public String getBarcodfiled() {
+        return barcodfiled;
+    }
+
+    public void setBarcodfiled(String barcodfiled) {
+        this.barcodfiled = barcodfiled;
+    }
     public Time getTime() {
         return time;
     }

@@ -85,7 +85,7 @@ public class DataHelper {
             
             PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
                     "UPDATE product SET  pro_bar=?,pro_name=?,pro_category=?,pro_supplier_name=?,"
-                            + "pro_qty_item=?,pro_qty_packet=?,pro_qty_box=?,pro_All_qty=?,pro_price_item=?,"
+                            + "pro_qty_item=?,pro_qty_packet=?,pro_All_qty=?,pro_price_item=?,"
                             + "pro_price_packet=?,pro_price_box=?,pro_minimum=?  WHERE pro_bar= '"+bar+"' ");
             
             statement.setString(1, go.getProductBarCode());
@@ -104,6 +104,12 @@ public class DataHelper {
         }
         catch (SQLException ex) {
         }
+        return false;
+    }
+    public static boolean QuickEditQuantity(int quan,String bar) {
+        String qu="UPDATE product SET  pro_All_qty="+quan+" WHERE pro_bar = '"+bar+"' ";
+        if(DatabaseHandler.getInstance().execAction(qu))
+            return true;
         return false;
     }
     
@@ -278,10 +284,11 @@ public class DataHelper {
         }
         return false;
     }
+    
     /////////////////////////////////////////////////////
     ////////////////////////////////////////////////////
     ////////////////////////////////////////////////////
-    public static int getLastSerialToday(String D_date){
+    public static int getLastSerialTodaySales(String D_date){
         String qu="SELECT sale_id FROM sales where sale_date = '"+D_date+"'"+" ORDER BY sale_id DESC FETCH FIRST ROW ONLY ";
         ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
         int srl=0;
@@ -323,8 +330,8 @@ public class DataHelper {
         return num;
     }
                             /**************************************/
-    public static void checkDataBar(TextField TX){
-        ObservableList<String> listBar= FXCollections.observableArrayList();
+    public static void checkDataBar(TextField TX,ObservableList<String> listBar){
+        listBar= FXCollections.observableArrayList();
         String qu="SELECT pro_bar FROM product"; 
         ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
         try {
@@ -339,32 +346,51 @@ public class DataHelper {
         TextFields.bindAutoCompletion(TX, listBar);
     }
     
-    public static void fillSalesWithInfoOfProduct(String bar,Label PBar,Label PName,Label Pprice){ // 
-        String qu="SELECT pro_bar,pro_name,pro_price_item FROM product WHERE pro_bar='"+bar+"'"; 
+    public static void fillSalesWithInfoOfProduct(String bar,Label PBar,Label PName,Price pra){ // 
+        String qu="SELECT pro_bar,pro_name,pro_price_item,pro_price_packet,pro_price_box FROM product WHERE pro_bar='"+bar+"'"; 
         ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
         try {
             if(rs.next()){
                 PBar.setText(rs.getString("pro_bar"));
                 PName.setText(rs.getString("pro_name"));
-                Pprice.setText(rs.getString("pro_price_item"));
+                pra.setItemPrice(rs.getDouble("pro_price_item"));
+                pra.setPacketPrice(rs.getDouble("pro_price_packet"));
+                pra.setBoxPrice(rs.getDouble("pro_price_box"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(SalesController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public static boolean InterAction_B_Sales__Products_addQuan(Label PBar,int XQuantity){
+    public static boolean InterAction_B_Sales__Products_addQuan(Label PBar,int XQuantity,String kquan){
         String bar=PBar.getText();
-        String qu="SELECT pro_All_qty FROM product WHERE pro_bar='"+bar+"'";
+        String qu="SELECT pro_All_qty,pro_qty_item,pro_qty_packet FROM product WHERE pro_bar='"+bar+"'";
         ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
-        int allQuan = 0;
+        int allQuan = 0,iteminbox=0,packetinbox=0,subQuan=0;
         try {
             if(rs.next()){
                 allQuan=rs.getInt("pro_All_qty");
+                iteminbox=rs.getInt("pro_qty_item");
+                packetinbox=rs.getInt("pro_qty_packet");
             }
         } catch (SQLException ex) {
             Logger.getLogger(SalesController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        int subQuan=allQuan-XQuantity;
+        if(kquan.equals("قطعة")){
+            if((allQuan-XQuantity)>0)
+                subQuan=allQuan-XQuantity;
+            else {Alerts.showErrorAlert("لا توجد كمية كافية"); return false;}
+        }
+        else if(kquan.equals("علبة")){
+            if((allQuan- (XQuantity*iteminbox))>0)
+                subQuan=allQuan- (XQuantity*iteminbox);
+            else{ Alerts.showErrorAlert("لا توجد كمية كافية"); return false;}
+        }
+        else{
+            if((allQuan- (XQuantity*iteminbox*packetinbox) ) > 0)
+                subQuan=allQuan- (XQuantity*iteminbox*packetinbox);
+            else
+            {Alerts.showErrorAlert("لا توجد كمية كافية"); return false;}
+        }
         String qu2="UPDATE product SET pro_All_qty= "+subQuan+" WHERE pro_bar = '"+bar+"'";
         if(DatabaseHandler.getInstance().execAction(qu2))
             return true;
@@ -372,19 +398,29 @@ public class DataHelper {
         return false;
     }
     
-    public static boolean InterAction_B_Sales__Products_DeleteQuan(String Kquan,int XQuantity){
-        String bar = null;//=PBar.getText();
-        String qu="SELECT pro_All_qty FROM product WHERE pro_bar='"+bar+"'";
+    public static boolean InterAction_B_Sales__Products_DeleteQuan(String bar,int XQuantity,String kquan){
+        String qu="SELECT pro_All_qty,pro_qty_item,pro_qty_packet FROM product WHERE pro_bar='"+bar+"'";
         ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
-        int allQuan = 0;
+        int allQuan = 0,iteminbox=0,packetinbox=0,AddQuan=0;
         try {
             if(rs.next()){
                 allQuan=rs.getInt("pro_All_qty");
+                iteminbox=rs.getInt("pro_qty_item");
+                packetinbox=rs.getInt("pro_qty_packet");
             }
         } catch (SQLException ex) {
             Logger.getLogger(SalesController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        int AddQuan=allQuan+XQuantity;
+        if(kquan.equals("قطعة")){
+            AddQuan=allQuan+XQuantity;
+        }
+        else if(kquan.equals("علبة")){
+            AddQuan=allQuan+ (XQuantity*iteminbox);
+        }
+        else{
+            AddQuan=allQuan+ (XQuantity*iteminbox*packetinbox);
+        }
+        
         String qu2="UPDATE product SET pro_All_qty= "+AddQuan+" WHERE pro_bar = '"+bar+"'";
         if(DatabaseHandler.getInstance().execAction(qu2))
             return true;
@@ -429,8 +465,89 @@ public class DataHelper {
     /****************************************************************************************************************/
     
     
+    /****************************************************************************************************************/
+    /**********************************************BUYING CONTROLLER*************************************************/
+    /****************************************************************************************************************/
+    /****************************************************************************************************************/
     
     
+    public static boolean insertBuyGoods(Buying buy){
+        try {
+            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
+                    "INSERT INTO buying (number,buy_id,buy_date,product_name,qty_kind,unit_price,current_qty,cost,t_time) VALUES(?,?,?,?,?,?,?,?,?)");
+            statement.setLong(1, buy.getNumber());
+            statement.setInt(2,buy.getSerial());
+            statement.setDate(3,buy.getDate() );
+            statement.setString(4,buy.getName());
+            statement.setString(5,buy.getQuantityKind());
+            statement.setDouble(6,buy.getUintPrice());
+            statement.setInt(7,buy.getCurrentQuantity());
+            statement.setDouble(8,buy.getCost());
+            statement.setTime(9, buy.getTime());
+            return statement.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            
+        }
+        return false;
+    }
+    public static boolean insertBuyGoodsNewBill(Buying buy){
+        try {
+            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
+                    "INSERT INTO buy_bills (bill_id,bill_date,t_time,supplier_name,total_price) VALUES(?,?,?,?,?)");
+            statement.setInt(1, buy.getSerial());
+            statement.setDate(2,buy.getDate());
+            statement.setTime(3,buy.getTime());
+            statement.setString(4,buy.getSupplier());
+            statement.setDouble(5, buy.getTotalPrice());
+            
+            return statement.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            
+        }
+        return false;
+    }
+    
+    
+    
+    public static int getLastSerialTodayBuying(String D_date){
+        String qu="SELECT buy_id FROM buying where buy_date = '"+D_date+"'"+" ORDER BY buy_id DESC FETCH FIRST ROW ONLY ";
+        ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
+        int srl=0;
+        try {
+            if(rs.next()){
+                srl=rs.getInt("buy_id")+1;
+                System.out.println("llllllllllll");}
+            else
+           {
+                srl=1;
+                System.out.println("لسااااا");
+           }
+        } catch (SQLException ex) {
+            Alerts.showErrorAlert("لايوجد بيانات");
+        }
+        return srl;
+    }    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /****************************************************************************************************************/
+    /****************************************************************************************************************/
     public static boolean insertNewExpences(Expences E)
     {
         try{
@@ -445,6 +562,28 @@ public class DataHelper {
         }
         return false;
     }
+    
+    public static long getLastOrderNumberBuying(){
+        String qu="SELECT number FROM buying ORDER BY number DESC FETCH FIRST ROW ONLY"; 
+        ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
+        long num = 0;
+        try {
+            if(rs.next()){
+                num=rs.getLong("number")+1;
+                System.out.println("llllllllllll");}
+            else
+           {
+                num=1;
+                System.out.println("لسااااا");
+//              Alerts.showInfoAlert("اول فواتير اليوم ..");
+           }
+        } catch (SQLException ex) {
+            Alerts.showErrorAlert("لايوجد بيانات");
+        }
+        return num;
+    }
+    
+    
     public static boolean insertNewSupplier(Suppliers s)
     {
         try{

@@ -19,12 +19,14 @@ public class Alerts extends Throwable{
         alert.setTitle("رسالة تأكيد");
         alert.setContentText(content);
         alert.showAndWait();
+        return;
     }
     public static void showErrorAlert(String content){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("خطأ");
         alert.setContentText(content);
         alert.showAndWait();
+        return;
     }
     public static boolean ConfirmAlert(String content,String Choise){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

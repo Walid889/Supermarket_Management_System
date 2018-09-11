@@ -18,7 +18,7 @@ public class Serial_B extends NewSerial{
     Timer timer;
     public Serial_B(int Hours) {
         timer = new Timer();
-        timer.schedule(new RemindTask2(), Hours*1000);
+        timer.schedule(new RemindTask2(), Hours*60*60*1000);
 	}
     
     class RemindTask2 extends TimerTask {

@@ -20,7 +20,7 @@ public class Serial_S extends NewSerial{
     
     public Serial_S(int Hours) {
         timer = new Timer();
-        timer.schedule(new RemindTask(), Hours*1000);
+        timer.schedule(new RemindTask(), Hours*60*60*1000);
 	}
     
     class RemindTask extends TimerTask {
@@ -33,11 +33,11 @@ public class Serial_S extends NewSerial{
     
     private void rep_sales(){
         try {
-            Thread.sleep(10*1000);
+            Thread.sleep(24*60*60*1000);
             setSalesSerial(1);
-            Thread.sleep(10*1000);
+            Thread.sleep(24*60*60*1000);
             setSalesSerial(1);
-            Thread.sleep(10*1000);
+            Thread.sleep(24*60*60*1000);
             setSalesSerial(1);
         } catch (InterruptedException ex) {
             Logger.getLogger(Serial_S.class.getName()).log(Level.SEVERE, null, ex);
