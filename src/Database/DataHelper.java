@@ -3,7 +3,9 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import Classes.*;
 import employees.sales.SalesController;
+import java.sql.Date;
 import java.sql.ResultSet;
+import java.sql.Time;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -75,14 +77,13 @@ public class DataHelper {
         }
         return false;
     }
-<<<<<<< HEAD
     public static boolean QuickEditQuantity(int quan,String bar) {
         String qu="UPDATE product SET  pro_All_qty="+quan+" WHERE pro_bar = '"+bar+"' ";
         if(DatabaseHandler.getInstance().execAction(qu))
             return true;
         return false;
     }
-=======
+
     /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
@@ -137,8 +138,20 @@ public class DataHelper {
         }
         return false;
     }
+    public static boolean deleteProduct(Goods go) {
+        try {
+            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement( 
+                    "DELETE FROM product WHERE pro_bar = ?");
+            
+            statement.setString(1, go.getProductBarCode());
+            return statement.executeUpdate() > 0;
+        }
+        catch (SQLException ex) {//    
+        }
+        return false;
+    }
     
->>>>>>> c4bf01618b6337bae8361d5fe17a8918fe880359
+    
     
     ///////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
@@ -187,7 +200,6 @@ public class DataHelper {
     public static boolean updateSupplier(Suppliers s )
     {
         try {
-            
             PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
                     "UPDATE suppliers1 SET  sup_name=?,sup_company_name=?,sup_category=?,sup_phone=?,");
             
@@ -299,19 +311,6 @@ public class DataHelper {
         }
         return list;
     }
-    public static boolean deleteProduct(Goods go) {
-        try {
-            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement( 
-                    "DELETE FROM product WHERE pro_bar = ?");
-            
-            statement.setString(1, go.getProductBarCode());
-            return statement.executeUpdate() > 0;
-        }
-        catch (SQLException ex) {//    
-        }
-        return false;
-    }
-    
     
     
     /****************************************************************************************************************/
@@ -450,13 +449,14 @@ public class DataHelper {
         TextFields.bindAutoCompletion(TX, listBar);
     }
     
-    public static void fillSalesWithInfoOfProduct(String bar,Label PBar,Label PName,Price pra){ // 
+    public static void fillSalesWithInfoOfProduct(String bar,Label PBar,Label PName,Label PPrice,Price pra){ // 
         String qu="SELECT pro_bar,pro_name,pro_price_item,pro_price_packet,pro_price_box FROM product WHERE pro_bar='"+bar+"'"; 
         ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
         try {
             if(rs.next()){
                 PBar.setText(rs.getString("pro_bar"));
                 PName.setText(rs.getString("pro_name"));
+                PPrice.setText(rs.getDouble("pro_price_item")+"");
                 pra.setItemPrice(rs.getDouble("pro_price_item"));
                 pra.setPacketPrice(rs.getDouble("pro_price_packet"));
                 pra.setBoxPrice(rs.getDouble("pro_price_box"));
@@ -578,7 +578,7 @@ public class DataHelper {
     public static boolean insertBuyGoods(Buying buy){
         try {
             PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
-                    "INSERT INTO buying (number,buy_id,buy_date,product_name,qty_kind,unit_price,current_qty,cost,t_time) VALUES(?,?,?,?,?,?,?,?,?)");
+                    "INSERT INTO buying (number,buy_id,buy_date,product_name,qty_kind,unit_price,current_qty,cost,t_time,b_bar) VALUES(?,?,?,?,?,?,?,?,?,?)");
             statement.setLong(1, buy.getNumber());
             statement.setInt(2,buy.getSerial());
             statement.setDate(3,buy.getDate() );
@@ -588,12 +588,14 @@ public class DataHelper {
             statement.setInt(7,buy.getCurrentQuantity());
             statement.setDouble(8,buy.getCost());
             statement.setTime(9, buy.getTime());
+            statement.setString(10,buy.getBarcodfiled());
             return statement.executeUpdate() > 0;
         } catch (SQLException ex) {
             
         }
         return false;
     }
+    
     public static boolean insertBuyGoodsNewBill(Buying buy){
         try {
             PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
@@ -632,13 +634,88 @@ public class DataHelper {
         return srl;
     }    
     
+    public static long getLastOrderNumberBuying(){
+        String qu="SELECT number FROM buying ORDER BY number DESC FETCH FIRST ROW ONLY"; 
+        ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
+        long num = 0;
+        try {
+            if(rs.next()){
+                num=rs.getLong("number")+1;
+                System.out.println("llllllllllll");}
+            else
+           {
+                num=1;
+                System.out.println("لسااااا");
+//              Alerts.showInfoAlert("اول فواتير اليوم ..");
+           }
+        } catch (SQLException ex) {
+            Alerts.showErrorAlert("لايوجد بيانات");
+        }
+        return num;
+    }
+    
+    /****************************************************************************************************************/
+    /****************************************************************************************************************/
+
+
+
+
+
+
+
+    /****************************************************************************************************************/
+    /****************************************************************************************************************/
+    /****************************************************************************************************************/
+    /****************************************************************************************************************/
+    /****************************************************************************************************************/
+    /****************************************************************************************************************/
+    /*********************************DAMAGES CONTROLLER*************************************************************/
+    /****************************************************************************************************************/    
+    
+    public static boolean insertDamages(Damages dam){
+        try {
+            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
+                    "INSERT INTO damages (dam_date,t_time,d_bar,product_name,unit_price,qty_kind,current_qty,cost) VALUES(?,?,?,?,?,?,?,?)");
+            statement.setDate(1,dam.getDate());
+            statement.setTime(2,dam.getTime());
+            statement.setString(3, dam.getBarcodfiled());
+            statement.setString(4,dam.getName());
+            statement.setDouble(5, dam.getUintPrice());
+            statement.setString(6,dam.getQuantityKind());
+            statement.setDouble(7, dam.getCurrentQuantity());
+            statement.setDouble(8, dam.getCost());
+            
+            return statement.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            
+        }
+        return false;
+    }
     
     
-    
-    
-    
-    
-    
+    public static void loadDamageData(TableView TV,String dat) {
+        ObservableList<Damages> list = FXCollections.observableArrayList();
+        list.clear();
+        Damages D=new Damages();
+        String qu = "SELECT * FROM damages WHERE dam_date = '"+dat+"'";
+        ResultSet rs =DatabaseHandler.getInstance().execQuery(qu);
+        try {
+            while (rs.next()) {
+                String x1 =rs.getString("d_bar");
+                String x2 =rs.getString("product_name");
+                double x3=rs.getDouble("unit_price");
+                int x4=rs.getInt("current_qty");
+                String x5 =rs.getString("qty_kind");
+                double x6 =rs.getDouble("cost");
+                Date x7=rs.getDate("dam_date");
+                Time x8=rs.getTime("t_time");
+                list.add(new Damages(x1,x2,x3,x4,x5,x6,x7,x8));
+            }
+        } catch (SQLException ex) {
+            Alerts.showInfoAlert("لا يوجد اصناف");
+        }
+        TV.setItems(list);
+    }
     
     
     
@@ -667,43 +744,7 @@ public class DataHelper {
         return false;
     }
     
-<<<<<<< HEAD
-    public static long getLastOrderNumberBuying(){
-        String qu="SELECT number FROM buying ORDER BY number DESC FETCH FIRST ROW ONLY"; 
-        ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
-        long num = 0;
-        try {
-            if(rs.next()){
-                num=rs.getLong("number")+1;
-                System.out.println("llllllllllll");}
-            else
-           {
-                num=1;
-                System.out.println("لسااااا");
-//              Alerts.showInfoAlert("اول فواتير اليوم ..");
-           }
-        } catch (SQLException ex) {
-            Alerts.showErrorAlert("لايوجد بيانات");
-        }
-        return num;
-    }
     
     
-    public static boolean insertNewSupplier(Suppliers s)
-    {
-        try{
-        PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
-                    "INSERT INTO suppliers1 (sup_name,sup_company_name,sup_category,sup_phone) VALUES(?,?,?,?)");
-        statement.setString(1, s.getSupplierName());
-        statement.setString(2, s.getSupplierCategory());
-        statement.setString(3, s.getSupplierPhone());
-        statement.setString(4, s.getSalespersonName());
-        return statement.executeUpdate() > 0;
-        } catch (SQLException ex)
-        {
-        }
-        return false;
-    }
-=======
->>>>>>> c4bf01618b6337bae8361d5fe17a8918fe880359
+    
 }

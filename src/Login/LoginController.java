@@ -4,16 +4,15 @@
  * and open the template in the editor.
  */
 package Login;
-<<<<<<< HEAD
 
 import Classes.Alerts;
 
 import Classes.Login;
-=======
+
 import Classes.Login;
 import Classes.Alerts;
 import Manager.Main.HomeController;
->>>>>>> c4bf01618b6337bae8361d5fe17a8918fe880359
+
 import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -24,10 +23,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javax.swing.JOptionPane;
-<<<<<<< HEAD
 import org.apache.commons.codec.digest.DigestUtils;
-=======
->>>>>>> c4bf01618b6337bae8361d5fe17a8918fe880359
+
 
 /**
  * FXML Controller class
@@ -59,14 +56,14 @@ HomeController y = new HomeController();
 
     @FXML
     private void login(ActionEvent event) {
-<<<<<<< HEAD
+
         Login a = new Login();
  
-            a.setcode(TEnterCode.getText());
+            a.setUsername(TEnterCode.getText());
             a.setPassword(TPassword.getText());
           
  
-            if(a.getcode().equals("admin") && a.getPassword().equals("admin")){
+            if(a.getUsername().equals("admin") && a.getPassword().equals("admin")){
                 JOptionPane.showMessageDialog(null, "Login with Admin");
                 
                 }
@@ -77,7 +74,7 @@ HomeController y = new HomeController();
                 }
         //JOptionPane.showMessageDialog(null , "Login With Admin");
         //Alerts.ConfirmAlert("login with admin", "");    
-=======
+
         //JOptionPane.showMessageDialog(null , "HI");
         //Alerts.ConfirmAlert("login with admin", "");    
        System.out.println("HI");
@@ -104,7 +101,6 @@ HomeController y = new HomeController();
                     clear();
                     break;
     
->>>>>>> c4bf01618b6337bae8361d5fe17a8918fe880359
     }
     
 }

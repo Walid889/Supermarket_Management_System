@@ -32,6 +32,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -82,7 +83,7 @@ public class BuyingController  extends NewSerial implements Initializable {
     private TableColumn<Buying, String> t_bar;
     @FXML
     private JFXTextField B_searchField;
-    Price pra;
+    Price pri;
     private static double TOTAL=0;
     /**
      * Initializes the controller class.
@@ -170,8 +171,6 @@ public class BuyingController  extends NewSerial implements Initializable {
     {
         if(!totalPrice.getText().equals(""))
         {
-            
-            
             billNumber.setText(getSalesSerial()+"");
             Buying B=new Buying();
             B.setSerial(Integer.parseInt(billNumber.getText()));
@@ -216,16 +215,16 @@ public class BuyingController  extends NewSerial implements Initializable {
             B.setName(productName.getText());
             B.setQuantityKind(quntityComboBox.getValue());
             if(quntityComboBox.getValue().equals("قطعة")){
-            B.setUintPrice(pra.getItemPrice());
-            B.setCost(B.CalcCostOfSoldItem(pra.getItemPrice(),Double.parseDouble(Quntity.getText())));
+            B.setUintPrice(pri.getItemPrice());
+            B.setCost(B.CalcCostOfSoldItem(pri.getItemPrice(),Double.parseDouble(Quntity.getText())));
             }
             else if(quntityComboBox.getValue().equals("علبة")){
-            B.setUintPrice(pra.getPacketPrice());
-            B.setCost(B.CalcCostOfSoldItem(pra.getPacketPrice(),Double.parseDouble(Quntity.getText())));
+            B.setUintPrice(pri.getPacketPrice());
+            B.setCost(B.CalcCostOfSoldItem(pri.getPacketPrice(),Double.parseDouble(Quntity.getText())));
             }
             else if(quntityComboBox.getValue().equals("كرتونة")){
-            B.setUintPrice(pra.getBoxPrice());
-            B.setCost(B.CalcCostOfSoldItem(pra.getBoxPrice(),Double.parseDouble(Quntity.getText())));
+            B.setUintPrice(pri.getBoxPrice());
+            B.setCost(B.CalcCostOfSoldItem(pri.getBoxPrice(),Double.parseDouble(Quntity.getText())));
             }
             long k=DataHelper.getLastOrderNumberBuying();
             B.setNumber(k);
@@ -262,12 +261,17 @@ public class BuyingController  extends NewSerial implements Initializable {
     @FXML
     private void B_SearchButton(ActionEvent event) {
         searrch();
-        productPrise.setText(pra.getItemPrice()+"");
+        productPrise.setText(pri.getItemPrice()+"");
     }
     private void searrch(){
-        pra=new Price();
-        DataHelper.fillSalesWithInfoOfProduct(B_searchField.getText(),productBarcode,productName,pra);
-        System.out.println(pra.getItemPrice());  
+        pri=new Price();
+        DataHelper.fillSalesWithInfoOfProduct(B_searchField.getText(),productBarcode,productName,productPrise,pri);
+        System.out.println(pri.getItemPrice());  
+    }
+
+    @FXML
+    private void B_SearchField(KeyEvent event) {
+        searrch();  
     }
     private void clear(){
         B_searchField.clear();
@@ -277,5 +281,6 @@ public class BuyingController  extends NewSerial implements Initializable {
         productPrise.setText("");
         supplier.setValue("");
         Quntity.clear();
+        totalPrice.clear();
     }
 }

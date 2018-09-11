@@ -69,7 +69,7 @@
                   <DropShadow height="9.0" radius="1.75" spread="0.2" width="0.0" />
                </effect>
             </Label>
-            <JFXTextField fx:id="B_searchField" alignment="CENTER_RIGHT" focusColor="#35889a" labelFloat="true" layoutX="386.0" layoutY="13.0" prefHeight="36.0" prefWidth="317.0" promptText="ادخل إسم المنتج .." unFocusColor="#f1ebc7">
+            <JFXTextField fx:id="B_searchField" alignment="CENTER_RIGHT" focusColor="#35889a" labelFloat="true" layoutX="386.0" layoutY="13.0" onKeyTyped="#B_SearchField" prefHeight="36.0" prefWidth="317.0" promptText="ادخل إسم المنتج .." unFocusColor="#f1ebc7">
                <padding>
                   <Insets left="5.0" right="5.0" />
                </padding>
