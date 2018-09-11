@@ -3,7 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Products/Manager_ProductsController.java</file>
+=======
+            <file>file:/F:/Dokkan/proj/Supermarket_Management_System/src/Login/Main.java</file>
+            <file>file:/F:/Dokkan/proj/Supermarket_Management_System/src/Login/LoginController.java</file>
+            <file>file:/F:/Dokkan/proj/Supermarket_Management_System/src/Manager/Suppliers/Manager_SuppliersController.java</file>
+            <file>file:/F:/Dokkan/proj/Supermarket_Management_System/src/Classes/Login.java</file>
+>>>>>>> c4bf01618b6337bae8361d5fe17a8918fe880359
         </group>
     </open-files>
 </project-private>

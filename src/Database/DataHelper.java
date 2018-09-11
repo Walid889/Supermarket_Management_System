@@ -18,37 +18,6 @@ import org.controlsfx.control.textfield.TextFields;
 
 public class DataHelper {
 
-    public static boolean insertNewemployee(Employee emp) {
-        try {
-            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
-                    "INSERT INTO employee1(emp_id,emp_name,emp_phone,emp_salary_hours,emp_address) VALUES(?,?,?,?,?)");
-            statement.setString(1, emp.getEmployeeId());
-            statement.setString(2, emp.getEmployeeName());
-            statement.setString(3, emp.getEmployeePhone());
-            statement.setDouble(4, emp.getEmployeeSalaryHours());
-            statement.setString(5, emp.getEmployeeAddress());
-            return statement.executeUpdate() > 0;
-        } catch (SQLException ex) {
-            
-        }
-        return false;
-    }
-  /*public static boolean isEmployeeExists(String id) {
-        try {
-            String checkstmt = "SELECT COUNT(*) FROM employee1 WHERE id=?";
-            PreparedStatement stmt = DatabaseHandler.getInstance().getConnection().prepareStatement(checkstmt);
-            stmt.setString(1, id);
-            ResultSet rs = stmt.executeQuery();
-            if (rs.next()) {
-                int count = rs.getInt(1);
-                System.out.println(count);
-                return (count > 0);
-            }
-        } catch (SQLException ex) {
-            LOGGER.log(Level.ERROR, "{}", ex);
-        }
-        return false;
-    }*/
     
     
     /****************************************************************************************************************/
@@ -106,13 +75,176 @@ public class DataHelper {
         }
         return false;
     }
+<<<<<<< HEAD
     public static boolean QuickEditQuantity(int quan,String bar) {
         String qu="UPDATE product SET  pro_All_qty="+quan+" WHERE pro_bar = '"+bar+"' ";
         if(DatabaseHandler.getInstance().execAction(qu))
             return true;
         return false;
     }
+=======
+    /////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////
+    //////////////////////Employee//////////////////////////////////
+    //////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////
+    public static boolean insertNewemployee(Employee emp) {
+        try {
+            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
+                    "INSERT INTO employee1(emp_id,emp_name,emp_phone,emp_salary_hours,emp_address) VALUES(?,?,?,?,?)");
+            statement.setString(1, emp.getEmployeeId());
+            statement.setString(2, emp.getEmployeeName());
+            statement.setString(3, emp.getEmployeePhone());
+            statement.setDouble(4, emp.getEmployeeSalaryHours());
+            statement.setString(5, emp.getEmployeeAddress());
+            return statement.executeUpdate() > 0;
+        } catch (SQLException ex) {
+            
+        }
+        return false;
+    }
+    public static boolean deleteEmployee(Employee emp) {
+        try {
+            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement( 
+                    "DELETE FROM employee1 WHERE number = ?");
+            
+            statement.setLong(1, emp.getNumber());
+            int res = statement.executeUpdate();
+            if (res == 1) {
+                return true;
+            }
+        }
+        catch (SQLException ex) {//    
+        }
+        return false;
+    }
+    public static boolean updateEmployee(Employee E )
+    {
+        try {
+            
+            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
+                    "UPDATE Employee1 SET  emp_id=?,emp_name=?,emp_phone=?,emp_address=?,,emp_salary_hours=?");
+            statement.setString(1, E.getEmployeeId());
+            statement.setString(1, E.getEmployeeName());
+            statement.setString(1, E.getEmployeePhone());
+            statement.setString(1, E.getEmployeeAddress());
+            statement.setDouble(1, E.getEmployeeSalaryHours());
+          
+            return statement.executeUpdate() > 0;
+        }
+        catch (SQLException ex) {
+        }
+        return false;
+    }
     
+>>>>>>> c4bf01618b6337bae8361d5fe17a8918fe880359
+    
+    ///////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////
+    /////////////////End employee///////////////////////////////
+    ///////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
+    
+    
+    ///////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////
+    ///////////////////////////Suppliers////////////////////
+    /////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////
+    public static boolean insertNewSupplier(Suppliers s)
+    {
+        try{
+        PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
+                    "INSERT INTO suppliers1 (sup_name,sup_company_name,sup_category,sup_phone) VALUES(?,?,?,?)");
+        statement.setString(1, s.getSupplierName());
+        statement.setString(2, s.getSupplierCategory());
+        statement.setString(3, s.getSupplierPhone());
+        statement.setString(4, s.getSalespersonName());
+        return statement.executeUpdate() > 0;
+        } catch (SQLException ex)
+        {
+        }
+        return false;
+    }
+    public static boolean deleteSupplier(Suppliers sup) {
+        try {
+            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement( 
+                    "DELETE FROM suppliers1 WHERE number = ?");
+            
+            statement.setLong(1, sup.getNumber());
+            int res = statement.executeUpdate();
+            if (res == 1) {
+                return true;
+            }
+        }
+        catch (SQLException ex) {//    
+        }
+        return false;
+    }
+    public static boolean updateSupplier(Suppliers s )
+    {
+        try {
+            
+            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
+                    "UPDATE suppliers1 SET  sup_name=?,sup_company_name=?,sup_category=?,sup_phone=?,");
+            
+            statement.setString(1, s.getSupplierName());
+            statement.setString(2, s.getSupplierPhone());
+            statement.setString(3, s.getSupplierCategory());
+            statement.setString(4, s.getSalespersonName());
+           
+            return statement.executeUpdate() > 0;
+        }
+        catch (SQLException ex) {
+        }
+        return false;
+    }
+    public static void loadSuppliersData(TableView TV,TextField TF) {
+        ObservableList<Suppliers> list = FXCollections.observableArrayList();
+        ObservableList<String> list2 = FXCollections.observableArrayList();
+        list.clear();
+        String qu = "SELECT * FROM suppliers1";
+        ResultSet rs =DatabaseHandler.getInstance().execQuery(qu);
+        try {
+            while (rs.next()) {
+                String name=rs.getString("supplierName");
+                String phone=rs.getString("supplierPhone");
+                String category=rs.getString("supplierCategory");
+                String sales_name=rs.getString("salespersonName");
+                list.add(new Suppliers(name,phone,category,sales_name));
+                list2.add(phone);
+            }
+        } catch (SQLException ex) {
+            Alerts.showInfoAlert("لا يوجد موردين");
+        }
+        TV.setItems(list);
+        TextFields.bindAutoCompletion(TF, list2);
+    }
+    public static ObservableList<Suppliers> o(ObservableList<Suppliers> list){
+        list.clear();
+        String qu = "SELECT * FROM suppliers1";
+        ResultSet rs =DatabaseHandler.getInstance().execQuery(qu);
+        try {
+            while (rs.next()) {
+                String name=rs.getString("supplierName");
+                String phone=rs.getString("supplierPhone");
+                String category=rs.getString("supplierCategory");
+                String sales_name=rs.getString("salespersonName");
+               list.add(new Suppliers(name,phone,category,sales_name));
+            }
+        } catch (SQLException ex) {
+            Alerts.showInfoAlert("لا يوجد موردين");
+        }
+        return list;
+    }
+    //////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////
+    /////////////////////////End Suppliers///////////////////////////////
+    /////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////
     public static void loadProductsData(TableView TV,TextField TF) {
         ObservableList<Goods> list = FXCollections.observableArrayList();
         ObservableList<String> list2 = FXCollections.observableArrayList();
@@ -244,36 +376,8 @@ public class DataHelper {
         return false;
     }
     
-    public static boolean deleteSupplier(Suppliers sup) {
-        try {
-            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement( 
-                    "DELETE FROM suppliers1 WHERE number = ?");
-            
-            statement.setLong(1, sup.getNumber());
-            int res = statement.executeUpdate();
-            if (res == 1) {
-                return true;
-            }
-        }
-        catch (SQLException ex) {//    
-        }
-        return false;
-    }
-    public static boolean deleteEmployee(Employee emp) {
-        try {
-            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement( 
-                    "DELETE FROM employee1 WHERE number = ?");
-            
-            statement.setLong(1, emp.getNumber());
-            int res = statement.executeUpdate();
-            if (res == 1) {
-                return true;
-            }
-        }
-        catch (SQLException ex) {//    
-        }
-        return false;
-    }
+    
+    
     /////////////////////////////////////////////////
     ////////////////////////////////////////////////
     ///////////////////////////////////////////////
@@ -563,6 +667,7 @@ public class DataHelper {
         return false;
     }
     
+<<<<<<< HEAD
     public static long getLastOrderNumberBuying(){
         String qu="SELECT number FROM buying ORDER BY number DESC FETCH FIRST ROW ONLY"; 
         ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
@@ -599,4 +704,6 @@ public class DataHelper {
         }
         return false;
     }
+=======
+>>>>>>> c4bf01618b6337bae8361d5fe17a8918fe880359
 }

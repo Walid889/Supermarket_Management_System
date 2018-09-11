@@ -5,13 +5,21 @@
  */
 package Manager.Suppliers;
 
+import Classes.Alerts;
+import Classes.Goods;
 import Classes.Suppliers;
 import Manager.Main.HomeController;
 import database.DataHelper;
 import database.DatabaseHandler;
 import java.net.URL;
+import static java.nio.file.Files.list;
+import static java.util.Collections.list;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -97,14 +105,55 @@ public class Manager_SuppliersController implements Initializable {
 
     @FXML
     private void Edit_Supplier(ActionEvent event) {
+        String name=S_Tname.getText();
+        String phone=S_TPhone.getText();
+        String category=S_Ctype.getTypeSelector();
+        String sales_name =S_TSaller.getText();
+        Suppliers s = new Suppliers(name,phone,category,sales_name);
+                boolean result=DataHelper.updateSupplier(s);
+        if(result){
+            Alerts.showInfoAlert("تم تعديل بيانات :"+s.getSupplierName());
+        }
+        else
+            Alerts.showInfoAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
     }
 
     @FXML
     private void Delete_Supplier(ActionEvent event) {
+        Suppliers s  = S_Table.getSelectionModel().getSelectedItem();
+        if (Alerts.ConfirmAlert("هل تريد مسح"+":", s.getSupplierName())) {
+                Boolean result = DataHelper.deleteSupplier(s);
+                if (result) {
+                    Alerts.showInfoAlert("تم المسح !!");
+                    clear();
+                    DataHelper.loadSuppliersData(S_Table,S_TSearch);
+                }
+                 else 
+                    Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
+            }
+       
     }
+    ObservableList<Suppliers> list= FXCollections.observableArrayList();
+        FilteredList filter=new FilteredList(list,e->true);
 
     @FXML
     private void Suppliers_Search(ActionEvent event) {
+        DataHelper.o(list);
+        S_TSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            filter.setPredicate(    (Predicate<? super Suppliers>)    (Suppliers go)->{
+                if(newValue.isEmpty() || newValue == null)
+                    return true;
+                if(newValue.contains(go.getSupplierName()))
+                    return true;
+                
+                return false;
+            });
+            
+        });
+        
+        SortedList st=new SortedList(filter);
+        st.comparatorProperty().bind(S_Table.comparatorProperty());
+        S_Table.setItems(st);
     }
     
     private void AddSupplier(){
@@ -124,7 +173,12 @@ public class Manager_SuppliersController implements Initializable {
             return;
     }
     }
-
+    private void clear()
+    {
+     S_Tname.clear();
+     S_TPhone.clear();
+     S_TSaller.clear();
+    }
     private void chechbox(DragEvent event) {
         ChoiceBox cd = new ChoiceBox();
     cd.setItems(FXCollections.observableArrayList(

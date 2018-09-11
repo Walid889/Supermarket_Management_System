@@ -4,10 +4,16 @@
  * and open the template in the editor.
  */
 package Login;
+<<<<<<< HEAD
 
 import Classes.Alerts;
 
 import Classes.Login;
+=======
+import Classes.Login;
+import Classes.Alerts;
+import Manager.Main.HomeController;
+>>>>>>> c4bf01618b6337bae8361d5fe17a8918fe880359
 import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,7 +24,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javax.swing.JOptionPane;
+<<<<<<< HEAD
 import org.apache.commons.codec.digest.DigestUtils;
+=======
+>>>>>>> c4bf01618b6337bae8361d5fe17a8918fe880359
 
 /**
  * FXML Controller class
@@ -26,7 +35,7 @@ import org.apache.commons.codec.digest.DigestUtils;
  * @author lolo
  */
 public class LoginController implements Initializable {
-
+HomeController y = new HomeController();
     @FXML
     private AnchorPane login;
     @FXML
@@ -42,16 +51,15 @@ public class LoginController implements Initializable {
     /**
      * Initializes the controller class.
      */
-    Login preference;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //databaseHandler = DatabaseHandler.getInstance();
-        //preference = Login.getPreferences();
+        databaseHandler = DatabaseHandler.getInstance();
         // TODO
     }    
 
     @FXML
     private void login(ActionEvent event) {
+<<<<<<< HEAD
         Login a = new Login();
  
             a.setcode(TEnterCode.getText());
@@ -69,6 +77,39 @@ public class LoginController implements Initializable {
                 }
         //JOptionPane.showMessageDialog(null , "Login With Admin");
         //Alerts.ConfirmAlert("login with admin", "");    
+=======
+        //JOptionPane.showMessageDialog(null , "HI");
+        //Alerts.ConfirmAlert("login with admin", "");    
+       System.out.println("HI");
+        Login log=new Login();
+        log.setuserName(TEnterCode.getText().trim().toLowerCase()); // store userName to check   trim() to ignore space toLowerCase() to transfer Cpital to small  
+        log.setuserPassword(TPassword.getText().trim());      // store userName to check   trim() to ignore space
+        int x=log.checkPassword();      // call function check password 
+        switch (x){
+            
+            case 1: 
+                y.loadwindow(login ,"/Manager/Main/Home.fxml");
+                
+                 break;
+                 
+            case 2: 
+                y.loadwindow(login ,"/employees/main/employees.fxml");
+               ;       
+                break;
+            case 3: 
+                   Alerts.showErrorAlert("خطا ف كود الدخول او كلمة السر");
+                   clear();
+                   break;
+            default : Alerts.showErrorAlert("خطا ف كود الدخول او كلمة السر");
+                    clear();
+                    break;
+    
+>>>>>>> c4bf01618b6337bae8361d5fe17a8918fe880359
     }
     
+}
+    private void clear (){
+        TEnterCode.setText("");
+        TPassword.setText("");
+    }
 }

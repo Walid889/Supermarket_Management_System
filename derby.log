@@ -1,4 +1,5 @@
 ----------------------------------------------------------------
+<<<<<<< HEAD
 Tue Sep 11 11:04:05 EET 2018:
 Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0165-c7df-9c39-000002d6e6c8 
 on database directory D:\Work\programing workshop\PROJECT\Supermarket_Management\database with class loader sun.misc.Launcher$AppClassLoader@55f96302 
@@ -9,5 +10,17 @@ user.dir=D:\Work\programing workshop\PROJECT\Supermarket_Management
 os.name=Windows 7
 os.arch=amd64
 os.version=6.1
+=======
+Mon Sep 10 15:12:40 EET 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0165-c39c-d553-0000009bb458 
+on database directory F:\Dokkan\proj\Supermarket_Management_System\database with class loader sun.misc.Launcher$AppClassLoader@16d3586 
+Loaded from file:/F:/Dokkan/proj/Supermarket_Management_System/libs/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_171-b11
+user.dir=F:\Dokkan\proj\Supermarket_Management_System
+os.name=Windows 10
+os.arch=x86
+os.version=10.0
+>>>>>>> c4bf01618b6337bae8361d5fe17a8918fe880359
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
