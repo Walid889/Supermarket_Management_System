@@ -49,5 +49,10 @@ public class Products_ReportsController implements Initializable {
     private void Manager_Home(ActionEvent event) {
         x.loadwindow(Product_Reports, "/Manager/Main/Home.fxml");
     }
+
+    @FXML
+    private void Back(ActionEvent event) {
+         x.loadwindow(Product_Reports, "/Manager/Reports/Reports.fxml");
+    }
     
 }

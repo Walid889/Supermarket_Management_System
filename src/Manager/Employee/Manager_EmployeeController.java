@@ -193,7 +193,7 @@ public class Manager_EmployeeController implements Initializable {
     
     @FXML
     private void Delete_Employee() {
-          
+        if ( !E_Tname.getText().equals("") && !E_Tcode.getText().equals("") && !E_Tphone.getText().equals("") && !E_Taddress.getText().equals("") && !E_Tsalary.getText().equals("")  ){  
            Employee G=E_tables.getSelectionModel().getSelectedItem();
         
         if (Alerts.ConfirmAlert("هل تريد مسح"+":", G.getEmployeeId())) {
@@ -206,12 +206,16 @@ public class Manager_EmployeeController implements Initializable {
                  else 
                     Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
             }
-    }
+    } else 
+        {
+             Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
+        }
+    }    
 
     @FXML
     private void Employee_Choice(ActionEvent event) {
-        // بتشتغل بالعكس هنا 
-        if( E_tables.getItems().equals(""))
+        
+        if(!E_tables.getItems().equals(""))
         {
             
             Alerts.showErrorAlert("برجاء اختيار الصف ");
@@ -274,13 +278,7 @@ public class Manager_EmployeeController implements Initializable {
        
     }
 
-    @FXML
-    private void key_Enter(KeyEvent event) {
-        try{
-        if(event.getCode().equals(KeyCode.ENTER)){
-         System.out.println("الكوود بتاع فانكشن الاختيار  "); // Employee_Choice
-        }
+    
        
-    }catch(Exception e){}
-    }
+  
 }

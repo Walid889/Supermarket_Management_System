@@ -1,0 +1,22 @@
+.buttons
+{
+    -fx-background-color:  #35889a;
+    -fx-cursor: hand;
+}
+
+.buttons:hover
+{
+    -fx-background-color: #4aabc0;
+    -fx-cursor: hand;
+}
+
+.pane
+{
+    -fx-background-color: #343642;
+}
+
+.vbox
+{
+    -fx-background-color:  #989c9d;
+}
+

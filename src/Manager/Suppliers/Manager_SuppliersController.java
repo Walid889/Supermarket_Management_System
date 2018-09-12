@@ -13,6 +13,7 @@ import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -42,7 +43,7 @@ public class Manager_SuppliersController implements Initializable {
     @FXML
     private AnchorPane Manager_Suppliers;
     @FXML
-    private ComboBox<?> S_Ctype;
+    private ComboBox<String> S_Ctype;
     @FXML
     private VBox VBox;
     @FXML
@@ -79,6 +80,8 @@ public class Manager_SuppliersController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         databaseHandler=DatabaseHandler.getInstance();
+         ObservableList<String> list= FXCollections.observableArrayList("وائل","محمود","احمد");
+        S_Ctype.setItems(list);
         t_name.setCellValueFactory(new PropertyValueFactory<>("supplierName"));
         t_category.setCellValueFactory(new PropertyValueFactory<>("supplierCategory"));
         t_phone.setCellValueFactory(new PropertyValueFactory<>("supplierPhone"));
@@ -103,25 +106,29 @@ public class Manager_SuppliersController implements Initializable {
 
     @FXML
     private void Edit_Supplier(ActionEvent event) {
-         if ( !S_Tname.getText().equals("") && !S_TPhone.getText().equals("") && !S_TSaller.getText().equals("")  ){
-            
-             try{
-                //yooooour coooode
-            }catch (NumberFormatException es)
-            {
-                Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
-            }
-         }
-          else 
-        {  
-            Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
-            
-        }
+        this.Edit_Supplier();
     }
 
     @FXML
     private void Delete_Supplier(ActionEvent event) {
-         if ( !S_Tname.getText().equals("") && !S_TPhone.getText().equals("") && !S_TSaller.getText().equals("")  ){
+         this.Delete_Supplier();
+    }
+
+    @FXML
+    private void Suppliers_Search(ActionEvent event) {
+          this.Suppliers_Search();
+    }
+    
+    
+       ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    
+    
+    
+     private void Edit_Supplier() {
+         try {
+         
+         if ( !S_Tname.getText().equals("") && !S_TPhone.getText().equals("") && !S_TSaller.getText().equals("") &&!S_Ctype.getValue().equals("")  ){
             
              try{
                 //yooooour coooode
@@ -129,17 +136,40 @@ public class Manager_SuppliersController implements Initializable {
             {
                 Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
             }
+         }else {
+             Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+                }
+         }catch (NullPointerException e){
+              Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
          }
-          else 
-        {  
-            Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
-            
-        }
+         
+        
     }
-
-    @FXML
-    private void Suppliers_Search(ActionEvent event) {
-         if ( !S_TSearch.getText().equals("") ){
+    
+    
+    private void Delete_Supplier() {
+        
+        try {
+         if ( !S_Tname.getText().equals("") && !S_TPhone.getText().equals("") && !S_TSaller.getText().equals("") &&!S_Ctype.getValue().equals("") ){
+            
+             try{
+                //yooooour coooode
+            }catch (NumberFormatException es)
+            {
+                Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
+            }
+         }else {
+             Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+                }
+        }catch(NullPointerException e){
+              Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
+         }
+    }
+    
+    
+    private void Suppliers_Search() {
+        
+         if ( !S_TSearch.getText().equals("") && !S_Ctype.getValue().equals("") ){
             
              try{
                 //yooooour coooode
@@ -154,10 +184,10 @@ public class Manager_SuppliersController implements Initializable {
             
         }
     }
-    
     private void AddSupplier()
     {
-        if ( !S_Tname.getText().equals("") && !S_TPhone.getText().equals("") && !S_TSaller.getText().equals("")  )
+        try {
+        if ( !S_Tname.getText().equals("") && !S_TPhone.getText().equals("") && !S_TSaller.getText().equals("")  && !S_Ctype.getValue().equals(""))
         {
             
              try{
@@ -182,14 +212,13 @@ public class Manager_SuppliersController implements Initializable {
                 Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
             }
          }
-          else 
-        {  
-            Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
-            
-        }
-        
-       
-    
+        else {
+             Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+                }
+        }catch (NullPointerException e){
+              Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
+         }
+
     }
     
 
@@ -207,7 +236,7 @@ public class Manager_SuppliersController implements Initializable {
         if(event.getCode().equals(KeyCode.CONTROL.S)){
           this.AddSupplier(); }
         else if (event.getCode().equals(KeyCode.SHIFT.DELETE)){
-             System.out.println("الكوود بتاع فانكشن الحذف ");
+             this.Delete_Supplier();
         }
     }catch(Exception e){}
        
@@ -217,7 +246,7 @@ public class Manager_SuppliersController implements Initializable {
     private void key_Search(KeyEvent event) {
         try{
         if(event.getCode().equals(KeyCode.ENTER)){
-          System.out.println("الفانكشن بتاعت السييييييييييييييييييييرش");
+          this.Suppliers_Search();
         }
     }catch(Exception e){}
     }

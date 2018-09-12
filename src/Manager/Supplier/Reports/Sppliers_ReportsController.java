@@ -5,9 +5,15 @@
  */
 package Manager.Supplier.Reports;
 
+import Classes.Alerts;
 import Manager.Main.HomeController;
+import com.jfoenix.controls.JFXDatePicker;
+import database.DatabaseHandler;
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -30,40 +36,74 @@ public class Sppliers_ReportsController implements Initializable {
     @FXML
     private Label S_name;
     @FXML
-    private ComboBox<?> S_Cname;
+    private ComboBox<String> S_Cname;
     @FXML
     private Label S_Date1;
     @FXML
     private Label S_Date2;
     @FXML
-    private DatePicker S_TData1;
+    private JFXDatePicker S_TData1;
     @FXML
-    private DatePicker S_TDate2;
+    private JFXDatePicker S_TDate2;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        ObservableList<String> list= FXCollections.observableArrayList("وائل","محمود","احمد");
+        S_Cname.setItems(list);
+        
         // TODO
     }    
 
 
     @FXML
     private void Supplier_Returns(ActionEvent event) {
+         try {
+         if (!S_TData1.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).equals("") &&!S_TDate2.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).equals("") && !S_Cname.getValue().equals("") ){
+            System.out.println("غلطططططط "); // yoooooooooour code
+         }
+         }
+        catch(NullPointerException e){
+                 Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
+                 }
     }
 
     @FXML
     private void Supplier_Financial(ActionEvent event) {
+        try {
+         if (!S_TData1.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).equals("") &&!S_TDate2.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).equals("") && !S_Cname.getValue().equals("") ){
+            System.out.println("غلطططططط "); // yoooooooooour code
+         }
+         }
+        catch(NullPointerException e){
+                 Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
+                 }
     }
 
     @FXML
     private void Suppliers_Invoices(ActionEvent event) {
+        try {
+         if (!S_TData1.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).equals("") &&!S_TDate2.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).equals("") && !S_Cname.getValue().equals("") ){
+            System.out.println("غلطططططط "); // yoooooooooour code
+         }
+         }
+        catch(NullPointerException e){
+                 Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
+                 }
     }
 
     @FXML
     private void Manager_Home(ActionEvent event) {
         x.loadwindow(Suppliers_Reports,"/Manager/Main/Home.fxml");
+    }
+
+    @FXML
+    private void Back(ActionEvent event) {
+        x.loadwindow(Suppliers_Reports, "/Manager/Reports/Reports.fxml");
+
     }
     
 }

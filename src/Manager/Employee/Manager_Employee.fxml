@@ -97,7 +97,7 @@
                   <Insets bottom="10.0" />
                </padding>
             </Label>
-            <TableView fx:id="E_tables" layoutX="33.0" layoutY="105.0" onKeyPressed="#key_Enter" onMouseClicked="#selectFromTable" prefHeight="468.0" prefWidth="663.0">
+            <TableView fx:id="E_tables" layoutX="33.0" layoutY="105.0"  onMouseClicked="#selectFromTable" prefHeight="468.0" prefWidth="663.0">
                <columns>
                   <TableColumn fx:id="t_address" prefWidth="199.0" text="العنوان " />
                   <TableColumn fx:id="t_salary" prefWidth="95.0" text="الاجر بالساعة" />

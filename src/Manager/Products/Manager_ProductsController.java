@@ -5,6 +5,7 @@ import Classes.*;
 import Classes.Quantity;
 import database.*;
 import Manager.Main.HomeController;
+import com.jfoenix.controls.JFXButton;
 import database.DatabaseHandler;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -182,6 +183,28 @@ public class Manager_ProductsController implements Initializable {
 
     @FXML
     private void Add_Product(ActionEvent event) {
+        this.Add_Product();
+    }
+    
+    @FXML
+    private void Edit_Product(ActionEvent event) {
+        this.Edit_Product();
+    }
+    
+    @FXML
+    private void Delete_Product(ActionEvent event) {
+         this.Delete_Product();
+    }
+    
+    
+    
+     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    
+    
+    private void Add_Product() {
+        
+        try {
         if(!P_Tname.getText().equals("") && !P_Tcode.getText().equals("") && !P_Ctype.getValue().equals("")
                 && !P_Csupplier.getValue().equals("") && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
                 && !P_TUprice.getText().equals("") && !P_TBprice.getText().equals("") && !P_TCprice.getText().equals("")
@@ -208,10 +231,19 @@ public class Manager_ProductsController implements Initializable {
             else
                 Alerts.showInfoAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
         }
+          else {
+             Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+                }
+        }catch(NullPointerException e) {
+           Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+        }
+      
     }
 
-    @FXML
-    private void Edit_Product(ActionEvent event) {
+    
+
+     private void Edit_Product() {
+        try {
         if(!P_Tname.getText().equals("") && !P_Tcode.getText().equals("") && !P_Ctype.getValue().equals("")
                 && !P_Csupplier.getValue().equals("") && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
                 && !P_TUprice.getText().equals("") && !P_TBprice.getText().equals("") && !P_TCprice.getText().equals("")
@@ -238,14 +270,28 @@ public class Manager_ProductsController implements Initializable {
                 DataHelper.loadProductsData(P_table,P_TSearch);
             }
         }
-    }
-
-    @FXML
-    private void Delete_Product(ActionEvent event) {
-        try{
-        Goods G=P_table.getSelectionModel().getSelectedItem();
+        else {
+             Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+                }
+        }catch (NullPointerException e) {
+            Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+        }
+     }
+  
+    
+    private void Delete_Product() {
+            
+         try {
         
-        if (Alerts.ConfirmAlert("هل تريد مسح"+":", G.getProductName())) {
+        if(!P_Tname.getText().equals("") && !P_Tcode.getText().equals("") && !P_Ctype.getValue().equals("")
+                && !P_Csupplier.getValue().equals("") && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
+                && !P_TUprice.getText().equals("") && !P_TBprice.getText().equals("") && !P_TCprice.getText().equals("")
+                && !P_Tminimun.getText().equals("")&&!P_CQuan.getText().equals("")){
+        
+        try{
+             Goods G=P_table.getSelectionModel().getSelectedItem();
+        
+             if (Alerts.ConfirmAlert("هل تريد مسح"+":", G.getProductName())) {
                 Boolean result = DataHelper.deleteProduct(G);
                 if (result) {
                     Alerts.showInfoAlert("تم المسح !!");
@@ -255,15 +301,24 @@ public class Manager_ProductsController implements Initializable {
                  else 
                     Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
             }
-        System.out.println(oldBar);
-        }catch(Exception e)
-        {
-            Alerts.showErrorAlert("لم يتم تحديد منتج من الجدول");
+             System.out.println(oldBar);
+            }catch(Exception e)
+                 {
+                    Alerts.showErrorAlert("لم يتم تحديد منتج من الجدول");
+                 }
         }
-    }
+        else {
+             Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+                }
+    } catch (NullPointerException e) {
+               Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+      }
 
+    }
     @FXML
     private void Product_Search(ActionEvent event) { // Search Button
+        if (!P_TSearch.getText().equals(""))
+        {
         /*int G= P_table.getSelectionModel().getFocusedIndex();
         String keyword=P_TSearch.getText();
         String qu="SELECT * FROM product";
@@ -278,6 +333,10 @@ public class Manager_ProductsController implements Initializable {
              Logger.getLogger(Manager_ProductsController.class.getName()).log(Level.SEVERE, null, ex);
          }
         */
+        }
+        else {
+           Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+        }
         
     }
     private void clear(){
