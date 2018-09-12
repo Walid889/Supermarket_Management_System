@@ -108,9 +108,9 @@ public class DataHelper {
     public static boolean deleteEmployee(Employee emp) {
         try {
             PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement( 
-                    "DELETE FROM employee1 WHERE number = ?");
+                    "DELETE FROM employee1 WHERE emp_id = ?");
             
-            statement.setLong(1, emp.getNumber());
+            statement.setString(1, emp.getEmployeeId());
             int res = statement.executeUpdate();
             if (res == 1) {
                 return true;
@@ -120,21 +120,22 @@ public class DataHelper {
         }
         return false;
     }
-    public static boolean updateEmployee(Employee E )
+    public static boolean updateEmployee(Employee E,String oldID )
     {
         try {
             
             PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
-                    "UPDATE Employee1 SET  emp_id=?,emp_name=?,emp_phone=?,emp_address=?,,emp_salary_hours=?");
+                    "UPDATE Employee1 SET  emp_id=?,emp_name=?,emp_phone=?,emp_address=?,emp_salary_hours= ? WHERE emp_id = '" +oldID+"'");
             statement.setString(1, E.getEmployeeId());
-            statement.setString(1, E.getEmployeeName());
-            statement.setString(1, E.getEmployeePhone());
-            statement.setString(1, E.getEmployeeAddress());
-            statement.setDouble(1, E.getEmployeeSalaryHours());
+            statement.setString(2, E.getEmployeeName());
+            statement.setString(3, E.getEmployeePhone());
+            statement.setString(4, E.getEmployeeAddress());
+            statement.setDouble(5, E.getEmployeeSalaryHours());
           
             return statement.executeUpdate() > 0;
         }
         catch (SQLException ex) {
+            System.out.print("data does't update");
         }
         return false;
     }
@@ -149,6 +150,30 @@ public class DataHelper {
         catch (SQLException ex) {//    
         }
         return false;
+    }
+    
+        public static void loadEmployeesData(TableView TV) {
+        ObservableList<Employee> list = FXCollections.observableArrayList();
+       // ObservableList<String> list2 = FXCollections.observableArrayList();
+        list.clear();
+        String qu = "SELECT * FROM employee1";
+        ResultSet rs =DatabaseHandler.getInstance().execQuery(qu);
+        try {
+            while (rs.next()) {
+                String name=rs.getString("emp_name");
+                String phone=rs.getString("emp_phone");
+                String id=rs.getString("emp_id");
+                String address=rs.getString("emp_address");
+                double salary=rs.getDouble("emp_salary_hours");
+                list.add(new Employee(id,name,phone,address,salary));
+                //list2.add(phone);
+            }
+        } catch (SQLException ex) {
+            Alerts.showInfoAlert("لا يوجد موظفين");
+        }
+        TV.setItems(list);
+        
+        //TextFields.bindAutoCompletion(TF, list2);
     }
     
     
@@ -743,6 +768,12 @@ public class DataHelper {
         }
         return false;
     }
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    
+    
+    /***********************************************************************Reports*******************************************************************/
     
     
     
