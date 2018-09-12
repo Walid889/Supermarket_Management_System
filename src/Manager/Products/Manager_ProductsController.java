@@ -198,7 +198,7 @@ public class Manager_ProductsController implements Initializable {
             G.setBoxPrice(Double.parseDouble(P_TCprice.getText()));
             G.setProductMinQuantity(Integer.parseInt(P_Tminimun.getText()));
             //G.setProductExpirationdate(P_Tdate.getText());
-            G.setAllQuantity(Long.parseLong(P_CQuan.getText()));
+            G.setAllQuantity(0);
             boolean result=DataHelper.insertNewProduct(G);
             if(result){
                 P_table.getItems().add(G);
