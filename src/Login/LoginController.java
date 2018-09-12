@@ -4,10 +4,13 @@
  * and open the template in the editor.
  */
 package Login;
+<<<<<<< HEAD
 
 import Classes.Alerts;
 
 import Classes.Login;
+=======
+>>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
 import Classes.Login;
 import Classes.Alerts;
 import Manager.Main.HomeController;
@@ -19,9 +22,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+<<<<<<< HEAD
 import javax.swing.JOptionPane;
 import org.apache.commons.codec.digest.DigestUtils;
+=======
+
+>>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
 
 /**
  * FXML Controller class
@@ -53,11 +62,18 @@ HomeController y = new HomeController();
 
     @FXML
     private void login(ActionEvent event) {
+<<<<<<< HEAD
         Login a = new Login();
  
             
         //JOptionPane.showMessageDialog(null , "Login With Admin");
         //Alerts.ConfirmAlert("login with admin", "");    
+=======
+        this.login();
+        
+    }
+    private void login() {
+>>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
         //JOptionPane.showMessageDialog(null , "HI");
         //Alerts.ConfirmAlert("login with admin", "");    
        System.out.println("HI");
@@ -91,4 +107,7 @@ HomeController y = new HomeController();
         TEnterCode.setText("");
         TPassword.setText("");
     }
+
+  
+    
 }

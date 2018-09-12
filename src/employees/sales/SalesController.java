@@ -112,6 +112,10 @@ public class SalesController extends NewSerial implements Initializable {
     @FXML
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
     private Label productBarcode;
     @FXML
     private TableColumn<Sales, String> c_bar;
@@ -157,13 +161,11 @@ public class SalesController extends NewSerial implements Initializable {
     private void searchButton(ActionEvent event) {
         clear();
         searrch();
-        productPrice.setText(pra.getItemPrice()+"");
-        
     }
     
     private void searrch(){
         pra=new Price();
-        DataHelper.fillSalesWithInfoOfProduct(T_Search.getText(),productBarcode,productName,pra);
+        DataHelper.fillSalesWithInfoOfProduct(T_Search.getText(),productBarcode,productName,productPrice,pra);
         System.out.println(pra.getItemPrice());  
     }
     /***************************************************************************/
@@ -473,8 +475,9 @@ public class SalesController extends NewSerial implements Initializable {
         }
     }
     private void clear(){
-        //productName.setText("");
-        //productPrice.setText("");
+        productName.setText("");
+        productPrice.setText("");
+        productBarcode.setText("");
         Quntity.clear();
         totalPrice.clear();
         paid.clear();
@@ -510,7 +513,10 @@ public class SalesController extends NewSerial implements Initializable {
     }
 =======
     }*/
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
     /*********************************************************************************************/
     
 }

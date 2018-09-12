@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -16,7 +16,7 @@
    <children>
       <VBox fx:id="Vbox" layoutX="1176.0" layoutY="-3.0" prefHeight="704.0" prefWidth="196.0" styleClass="vbox" stylesheets="@Manager_Employee.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <JFXButton onAction="#Add_Employee" prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@Manager_Employee.css" text="إضافة" textFill="WHITE">
+            <JFXButton onAction="#Add_Employee" prefHeight="25.0" prefWidth="160.0" styleClass="buttons" stylesheets="@Manager_Employee.css" text="إضافة" textFill="WHITE">
                <VBox.margin>
                   <Insets left="18.0" top="80.0" />
                </VBox.margin>
@@ -24,7 +24,7 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </JFXButton>
-            <JFXButton onAction="#Edit_Employee" prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@Manager_Employee.css" text="تعديل" textFill="WHITE">
+            <JFXButton onAction="#Edit_Employee" prefHeight="25.0" prefWidth="160.0" styleClass="buttons" stylesheets="@Manager_Employee.css" text="تعديل" textFill="WHITE">
                <VBox.margin>
                   <Insets left="18.0" top="30.0" />
                </VBox.margin>
@@ -32,7 +32,7 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </JFXButton>
-            <JFXButton onAction="#Delete_Employee" prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@Manager_Employee.css" text="حذف" textFill="WHITE">
+            <JFXButton onAction="#Delete_Employee" prefHeight="25.0" prefWidth="160.0" styleClass="buttons" stylesheets="@Manager_Employee.css" text="حذف" textFill="WHITE">
                <VBox.margin>
                   <Insets left="18.0" top="30.0" />
                </VBox.margin>
@@ -40,7 +40,7 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </JFXButton>
-            <JFXButton onAction="#Employee_Reports" prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@Manager_Employee.css" text="تقرير" textFill="WHITE">
+            <JFXButton onAction="#Employee_Reports" prefHeight="25.0" prefWidth="160.0" styleClass="buttons" stylesheets="@Manager_Employee.css" text="تقرير" textFill="WHITE">
                <VBox.margin>
                   <Insets left="18.0" top="30.0" />
                </VBox.margin>
@@ -48,7 +48,7 @@
                   <Font name="System Bold" size="25.0" />
                </font>
             </JFXButton>
-            <JFXButton onAction="#Manager_Home" prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@Manager_Employee.css" text="الرئيسية" textFill="WHITE">
+            <JFXButton onAction="#Manager_Home" prefHeight="25.0" prefWidth="160.0" styleClass="buttons" stylesheets="@Manager_Employee.css" text="الرئيسية" textFill="WHITE">
                <VBox.margin>
                   <Insets left="18.0" top="160.0" />
                </VBox.margin>
@@ -58,14 +58,14 @@
             </JFXButton>
          </children>
       </VBox>
-      <Pane layoutX="1.0" prefHeight="697.0" prefWidth="1167.0" styleClass="pane" stylesheets="@Manager_Employee.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutX="1.0" onKeyReleased="#Key_pressed" onMouseClicked="#selectFromTable" prefHeight="697.0" prefWidth="1167.0" styleClass="pane" stylesheets="@Manager_Employee.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="Employees" alignment="CENTER" contentDisplay="CENTER" layoutX="519.0" layoutY="19.0" prefHeight="45.0" prefWidth="159.0" text="الموظفين" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Label fx:id="E_name" alignment="CENTER" contentDisplay="RIGHT" layoutX="1062.0" layoutY="247.0" minWidth="-Infinity" prefHeight="55.0" prefWidth="76.0" text="اسم : " textAlignment="RIGHT" textFill="WHITE">
+            <Label fx:id="E_Code" alignment="CENTER" contentDisplay="RIGHT" layoutX="1062.0" layoutY="247.0" minWidth="-Infinity" prefHeight="55.0" prefWidth="76.0" text="كود" textAlignment="RIGHT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -73,7 +73,7 @@
                   <Insets bottom="10.0" />
                </padding>
             </Label>
-            <Label fx:id="E_Code" alignment="CENTER" contentDisplay="RIGHT" layoutX="1057.0" layoutY="164.0" minWidth="-Infinity" prefHeight="55.0" prefWidth="82.0" text="الكود :" textAlignment="RIGHT" textFill="WHITE">
+            <Label fx:id="E_name" alignment="CENTER" contentDisplay="RIGHT" layoutX="1057.0" layoutY="164.0" minWidth="-Infinity" prefHeight="55.0" prefWidth="82.0" text="اسم" textAlignment="RIGHT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -97,21 +97,21 @@
                   <Insets bottom="10.0" />
                </padding>
             </Label>
-            <TableView fx:id="E_tables" layoutX="33.0" layoutY="105.0" prefHeight="468.0" prefWidth="663.0">
+            <TableView fx:id="E_tables" layoutX="33.0" layoutY="105.0"  onMouseClicked="#selectFromTable" prefHeight="468.0" prefWidth="663.0">
                <columns>
-                  <TableColumn fx:id="t_address" prefWidth="142.0" text="العنوان " />
-                  <TableColumn fx:id="t_salary" prefWidth="120.0" text="الاجر بالساعة" />
-                  <TableColumn fx:id="t_phone" prefWidth="118.0" text="تليفون" />
-                  <TableColumn fx:id="t_code" prefWidth="116.0" text="الكود" />
-                  <TableColumn fx:id="t_name" prefWidth="166.0" text="الاسم" />
+                  <TableColumn fx:id="t_address" prefWidth="199.0" text="العنوان " />
+                  <TableColumn fx:id="t_salary" prefWidth="95.0" text="الاجر بالساعة" />
+                  <TableColumn fx:id="t_phone" prefWidth="133.0" text="تليفون" />
+                  <TableColumn fx:id="t_code" prefWidth="121.0" text="الكود" />
+                  <TableColumn fx:id="t_name" prefWidth="114.0" text="الأسم" />
                </columns>
             </TableView>
-            <JFXButton layoutX="275.0" layoutY="607.0" onAction="#Employee_Choice" prefHeight="25.0" prefWidth="160.0" text="إختيار" textFill="WHITE">
+            <JFXButton layoutX="275.0" layoutY="607.0" onAction="#Employee_Choice" prefHeight="25.0" prefWidth="160.0" styleClass="buttons" stylesheets="@Manager_Employee.css" text="إختيار" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
             </JFXButton>
-            <TextField fx:id="E_Tname" layoutX="728.0" layoutY="168.0" onKeyPressed="#Up_down" prefHeight="25.0" prefWidth="220.0">
+            <TextField fx:id="E_Tname" layoutX="728.0" layoutY="168.0" prefHeight="25.0" prefWidth="220.0">
                <padding>
                   <Insets bottom="10.0" />
                </padding>
@@ -135,11 +135,6 @@
                   <Font size="20.0" />
                </font>
             </TextField>
-            <TextArea fx:id="E_Taddress" layoutX="728.0" layoutY="523.0" prefHeight="133.0" prefWidth="220.0" style="-fx-vbar-policy : never">
-               <padding>
-                  <Insets bottom="10.0" />
-               </padding>
-            </TextArea>
             <Label fx:id="E_Salary" alignment="CENTER" contentDisplay="RIGHT" layoutX="965.0" layoutY="420.0" minWidth="-Infinity" prefHeight="55.0" prefWidth="176.0" text="الاجر بالساعة :" textAlignment="RIGHT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="30.0" />
@@ -156,6 +151,10 @@
                   <Font size="20.0" />
                </font>
             </TextField>
+            <JFXTextArea fx:id="E_Taddress" focusColor="WHITE" layoutX="728.0" layoutY="522.0" prefHeight="133.0" prefWidth="220.0" styleClass="textArea" stylesheets="@Manager_Employee.css">
+               <font>
+                  <Font size="20.0" />
+               </font></JFXTextArea>
          </children>
       </Pane>
    </children>

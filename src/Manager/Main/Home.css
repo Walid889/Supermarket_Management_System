@@ -12,3 +12,13 @@
 {
     -fx-background-color: #343642;
 }
+.btn{
+    
+    -fx-background-color: #343642;
+    -fx-cursor: hand;
+}
+.btn:hover{
+    
+    -fx-background-color: #343642;
+    -fx-cursor: hand;
+}

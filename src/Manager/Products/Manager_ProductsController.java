@@ -5,6 +5,7 @@ import Classes.*;
 import Classes.Quantity;
 import database.*;
 import Manager.Main.HomeController;
+import com.jfoenix.controls.JFXButton;
 import database.DatabaseHandler;
 import java.net.URL;
 import java.sql.ResultSet;
@@ -182,6 +183,28 @@ public class Manager_ProductsController implements Initializable {
 
     @FXML
     private void Add_Product(ActionEvent event) {
+        this.Add_Product();
+    }
+    
+    @FXML
+    private void Edit_Product(ActionEvent event) {
+        this.Edit_Product();
+    }
+    
+    @FXML
+    private void Delete_Product(ActionEvent event) {
+         this.Delete_Product();
+    }
+    
+    
+    
+     ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    
+    
+    private void Add_Product() {
+        
+        try {
         if(!P_Tname.getText().equals("") && !P_Tcode.getText().equals("") && !P_Ctype.getValue().equals("")
                 && !P_Csupplier.getValue().equals("") && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
                 && !P_TUprice.getText().equals("") && !P_TBprice.getText().equals("") && !P_TCprice.getText().equals("")
@@ -198,7 +221,7 @@ public class Manager_ProductsController implements Initializable {
             G.setBoxPrice(Double.parseDouble(P_TCprice.getText()));
             G.setProductMinQuantity(Integer.parseInt(P_Tminimun.getText()));
             //G.setProductExpirationdate(P_Tdate.getText());
-            G.setAllQuantity(Long.parseLong(P_CQuan.getText()));
+            G.setAllQuantity(0);
             boolean result=DataHelper.insertNewProduct(G);
             if(result){
                 P_table.getItems().add(G);
@@ -208,10 +231,19 @@ public class Manager_ProductsController implements Initializable {
             else
                 Alerts.showInfoAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
         }
+          else {
+             Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+                }
+        }catch(NullPointerException e) {
+           Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+        }
+      
     }
 
-    @FXML
-    private void Edit_Product(ActionEvent event) {
+    
+
+     private void Edit_Product() {
+        try {
         if(!P_Tname.getText().equals("") && !P_Tcode.getText().equals("") && !P_Ctype.getValue().equals("")
                 && !P_Csupplier.getValue().equals("") && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
                 && !P_TUprice.getText().equals("") && !P_TBprice.getText().equals("") && !P_TCprice.getText().equals("")
@@ -237,17 +269,34 @@ public class Manager_ProductsController implements Initializable {
                 clear();
                 DataHelper.loadProductsData(P_table,P_TSearch);
             }
+<<<<<<< HEAD
 
         
+=======
+>>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
         }
-    }
-
-    @FXML
-    private void Delete_Product(ActionEvent event) {
-        try{
-        Goods G=P_table.getSelectionModel().getSelectedItem();
+        else {
+             Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+                }
+        }catch (NullPointerException e) {
+            Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+        }
+     }
+  
+    
+    private void Delete_Product() {
+            
+         try {
         
-        if (Alerts.ConfirmAlert("هل تريد مسح"+":", G.getProductName())) {
+        if(!P_Tname.getText().equals("") && !P_Tcode.getText().equals("") && !P_Ctype.getValue().equals("")
+                && !P_Csupplier.getValue().equals("") && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
+                && !P_TUprice.getText().equals("") && !P_TBprice.getText().equals("") && !P_TCprice.getText().equals("")
+                && !P_Tminimun.getText().equals("")&&!P_CQuan.getText().equals("")){
+        
+        try{
+             Goods G=P_table.getSelectionModel().getSelectedItem();
+        
+             if (Alerts.ConfirmAlert("هل تريد مسح"+":", G.getProductName())) {
                 Boolean result = DataHelper.deleteProduct(G);
                 if (result) {
                     Alerts.showInfoAlert("تم المسح !!");
@@ -257,15 +306,24 @@ public class Manager_ProductsController implements Initializable {
                  else 
                     Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
             }
-        System.out.println(oldBar);
-        }catch(Exception e)
-        {
-            Alerts.showErrorAlert("لم يتم تحديد منتج من الجدول");
+             System.out.println(oldBar);
+            }catch(Exception e)
+                 {
+                    Alerts.showErrorAlert("لم يتم تحديد منتج من الجدول");
+                 }
         }
+        else {
+             Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+                }
+    } catch (NullPointerException e) {
+               Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+      }
+
     }
-    ObservableList<Goods> list= FXCollections.observableArrayList();
     @FXML
     private void Product_Search(ActionEvent event) { // Search Button
+        if (!P_TSearch.getText().equals(""))
+        {
         /*int G= P_table.getSelectionModel().getFocusedIndex();
         String keyword=P_TSearch.getText();
         String qu="SELECT * FROM product";
@@ -280,6 +338,10 @@ public class Manager_ProductsController implements Initializable {
              Logger.getLogger(Manager_ProductsController.class.getName()).log(Level.SEVERE, null, ex);
          }
         */
+        }
+        else {
+           Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+        }
         
     }
     private void clear(){
@@ -325,7 +387,7 @@ public class Manager_ProductsController implements Initializable {
         
     }
     
-    
+    ObservableList<Goods> list= FXCollections.observableArrayList();    
     FilteredList filter=new FilteredList(list,e->true);
     @FXML
     private void autoSearch(KeyEvent event) {
@@ -374,19 +436,6 @@ public class Manager_ProductsController implements Initializable {
             Alerts.showErrorAlert("لم يتم تحديد خلية محددة");
         
     }
-//    private void AlowEdit(MouseEvent event) {
-//        if(allowEdit.isSelected()){
-//            P_Qi.setEditable(true);
-//            P_Qp.setEditable(true);
-//            P_Qb.setEditable(true);
-//        }
-//        else{
-//            P_Qi.setEditable(false);
-//            P_Qp.setEditable(false);
-//            P_Qb.setEditable(false);
-//        }
-//    }
-
     @FXML
     private void AllowEditRadio(MouseEvent event) {
         if(R_item.isSelected()){

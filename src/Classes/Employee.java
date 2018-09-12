@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Classes;
 
 import java.sql.Time;
@@ -11,29 +7,10 @@ import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import org.apache.derby.client.am.DateTime;
 
-/**
- *
- * @author Walid
- */
+
 public class Employee{// Common_Methods is an Interface include Add , Update , Delete
     private long number;
     private Time time;
-
-    public Time getTime() {
-        return time;
-    }
-
-    public void setTime(Time time) {
-        this.time = time;
-    }
-    
-    public long getNumber() {
-        return number;
-    }
-
-    public void setNumber(long number) {
-        this.number = number;
-    }
     private String employeeName;
     private String employeeId;
     private String employeePhone;
@@ -69,6 +46,20 @@ public class Employee{// Common_Methods is an Interface include Add , Update , D
     public void setDifference(double difference) {
         this.difference = difference;
     }
+
+
+    public Employee(String id, String name, String phone, String address, double salary) {
+       employeeId=id;
+       employeeName=name;
+       employeePhone=phone;
+       employeeAddress=address;
+       employeeSalaryHours=salary;
+    }
+    public Employee(){
+        
+    }
+
+    
 
     public String getEmployeeName() {
         return employeeName;
@@ -134,6 +125,32 @@ public class Employee{// Common_Methods is an Interface include Add , Update , D
         this.employeeHourlyWage = employeeHourlyWage;
     }
     
-     
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public Time getTime() {
+        return time;
+    }
+
+    public void setTime(Time time) {
+        this.time = time;
+    }
+    
+    public long getNumber() {
+        return number;
+    }
+
+    public void setNumber(long number) {
+        this.number = number;
+    }
 
 }

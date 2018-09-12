@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Manager.Employee;
 
 import Classes.Alerts;
@@ -22,15 +18,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
-/**
- * FXML Controller class
- *
- * @author lolo
- */
+
 public class Manager_EmployeeController implements Initializable {
      HomeController x = new HomeController();
     @FXML
@@ -51,6 +45,7 @@ public class Manager_EmployeeController implements Initializable {
     private Label E_Salary;
     @FXML
     private TableView<Employee> E_tables;
+    private static String oldBar="";
     @FXML
     private TextField E_Tname;
     @FXML
@@ -87,6 +82,8 @@ public class Manager_EmployeeController implements Initializable {
      t_phone.setCellValueFactory(new PropertyValueFactory<>("employeePhone"));
      t_salary.setCellValueFactory(new PropertyValueFactory<>("employeeSalaryHours"));
      t_address.setCellValueFactory(new PropertyValueFactory<>("employeeAddress"));
+     DataHelper.loadEmployeesData(E_tables);
+     
     }    
 
     @FXML
@@ -102,63 +99,186 @@ public class Manager_EmployeeController implements Initializable {
     private void Add_Employee(ActionEvent event) {
         this.AddEmployee();
     }
+    @FXML
+    private void Delete_Employee(ActionEvent event){
+        this.Delete_Employee();
+    }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /***************************************************************************** Add new Employee*********************************************/
      private void AddEmployee(){
-        Employee E =new Employee();
-        E.setEmployeeName(E_Tname.getText());
-        E.setEmployeeId(E_Tcode.getText());
-        E.setEmployeePhone(E_Tphone.getText());
-        E.setEmployeeSalaryHours(Integer.parseInt(E_Tsalary.getText()));
-        E.setEmployeeAddress(E_Taddress.getText());
+         if ( !E_Tname.getText().equals("") && !E_Tcode.getText().equals("") && !E_Tphone.getText().equals("") && !E_Taddress.getText().equals("") && !E_Tsalary.getText().equals("")  ){
+              try{
+                    Employee E =new Employee();
+                    E.setEmployeeName(E_Tname.getText());
+                    E.setEmployeeId(E_Tcode.getText());
+                    E.setEmployeePhone(E_Tphone.getText());
+                    E.setEmployeeSalaryHours(Double.parseDouble(E_Tsalary.getText()));
+                    E.setEmployeeAddress(E_Taddress.getText());
         
         
-        boolean result = DataHelper.insertNewemployee(E);
-        E_tables.getItems().add(E);
-        if(result){
-            Alert AT=new Alert(Alert.AlertType.INFORMATION);
-            AT.setHeaderText(null);
-            AT.setContentText("Successfully Added !!");
-            AT.showAndWait();
-            return;
-    }
-    }  
+                    boolean result = DataHelper.insertNewemployee(E);
+                    E_tables.getItems().add(E);
+                    if(result){
+                        Alert AT=new Alert(Alert.AlertType.INFORMATION);
+                        AT.setHeaderText(null);
+                        AT.setContentText("تمت الأضافة بنجاح");
+                        AT.showAndWait();
+                        clear();
+                        return;
+                    }
+                        }catch (NumberFormatException es)
+                        {
+                            Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
+                        }
 
-    @FXML
-    private void Up_down(KeyEvent event) {
-    }
+                     }
+                    else 
+                    {  
+                        Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+                        
+                    }
 
-    @FXML
-    private void Key_pressed(KeyEvent event) {
-    }
+                }
 
+     
+     
+     /*********************************************************************************Edit Employee************************************************/
     @FXML
     private void Edit_Employee(ActionEvent event) {
+         if ( !E_Tname.getText().equals("") && !E_Tcode.getText().equals("") && !E_Tphone.getText().equals("") && !E_Taddress.getText().equals("") && !E_Tsalary.getText().equals("")  ){
+            
+             try{
+           
+                 String name=E_Tname.getText();
+                  String phone=E_Tphone.getText();
+                  String id =E_Tcode.getText();
+                  String address=E_Taddress.getText();
+                  double salary=Double.parseDouble(E_Tsalary.getText());
+           
+                     
+                    Employee e = new Employee(id,name,phone,address,salary);
+                  
+                boolean result=DataHelper.updateEmployee(e,oldBar);
+        if(result){
+            Alerts.showInfoAlert("تم تعديل بيانات :"+e.getEmployeeName());
+        }
+        else
+            Alerts.showInfoAlert("لم تتم العملية بشكل صحيح ");
+    
+            }catch (NumberFormatException es)
+            {
+                Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
+            }
+         }
+         else 
+        {  
+            Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
+            
+        }
+         
     }
-
+    
+    
+    
+     /*********************************************************************************Delete Employee************************************************/
+    
     @FXML
-    private void Delete_Employee(ActionEvent event) {
-        Employee G=E_tables.getSelectionModel().getSelectedItem();
+    private void Delete_Employee() {
+        if ( !E_Tname.getText().equals("") && !E_Tcode.getText().equals("") && !E_Tphone.getText().equals("") && !E_Taddress.getText().equals("") && !E_Tsalary.getText().equals("")  ){  
+           Employee G=E_tables.getSelectionModel().getSelectedItem();
         
         if (Alerts.ConfirmAlert("هل تريد مسح"+":", G.getEmployeeId())) {
                 Boolean result = DataHelper.deleteEmployee(G);
                 if (result) {
                     Alerts.showInfoAlert("تم المسح !!");
+                    E_tables.getItems().removeAll(E_tables.getSelectionModel().getSelectedItem());
                     clear();
                 }
                  else 
                     Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
             }
-    }
+    } else 
+        {
+             Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
+        }
+    }    
 
     @FXML
     private void Employee_Choice(ActionEvent event) {
+        
+        if(!E_tables.getItems().equals(""))
+        {
+            
+            Alerts.showErrorAlert("برجاء اختيار الصف ");
+          
+        }
+         else 
+        {  
+            
+            System.out.println("اكتب الكووووود");
+        }
     }
+
+     
+     /***************************************************TO get items of table in  textFields*************************************************/
+    
+    @FXML
+    private void selectFromTable(MouseEvent event) {
+         Employee emp=E_tables.getSelectionModel().getSelectedItem();
+        
+         E_Tname.setText(emp.getEmployeeName());
+        E_Tcode.setText(emp.getEmployeeId());
+        E_Tphone.setText(emp.getEmployeePhone());
+        E_Tsalary.setText(emp.getEmployeeHourlyWage()+"");
+        E_Taddress.setText(emp.getEmployeeAddress());
+        oldBar=E_Tcode.getText();
+    }
+    
+
+   /***************************************************TO clear what in TextFields*************************************************/
+    
     private void clear()
     {
-        E_Tname.clear();
-        E_Tcode.clear();
-        E_Tphone.clear();
-        E_Tsalary.clear();
-        E_Taddress.clear();
+        E_Tname.setText("");
+        E_Tcode.setText("");
+        E_Tphone.setText("");
+        E_Tsalary.setText("");
+        E_Taddress.setText("");
     }
+
+   
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+/*************************************************************** Methods of keyWORDS************************************/
+
+
+
+@FXML
+    private void Key_pressed(KeyEvent event) {
+            try{
+        if(event.getCode().equals(KeyCode.CONTROL.S)){
+          this.AddEmployee(); }
+        else if (event.getCode().equals(KeyCode.SHIFT.DELETE)){
+          this.Delete_Employee();
+        }
+    }catch(Exception e){}
+       
+    }
+
+    
+       
+  
 }

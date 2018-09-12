@@ -23,8 +23,6 @@ public class HomeController implements Initializable {
 
     @FXML
     private AnchorPane Home;
-    @FXML
-    private Label Manager;
     
     DatabaseHandler databaseHandler;
     @Override
@@ -62,5 +60,10 @@ public class HomeController implements Initializable {
            }
         p.getChildren().setAll(pane);
     }    
+
+    @FXML
+    private void loadEmployee(ActionEvent event) {
+        loadwindow(Home , "/employees/main/employees.fxml");
+    }
     
 }

@@ -105,7 +105,7 @@
                </effect>
             </Label>
 
-            <JFXTextField fx:id="T_Search" accessibleRole="PARENT" alignment="CENTER_RIGHT" focusColor="#35889a" labelFloat="true" layoutX="340.0" layoutY="15.0" onKeyPressed="#S_Field" prefHeight="36.0" prefWidth="375.0" promptText="ادخل إسم المنتج .." unFocusColor="WHITE">
+            <JFXTextField fx:id="T_Search" accessibleRole="PARENT" alignment="CENTER_RIGHT" focusColor="#35889a" labelFloat="true" layoutX="340.0" layoutY="15.0" onKeyTyped="#S_Field" prefHeight="36.0" prefWidth="375.0" promptText="ادخل إسم المنتج .." unFocusColor="WHITE">
                <padding>
                   <Insets left="5.0" right="5.0" />
                </padding>
@@ -196,7 +196,7 @@
                      </HBox.margin>
                      <children>
 
-                        <Label fx:id="productBarcode" text="6465166546" textFill="#343642">
+                        <Label fx:id="productBarcode" textFill="#343642">
                            <font>
                               <Font name="System Bold" size="40.0" />
                            </font>
@@ -205,7 +205,7 @@
                            </VBox.margin>
 
                         </Label>
-                        <Label fx:id="productName" text="زبادى جهينة" textFill="#343642">
+                        <Label fx:id="productName" textFill="#343642">
                            <VBox.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </VBox.margin>
@@ -213,7 +213,7 @@
                               <Font name="System Bold" size="40.0" />
                            </font>
                         </Label>
-                        <Label fx:id="productPrice" layoutX="10.0" layoutY="27.0" text="4.00 " textFill="#343642">
+                        <Label fx:id="productPrice" layoutX="10.0" layoutY="27.0" textFill="#343642">
                            <VBox.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </VBox.margin>

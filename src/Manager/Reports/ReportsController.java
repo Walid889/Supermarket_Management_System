@@ -53,4 +53,9 @@ public class ReportsController implements Initializable {
     private void loadSuppliers_Report(ActionEvent event) {
         x.loadwindow(Reports,"/Manager/Suppliers/Reports/Sppliers_Reports.fxml");
     }
+
+    @FXML
+    private void Back(ActionEvent event) {
+        x.loadwindow(Reports,"/Manager/Main/Home.fxml");
+    }
 }

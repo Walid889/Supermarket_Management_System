@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tables>
     <table-entry name="employee1" col-data="
-            emp_id varchar(200),
+            emp_id varchar(200)  primary key,
             emp_name varchar(200)
             ,emp_phone varchar(200)
             ,emp_address varchar(200)
@@ -21,7 +21,7 @@
     <table-entry name="login" col-data="
                      log_id varchar(200),
                      log_password varchar(200)
-                    "/>
+        "/>
     
     <table-entry name="product" col-data="
                         pro_bar varchar(200) primary key ,
@@ -42,7 +42,7 @@
                         sup_company_name varchar(200),
                         sup_category varchar(200),
                         sup_phone varchar(200)
-                        "/>
+"/>
     <table-entry name="suppliers2" col-data="
                         number int primary key,
                         sup_paid double,
@@ -59,8 +59,15 @@
                         unit_price double,
                         current_qty int,
                         cost double,
+<<<<<<< HEAD
                         t_time TIME
     "/>
+=======
+                        t_time TIME,
+                        s_bar varchar(200)
+    "/>
+
+>>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
     <table-entry name="bills" col-data="
                         sale_id int,
                         sale_date date,
@@ -95,8 +102,19 @@
                         unit_price double,
                         current_qty int,
                         cost double,
-                        t_time TIME
+                        t_time TIME,
+                        b_bar varchar(200)
+    "/>
+    
+    <table-entry name="damages" col-data="
+                        dam_date date,
+                        product_name varchar(200),
+                        qty_kind varchar(200),
+                        unit_price double,
+                        current_qty int,
+                        cost double,
+                        t_time TIME,
+                        d_bar varchar(200)
     "/>
     
 </tables>
-
