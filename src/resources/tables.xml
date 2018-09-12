@@ -51,14 +51,7 @@
                         
     "/>
     <table-entry name="sales" col-data="
-<<<<<<< HEAD
                         number BIGINT not null primary key, 
-=======
-                        number BIGINT not null primary key,
-
-                        number BIGINT not null primary key, 
-
->>>>>>> c4bf01618b6337bae8361d5fe17a8918fe880359
                         sale_id int not null,
                         sale_date date,
                         product_name varchar(200),
@@ -67,16 +60,7 @@
                         current_qty int,
                         cost double,
                         t_time TIME
-<<<<<<< HEAD
     "/>
-
-=======
-
-    "/>
-
-
-
->>>>>>> c4bf01618b6337bae8361d5fe17a8918fe880359
     <table-entry name="bills" col-data="
                         sale_id int,
                         sale_date date,
@@ -90,15 +74,18 @@
                         reason varchar(200),
                         total double
     "/>
-    
+    <table-entry name="recall" col-data="
+                        price double,
+                        quantity varchar(200),
+                        total double
+    "/>
     <table-entry name="buy_bills" col-data="
                         bill_id int,
                         bill_date date,
                         t_time TIME,
                         supplier_name varchar(100),
                         total_price double
-    "/>
-    
+    "/>    
     <table-entry name="buying" col-data="
                         number BIGINT not null primary key, 
                         buy_id int not null,

@@ -217,7 +217,6 @@ public class Manager_ProductsController implements Initializable {
                 && !P_TUprice.getText().equals("") && !P_TBprice.getText().equals("") && !P_TCprice.getText().equals("")
                 && !P_Tminimun.getText().equals("")&&!P_CQuan.getText().equals("")){
         
-<<<<<<< HEAD
             String name=P_Tname.getText();
             String bar=P_Tcode.getText();
             String cate=(String) P_Ctype.getValue();
@@ -238,27 +237,8 @@ public class Manager_ProductsController implements Initializable {
                 clear();
                 DataHelper.loadProductsData(P_table,P_TSearch);
             }
-=======
-        String name=P_Tname.getText();
-        String bar=P_Tcode.getText();
-        String cate=(String) P_Ctype.getValue();
-        String sup=(String) P_Csupplier.getValue();
-        int it=Integer.parseInt(Q_item.getText());
-        int pa=Integer.parseInt(Q_packet.getText());
-        double Pi=Double.parseDouble(P_TUprice.getText());
-        double Pp=Double.parseDouble(P_TBprice.getText());
-        double Pb=Double.parseDouble(P_TCprice.getText());
-        int mP=Integer.parseInt(P_Tminimun.getText());
-        //G.setProductExpirationdate(P_Tdate.getText());
-        long aq=Long.parseLong(P_CQuan.getText());
-        Goods G=new Goods(name, bar, cate, sup, it, pa, Pi, Pp, Pb, mP,aq);
+
         
-        boolean result=DataHelper.updateProductInfo(G,oldBar);
-        if(result){
-            Alerts.showInfoAlert("تم تعديل بيانات :"+G.getProductName());
-            clear();    
-            DataHelper.loadProductsData(P_table,P_TSearch);
->>>>>>> c4bf01618b6337bae8361d5fe17a8918fe880359
         }
     }
 

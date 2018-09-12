@@ -117,7 +117,7 @@
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></TextField>
-            <JFXRadioButton contentDisplay="RIGHT" layoutX="1012.0" layoutY="67.0" text="من العميل" textFill="WHITE">
+            <JFXRadioButton fx:id="client_select" contentDisplay="RIGHT" layoutX="1012.0" layoutY="67.0" text="من العميل" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -129,8 +129,11 @@
                <children>
                   <TableView prefHeight="397.0" prefWidth="675.0">
                      <columns>
-                        <TableColumn prefWidth="75.0" text="C1" />
-                        <TableColumn prefWidth="75.0" text="C2" />
+                        <TableColumn fx:id="t_code" prefWidth="101.0" text="الكود" />
+                        <TableColumn fx:id="t_product" prefWidth="193.0" text="اسم المنتج" />
+                        <TableColumn fx:id="t_price" prefWidth="100.0" text="السعر" />
+                        <TableColumn fx:id="t_qty" prefWidth="103.0" text="الكمية" />
+                        <TableColumn fx:id="t_recall" prefWidth="177.0" text="جهة المرتجع" />
                      </columns>
                      <HBox.margin>
                         <Insets left="30.0" right="30.0" />
@@ -177,11 +180,11 @@
                   <DropShadow height="9.14" radius="4.07" width="9.14" />
                </effect>
             </Label>
-            <TextField layoutX="176.0" layoutY="621.0" prefHeight="30.0" prefWidth="233.0">
+            <TextField fx:id="quantity" layoutX="176.0" layoutY="621.0" prefHeight="30.0" prefWidth="233.0">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font></TextField>
-            <JFXRadioButton contentDisplay="RIGHT" layoutX="1012.0" layoutY="107.0" text="للشركة" textFill="WHITE">
+            <JFXRadioButton fx:id="company_select" contentDisplay="RIGHT" layoutX="1012.0" layoutY="107.0" text="للشركة" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>

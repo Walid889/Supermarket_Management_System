@@ -75,14 +75,13 @@ public class DataHelper {
         }
         return false;
     }
-<<<<<<< HEAD
     public static boolean QuickEditQuantity(int quan,String bar) {
         String qu="UPDATE product SET  pro_All_qty="+quan+" WHERE pro_bar = '"+bar+"' ";
         if(DatabaseHandler.getInstance().execAction(qu))
             return true;
         return false;
     }
-=======
+
     /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
     /////////////////////////////////////////////////////////////
@@ -138,7 +137,6 @@ public class DataHelper {
         return false;
     }
     
->>>>>>> c4bf01618b6337bae8361d5fe17a8918fe880359
     
     ///////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
@@ -636,7 +634,20 @@ public class DataHelper {
     
     
     
-    
+    public static boolean insertNewPersonalExpences(Employee E)
+    {
+        try{
+        PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
+                    "INSERT INTO employee2 (emp_reason,emp_price_product) VALUES(?,?)");
+        statement.setDouble(1, E.getEmployeeExpensesCost());
+        statement.setString(2, E.getEmployeeExpensesReason());
+       
+        return statement.executeUpdate() > 0;
+        } catch (SQLException ex)
+        {
+        }
+        return false;
+    }
     
     
     
@@ -667,7 +678,6 @@ public class DataHelper {
         return false;
     }
     
-<<<<<<< HEAD
     public static long getLastOrderNumberBuying(){
         String qu="SELECT number FROM buying ORDER BY number DESC FETCH FIRST ROW ONLY"; 
         ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
@@ -689,21 +699,5 @@ public class DataHelper {
     }
     
     
-    public static boolean insertNewSupplier(Suppliers s)
-    {
-        try{
-        PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
-                    "INSERT INTO suppliers1 (sup_name,sup_company_name,sup_category,sup_phone) VALUES(?,?,?,?)");
-        statement.setString(1, s.getSupplierName());
-        statement.setString(2, s.getSupplierCategory());
-        statement.setString(3, s.getSupplierPhone());
-        statement.setString(4, s.getSalespersonName());
-        return statement.executeUpdate() > 0;
-        } catch (SQLException ex)
-        {
-        }
-        return false;
-    }
-=======
->>>>>>> c4bf01618b6337bae8361d5fe17a8918fe880359
+    
 }

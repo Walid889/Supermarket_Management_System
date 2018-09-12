@@ -39,9 +39,36 @@ public class Employee{// Common_Methods is an Interface include Add , Update , D
     private String employeePhone;
     private String employeeAddress;
     private String employeeExpensesReason;
-    private double employeeSalaryHours;
+    private double employeeSalaryHours ;
     private double employeeExpensesCost;
     private double employeeHourlyWage;
+    private Time start;
+    private Time end ;
+    private double difference;
+
+    public Time getStart() {
+        return start;
+    }
+
+    public void setStart(Time start) {
+        this.start = start;
+    }
+
+    public Time getEnd() {
+        return end;
+    }
+
+    public void setEnd(Time end) {
+        this.end = end;
+    }
+
+    public double getDifference() {
+        return difference;
+    }
+
+    public void setDifference(double difference) {
+        this.difference = difference;
+    }
 
     public String getEmployeeName() {
         return employeeName;

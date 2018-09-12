@@ -5,6 +5,8 @@
  */
 package employees.personalexpenses;
 
+import Classes.Employee;
+import database.*;
 import employees.main.EmployeesController;
 import java.io.IOException;
 import java.net.URL;
@@ -15,6 +17,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -26,13 +34,24 @@ public class PersonalexpensesController implements Initializable {
     EmployeesController x = new EmployeesController();
     @FXML
     private AnchorPane loadPane;
-
+    @FXML
+    private TableColumn<Employee, Double> t_value;
+    @FXML
+    private TableColumn<Employee, String> t_reason;
+    @FXML
+    private TextField value;
+    @FXML
+    private TextArea reason;
+    @FXML
+    private TableView<Employee> personal_table;
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        t_value.setCellValueFactory(new PropertyValueFactory<>("employeeExpensesCost"));
+        t_reason.setCellValueFactory(new PropertyValueFactory<>("employeeExpensesReason"));
     }    
 
     @FXML
@@ -57,5 +76,23 @@ public class PersonalexpensesController implements Initializable {
             Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }*/
+    private void add(){
+                Employee e = new Employee();
+                e.setEmployeeExpensesCost(Double.parseDouble(value.getText()));
+                e.setEmployeeExpensesReason(reason.getText());
+                boolean result = DataHelper.insertNewPersonalExpences(e);
+                personal_table.getItems().add(e);
+                if(result){
+                    Alert AT=new Alert(Alert.AlertType.INFORMATION);
+                    AT.setHeaderText(null);
+                    AT.setContentText("تم اضافة المصاريف الشخصية");
+                    AT.showAndWait();
+                    return;
+                }
+            }
+    @FXML
+    private void confirm(ActionEvent event) {
+        this.add();
+    }
     
 }

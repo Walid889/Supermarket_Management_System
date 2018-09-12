@@ -3,14 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Products/Manager_ProductsController.java</file>
-=======
-            <file>file:/F:/Dokkan/proj/Supermarket_Management_System/src/Login/Main.java</file>
-            <file>file:/F:/Dokkan/proj/Supermarket_Management_System/src/Login/LoginController.java</file>
-            <file>file:/F:/Dokkan/proj/Supermarket_Management_System/src/Manager/Suppliers/Manager_SuppliersController.java</file>
-            <file>file:/F:/Dokkan/proj/Supermarket_Management_System/src/Classes/Login.java</file>
->>>>>>> c4bf01618b6337bae8361d5fe17a8918fe880359
+            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/employees/personalexpenses/PersonalexpensesController.java</file>
+            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Database/DataHelper.java</file>
+            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/employees/account/accept/attendence/AttendenceController.java</file>
+            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/employees/sales/SalesController.java</file>
+            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Classes/Employee.java</file>
+            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Classes/Buying.java</file>
+            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/resources/tables.xml</file>
+            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Classes/Login.java</file>
+            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/employees/recall/RecallController.java</file>
+            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Classes/Recalls.java</file>
         </group>
     </open-files>
 </project-private>
