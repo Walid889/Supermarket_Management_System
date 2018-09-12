@@ -14,12 +14,12 @@
         <URL value="@attendence.css" />
     </stylesheets>
    <children>
-      <JFXButton layoutX="734.0" layoutY="186.0" prefHeight="65.0" prefWidth="211.0" text="تسجيل حضور">
+      <JFXButton fx:id="attendence" layoutX="734.0" layoutY="186.0" onAction="#att_btn" prefHeight="65.0" prefWidth="211.0" text="تسجيل حضور">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="361.0" layoutY="186.0" prefHeight="25.0" prefWidth="160.0" text="انصراف">
+      <JFXButton fx:id="leaves" layoutX="361.0" layoutY="186.0" onAction="#leave_dtn" prefHeight="25.0" prefWidth="160.0" text="انصراف">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
@@ -29,7 +29,7 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <TextField layoutX="448.0" layoutY="329.0" prefHeight="30.0" prefWidth="200.0">
+      <TextField fx:id="start" layoutX="448.0" layoutY="329.0" prefHeight="30.0" prefWidth="200.0">
          <font>
             <Font name="System Bold" size="25.0" />
          </font></TextField>
@@ -38,7 +38,7 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <TextField layoutX="448.0" layoutY="422.0" prefHeight="30.0" prefWidth="200.0">
+      <TextField fx:id="end" layoutX="448.0" layoutY="422.0" prefHeight="30.0" prefWidth="200.0">
          <font>
             <Font name="System Bold" size="25.0" />
          </font></TextField>
@@ -47,7 +47,7 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <TextField layoutX="448.0" layoutY="515.0" prefHeight="30.0" prefWidth="200.0">
+      <TextField fx:id="difference" layoutX="448.0" layoutY="515.0" prefHeight="30.0" prefWidth="200.0">
          <font>
             <Font name="System Bold" size="25.0" />
          </font></TextField>

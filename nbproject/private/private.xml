@@ -3,31 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/employees/personalexpenses/PersonalexpensesController.java</file>
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Database/DataHelper.java</file>
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/employees/account/accept/attendence/AttendenceController.java</file>
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/employees/sales/SalesController.java</file>
             <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Classes/Employee.java</file>
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Classes/Buying.java</file>
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/resources/tables.xml</file>
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Classes/Login.java</file>
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/employees/recall/RecallController.java</file>
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Classes/Recalls.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Employee/Manager_EmployeeController.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/recall/RecallController.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Products/Manager_ProductsController.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/sales/SalesController.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Database/DataHelper.java</file>
-=======
-            <file>file:/D:/FCIH/Level%202/Supermarket/Git/Supermarket_Management_System/src/Login/LoginController.java</file>
-            <file>file:/D:/FCIH/Level%202/Supermarket/Git/Supermarket_Management_System/src/Manager/Suppliers/Manager_SuppliersController.java</file>
-            <file>file:/D:/FCIH/Level%202/Supermarket/Git/Supermarket_Management_System/src/Manager/Products/Manager_ProductsController.java</file>
-            <file>file:/D:/FCIH/Level%202/Supermarket/Git/Supermarket_Management_System/src/Login/login.fxml</file>
->>>>>>> a10e8970820514693744dd900c40d1d8cb7d2430
->>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
+            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/employees/account/accept/attendence/AttendenceController.java</file>
         </group>
     </open-files>
 </project-private>

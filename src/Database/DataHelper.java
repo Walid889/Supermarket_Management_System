@@ -152,8 +152,7 @@ public class DataHelper {
         return false;
     }
     
-<<<<<<< HEAD
-=======
+
         public static void loadEmployeesData(TableView TV) {
         ObservableList<Employee> list = FXCollections.observableArrayList();
        // ObservableList<String> list2 = FXCollections.observableArrayList();
@@ -179,8 +178,7 @@ public class DataHelper {
     }
     
     
->>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
-    
+  
     ///////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
@@ -721,7 +719,6 @@ public class DataHelper {
     }
     
     
-<<<<<<< HEAD
     public static boolean insertNewPersonalExpences(Employee E)
     {
         try{
@@ -738,7 +735,6 @@ public class DataHelper {
     }
     
     
-=======
     public static void loadDamageData(TableView TV,String dat) {
         ObservableList<Damages> list = FXCollections.observableArrayList();
         list.clear();
@@ -762,18 +758,8 @@ public class DataHelper {
         }
         TV.setItems(list);
     }
->>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+      
     /****************************************************************************************************************/
     /****************************************************************************************************************/
     public static boolean insertNewExpences(Expences E)
@@ -791,30 +777,12 @@ public class DataHelper {
         return false;
     }
     
-<<<<<<< HEAD
-    public static long getLastOrderNumberBuying(){
-        String qu="SELECT number FROM buying ORDER BY number DESC FETCH FIRST ROW ONLY"; 
-        ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
-        long num = 0;
-        try {
-            if(rs.next()){
-                num=rs.getLong("number")+1;
-                System.out.println("llllllllllll");}
-            else
-           {
-                num=1;
-                System.out.println("لسااااا");
-//              Alerts.showInfoAlert("اول فواتير اليوم ..");
-           }
-        } catch (SQLException ex) {
-            Alerts.showErrorAlert("لايوجد بيانات");
-        }
-        return num;
-    }
+
     
     
     
-=======
+    
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     
@@ -824,5 +792,5 @@ public class DataHelper {
     
     
     
->>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
+
 }

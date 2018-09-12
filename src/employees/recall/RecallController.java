@@ -5,13 +5,10 @@
  */
 package employees.recall;
 
-<<<<<<< HEAD
 import com.jfoenix.controls.JFXRadioButton;
-=======
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
->>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
 import employees.main.EmployeesController;
 import java.io.IOException;
 import java.net.URL;
@@ -23,12 +20,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-<<<<<<< HEAD
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
-=======
 import javafx.scene.control.ToggleGroup;
->>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -43,7 +37,7 @@ public class RecallController implements Initializable {
     @FXML
     private Label date;
     @FXML
-<<<<<<< HEAD
+
     private JFXRadioButton client_select;
     @FXML
     private TableColumn<?, ?> t_code;
@@ -59,7 +53,6 @@ public class RecallController implements Initializable {
     private TextField quantity;
     @FXML
     private JFXRadioButton company_select;
-=======
     private JFXTextField R_SearchField;
     @FXML
     private JFXButton R_SearchButton;
@@ -75,7 +68,7 @@ public class RecallController implements Initializable {
     private Label productPrice;
     @FXML
     private JFXRadioButton R_ToCampany;
->>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
+
 
     /**
      * Initializes the controller class.
