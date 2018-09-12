@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.DatePicker?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -14,7 +16,6 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <ComboBox fx:id="S_Cname" layoutX="480.0" layoutY="125.0" prefHeight="33.0" prefWidth="324.0" style="-fx-background-color: #fff;" />
       <Label fx:id="S_Date1" layoutX="891.0" layoutY="199.0" text="من :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
@@ -25,8 +26,6 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <DatePicker fx:id="S_TData1" layoutX="550.0" layoutY="205.0" prefHeight="33.0" prefWidth="256.0" />
-      <DatePicker fx:id="S_TDate2" layoutX="550.0" layoutY="278.0" prefHeight="33.0" prefWidth="256.0" />
       <JFXButton layoutX="229.0" layoutY="424.0" onAction="#Supplier_Returns" prefHeight="65.0" prefWidth="198.0" stylesheets="@Suppliers_Reports.css" text="المرتجعات" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
@@ -46,5 +45,20 @@
          <font>
             <Font name="System Bold" size="30.0" />
          </font></JFXButton>
+      <JFXButton contentDisplay="RIGHT" layoutX="1211.0" layoutY="24.0" onAction="#Back" style="-fx-cursor: hand;" text="رجوع" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/arrow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXComboBox fx:id="S_Cname" layoutX="482.0" layoutY="127.0" prefHeight="30.0" prefWidth="324.0" style="-fx-background-color: #FFF;" />
+      <JFXDatePicker fx:id="S_TData1" layoutX="536.0" layoutY="208.0" prefHeight="30.0" prefWidth="270.0" style="-fx-background-color: #FFF;" />
+      <JFXDatePicker fx:id="S_TDate2" layoutX="536.0" layoutY="280.0" prefHeight="30.0" prefWidth="270.0" style="-fx-background-color: #FFF;" />
    </children>
 </AnchorPane>

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import javafx.scene.control.DatePicker?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -13,18 +15,16 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label fx:id="F_date1" layoutX="831.0" layoutY="188.0" text="من :" textFill="WHITE">
+      <Label fx:id="F_date1" layoutX="828.0" layoutY="173.0" text="من :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label fx:id="F_date2" layoutX="829.0" layoutY="279.0" text="الى :" textFill="WHITE">
+      <Label fx:id="F_date2" layoutX="826.0" layoutY="264.0" text="الى :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <DatePicker fx:id="F_Tdate1" layoutX="517.0" layoutY="200.0" prefHeight="35.0" prefWidth="283.0" />
-      <DatePicker fx:id="F_Tdate2" layoutX="519.0" layoutY="289.0" prefHeight="35.0" prefWidth="283.0" />
       <JFXButton layoutX="917.0" layoutY="435.0" onAction="#Daily_Report" prefHeight="68.0" prefWidth="202.0" stylesheets="@Financial_Reports.css" text="تقرير يومي" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
@@ -45,5 +45,19 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </JFXButton>
+      <JFXButton contentDisplay="RIGHT" layoutX="1212.0" layoutY="18.0" onAction="#Back" style="-fx-cursor: hand;" text="رجوع" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/arrow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXDatePicker fx:id="F_Tdate1" layoutX="516.0" layoutY="185.0" prefHeight="35.0" prefWidth="283.0" style="-fx-background-color: #FFF;" />
+      <JFXDatePicker fx:id="F_Tdate2" layoutX="516.0" layoutY="272.0" prefHeight="35.0" prefWidth="283.0" style="-fx-background-color: #FFF;" />
    </children>
 </AnchorPane>

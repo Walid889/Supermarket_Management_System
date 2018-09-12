@@ -6,25 +6,20 @@
 package Manager.Suppliers;
 
 import Classes.Alerts;
-import Classes.Goods;
 import Classes.Suppliers;
 import Manager.Main.HomeController;
 import database.DataHelper;
 import database.DatabaseHandler;
 import java.net.URL;
-import static java.nio.file.Files.list;
-import static java.util.Collections.list;
 import java.util.ResourceBundle;
-import java.util.function.Predicate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.collections.transformation.FilteredList;
-import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.Separator;
 import javafx.scene.control.TableColumn;
@@ -32,6 +27,9 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.DragEvent;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
@@ -45,7 +43,7 @@ public class Manager_SuppliersController implements Initializable {
     @FXML
     private AnchorPane Manager_Suppliers;
     @FXML
-    private ChoiceBox<Suppliers> S_Ctype;
+    private ComboBox<String> S_Ctype;
     @FXML
     private VBox VBox;
     @FXML
@@ -82,11 +80,14 @@ public class Manager_SuppliersController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         databaseHandler=DatabaseHandler.getInstance();
+         ObservableList<String> list= FXCollections.observableArrayList("وائل","محمود","احمد");
+        S_Ctype.setItems(list);
         t_name.setCellValueFactory(new PropertyValueFactory<>("supplierName"));
         t_category.setCellValueFactory(new PropertyValueFactory<>("supplierCategory"));
         t_phone.setCellValueFactory(new PropertyValueFactory<>("supplierPhone"));
         t_supplier.setCellValueFactory(new PropertyValueFactory<>("salespersonName"));
-    }    
+        
+         }    
 
     @FXML
     private void Suppliers_Reports(ActionEvent event) {
@@ -105,62 +106,96 @@ public class Manager_SuppliersController implements Initializable {
 
     @FXML
     private void Edit_Supplier(ActionEvent event) {
-        String name=S_Tname.getText();
-        String phone=S_TPhone.getText();
-        String category=S_Ctype.getTypeSelector();
-        String sales_name =S_TSaller.getText();
-        Suppliers s = new Suppliers(name,phone,category,sales_name);
-                boolean result=DataHelper.updateSupplier(s);
-        if(result){
-            Alerts.showInfoAlert("تم تعديل بيانات :"+s.getSupplierName());
-        }
-        else
-            Alerts.showInfoAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
+        this.Edit_Supplier();
     }
 
     @FXML
     private void Delete_Supplier(ActionEvent event) {
-        Suppliers s  = S_Table.getSelectionModel().getSelectedItem();
-        if (Alerts.ConfirmAlert("هل تريد مسح"+":", s.getSupplierName())) {
-                Boolean result = DataHelper.deleteSupplier(s);
-                if (result) {
-                    Alerts.showInfoAlert("تم المسح !!");
-                    clear();
-                    DataHelper.loadSuppliersData(S_Table,S_TSearch);
-                }
-                 else 
-                    Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
-            }
-       
+         this.Delete_Supplier();
     }
-    ObservableList<Suppliers> list= FXCollections.observableArrayList();
-        FilteredList filter=new FilteredList(list,e->true);
 
     @FXML
     private void Suppliers_Search(ActionEvent event) {
-        DataHelper.o(list);
-        S_TSearch.textProperty().addListener((observable, oldValue, newValue) -> {
-            filter.setPredicate(    (Predicate<? super Suppliers>)    (Suppliers go)->{
-                if(newValue.isEmpty() || newValue == null)
-                    return true;
-                if(newValue.contains(go.getSupplierName()))
-                    return true;
-                
-                return false;
-            });
-            
-        });
-        
-        SortedList st=new SortedList(filter);
-        st.comparatorProperty().bind(S_Table.comparatorProperty());
-        S_Table.setItems(st);
+          this.Suppliers_Search();
     }
     
-    private void AddSupplier(){
+    
+       ///////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    
+    
+    
+     private void Edit_Supplier() {
+         try {
+         
+         if ( !S_Tname.getText().equals("") && !S_TPhone.getText().equals("") && !S_TSaller.getText().equals("") &&!S_Ctype.getValue().equals("")  ){
+            
+             try{
+                //yooooour coooode
+            }catch (NumberFormatException es)
+            {
+                Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
+            }
+         }else {
+             Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+                }
+         }catch (NullPointerException e){
+              Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
+         }
+         
+        
+    }
+    
+    
+    private void Delete_Supplier() {
+        
+        try {
+         if ( !S_Tname.getText().equals("") && !S_TPhone.getText().equals("") && !S_TSaller.getText().equals("") &&!S_Ctype.getValue().equals("") ){
+            
+             try{
+                //yooooour coooode
+            }catch (NumberFormatException es)
+            {
+                Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
+            }
+         }else {
+             Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+                }
+        }catch(NullPointerException e){
+              Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
+         }
+    }
+    
+    
+    private void Suppliers_Search() {
+        
+         if ( !S_TSearch.getText().equals("") && !S_Ctype.getValue().equals("") ){
+            
+             try{
+                //yooooour coooode
+            }catch (NumberFormatException es)
+            {
+                Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
+            }
+         }
+          else 
+        {  
+            Alerts.showErrorAlert("برجاء ادخال اسم المورد او التصنيف  ");
+            
+        }
+    }
+    private void AddSupplier()
+    {
+        try {
+        if ( !S_Tname.getText().equals("") && !S_TPhone.getText().equals("") && !S_TSaller.getText().equals("")  && !S_Ctype.getValue().equals(""))
+        {
+            
+             try{
+                 
          Suppliers s =new Suppliers();
         s.setSupplierName(S_Tname.getText());
         s.setSupplierCategory(S_Ctype.getTypeSelector());
-        s.setSupplierPhone(S_TPhone.getText());
+//        s.setSupplierPhone(Integer.parseInt(S_TPhone.getText()));
         s.setSalespersonName(S_TSaller.getText());
         
         boolean result = DataHelper.insertNewSupplier(s);
@@ -171,14 +206,22 @@ public class Manager_SuppliersController implements Initializable {
             AT.setContentText("Successfully Added !!");
             AT.showAndWait();
             return;
+        }
+            }catch (NumberFormatException es)
+            {
+                Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
+            }
+         }
+        else {
+             Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+                }
+        }catch (NullPointerException e){
+              Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
+         }
+
     }
-    }
-    private void clear()
-    {
-     S_Tname.clear();
-     S_TPhone.clear();
-     S_TSaller.clear();
-    }
+    
+
     private void chechbox(DragEvent event) {
         ChoiceBox cd = new ChoiceBox();
     cd.setItems(FXCollections.observableArrayList(
@@ -187,4 +230,29 @@ public class Manager_SuppliersController implements Initializable {
 ); 
     }
 
+    @FXML
+    private void Key_Pressed(KeyEvent event) {
+         try{
+        if(event.getCode().equals(KeyCode.CONTROL.S)){
+          this.AddSupplier(); }
+        else if (event.getCode().equals(KeyCode.SHIFT.DELETE)){
+             this.Delete_Supplier();
+        }
+    }catch(Exception e){}
+       
+    }
+
+    @FXML
+    private void key_Search(KeyEvent event) {
+        try{
+        if(event.getCode().equals(KeyCode.ENTER)){
+          this.Suppliers_Search();
+        }
+    }catch(Exception e){}
+    }
+
+    @FXML
+    private void selectFromTable(MouseEvent event) {
+    }
 }
+

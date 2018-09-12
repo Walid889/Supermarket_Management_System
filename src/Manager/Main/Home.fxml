@@ -62,5 +62,17 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </JFXButton>
+      <JFXButton contentDisplay="TOP" layoutX="36.0" layoutY="502.0" onAction="#loadEmployee" prefHeight="166.0" prefWidth="187.0" styleClass="btn" stylesheets="@Home.css" text="تسجيل كموظف" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="110.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../icons/Admin/موظفين.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

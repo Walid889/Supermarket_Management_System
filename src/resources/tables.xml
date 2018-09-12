@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <tables>
     <table-entry name="employee1" col-data="
-            emp_id varchar(200),
+            emp_id varchar(200)  primary key,
             emp_name varchar(200)
             ,emp_phone varchar(200)
             ,emp_address varchar(200)

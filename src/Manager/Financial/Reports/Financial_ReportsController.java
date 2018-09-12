@@ -5,9 +5,12 @@
  */
 package Manager.Financial.Reports;
 
+import Classes.Alerts;
 import Manager.Main.HomeController;
+import com.jfoenix.controls.JFXDatePicker;
 import database.DatabaseHandler;
 import java.net.URL;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,9 +36,9 @@ public class Financial_ReportsController implements Initializable {
     @FXML
     private Label F_date2;
     @FXML
-    private DatePicker F_Tdate1;
+    private JFXDatePicker F_Tdate1;
     @FXML
-    private DatePicker F_Tdate2;
+    private JFXDatePicker F_Tdate2;
 
     /**
      * Initializes the controller class.
@@ -49,19 +52,48 @@ public class Financial_ReportsController implements Initializable {
 
     @FXML
     private void Expenses_Reports(ActionEvent event) {
+         try {
+         if (!F_Tdate1.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).equals("") &&!F_Tdate2.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).equals("") ){
+            System.out.println("غلطططططط "); // yoooooooooour code
+         }
+         }
+        catch(NullPointerException e){
+                 Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
+                 }
     }
 
     @FXML
     private void invoices_Reports(ActionEvent event) {
+         try {
+         if (!F_Tdate1.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).equals("") &&!F_Tdate2.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).equals("") ){
+            System.out.println("غلطططططط "); // yoooooooooour code
+         }
+         }
+        catch(NullPointerException e){
+                 Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
+                 }
     }
 
     @FXML
     private void Daily_Report(ActionEvent event) {
+         try {
+         if (!F_Tdate1.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).equals("") &&!F_Tdate2.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).equals("") ){
+            System.out.println("غلطططططط "); // yoooooooooour code
+         }
+         }
+        catch(NullPointerException e){
+                 Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
+                 }
     }
 
     @FXML
     private void Manager_Home(ActionEvent event) {
         x.loadwindow(Financial_Reports, "/Manager/Main/Home.fxml");
+    }
+
+    @FXML
+    private void Back(ActionEvent event) {
+         x.loadwindow(Financial_Reports, "/Manager/Reports/Reports.fxml");
     }
     
 }

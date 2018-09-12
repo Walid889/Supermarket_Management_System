@@ -4,15 +4,9 @@
  * and open the template in the editor.
  */
 package Login;
-
-import Classes.Alerts;
-
-import Classes.Login;
-
 import Classes.Login;
 import Classes.Alerts;
 import Manager.Main.HomeController;
-
 import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -21,9 +15,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javax.swing.JOptionPane;
-import org.apache.commons.codec.digest.DigestUtils;
 
 
 /**
@@ -56,25 +50,10 @@ HomeController y = new HomeController();
 
     @FXML
     private void login(ActionEvent event) {
-
-        Login a = new Login();
- 
-            a.setUsername(TEnterCode.getText());
-            a.setPassword(TPassword.getText());
-          
- 
-            if(a.getUsername().equals("admin") && a.getPassword().equals("admin")){
-                JOptionPane.showMessageDialog(null, "Login with Admin");
-                
-                }
- 
-            else{
-                JOptionPane.showMessageDialog(null, "Failed Login");
-                
-                }
-        //JOptionPane.showMessageDialog(null , "Login With Admin");
-        //Alerts.ConfirmAlert("login with admin", "");    
-
+        this.login();
+        
+    }
+    private void login() {
         //JOptionPane.showMessageDialog(null , "HI");
         //Alerts.ConfirmAlert("login with admin", "");    
        System.out.println("HI");
@@ -108,4 +87,7 @@ HomeController y = new HomeController();
         TEnterCode.setText("");
         TPassword.setText("");
     }
+
+  
+    
 }

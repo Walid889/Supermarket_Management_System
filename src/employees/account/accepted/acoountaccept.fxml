@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="loadPane" prefHeight="697.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employess.account.accept.AcoountacceptController">
+    <stylesheets>
+        <URL value="@acoountaccept.css" />
+    </stylesheets>
+   <children>
+      <JFXButton layoutX="677.0" layoutY="316.0" onAction="#loadAccountAccept" prefHeight="75.0" prefWidth="316.0" text="الحضور والانصراف">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="385.0" layoutY="316.0" onAction="#loadPersonalExpenses" prefHeight="75.0" prefWidth="202.0" text="مصاريفى">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </JFXButton>
+      <JFXButton contentDisplay="RIGHT" layoutX="1155.0" layoutY="34.0" onAction="#loadBack" prefHeight="63.0" prefWidth="172.0" styleClass="back" stylesheets="@acoountaccept.css" text=" رجوع">
+         <font>
+            <Font name="System Bold" size="29.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/arrow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>
