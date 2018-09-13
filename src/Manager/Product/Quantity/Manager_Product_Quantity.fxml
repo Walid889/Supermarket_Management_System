@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="Product_Quantity" prefHeight="697.0" prefWidth="1366.0" styleClass="pane" stylesheets="@manager_Product_Quantity.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Manager.Product.Quantity.Manager_Product_QuantityController">
+   <children>
+      <Label fx:id="P_Quantity" layoutX="646.0" layoutY="26.0" prefHeight="45.0" prefWidth="89.0" text="الكمية " textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="P_TSearch" focusColor="#4aabc0" labelFloat="true" layoutX="548.0" layoutY="199.0" prefHeight="54.0" prefWidth="320.0" promptText=" ادخل الباركود ..                      " styleClass="field" stylesheets="@manager_producttype.css" unFocusColor="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="P_CQuantity" focusColor="#4aabc0" labelFloat="true" layoutX="315.0" layoutY="398.0" prefHeight="50.0" prefWidth="165.0" promptText="الكرتونة               " style="-fx-background-color: #FFF;" unFocusColor="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton layoutX="338.0" layoutY="199.0" onAction="#P_Search" prefHeight="25.0" prefWidth="160.0" styleClass="btn" stylesheets="@manager_producttype.css" text="بحث" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="P_BQuantity" focusColor="#4aabc0" labelFloat="true" layoutX="581.0" layoutY="398.0" prefHeight="50.0" prefWidth="165.0" promptText="الباكيت               " style="-fx-background-color: #FFF;" unFocusColor="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="P_UQuantity" focusColor="#4aabc0" labelFloat="true" layoutX="831.0" layoutY="397.0" prefHeight="50.0" prefWidth="165.0" promptText="القطعة                " style="-fx-background-color: #FFF;" unFocusColor="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXButton layoutX="711.0" layoutY="558.0" onAction="#Edit_Product" prefHeight="65.0" prefWidth="184.0" styleClass="btn" stylesheets="@manager_producttype.css" text="تعديل" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </JFXButton>
+      <JFXButton contentDisplay="RIGHT" layoutX="1165.0" layoutY="22.0" onAction="#Back" prefHeight="25.0" prefWidth="160.0" styleClass="back" stylesheets="@manager_Product_Quantity.css" text="رجوع" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="56.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../icons/arrow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="417.0" layoutY="558.0" onAction="#Manager_Home" prefHeight="65.0" prefWidth="184.0" styleClass="btn" stylesheets="@manager_producttype.css" text="الرئيسية" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </JFXButton>
+      <RadioButton fx:id="R_packet" layoutX="757.0" layoutY="414.0" mnemonicParsing="false" onMouseClicked="#AllowEditRadio">
+         <toggleGroup>
+            <ToggleGroup fx:id="T_R_quan" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="R_item" layoutX="1012.0" layoutY="414.0" mnemonicParsing="false" onMouseClicked="#AllowEditRadio">
+         <toggleGroup>
+            <ToggleGroup fx:id="T_R_quan1" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="R_box" layoutX="488.0" layoutY="415.0" mnemonicParsing="false" onMouseClicked="#AllowEditRadio">
+         <toggleGroup>
+            <ToggleGroup fx:id="T_R_quan2" />
+         </toggleGroup>
+      </RadioButton>
+   </children>
+</AnchorPane>

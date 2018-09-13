@@ -59,6 +59,7 @@
                         unit_price double,
                         current_qty int,
                         cost double,
+<<<<<<< HEAD
 
                         t_time TIME
     
@@ -68,6 +69,13 @@
     "/>
 
     <table-entry name="bills" col-data="
+=======
+
+                        t_time TIME
+                         s_bar varchar(200)
+"/>
+   <table-entry name="bills" col-data="
+>>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
                         sale_id int,
                         sale_date date,
                         t_time TIME,
@@ -75,6 +83,9 @@
                         paid_money double,
                         reminder_money double
     "/>
+<<<<<<< HEAD
+    
+=======
     <table-entry name="shop_costs" col-data="
                         price double,
                         reason varchar(200),
@@ -85,6 +96,7 @@
                         quantity varchar(200),
                         total double
     "/>
+>>>>>>> 37f0c3acaa65a9f70d1c1ebe9bb9b8ff35f31434
     <table-entry name="buy_bills" col-data="
                         bill_id int,
                         bill_date date,
@@ -115,5 +127,24 @@
                         t_time TIME,
                         d_bar varchar(200)
     "/>
+    <table-entry name="recalls" col-data="
+                        rec_date date,
+                        product_name varchar(200),
+                        qty_kind varchar(200),
+                        unit_price double,
+                        current_qty int,
+                        cost double,
+                        t_time TIME,
+                        r_bar varchar(200),
+                        source varchar(200)
+                        
+    "/>
+    
+    <table-entry name="expenses" col-data="
+                        exp_date date,
+                        e_reason varchar(200),
+                        e_cost double
+    "/>
+    
     
 </tables>

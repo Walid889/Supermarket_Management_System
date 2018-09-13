@@ -110,10 +110,13 @@ public class SalesController extends NewSerial implements Initializable {
     @FXML
     private JFXTextField T_Search;
     @FXML
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
     private Label productBarcode;
     @FXML
     private TableColumn<Sales, String> c_bar;
@@ -153,12 +156,14 @@ public class SalesController extends NewSerial implements Initializable {
     private void S_Field(KeyEvent event) {
         searrch();
         productPrice.setText(pra.getItemPrice()+"");
+        
     }
 
     @FXML
     private void searchButton(ActionEvent event) {
         clear();
         searrch();
+        
     }
     
     private void searrch(){
@@ -375,15 +380,14 @@ public class SalesController extends NewSerial implements Initializable {
             S.setNumber(k);
             boolean result = DataHelper.insertNewSale(S);
             
-
-            TOTAL+=S.getCost();
-            totalPrice.setText(TOTAL+"");
             System.out.println(k);
             int qty=Integer.parseInt(Quntity.getText());
             boolean s= DataHelper.InterAction_B_Sales__Products_addQuan(productBarcode,qty,quntityComboBox.getValue());
             if(s){
                 if(result){
                     SalesTabel.getItems().add(S);
+                    TOTAL+=S.getCost();
+                    totalPrice.setText(TOTAL+"");
                     Alerts.showInfoAlert("تمت الاضافة !!");
                 }
                 else
@@ -512,6 +516,12 @@ public class SalesController extends NewSerial implements Initializable {
 =======
     }*/
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
     /*********************************************************************************************/
     
 }

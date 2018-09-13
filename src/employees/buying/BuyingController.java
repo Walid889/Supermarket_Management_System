@@ -99,6 +99,7 @@ public class BuyingController  extends NewSerial implements Initializable {
         ObservableList<String> list= FXCollections.observableArrayList("قطعة","علبة","كرتونة");
         ObservableList<String> list2= FXCollections.observableArrayList("اتش","ياسر","ليدا");
         quntityComboBox.setItems(list);
+        quntityComboBox.setValue("قطعة");
         supplier.setItems(list2);
         date.setText(gettDate());
         setSalesSerial(DataHelper.getLastSerialTodayBuying(gettDate()));
@@ -109,7 +110,7 @@ public class BuyingController  extends NewSerial implements Initializable {
     private  void initTableViewCols(){
         t_bar.setCellValueFactory(new PropertyValueFactory<>("barcodfiled"));
         t_cate.setCellValueFactory(new PropertyValueFactory<>("name"));
-        t_price.setCellValueFactory(new PropertyValueFactory<>("number"));
+        t_price.setCellValueFactory(new PropertyValueFactory<>("UnitPrice"));
         t_quan.setCellValueFactory(new PropertyValueFactory<>("CurrentQuantity"));
         t_kquan.setCellValueFactory(new PropertyValueFactory<>("quantityKind"));
         t_cost.setCellValueFactory(new PropertyValueFactory<>("cost"));
@@ -201,7 +202,8 @@ public class BuyingController  extends NewSerial implements Initializable {
     
     private void addQuntity()
     {
-        if(!Quntity.getText().equals(""))
+        
+        if(!Quntity.getText().equals("") && !productBarcode.getText().equals(""))
         {
             Buying B=new Buying();
             
@@ -231,13 +233,14 @@ public class BuyingController  extends NewSerial implements Initializable {
             boolean result =DataHelper.insertBuyGoods(B);
             
 
-            TOTAL+=B.getCost();
-            totalPrice.setText(TOTAL+"");
-            System.out.println(k);
+            
+            //System.out.println(k);
             int qty=Integer.parseInt(Quntity.getText());
             boolean s= DataHelper.InterAction_B_Sales__Products_DeleteQuan(productBarcode.getText(),qty,quntityComboBox.getValue());
             if(s){
                 if(result){
+                    TOTAL+=B.getCost();
+                    totalPrice.setText(TOTAL+"");
                     B_table.getItems().add(B);
                     Alerts.showInfoAlert("تمت الاضافة !!");
                 }

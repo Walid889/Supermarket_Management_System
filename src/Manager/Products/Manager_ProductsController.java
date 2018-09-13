@@ -113,28 +113,14 @@ public class Manager_ProductsController implements Initializable {
     private TextField Q_packet;
     @FXML
     private TextField Q_box;
-    @FXML
     private TableColumn<Goods, String> t_allQuan;
-    @FXML
-    private Label P_date1;
-    @FXML
     private TextField P_CQuan;
     private static String oldBar="";
-    @FXML
     private TextField P_Qi;
-    @FXML
     private TextField P_Qp;
-    @FXML
     private TextField P_Qb;
     private CheckBox allowEdit;
-    @FXML
-    private RadioButton R_box;
-    @FXML
-    private ToggleGroup T_R_quan;
-    @FXML
-    private RadioButton R_packet;
-    @FXML
-    private RadioButton R_item;
+  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -146,12 +132,16 @@ public class Manager_ProductsController implements Initializable {
         P_Csupplier.setItems(list2);
         Q_box.setText("1");
         DataHelper.loadProductsData(P_table,P_TSearch);
+<<<<<<< HEAD
         P_Qb.setEditable(false);
         P_Qp.setEditable(false);
         P_Qi.setEditable(false);
+=======
         
         
         
+        
+>>>>>>> 37f0c3acaa65a9f70d1c1ebe9bb9b8ff35f31434
     } 
     private void initTableViewCols(){
         t_name.setCellValueFactory(new PropertyValueFactory<>("productName"));
@@ -164,8 +154,6 @@ public class Manager_ProductsController implements Initializable {
         t_p_packet.setCellValueFactory(new PropertyValueFactory<>("packetPrice"));
         t_p_box.setCellValueFactory(new PropertyValueFactory<>("boxPrice"));
         t_minimum_Q.setCellValueFactory(new PropertyValueFactory<>("productMinQuantity"));
-        //t_ExpirationDate.setCellValueFactory(new PropertyValueFactory<>("productExpirationdate"));
-        t_allQuan.setCellValueFactory(new PropertyValueFactory<>("allQuantity"));
     }
     
     
@@ -179,6 +167,11 @@ public class Manager_ProductsController implements Initializable {
     @FXML
     private void Manager_Home(ActionEvent event) {
          x.loadwindow(Manager_Products,"/Manager/Main/Home.fxml");
+    }
+    
+     @FXML
+    private void Product_Quantity(ActionEvent event) {
+        x.loadwindow(Manager_Products, "/Manager/Product/Quantity/Manager_Product_Quantity.fxml");
     }
 
     @FXML
@@ -221,7 +214,7 @@ public class Manager_ProductsController implements Initializable {
             G.setBoxPrice(Double.parseDouble(P_TCprice.getText()));
             G.setProductMinQuantity(Integer.parseInt(P_Tminimun.getText()));
             //G.setProductExpirationdate(P_Tdate.getText());
-            G.setAllQuantity(0);
+            //G.setAllQuantity(0);
             boolean result=DataHelper.insertNewProduct(G);
             if(result){
                 P_table.getItems().add(G);
@@ -316,30 +309,11 @@ public class Manager_ProductsController implements Initializable {
       }
 
     }
+    
     @FXML
-    private void Product_Search(ActionEvent event) { // Search Button
-        if (!P_TSearch.getText().equals(""))
-        {
-        /*int G= P_table.getSelectionModel().getFocusedIndex();
-        String keyword=P_TSearch.getText();
-        String qu="SELECT * FROM product";
-        ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
-         try {
-             while(rs.next()){
-                 String bar =rs.getString("pro_bar");
-                 if(keyword.equals(bar)){
-                    
-                 }
-             }} catch (SQLException ex) {
-             Logger.getLogger(Manager_ProductsController.class.getName()).log(Level.SEVERE, null, ex);
-         }
-        */
-        }
-        else {
-           Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
-        }
-        
+    private void Product_Search(ActionEvent event) { // Search Button 
     }
+    
     private void clear(){
         P_Tname.clear();
         P_TCprice.clear();
@@ -397,7 +371,6 @@ public class Manager_ProductsController implements Initializable {
                 
                 return false;
             });
-            
         });
         
         SortedList st=new SortedList(filter);
@@ -406,8 +379,7 @@ public class Manager_ProductsController implements Initializable {
     }
 
 
-    @FXML
-    private void Product_EditQuantity(ActionEvent event) {
+  /*  private void Product_EditQuantity(ActionEvent event) {
         if(R_item.isSelected() || R_packet.isSelected() || R_box.isSelected() ){
             int it=Integer.parseInt(P_Qi.getText());
             int pa=Integer.parseInt(P_Qp.getText());
@@ -432,7 +404,6 @@ public class Manager_ProductsController implements Initializable {
             Alerts.showErrorAlert("لم يتم تحديد خلية محددة");
         
     }
-    @FXML
     private void AllowEditRadio(MouseEvent event) {
         if(R_item.isSelected()){
             P_Qi.setEditable(true);
@@ -450,9 +421,11 @@ public class Manager_ProductsController implements Initializable {
             P_Qb.setEditable(true);
         }
     }
-
+*/
     @FXML
     private void ClearNew(ActionEvent event){
         clear();
     }
+
+   
 }

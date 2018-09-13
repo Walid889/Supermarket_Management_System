@@ -152,5 +152,16 @@ public class Employee{// Common_Methods is an Interface include Add , Update , D
     public void setNumber(long number) {
         this.number = number;
     }
-
+    ///////////////////////////ATTENDENCE//////////////////////////////
+    
+  
+// Main function which finds difference 
+public String getTimeDiff(Date dateOne, Date dateTwo) {        
+    String diff = "";        
+    long timeDiff = Math.abs(dateOne.getTime() - dateTwo.getTime());        
+    diff = String.format("%d hour(s) %d min(s)", 
+        TimeUnit.MILLISECONDS.toHours(timeDiff),                
+        TimeUnit.MILLISECONDS.toMinutes(timeDiff) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(timeDiff)));        
+return diff;}
+//////////////////////////////////////////////
 }

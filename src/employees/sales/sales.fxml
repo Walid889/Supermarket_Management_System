@@ -105,15 +105,6 @@
                </effect>
             </Label>
 
-            <JFXTextField fx:id="T_Search" accessibleRole="PARENT" alignment="CENTER_RIGHT" focusColor="#35889a" labelFloat="true" layoutX="340.0" layoutY="15.0" onKeyTyped="#S_Field" prefHeight="36.0" prefWidth="375.0" promptText="ادخل إسم المنتج .." unFocusColor="WHITE">
-               <padding>
-                  <Insets left="5.0" right="5.0" />
-               </padding>
-               <font>
-                  <Font size="20.0" />
-               </font>
-            </JFXTextField>
-
             <JFXButton accessibleRole="PARENT" layoutX="344.0" layoutY="59.0" onAction="#searchButton" prefHeight="42.0" prefWidth="120.0" text="بحث" textFill="WHITE">
 
                <font>
@@ -132,6 +123,19 @@
             <TextField fx:id="billNumber" accessibleRole="PARENT" alignment="CENTER" editable="false" layoutX="930.0" layoutY="23.0" prefHeight="36.0" prefWidth="82.0">
                <font>
                   <Font name="System Bold" size="20.0" />
+               </font></TextField>
+
+            <JFXTextField fx:id="T_Search" accessibleRole="PARENT" alignment="CENTER_RIGHT" focusColor="#35889a" labelFloat="true" layoutX="340.0" layoutY="15.0" onKeyTyped="#S_Field" prefHeight="36.0" prefWidth="375.0" promptText="ادخل إسم المنتج .." unFocusColor="WHITE">
+               <padding>
+                  <Insets left="5.0" right="5.0" />
+               </padding>
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </JFXTextField>
+            <TextField fx:id="Quntity" accessibleRoleDescription="PARENT" layoutX="733.0" layoutY="508.0" onKeyPressed="#Q_A_K" prefHeight="34.0" prefWidth="75.0">
+               <font>
+                  <Font name="System Bold" size="25.0" />
                </font></TextField>
             <HBox accessibleRoleDescription="PARENT" alignment="CENTER_LEFT" layoutX="6.0" layoutY="106.0" onKeyPressed="#A_N_B" prefHeight="400.0" prefWidth="1155.0">
                <children>
@@ -260,10 +264,6 @@
                   <DropShadow height="9.14" radius="4.07" width="9.14" />
                </effect>
             </Label>
-            <TextField fx:id="Quntity" accessibleRoleDescription="PARENT" layoutX="733.0" layoutY="508.0" onKeyPressed="#Q_A_K" prefHeight="34.0" prefWidth="75.0">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font></TextField>
             <TextField fx:id="totalPrice" accessibleRoleDescription="PARENT" layoutX="733.0" layoutY="626.0" prefHeight="34.0" prefWidth="230.0">
                <font>
                   <Font name="System Bold" size="25.0" />

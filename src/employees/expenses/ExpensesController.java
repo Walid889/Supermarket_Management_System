@@ -5,6 +5,7 @@
  */
 package employees.expenses;
 
+
 import com.jfoenix.controls.JFXButton;
 import employees.main.EmployeesController;
 import java.io.IOException;
@@ -21,7 +22,11 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import Classes.*;
+import database.*;
+import Serial_dinamic.NewSerial;
 import database.DataHelper;
+import java.sql.Date;
+import java.sql.ResultSet;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -33,38 +38,42 @@ import javafx.scene.input.KeyEvent;
  *
  * @author NOUR
  */
-public class ExpensesController implements Initializable {
+public class ExpensesController extends NewSerial implements Initializable {
     EmployeesController x = new EmployeesController();
     @FXML
     private AnchorPane loadPane;
     @FXML
-    private TableView<Expences> table;
-    @FXML
     private TextField value;
-    @FXML
-    private TextArea reason;
     @FXML
     private JFXButton add;
     @FXML
     private JFXButton home;
     @FXML
     private TextField total_price;
+
+    DatabaseHandler databaseHandler;
     @FXML
-    private TableColumn<Expences, Double> t_value;
+    private TableView<Expences> E_table;
     @FXML
-    private TableColumn<Expences, Double> t_total;
+    private TableColumn<Expences, String> t_cost;
     @FXML
     private TableColumn<Expences, String> t_reason;
-
-    
+    @FXML
+    private TextArea reasonBox;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        t_value.setCellValueFactory(new PropertyValueFactory<>("cost"));
-        t_total.setCellValueFactory(new PropertyValueFactory<>("totalCost"));
-        t_reason.setCellValueFactory(new PropertyValueFactory<>("Reason"));
+        databaseHandler=DatabaseHandler.getInstance();
+        DataHelper.loadExpensesData(E_table, gettDate());
+        
+        
+        initTableViewCols();
+        total();
     }    
-
+    private  void initTableViewCols(){
+        t_cost.setCellValueFactory(new PropertyValueFactory<>("cost"));
+        t_reason.setCellValueFactory(new PropertyValueFactory<>("reason"));
+    }
     @FXML
     private void loadMAinOfExpenses(ActionEvent event) {
     //loadWindow ("/employees/main/employees.fxml");
@@ -72,40 +81,57 @@ public class ExpensesController implements Initializable {
     }
     
     
-   /* void loadWindow(String loc)
-    {
-        try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource(loc));
-            loadPane.getChildren().setAll(pane);
-           
-        } catch (IOException ex) {
-            Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }*/
+    private double total=0;
+    
     private void AddValue(){
-         Expences E =new Expences();
+        Expences E =new Expences();
+        try{
+        Date JDBC_Date = Date.valueOf(gettDate());
+        E.setDate(JDBC_Date);
         E.setCost(Double.parseDouble(value.getText()));
-        E.setReason((this.reason.getText()));
-        E.setTotalCost(Double.parseDouble(total_price.getText()));
+        E.setReason((this.reasonBox.getText()));
         
         boolean result = DataHelper.insertNewExpences(E);
-        table.getItems().add(E);
+     
         if(result){
-            Alert AT=new Alert(Alert.AlertType.INFORMATION);
-            AT.setHeaderText(null);
-            AT.setContentText("Successfully Added !!");
-            AT.showAndWait();
-            return;
+           E_table.getItems().add(E);
+           Alerts.showInfoAlert("تم الاضافة !!");
+        }
+        total();
+        clear();
+        }catch(NumberFormatException e){
+            Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة ..");
+        }
     }
+    private void total(){
+        E_table.getItems().forEach((t) -> {
+            total+=t.getCost();
+        });
+        total_price.setText(total+"");
+        total=0;
     }
-
-    
-
-    
-
     @FXML
     private void AddValue(ActionEvent event) {
         this.AddValue();
+        
+    }
+    
+    private void clear(){
+        value.clear();
+        reasonBox.clear();
     }
     
 }
+
+/*
+String qu = "SELECT * FROM expenses";
+        ResultSet rs =DatabaseHandler.getInstance().execQuery(qu);
+        try {
+            while (rs.next()) {
+                String s1=rs.getString("e_reason");
+                double s2=rs.getDouble("e_cost");
+                System.out.println(s1+"    "+s2);
+            }
+        }
+            catch(Exception e){}
+*/

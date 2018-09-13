@@ -89,6 +89,7 @@ public class DamageController extends NewSerial implements Initializable {
         databasehandeler=DatabaseHandler.getInstance();
         ObservableList<String> list= FXCollections.observableArrayList("قطعة","علبة","كرتونة");
         quntityComboBox.setItems(list);
+        quntityComboBox.setValue("قطعة");
         date.setText(gettDate());
         DataHelper.checkDataBar(SearchField,listB); // get barcode of all products
         initTableViewCols();
@@ -151,7 +152,7 @@ public class DamageController extends NewSerial implements Initializable {
     
     private void saveDamage()
     {
-        if(!Quntity.getText().equals(""))
+        if(!Quntity.getText().equals("") && !productBarcode.getText().equals(""))
         {
             Damages D=new Damages();
             D.setCurrentQuantity(Integer.parseInt(Quntity.getText()));
@@ -188,13 +189,10 @@ public class DamageController extends NewSerial implements Initializable {
                 else
                 Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
             }
-            
-            
         }
         else
-        {
             Alerts.showErrorAlert("لم يتم ادخال البيانات بشكل صحيح ! .. يرجى التأكد من ملئ جميع الحقول المطلوبه");
-        }
+        
     }
     
     private void cancelDamage()

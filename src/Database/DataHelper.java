@@ -178,8 +178,12 @@ public class DataHelper {
     }
     
     
+<<<<<<< HEAD
 
     
+=======
+  
+>>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
     ///////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
@@ -723,7 +727,10 @@ public class DataHelper {
     }
     
     
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
     public static boolean insertNewPersonalExpences(Employee E)
     {
         try{
@@ -740,7 +747,10 @@ public class DataHelper {
     }
     
     
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
     public static void loadDamageData(TableView TV,String dat) {
         ObservableList<Damages> list = FXCollections.observableArrayList();
         list.clear();
@@ -765,6 +775,7 @@ public class DataHelper {
         TV.setItems(list);
     }
 
+<<<<<<< HEAD
     
     
     
@@ -776,16 +787,20 @@ public class DataHelper {
     
     
     
+=======
+      
+>>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
     /****************************************************************************************************************/
     /****************************************************************************************************************/
     public static boolean insertNewExpences(Expences E)
     {
         try{
         PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
-                    "INSERT INTO shop_costs (price,reason,total) VALUES(?,?,?)");
-        statement.setDouble(1, E.getCost());
+                    "INSERT INTO expenses (exp_date,e_reason,e_cost) VALUES(?,?,?)");
+        statement.setDate(1, E.getDate());
         statement.setString(2, E.getReason());
-        statement.setDouble(3, E.getTotalCost());
+        statement.setDouble(3, E.getCost());
+
         return statement.executeUpdate() > 0;
         } catch (SQLException ex)
         {
@@ -793,15 +808,95 @@ public class DataHelper {
         return false;
     }
     
+<<<<<<< HEAD
 
   
     
     
     
 
+=======
+<<<<<<< HEAD
+    public static void loadExpensesData(TableView TV,String dat) {
+        ObservableList<Expences> list = FXCollections.observableArrayList();
+        list.clear();
+        String qu = "SELECT * FROM expenses WHERE exp_date = '"+dat+"'";
+        ResultSet rs =DatabaseHandler.getInstance().execQuery(qu);
+        try {
+            while (rs.next()) {
+                
+                double x1 =rs.getDouble("e_cost");
+                String x2 =rs.getString("e_reason");
+                
+                list.add(new Expences(x1,x2));
+            }
+        } catch (SQLException ex) {
+            Alerts.showInfoAlert("لا يوجد اصناف");
+        }
+        TV.setItems(list);
+    }
+    
+    
+=======
+
+    
+    
+    
+    
+
+>>>>>>> 37f0c3acaa65a9f70d1c1ebe9bb9b8ff35f31434
+>>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
+    /**************************************************************************************************************/
+    /**************************************************************************************************************/
+    /***************************************RECALLS CONTROLLER*****************************************************/
+    public static boolean insertNewRecall(Recalls R)
+    {
+        try{
+        PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
+                    "INSERT INTO recalls (rec_date,t_time,r_bar,product_name,unit_price,current_qty,qty_kind,cost,source) VALUES(?,?,?,?,?,?,?,?,?)");
+        statement.setDate(1, R.getDate());
+        statement.setTime(2, R.getTime());
+        statement.setString(3, R.getBarcodfiled());
+        statement.setString(4, R.getName());
+        statement.setDouble(5, R.getUintPrice());
+        statement.setDouble(6, R.getCurrentQuantity());
+        statement.setString(7, R.getQuantityKind());
+        statement.setDouble(8, R.getCost());
+        statement.setString(9, R.getSource());
+        return statement.executeUpdate() > 0;
+        } catch (SQLException ex)
+        {}
+        return false;
+    }
     
+    
+    public static void loadRecallsData(TableView TV,String dat) {
+        ObservableList<Recalls> list = FXCollections.observableArrayList();
+        list.clear();
+        String qu = "SELECT * FROM recalls WHERE rec_date = '"+dat+"'";
+        ResultSet rs =DatabaseHandler.getInstance().execQuery(qu);
+        try {
+            while (rs.next()) {
+                String x1 =rs.getString("r_bar");
+                String x2 =rs.getString("product_name");
+                double x3=rs.getDouble("unit_price");
+                int x4=rs.getInt("current_qty");
+                String x5 =rs.getString("qty_kind");
+                double x6 =rs.getDouble("cost");
+                Date x7=rs.getDate("rec_date");
+                Time x8=rs.getTime("t_time");
+                String x9=rs.getString("source");
+                list.add(new Recalls(x1, x2, x3, x4, x5, x6, x7, x8, x9));
+            }
+        } catch (SQLException ex) {
+            Alerts.showInfoAlert("لا يوجد اصناف");
+        }
+        TV.setItems(list);
+    }
+    
+    /**************************************************************************************************************/
     
     /***********************************************************************Reports*******************************************************************/
     

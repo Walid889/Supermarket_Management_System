@@ -45,7 +45,7 @@ public class NewSerial {
         ++BuyingSerial;
     }
     
-    public String gettDate(){
+    public static String gettDate(){
         Date today;
         SimpleDateFormat simpleDF;
         today = new Date();
