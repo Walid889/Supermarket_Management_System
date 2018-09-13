@@ -269,11 +269,7 @@ public class Manager_ProductsController implements Initializable {
                 clear();
                 DataHelper.loadProductsData(P_table,P_TSearch);
             }
-<<<<<<< HEAD
 
-        
-=======
->>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
         }
         else {
              Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");

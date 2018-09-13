@@ -37,7 +37,7 @@
                         pro_minimum int
         "/>
     <table-entry name="suppliers1" col-data="
-                        number int primary key,
+                    
                         sup_name varchar(200),
                         sup_company_name varchar(200),
                         sup_category varchar(200),
@@ -59,15 +59,14 @@
                         unit_price double,
                         current_qty int,
                         cost double,
-<<<<<<< HEAD
+
                         t_time TIME
-    "/>
-=======
+    
+
                         t_time TIME,
                         s_bar varchar(200)
     "/>
 
->>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
     <table-entry name="bills" col-data="
                         sale_id int,
                         sale_date date,

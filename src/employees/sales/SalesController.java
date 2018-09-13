@@ -112,10 +112,8 @@ public class SalesController extends NewSerial implements Initializable {
     @FXML
 
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
+
     private Label productBarcode;
     @FXML
     private TableColumn<Sales, String> c_bar;
@@ -513,10 +511,7 @@ public class SalesController extends NewSerial implements Initializable {
     }
 =======
     }*/
-<<<<<<< HEAD
 
-=======
->>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
     /*********************************************************************************************/
     
 }

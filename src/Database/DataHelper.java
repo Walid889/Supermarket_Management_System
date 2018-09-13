@@ -101,7 +101,7 @@ public class DataHelper {
             statement.setString(5, emp.getEmployeeAddress());
             return statement.executeUpdate() > 0;
         } catch (SQLException ex) {
-            
+         System.out.print("Employee doesn't be inserted");
         }
         return false;
     }
@@ -152,8 +152,7 @@ public class DataHelper {
         return false;
     }
     
-<<<<<<< HEAD
-=======
+
         public static void loadEmployeesData(TableView TV) {
         ObservableList<Employee> list = FXCollections.observableArrayList();
        // ObservableList<String> list2 = FXCollections.observableArrayList();
@@ -179,7 +178,7 @@ public class DataHelper {
     }
     
     
->>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
+
     
     ///////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
@@ -200,13 +199,16 @@ public class DataHelper {
         try{
         PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
                     "INSERT INTO suppliers1 (sup_name,sup_company_name,sup_category,sup_phone) VALUES(?,?,?,?)");
-        statement.setString(1, s.getSupplierName());
-        statement.setString(2, s.getSupplierCategory());
+        statement.setString(1, s.getSalespersonName());
+        statement.setString(2, s.getSupplierName());
+        statement.setString(3, s.getSupplierCategory());
         statement.setString(3, s.getSupplierPhone());
-        statement.setString(4, s.getSalespersonName());
+        
         return statement.executeUpdate() > 0;
+        
         } catch (SQLException ex)
         {
+            System.out.print("Suppler doesn't insertse");
         }
         return false;
     }
@@ -215,7 +217,7 @@ public class DataHelper {
             PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement( 
                     "DELETE FROM suppliers1 WHERE number = ?");
             
-            statement.setLong(1, sup.getNumber());
+            statement.setString(1, sup.getSupplierName());
             int res = statement.executeUpdate();
             if (res == 1) {
                 return true;
@@ -242,26 +244,26 @@ public class DataHelper {
         }
         return false;
     }
-    public static void loadSuppliersData(TableView TV,TextField TF) {
+    public static void loadSuppliersData(TableView TV) {
         ObservableList<Suppliers> list = FXCollections.observableArrayList();
-        ObservableList<String> list2 = FXCollections.observableArrayList();
+       // ObservableList<String> list2 = FXCollections.observableArrayList();
         list.clear();
         String qu = "SELECT * FROM suppliers1";
         ResultSet rs =DatabaseHandler.getInstance().execQuery(qu);
         try {
             while (rs.next()) {
-                String name=rs.getString("supplierName");
-                String phone=rs.getString("supplierPhone");
-                String category=rs.getString("supplierCategory");
-                String sales_name=rs.getString("salespersonName");
+                String name=rs.getString("sup_company_name");
+                String phone=rs.getString("sup_phone");
+                String category=rs.getString("sup_category");
+                String sales_name=rs.getString("sup_name");
                 list.add(new Suppliers(name,phone,category,sales_name));
-                list2.add(phone);
+             //   list2.add(phone);
             }
         } catch (SQLException ex) {
             Alerts.showInfoAlert("لا يوجد موردين");
         }
         TV.setItems(list);
-        TextFields.bindAutoCompletion(TF, list2);
+       // TextFields.bindAutoCompletion(TF, list2);
     }
     public static ObservableList<Suppliers> o(ObservableList<Suppliers> list){
         list.clear();
@@ -721,7 +723,7 @@ public class DataHelper {
     }
     
     
-<<<<<<< HEAD
+
     public static boolean insertNewPersonalExpences(Employee E)
     {
         try{
@@ -738,7 +740,7 @@ public class DataHelper {
     }
     
     
-=======
+
     public static void loadDamageData(TableView TV,String dat) {
         ObservableList<Damages> list = FXCollections.observableArrayList();
         list.clear();
@@ -762,7 +764,7 @@ public class DataHelper {
         }
         TV.setItems(list);
     }
->>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
+
     
     
     
@@ -791,30 +793,12 @@ public class DataHelper {
         return false;
     }
     
-<<<<<<< HEAD
-    public static long getLastOrderNumberBuying(){
-        String qu="SELECT number FROM buying ORDER BY number DESC FETCH FIRST ROW ONLY"; 
-        ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
-        long num = 0;
-        try {
-            if(rs.next()){
-                num=rs.getLong("number")+1;
-                System.out.println("llllllllllll");}
-            else
-           {
-                num=1;
-                System.out.println("لسااااا");
-//              Alerts.showInfoAlert("اول فواتير اليوم ..");
-           }
-        } catch (SQLException ex) {
-            Alerts.showErrorAlert("لايوجد بيانات");
-        }
-        return num;
-    }
+
+  
     
     
     
-=======
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     
@@ -824,5 +808,5 @@ public class DataHelper {
     
     
     
->>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
+
 }
