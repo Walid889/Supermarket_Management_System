@@ -2,21 +2,9 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/buying/BuyingController.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/recall/RecallController.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Database/DataHelper.java</file>
-=======
-            <file>file:/D:/FCIH/Level%202/Supermarket/Git/Supermarket_Management_System/src/Manager/Products/Manager_ProductsController.java</file>
-            <file>file:/D:/FCIH/Level%202/Supermarket/Git/Supermarket_Management_System/src/Login/login.fxml</file>
-            <file>file:/D:/FCIH/Level%202/Supermarket/Git/Supermarket_Management_System/src/Manager/Suppliers/Manager_SuppliersController.java</file>
-            <file>file:/D:/FCIH/Level%202/Supermarket/Git/Supermarket_Management_System/src/Login/LoginController.java</file>
->>>>>>> 37f0c3acaa65a9f70d1c1ebe9bb9b8ff35f31434
+            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/employees/account/accept/attendence/AttendenceController.java</file>
+            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Manager/Employee/Manager_EmployeeController.java</file>
         </group>
->>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
     </open-files>
 </project-private>

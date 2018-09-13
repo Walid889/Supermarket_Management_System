@@ -5,6 +5,7 @@
  */
 package employees.account.accept.attendence;
 
+import Classes.Alerts;
 import Classes.Employee;
 import com.jfoenix.controls.JFXButton;
 import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
@@ -12,6 +13,11 @@ import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.time;
 import employees.main.EmployeesController;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Time;
+import Serial_dinamic.NewSerial;
+import static Serial_dinamic.NewSerial.getTime;
+import database.DataHelper;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
@@ -22,7 +28,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -34,16 +43,16 @@ public class AttendenceController implements Initializable {
     EmployeesController x = new EmployeesController();
     @FXML
     private AnchorPane loadPane;
-    @FXML
-    private JFXButton attendence;
-    @FXML
-    private JFXButton leaves;
-    @FXML
     private TextField start;
-    @FXML
     private TextField end;
     @FXML
-    private TextField difference;
+    private TableView<Employee> table;
+    @FXML
+    private TableColumn<Employee, Time> start_work;
+    @FXML
+    private TableColumn<Employee, Time> end_work;
+    @FXML
+    private TableColumn<Employee, Double> hours_work;
 
     /**
      * Initializes the controller class.
@@ -51,6 +60,9 @@ public class AttendenceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        start_work.setCellValueFactory(new PropertyValueFactory<>("start"));
+        end_work.setCellValueFactory(new PropertyValueFactory<>("end"));
+        hours_work.setCellValueFactory(new PropertyValueFactory<>("difference"));
     }    
 
     @FXML
@@ -69,26 +81,53 @@ public class AttendenceController implements Initializable {
             Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }*/
-    Date one = new Date();
-    Date two = new Date();
-    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
-    String time1 = sdf.format(one);
-    String time2 = sdf.format(two);
-    
-    
-    
+    private void getCurrentTimeUsingDate() {
+        Employee e = new Employee();
+        try{
+        Time statrt = Time.valueOf(getTime());
+        
+        boolean result = DataHelper.insertAttendence(e);
+     
+        if(result){
+           table.getItems().add(e);
+           Alerts.showInfoAlert("تم الاضافة !!");
+        }
+        
+        }
+        catch(Exception x){
+            
+        }
+}
     @FXML
     private void att_btn(ActionEvent event) {
-        start.setText(time1);
+        
+        this.getCurrentTimeUsingDate();
     }
-
+    
     @FXML
     private void leave_dtn(ActionEvent event) {
-        end.setText(time2);
+        
     }
+    @FXML
     private void difference()
     {
-        Employee e = new Employee();
-        difference.setText(e.getTimeDiff(one, two));
+        
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*private void left()
+    {
+        Date two = new Date();
+    SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+    String time2 = sdf.format(two);
+        end.setText(time2);
+    }*/
 }

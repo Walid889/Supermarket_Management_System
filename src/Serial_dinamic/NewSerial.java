@@ -57,5 +57,11 @@ public class NewSerial {
         Time rightNow = Time.valueOf(LocalTime.now());
         return rightNow;
     }
-
+public static String getTime(){
+        Date today;
+        SimpleDateFormat simpleDF;
+        today = new Date();
+        simpleDF = new SimpleDateFormat ("HH MM");
+        return simpleDF.format(today);
+    }
 }
