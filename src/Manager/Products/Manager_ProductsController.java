@@ -115,26 +115,13 @@ public class Manager_ProductsController implements Initializable {
     private TextField Q_box;
     @FXML
     private TableColumn<Goods, String> t_allQuan;
-    @FXML
-    private Label P_date1;
-    @FXML
     private TextField P_CQuan;
     private static String oldBar="";
-    @FXML
     private TextField P_Qi;
-    @FXML
     private TextField P_Qp;
-    @FXML
     private TextField P_Qb;
     private CheckBox allowEdit;
-    @FXML
-    private RadioButton R_box;
-    @FXML
-    private ToggleGroup T_R_quan;
-    @FXML
-    private RadioButton R_packet;
-    @FXML
-    private RadioButton R_item;
+  
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -146,9 +133,7 @@ public class Manager_ProductsController implements Initializable {
         P_Csupplier.setItems(list2);
         Q_box.setText("1");
         DataHelper.loadProductsData(P_table,P_TSearch);
-        P_Qb.setEditable(false);
-        P_Qp.setEditable(false);
-        P_Qi.setEditable(false);
+        
         
         
         
@@ -179,6 +164,11 @@ public class Manager_ProductsController implements Initializable {
     @FXML
     private void Manager_Home(ActionEvent event) {
          x.loadwindow(Manager_Products,"/Manager/Main/Home.fxml");
+    }
+    
+     @FXML
+    private void Product_Quantity(ActionEvent event) {
+        x.loadwindow(Manager_Products, "/Manager/Product/Quantity/Manager_Product_Quantity.fxml");
     }
 
     @FXML
@@ -406,8 +396,7 @@ public class Manager_ProductsController implements Initializable {
     }
 
 
-    @FXML
-    private void Product_EditQuantity(ActionEvent event) {
+  /*  private void Product_EditQuantity(ActionEvent event) {
         if(R_item.isSelected() || R_packet.isSelected() || R_box.isSelected() ){
             int it=Integer.parseInt(P_Qi.getText());
             int pa=Integer.parseInt(P_Qp.getText());
@@ -432,7 +421,6 @@ public class Manager_ProductsController implements Initializable {
             Alerts.showErrorAlert("لم يتم تحديد خلية محددة");
         
     }
-    @FXML
     private void AllowEditRadio(MouseEvent event) {
         if(R_item.isSelected()){
             P_Qi.setEditable(true);
@@ -450,9 +438,11 @@ public class Manager_ProductsController implements Initializable {
             P_Qb.setEditable(true);
         }
     }
-
+*/
     @FXML
     private void ClearNew(ActionEvent event){
         clear();
     }
+
+   
 }
