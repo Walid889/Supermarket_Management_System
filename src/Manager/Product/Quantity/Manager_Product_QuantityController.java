@@ -8,14 +8,20 @@ package Manager.Product.Quantity;
 import Classes.Alerts;
 import Manager.Main.HomeController;
 import com.jfoenix.controls.JFXTextField;
+import database.*;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
@@ -51,20 +57,50 @@ public class Manager_Product_QuantityController implements Initializable {
     private RadioButton R_box;
     @FXML
     private ToggleGroup T_R_quan2;
-
     /**
      * Initializes the controller class.
      */
+    DatabaseHandler databaseHandler;
+    @FXML
+    private Label LName;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        databaseHandler=DatabaseHandler.getInstance();
+        P_UQuantity.setEditable(false);
+        P_BQuantity.setEditable(false);
+        P_CQuantity.setEditable(false);
+        
+        P_TSearch.focusedProperty().addListener(new ChangeListener<Boolean>() {
+        @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    if (P_TSearch.isFocused() && !P_TSearch.getText().isEmpty()) {
+                        P_TSearch.selectAll();
+                    }
+                }
+                });
+            }
+        });
+
+            
     }    
 
     @FXML
     private void P_Search(ActionEvent event) {
-         this.P_Search();
+         
+        if (!P_TSearch.getText().equals(""))
+            this.P_Search();
+       else 
+            Alerts.showErrorAlert("برجاء ادخال الباكورد ..");
+       
     }
-
+    @FXML
+    private void AutoCompSearch(KeyEvent event) {
+        P_Search();
+    }
     @FXML
     private void Edit_Product(ActionEvent event) {
         this.Edit_Product();
@@ -88,20 +124,35 @@ public class Manager_Product_QuantityController implements Initializable {
     
     private void P_Search ()
     {
-       if (!P_TSearch.getText().equals(""))
-       {
-          System.out.println("اكتب الكوووووووووود"); // yoooooooooour code
-       }
-       else {
-       Alerts.showErrorAlert("برجاء ادخال الباكورد ..");
-       }
+        DataHelper.ProductQuantity(P_TSearch.getText(),P_UQuantity,P_BQuantity,P_CQuantity,LName);
     }
+    
     
     private void Edit_Product(){
        if (!P_CQuantity.getText().equals("") && !P_BQuantity.getText().equals("") && !P_UQuantity.getText().equals(""))
        {
-          System.out.println("اكتب الكوووووووووود"); // yoooooooooour code
-       }
+            try{
+                if(R_item.isSelected() || R_packet.isSelected() || R_box.isSelected() ){
+                  int it=Integer.parseInt(P_UQuantity.getText());
+                  int pa=Integer.parseInt(P_BQuantity.getText());
+                  int bo=Integer.parseInt(P_CQuantity.getText());
+                  int inp = 0,pnb = 0;
+                  DataHelper.getQuanDetails(P_TSearch.getText(), inp, pnb);
+                  if(R_item.isSelected()){ 
+                      DataHelper.QuickEditQuantity(it,P_TSearch.getText());  Alerts.showInfoAlert("تم التعديل");
+                  }
+                  else if(R_packet.isSelected()){
+                      DataHelper.QuickEditQuantity(pa*inp,P_TSearch.getText()); Alerts.showInfoAlert("تم التعديل");
+                  }
+                  else if(R_box.isSelected()){
+                      DataHelper.QuickEditQuantity(bo*pnb*inp,P_TSearch.getText()); Alerts.showInfoAlert("تم التعديل");
+                  }
+                  //P_Search();
+              }
+              else
+                  Alerts.showErrorAlert("لم يتم تحديد خلية محددة");
+            }catch(NumberFormatException e){Alerts.showErrorAlert("لقد ادخلت قيمة خاطئة");}
+        }
        else {
        Alerts.showErrorAlert("برجاء التأكد من ملىء الحقول المطلوبة ..");
        }
@@ -109,5 +160,31 @@ public class Manager_Product_QuantityController implements Initializable {
 
     @FXML
     private void AllowEditRadio(MouseEvent event) {
+        if(R_item.isSelected()){
+            P_UQuantity.setEditable(true);
+            P_BQuantity.setEditable(false);
+            P_CQuantity.setEditable(false);
+        }
+        else if(R_packet.isSelected()){
+            P_UQuantity.setEditable(false);
+            P_BQuantity.setEditable(true);
+            P_CQuantity.setEditable(false);
+        }
+        else if(R_box.isSelected()){
+            P_UQuantity.setEditable(false);
+            P_BQuantity.setEditable(false);
+            P_CQuantity.setEditable(true);
+        }
     }
+
+    @FXML
+    private void EditByKey(KeyEvent event) {
+        try{
+        if(event.getCode().equals(KeyCode.SHIFT.ENTER)) {
+             this.Edit_Product();
+        }
+        }catch(Exception e){}
+    }
+    
+    
 }

@@ -23,6 +23,7 @@ public class Main extends Application {
         stage.setTitle("سوبر ماركت ابو طارق");
         stage.setScene(scene);
         stage.show();
+        
     }
 
     /**
@@ -30,6 +31,7 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        
     }
     
 }

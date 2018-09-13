@@ -132,16 +132,6 @@ public class Manager_ProductsController implements Initializable {
         P_Csupplier.setItems(list2);
         Q_box.setText("1");
         DataHelper.loadProductsData(P_table,P_TSearch);
-<<<<<<< HEAD
-        P_Qb.setEditable(false);
-        P_Qp.setEditable(false);
-        P_Qi.setEditable(false);
-=======
-        
-        
-        
-        
->>>>>>> 37f0c3acaa65a9f70d1c1ebe9bb9b8ff35f31434
     } 
     private void initTableViewCols(){
         t_name.setCellValueFactory(new PropertyValueFactory<>("productName"));
@@ -197,11 +187,11 @@ public class Manager_ProductsController implements Initializable {
     
     private void Add_Product() {
         
-        try {
+        //try {
         if(!P_Tname.getText().equals("") && !P_Tcode.getText().equals("") && !P_Ctype.getValue().equals("")
                 && !P_Csupplier.getValue().equals("") && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
                 && !P_TUprice.getText().equals("") && !P_TBprice.getText().equals("") && !P_TCprice.getText().equals("")
-                && !P_Tminimun.getText().equals("")&&!P_CQuan.getText().equals("")){
+                && !P_Tminimun.getText().equals("")){
             Goods G=new Goods();
             G.setProductName(P_Tname.getText());
             G.setProductBarCode(P_Tcode.getText());
@@ -214,7 +204,7 @@ public class Manager_ProductsController implements Initializable {
             G.setBoxPrice(Double.parseDouble(P_TCprice.getText()));
             G.setProductMinQuantity(Integer.parseInt(P_Tminimun.getText()));
             //G.setProductExpirationdate(P_Tdate.getText());
-            //G.setAllQuantity(0);
+            G.setAllQuantity(0);
             boolean result=DataHelper.insertNewProduct(G);
             if(result){
                 P_table.getItems().add(G);
@@ -227,9 +217,9 @@ public class Manager_ProductsController implements Initializable {
           else {
              Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
                 }
-        }catch(NullPointerException e) {
-           Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
-        }
+//        }catch(NumberFormatException e) {
+//           Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة ");
+//        }
       
     }
 
@@ -320,14 +310,9 @@ public class Manager_ProductsController implements Initializable {
         P_TUprice.clear();
         P_TBprice.clear();
         P_Tcode.clear();
-        //Q_box.clear();
         Q_packet.clear();
         Q_item.clear();
         P_Tminimun.clear();
-        P_CQuan.clear();
-        P_Qi.clear();
-        P_Qp.clear();
-        P_Qb.clear();
         P_Ctype.setValue("");
         P_Csupplier.setValue("");
     }

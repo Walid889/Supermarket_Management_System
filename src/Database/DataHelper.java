@@ -8,6 +8,7 @@ import java.sql.ResultSet;
 import java.sql.Time;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javafx.application.Platform.exit;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
@@ -338,7 +339,36 @@ public class DataHelper {
         return list;
     }
     
-    
+    public static void ProductQuantity(String bar,TextField TI,TextField TP,TextField TB,Label name){
+        String qu = "SELECT pro_All_qty,pro_qty_item,pro_qty_packet,pro_name FROM product WHERE pro_bar= '"+bar+"'";
+        ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
+        
+        try {
+            if(rs.next()){
+                TI.setText(rs.getInt("pro_All_qty")+"");
+                TP.setText( (rs.getInt("pro_All_qty")/rs.getInt("pro_qty_item")) + "");
+                TB.setText((rs.getInt("pro_All_qty")/(rs.getInt("pro_qty_item")*rs.getInt("pro_qty_packet"))) + "");
+                name.setText(rs.getString("pro_name"));
+            }
+            //System.out.println(rs.getInt("pro_All_qty")+" HHHHHHHHHHH");
+        } catch (SQLException ex) {
+            exit();
+        }
+        
+        
+    }
+    public static void getQuanDetails(String bar,int InP,int PnB){
+        String qu = "SELECT pro_qty_item,pro_qty_packet FROM product WHERE pro_bar= '"+bar+"'";
+        ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
+        try {
+            if(rs.next()){
+                InP=rs.getInt("pro_qty_item");
+                PnB=rs.getInt("pro_qty_packet");
+            }
+        } catch (SQLException ex) {
+            exit();
+        }
+    }
     /****************************************************************************************************************/
     /****************************************************************************************************************/
     
@@ -778,7 +808,6 @@ public class DataHelper {
         return false;
     }
     
-<<<<<<< HEAD
     public static void loadExpensesData(TableView TV,String dat) {
         ObservableList<Expences> list = FXCollections.observableArrayList();
         list.clear();
@@ -797,16 +826,6 @@ public class DataHelper {
         }
         TV.setItems(list);
     }
-    
-    
-=======
-
-    
-    
-    
-    
-
->>>>>>> 37f0c3acaa65a9f70d1c1ebe9bb9b8ff35f31434
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     /**************************************************************************************************************/

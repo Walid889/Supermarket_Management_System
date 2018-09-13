@@ -6,6 +6,7 @@
 package Classes;
 
 import java.sql.Date;
+import java.sql.Time;
 
 /**
  *
@@ -14,5 +15,5 @@ import java.sql.Date;
 public class Common_Properties extends Quantity{
     public int Serial;
     public Date Date;
-    
+    protected Time time;
 }

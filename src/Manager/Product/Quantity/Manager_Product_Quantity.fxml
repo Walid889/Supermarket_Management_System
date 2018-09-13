@@ -17,27 +17,22 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="P_TSearch" focusColor="#4aabc0" labelFloat="true" layoutX="548.0" layoutY="199.0" prefHeight="54.0" prefWidth="320.0" promptText=" ادخل الباركود ..                      " styleClass="field" stylesheets="@manager_producttype.css" unFocusColor="WHITE">
+      <JFXTextField fx:id="P_TSearch" focusColor="#4aabc0" labelFloat="true" layoutX="548.0" layoutY="199.0" onKeyTyped="#AutoCompSearch" prefHeight="54.0" prefWidth="320.0" promptText=" ادخل الباركود ..                      " styleClass="field" stylesheets="@manager_producttype.css" unFocusColor="WHITE">
          <font>
             <Font size="25.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="P_CQuantity" focusColor="#4aabc0" labelFloat="true" layoutX="315.0" layoutY="398.0" prefHeight="50.0" prefWidth="165.0" promptText="الكرتونة               " style="-fx-background-color: #FFF;" unFocusColor="WHITE">
+      <JFXTextField fx:id="P_UQuantity" focusColor="#4aabc0" labelFloat="true" layoutX="831.0" layoutY="397.0" onKeyPressed="#EditByKey" prefHeight="50.0" prefWidth="165.0" promptText="القطعة                " style="-fx-background-color: #FFF;" unFocusColor="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXButton layoutX="338.0" layoutY="199.0" onAction="#P_Search" prefHeight="25.0" prefWidth="160.0" styleClass="btn" stylesheets="@manager_producttype.css" text="بحث" textFill="WHITE">
-         <font>
-            <Font size="30.0" />
-         </font>
-      </JFXButton>
-      <JFXTextField fx:id="P_BQuantity" focusColor="#4aabc0" labelFloat="true" layoutX="581.0" layoutY="398.0" prefHeight="50.0" prefWidth="165.0" promptText="الباكيت               " style="-fx-background-color: #FFF;" unFocusColor="WHITE">
+      <JFXTextField fx:id="P_BQuantity" focusColor="#4aabc0" labelFloat="true" layoutX="581.0" layoutY="398.0" onKeyPressed="#EditByKey" prefHeight="50.0" prefWidth="165.0" promptText="الباكيت               " style="-fx-background-color: #FFF;" unFocusColor="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="P_UQuantity" focusColor="#4aabc0" labelFloat="true" layoutX="831.0" layoutY="397.0" prefHeight="50.0" prefWidth="165.0" promptText="القطعة                " style="-fx-background-color: #FFF;" unFocusColor="WHITE">
+      <JFXTextField fx:id="P_CQuantity" focusColor="#4aabc0" labelFloat="true" layoutX="315.0" layoutY="398.0" onKeyPressed="#EditByKey" prefHeight="50.0" prefWidth="165.0" promptText="الكرتونة               " style="-fx-background-color: #FFF;" unFocusColor="WHITE">
          <font>
             <Font size="20.0" />
          </font>
@@ -47,6 +42,16 @@
             <Font size="30.0" />
          </font>
       </JFXButton>
+      <JFXButton layoutX="338.0" layoutY="199.0" onAction="#P_Search" prefHeight="25.0" prefWidth="160.0" styleClass="btn" stylesheets="@manager_producttype.css" text="بحث" textFill="WHITE">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="LName" layoutX="628.0" layoutY="291.0" textFill="#fffd00">
+         <font>
+            <Font size="40.0" />
+         </font>
+      </Label>
       <JFXButton contentDisplay="RIGHT" layoutX="1165.0" layoutY="22.0" onAction="#Back" prefHeight="25.0" prefWidth="160.0" styleClass="back" stylesheets="@manager_Product_Quantity.css" text="رجوع" textFill="WHITE">
          <font>
             <Font size="30.0" />

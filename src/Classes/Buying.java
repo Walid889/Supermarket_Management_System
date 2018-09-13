@@ -10,7 +10,7 @@ import javafx.scene.control.Alert;
 
 public class Buying extends Common_Properties{ // Common_Methods is an Interface include Add , Update , Delete
     private long number;
-    private Time time;
+    
     private String barcodfiled;
     private String supplier;
     private double paid;

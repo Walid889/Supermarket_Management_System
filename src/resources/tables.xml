@@ -59,8 +59,7 @@
                         unit_price double,
                         current_qty int,
                         cost double,
-
-                        t_time TIME
+                        t_time TIME,
                          s_bar varchar(200)
 "/>
    <table-entry name="bills" col-data="
@@ -71,20 +70,12 @@
                         paid_money double,
                         reminder_money double
     "/>
-<<<<<<< HEAD
     
-=======
-    <table-entry name="shop_costs" col-data="
-                        price double,
-                        reason varchar(200),
-                        total double
-    "/>
     <table-entry name="recall" col-data="
                         price double,
                         quantity varchar(200),
                         total double
     "/>
->>>>>>> 37f0c3acaa65a9f70d1c1ebe9bb9b8ff35f31434
     <table-entry name="buy_bills" col-data="
                         bill_id int,
                         bill_date date,
