@@ -5,13 +5,34 @@
  */
 package Classes;
 
+import java.sql.Date;
+
 /**
  *
  * @author Walid
  */
-public class Expences {// Common_Methods is an Interface include Add , Update , Delete
-    private double cost;
+public class Expences extends Common_Properties{// Common_Methods is an Interface include Add , Update , Delete
+    
     private String reason;
+    private double cost;
+
+    public Date getDate() {
+        return Date;
+    }
+
+    public void setDate(Date Date) {
+        this.Date = Date;
+    }
+
+    public Expences() {
+    }
+
+    public Expences(double cost,String reason) {
+        this.reason = reason;
+        this.cost = cost;
+    }
+    
+    
     private double totalCost;
 
     public double getCost() {

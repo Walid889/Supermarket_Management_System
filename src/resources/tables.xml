@@ -71,11 +71,6 @@
                         paid_money double,
                         reminder_money double
     "/>
-    <table-entry name="shop_costs" col-data="
-                        price double,
-                        reason varchar(200),
-                        total double
-    "/>
     
     <table-entry name="buy_bills" col-data="
                         bill_id int,
@@ -108,5 +103,24 @@
                         t_time TIME,
                         d_bar varchar(200)
     "/>
+    <table-entry name="recalls" col-data="
+                        rec_date date,
+                        product_name varchar(200),
+                        qty_kind varchar(200),
+                        unit_price double,
+                        current_qty int,
+                        cost double,
+                        t_time TIME,
+                        r_bar varchar(200),
+                        source varchar(200)
+                        
+    "/>
+    
+    <table-entry name="expenses" col-data="
+                        exp_date date,
+                        e_reason varchar(200),
+                        e_cost double
+    "/>
+    
     
 </tables>

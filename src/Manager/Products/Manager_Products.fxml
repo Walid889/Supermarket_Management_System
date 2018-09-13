@@ -119,9 +119,8 @@
                   <TableColumn fx:id="t_p_box" prefWidth="54.0" text="س.كرتونة" />
                   <TableColumn fx:id="t_p_packet" prefWidth="46.0" text="س.علبة" />
                   <TableColumn fx:id="t_p_item" prefWidth="49.0" text="س.وحدة" />
-                  <TableColumn fx:id="t_q_packet" prefWidth="38.0" text="ك.ع" />
-                  <TableColumn fx:id="t_q_item" minWidth="0.0" prefWidth="32.0" text="ك.ط" />
-                  <TableColumn fx:id="t_allQuan" prefWidth="54.0" text="الكمية" />
+                  <TableColumn fx:id="t_q_packet" prefWidth="38.0" text="عدد الباكيت" />
+                  <TableColumn fx:id="t_q_item" minWidth="0.0" prefWidth="32.0" text="عدد القطع" />
                   <TableColumn fx:id="t_supplier" prefWidth="48.0" text="مورد" />
                   <TableColumn fx:id="t_cate" prefWidth="59.0" text="تصنيف" />
                   <TableColumn fx:id="t_code" minWidth="0.0" prefWidth="57.0" text="كود" />
@@ -151,12 +150,12 @@
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="Q_packet" layoutX="786.0" layoutY="373.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="50.0" promptText="باكت">
+            <TextField fx:id="Q_packet" layoutX="841.0" layoutY="373.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="63.0" promptText="باكت">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="Q_box" editable="false" layoutX="839.0" layoutY="373.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="63.0" promptText="كرتونة">
+            <TextField fx:id="Q_box" editable="false" layoutX="790.0" layoutY="373.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="50.0" promptText="كرتونة">
                <font>
                   <Font size="15.0" />
                </font>

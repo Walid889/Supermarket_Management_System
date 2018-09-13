@@ -113,7 +113,6 @@ public class Manager_ProductsController implements Initializable {
     private TextField Q_packet;
     @FXML
     private TextField Q_box;
-    @FXML
     private TableColumn<Goods, String> t_allQuan;
     @FXML
     private Label P_date1;
@@ -149,9 +148,6 @@ public class Manager_ProductsController implements Initializable {
         P_Qb.setEditable(false);
         P_Qp.setEditable(false);
         P_Qi.setEditable(false);
-        
-        
-        
     } 
     private void initTableViewCols(){
         t_name.setCellValueFactory(new PropertyValueFactory<>("productName"));
@@ -164,8 +160,6 @@ public class Manager_ProductsController implements Initializable {
         t_p_packet.setCellValueFactory(new PropertyValueFactory<>("packetPrice"));
         t_p_box.setCellValueFactory(new PropertyValueFactory<>("boxPrice"));
         t_minimum_Q.setCellValueFactory(new PropertyValueFactory<>("productMinQuantity"));
-        //t_ExpirationDate.setCellValueFactory(new PropertyValueFactory<>("productExpirationdate"));
-        t_allQuan.setCellValueFactory(new PropertyValueFactory<>("allQuantity"));
     }
     
     
@@ -221,7 +215,7 @@ public class Manager_ProductsController implements Initializable {
             G.setBoxPrice(Double.parseDouble(P_TCprice.getText()));
             G.setProductMinQuantity(Integer.parseInt(P_Tminimun.getText()));
             //G.setProductExpirationdate(P_Tdate.getText());
-            G.setAllQuantity(0);
+            //G.setAllQuantity(0);
             boolean result=DataHelper.insertNewProduct(G);
             if(result){
                 P_table.getItems().add(G);
@@ -315,30 +309,11 @@ public class Manager_ProductsController implements Initializable {
       }
 
     }
+    
     @FXML
-    private void Product_Search(ActionEvent event) { // Search Button
-        if (!P_TSearch.getText().equals(""))
-        {
-        /*int G= P_table.getSelectionModel().getFocusedIndex();
-        String keyword=P_TSearch.getText();
-        String qu="SELECT * FROM product";
-        ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
-         try {
-             while(rs.next()){
-                 String bar =rs.getString("pro_bar");
-                 if(keyword.equals(bar)){
-                    
-                 }
-             }} catch (SQLException ex) {
-             Logger.getLogger(Manager_ProductsController.class.getName()).log(Level.SEVERE, null, ex);
-         }
-        */
-        }
-        else {
-           Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
-        }
-        
+    private void Product_Search(ActionEvent event) { // Search Button 
     }
+    
     private void clear(){
         P_Tname.clear();
         P_TCprice.clear();
@@ -396,7 +371,6 @@ public class Manager_ProductsController implements Initializable {
                 
                 return false;
             });
-            
         });
         
         SortedList st=new SortedList(filter);
