@@ -16,10 +16,12 @@ import java.net.URL;
 import java.sql.Time;
 import Serial_dinamic.NewSerial;
 import static Serial_dinamic.NewSerial.getTime;
+import com.jfoenix.controls.JFXTextField;
 import database.DataHelper;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -46,13 +48,11 @@ public class AttendenceController implements Initializable {
     private TextField start;
     private TextField end;
     @FXML
-    private TableView<Employee> table;
+    private JFXTextField start_work;
     @FXML
-    private TableColumn<Employee, Time> start_work;
+    private JFXTextField finish_work;
     @FXML
-    private TableColumn<Employee, Time> end_work;
-    @FXML
-    private TableColumn<Employee, Double> hours_work;
+    private JFXTextField difference;
 
     /**
      * Initializes the controller class.
@@ -60,9 +60,7 @@ public class AttendenceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        start_work.setCellValueFactory(new PropertyValueFactory<>("start"));
-        end_work.setCellValueFactory(new PropertyValueFactory<>("end"));
-        hours_work.setCellValueFactory(new PropertyValueFactory<>("difference"));
+        
     }    
 
     @FXML
@@ -81,37 +79,35 @@ public class AttendenceController implements Initializable {
             Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }*/
-    private void getCurrentTimeUsingDate() {
-        Employee e = new Employee();
-        try{
-        Time statrt = Time.valueOf(getTime());
-        
-        boolean result = DataHelper.insertAttendence(e);
-     
-        if(result){
-           table.getItems().add(e);
-           Alerts.showInfoAlert("تم الاضافة !!");
-        }
-        
-        }
-        catch(Exception x){
-            
-        }
-}
+    public void attt()
+    {
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+            Date cal = new Date();
+        start_work.setText(dateFormat.format(cal.getTime()));
+    }
+    public void left()
+    {
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+            Date finish = new Date();
+        finish_work.setText(dateFormat.format(finish.getTime()));
+    
+    }
+    
     @FXML
     private void att_btn(ActionEvent event) {
-        
-        this.getCurrentTimeUsingDate();
+        this.attt();
     }
     
     @FXML
     private void leave_dtn(ActionEvent event) {
-        
+        this.left();
     }
     @FXML
     private void difference()
     {
         
+      
+      //  difference.setText(String.valueOf(diff));
     }
     
     

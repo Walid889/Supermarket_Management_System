@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
 <?import java.net.URL?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -41,12 +40,19 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="table" layoutX="59.0" layoutY="119.0" prefHeight="376.0" prefWidth="505.0">
-        <columns>
-          <TableColumn fx:id="start_work" prefWidth="165.0" text="بدء العمل" />
-          <TableColumn fx:id="end_work" prefWidth="187.0" text="انتهاء العمل" />
-            <TableColumn fx:id="hours_work" prefWidth="189.0" text="عدد الساعات" />
-        </columns>
-      </TableView>
+      <JFXTextField fx:id="start_work" focusColor="#2045b5" labelFloat="true" layoutX="384.0" layoutY="192.0" prefHeight="39.0" prefWidth="211.0" styleClass="textfield" stylesheets="@ATTEN.css" unFocusColor="#f8f8f8">
+         <font>
+            <Font name="Baskerville Old Face" size="24.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="finish_work" focusColor="#2045b5" labelFloat="true" layoutX="384.0" layoutY="297.0" prefHeight="39.0" prefWidth="211.0" styleClass="textfield" stylesheets="@ATTEN.css" unFocusColor="#f8f8f8">
+         <font>
+            <Font name="Baskerville Old Face" size="24.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="difference" focusColor="#2045b5" labelFloat="true" layoutX="384.0" layoutY="405.0" prefHeight="39.0" prefWidth="211.0" styleClass="textfield" stylesheets="@ATTEN.css" unFocusColor="#f8f8f8">
+         <font>
+            <Font name="Baskerville Old Face" size="24.0" />
+         </font></JFXTextField>
    </children>
 </AnchorPane>
