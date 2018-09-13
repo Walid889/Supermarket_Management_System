@@ -152,6 +152,7 @@ public class DataHelper {
         return false;
     }
     
+
         public static void loadEmployeesData(TableView TV) {
         ObservableList<Employee> list = FXCollections.observableArrayList();
        // ObservableList<String> list2 = FXCollections.observableArrayList();
@@ -177,7 +178,7 @@ public class DataHelper {
     }
     
     
-    
+  
     ///////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
@@ -718,6 +719,22 @@ public class DataHelper {
     }
     
     
+    public static boolean insertNewPersonalExpences(Employee E)
+    {
+        try{
+        PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
+                    "INSERT INTO employee2 (emp_reason,emp_price_product) VALUES(?,?)");
+        statement.setDouble(1, E.getEmployeeExpensesCost());
+        statement.setString(2, E.getEmployeeExpensesReason());
+       
+        return statement.executeUpdate() > 0;
+        } catch (SQLException ex)
+        {
+        }
+        return false;
+    }
+    
+    
     public static void loadDamageData(TableView TV,String dat) {
         ObservableList<Damages> list = FXCollections.observableArrayList();
         list.clear();
@@ -741,17 +758,8 @@ public class DataHelper {
         }
         TV.setItems(list);
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+      
     /****************************************************************************************************************/
     /****************************************************************************************************************/
     public static boolean insertNewExpences(Expences E)
@@ -770,6 +778,7 @@ public class DataHelper {
         return false;
     }
     
+<<<<<<< HEAD
     public static void loadExpensesData(TableView TV,String dat) {
         ObservableList<Expences> list = FXCollections.observableArrayList();
         list.clear();
@@ -790,6 +799,14 @@ public class DataHelper {
     }
     
     
+=======
+
+    
+    
+    
+    
+
+>>>>>>> 37f0c3acaa65a9f70d1c1ebe9bb9b8ff35f31434
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     /**************************************************************************************************************/
@@ -847,4 +864,5 @@ public class DataHelper {
     
     
     
+
 }

@@ -16,9 +16,36 @@ public class Employee{// Common_Methods is an Interface include Add , Update , D
     private String employeePhone;
     private String employeeAddress;
     private String employeeExpensesReason;
-    private double employeeSalaryHours;
+    private double employeeSalaryHours ;
     private double employeeExpensesCost;
     private double employeeHourlyWage;
+    private Time start;
+    private Time end ;
+    private double difference;
+
+    public Time getStart() {
+        return start;
+    }
+
+    public void setStart(Time start) {
+        this.start = start;
+    }
+
+    public Time getEnd() {
+        return end;
+    }
+
+    public void setEnd(Time end) {
+        this.end = end;
+    }
+
+    public double getDifference() {
+        return difference;
+    }
+
+    public void setDifference(double difference) {
+        this.difference = difference;
+    }
 
 
     public Employee(String id, String name, String phone, String address, double salary) {
@@ -125,5 +152,16 @@ public class Employee{// Common_Methods is an Interface include Add , Update , D
     public void setNumber(long number) {
         this.number = number;
     }
-
+    ///////////////////////////ATTENDENCE//////////////////////////////
+    
+  
+// Main function which finds difference 
+public String getTimeDiff(Date dateOne, Date dateTwo) {        
+    String diff = "";        
+    long timeDiff = Math.abs(dateOne.getTime() - dateTwo.getTime());        
+    diff = String.format("%d hour(s) %d min(s)", 
+        TimeUnit.MILLISECONDS.toHours(timeDiff),                
+        TimeUnit.MILLISECONDS.toMinutes(timeDiff) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(timeDiff)));        
+return diff;}
+//////////////////////////////////////////////
 }

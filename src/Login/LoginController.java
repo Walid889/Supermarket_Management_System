@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 package Login;
+
+import Classes.Alerts;
+
+import Classes.Login;
+
 import Classes.Login;
 import Classes.Alerts;
 import Manager.Main.HomeController;
@@ -18,6 +23,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+ 
+import javax.swing.JOptionPane;
+import org.apache.commons.codec.digest.DigestUtils;
 
 
 /**
@@ -50,6 +58,13 @@ HomeController y = new HomeController();
 
     @FXML
     private void login(ActionEvent event) {
+ 
+        Login a = new Login();
+ 
+            
+        //JOptionPane.showMessageDialog(null , "Login With Admin");
+        //Alerts.ConfirmAlert("login with admin", "");    
+
         this.login();
         
     }
