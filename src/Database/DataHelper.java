@@ -102,7 +102,7 @@ public class DataHelper {
             statement.setString(5, emp.getEmployeeAddress());
             return statement.executeUpdate() > 0;
         } catch (SQLException ex) {
-            
+         System.out.print("Employee doesn't be inserted");
         }
         return false;
     }
@@ -179,7 +179,12 @@ public class DataHelper {
     }
     
     
+<<<<<<< HEAD
+
+    
+=======
   
+>>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
     ///////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
@@ -199,13 +204,16 @@ public class DataHelper {
         try{
         PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
                     "INSERT INTO suppliers1 (sup_name,sup_company_name,sup_category,sup_phone) VALUES(?,?,?,?)");
-        statement.setString(1, s.getSupplierName());
-        statement.setString(2, s.getSupplierCategory());
+        statement.setString(1, s.getSalespersonName());
+        statement.setString(2, s.getSupplierName());
+        statement.setString(3, s.getSupplierCategory());
         statement.setString(3, s.getSupplierPhone());
-        statement.setString(4, s.getSalespersonName());
+        
         return statement.executeUpdate() > 0;
+        
         } catch (SQLException ex)
         {
+            System.out.print("Suppler doesn't insertse");
         }
         return false;
     }
@@ -214,7 +222,7 @@ public class DataHelper {
             PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement( 
                     "DELETE FROM suppliers1 WHERE number = ?");
             
-            statement.setLong(1, sup.getNumber());
+            statement.setString(1, sup.getSupplierName());
             int res = statement.executeUpdate();
             if (res == 1) {
                 return true;
@@ -241,26 +249,26 @@ public class DataHelper {
         }
         return false;
     }
-    public static void loadSuppliersData(TableView TV,TextField TF) {
+    public static void loadSuppliersData(TableView TV) {
         ObservableList<Suppliers> list = FXCollections.observableArrayList();
-        ObservableList<String> list2 = FXCollections.observableArrayList();
+       // ObservableList<String> list2 = FXCollections.observableArrayList();
         list.clear();
         String qu = "SELECT * FROM suppliers1";
         ResultSet rs =DatabaseHandler.getInstance().execQuery(qu);
         try {
             while (rs.next()) {
-                String name=rs.getString("supplierName");
-                String phone=rs.getString("supplierPhone");
-                String category=rs.getString("supplierCategory");
-                String sales_name=rs.getString("salespersonName");
+                String name=rs.getString("sup_company_name");
+                String phone=rs.getString("sup_phone");
+                String category=rs.getString("sup_category");
+                String sales_name=rs.getString("sup_name");
                 list.add(new Suppliers(name,phone,category,sales_name));
-                list2.add(phone);
+             //   list2.add(phone);
             }
         } catch (SQLException ex) {
             Alerts.showInfoAlert("لا يوجد موردين");
         }
         TV.setItems(list);
-        TextFields.bindAutoCompletion(TF, list2);
+       // TextFields.bindAutoCompletion(TF, list2);
     }
     public static ObservableList<Suppliers> o(ObservableList<Suppliers> list){
         list.clear();
@@ -749,6 +757,10 @@ public class DataHelper {
     }
     
     
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
     public static boolean insertNewPersonalExpences(Employee E)
     {
         try{
@@ -765,6 +777,10 @@ public class DataHelper {
     }
     
     
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
     public static void loadDamageData(TableView TV,String dat) {
         ObservableList<Damages> list = FXCollections.observableArrayList();
         list.clear();
@@ -789,7 +805,21 @@ public class DataHelper {
         TV.setItems(list);
     }
 
+<<<<<<< HEAD
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+=======
       
+>>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
     /****************************************************************************************************************/
     /****************************************************************************************************************/
     public static boolean insertNewExpences(Expences E)
@@ -808,6 +838,18 @@ public class DataHelper {
         return false;
     }
     
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+  
+    
+    
+    
+
+=======
+<<<<<<< HEAD
+>>>>>>> d25453358208d7169092938a8921fe20e170648e
     public static void loadExpensesData(TableView TV,String dat) {
         ObservableList<Expences> list = FXCollections.observableArrayList();
         list.clear();
@@ -826,6 +868,20 @@ public class DataHelper {
         }
         TV.setItems(list);
     }
+<<<<<<< HEAD
+=======
+    
+    
+=======
+
+    
+    
+    
+    
+
+>>>>>>> 37f0c3acaa65a9f70d1c1ebe9bb9b8ff35f31434
+>>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
+>>>>>>> d25453358208d7169092938a8921fe20e170648e
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     /**************************************************************************************************************/

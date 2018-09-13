@@ -170,6 +170,7 @@ public class Manager_EmployeeController implements Initializable {
                 boolean result=DataHelper.updateEmployee(e,oldBar);
         if(result){
             Alerts.showInfoAlert("تم تعديل بيانات :"+e.getEmployeeName());
+            DataHelper.loadEmployeesData(E_tables);
         }
         else
             Alerts.showInfoAlert("لم تتم العملية بشكل صحيح ");
@@ -238,7 +239,7 @@ public class Manager_EmployeeController implements Initializable {
          E_Tname.setText(emp.getEmployeeName());
         E_Tcode.setText(emp.getEmployeeId());
         E_Tphone.setText(emp.getEmployeePhone());
-        E_Tsalary.setText(emp.getEmployeeHourlyWage()+"");
+        E_Tsalary.setText(""+emp.getEmployeeHourlyWage()+"");
         E_Taddress.setText(emp.getEmployeeAddress());
         oldBar=E_Tcode.getText();
     }

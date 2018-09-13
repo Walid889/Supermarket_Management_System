@@ -110,6 +110,13 @@ public class SalesController extends NewSerial implements Initializable {
     @FXML
     private JFXTextField T_Search;
     @FXML
+<<<<<<< HEAD
+
+
+
+
+=======
+>>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
     private Label productBarcode;
     @FXML
     private TableColumn<Sales, String> c_bar;
@@ -509,9 +516,12 @@ public class SalesController extends NewSerial implements Initializable {
 =======
     }*/
 
+<<<<<<< HEAD
+=======
 
 
 
+>>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
     /*********************************************************************************************/
     
 }

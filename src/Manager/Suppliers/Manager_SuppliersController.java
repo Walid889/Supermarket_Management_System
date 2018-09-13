@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Manager.Suppliers;
 
 import Classes.Alerts;
@@ -33,11 +29,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
-/**
- * FXML Controller class
- *
- * @author lolo
- */
+
+
+
 public class Manager_SuppliersController implements Initializable {
       HomeController x = new HomeController();
     @FXML
@@ -80,25 +74,31 @@ public class Manager_SuppliersController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         databaseHandler=DatabaseHandler.getInstance();
-         ObservableList<String> list= FXCollections.observableArrayList("وائل","محمود","احمد");
+         ObservableList<String> list= FXCollections.observableArrayList("جهينة","عبور لاند","نسكافية");
         S_Ctype.setItems(list);
         t_name.setCellValueFactory(new PropertyValueFactory<>("supplierName"));
         t_category.setCellValueFactory(new PropertyValueFactory<>("supplierCategory"));
         t_phone.setCellValueFactory(new PropertyValueFactory<>("supplierPhone"));
         t_supplier.setCellValueFactory(new PropertyValueFactory<>("salespersonName"));
-        
+        DataHelper.loadSuppliersData(S_Table);
          }    
-
+    /**************************************Buttons to move to another Page*************************************/
     @FXML
-    private void Suppliers_Reports(ActionEvent event) {
+    private void Suppliers_Reports(ActionEvent event) {                                               // Suuplier Reports Page
          x.loadwindow(Manager_Suppliers,"/Manager/Suppliers/Reports/Sppliers_Reports.fxml");
     }
 
     @FXML
-    private void Manager_Home(ActionEvent event) {
+    private void Manager_Home(ActionEvent event) {                                                  // Manager Main Page
          x.loadwindow(Manager_Suppliers,"/Manager/Main/Home.fxml");
     }
 
+    
+    
+    
+    
+    
+    /*****************************************************button of add and edit and delete**************************/
     @FXML
     private void Add_Supplier(ActionEvent event) {
         this.AddSupplier();
@@ -120,8 +120,67 @@ public class Manager_SuppliersController implements Initializable {
     }
     
     
-       ///////////////////////////////////////////////////////////////////////////////////////////////////////
+       ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
+    
+    
+    
+    
+    
+    
+    /**************************************************************Method of Add Supplier******************************************/
+    
+    
+    private void AddSupplier()
+    {
+        try {
+            if ( !S_Tname.getText().equals("") && !S_TPhone.getText().equals("") && !S_TSaller.getText().equals("")  && !S_Ctype.getValue().equals(""))
+            {
+            
+             try{
+                 
+                    Suppliers s =new Suppliers();
+                    s.setSupplierName(S_Tname.getText());
+                    s.setSupplierCategory(S_Ctype.getValue());
+                    s.setSupplierPhone(S_TPhone.getText());
+                    s.setSalespersonName(S_TSaller.getText());
+        
+                    boolean result = DataHelper.insertNewSupplier(s);
+                    
+                  
+                    if(result){
+                        Alert AT=new Alert(Alert.AlertType.INFORMATION);
+                        AT.setHeaderText(null);
+                        S_Table.getItems().add(s);
+                        AT.setContentText("تمت الأضافة بنجاح ");
+                        clear();
+                        AT.showAndWait();
+                        
+                    }else {
+                    Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+                  }
+                        }catch (NumberFormatException es)
+                        {
+                            Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
+                        }
+        
+        
+            }
+        }catch (NullPointerException e){
+              Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
+         }
+
+    }
+    
+    
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    
+    
+    
+    
+    
+    /**************************************************************ُُEdit Supplier information****************************************************/
     
     
     
@@ -147,13 +206,43 @@ public class Manager_SuppliersController implements Initializable {
     }
     
     
+     
+     
+     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+     
+     
+     
+     /**************************************************************Delete Supplier ****************************************************************/
+     
+     
     private void Delete_Supplier() {
         
-        try {
+       // try {
          if ( !S_Tname.getText().equals("") && !S_TPhone.getText().equals("") && !S_TSaller.getText().equals("") &&!S_Ctype.getValue().equals("") ){
             
-             try{
-                //yooooour coooode
+               
+           Suppliers S=S_Table.getSelectionModel().getSelectedItem();
+        
+        if (Alerts.ConfirmAlert("هل تريد مسح"+":", S.getSupplierName())) {
+                Boolean result = DataHelper.deleteSupplier(S);
+                if (result) {
+                    Alerts.showInfoAlert("تم المسح !!");
+                   S_Table.getItems().removeAll(S_Table.getSelectionModel().getSelectedItem());
+                    clear();
+                }
+                 else 
+                    Alerts.showErrorAlert("لم تتم العملية بشكل صحيح ");
+            }
+    }
+             
+             
+             
+             
+             
+           /*  try{
+                
+                 
+                 
             }catch (NumberFormatException es)
             {
                 Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
@@ -163,7 +252,7 @@ public class Manager_SuppliersController implements Initializable {
                 }
         }catch(NullPointerException e){
               Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
-         }
+         }*/
     }
     
     
@@ -184,43 +273,7 @@ public class Manager_SuppliersController implements Initializable {
             
         }
     }
-    private void AddSupplier()
-    {
-        try {
-        if ( !S_Tname.getText().equals("") && !S_TPhone.getText().equals("") && !S_TSaller.getText().equals("")  && !S_Ctype.getValue().equals(""))
-        {
-            
-             try{
-                 
-         Suppliers s =new Suppliers();
-        s.setSupplierName(S_Tname.getText());
-        s.setSupplierCategory(S_Ctype.getTypeSelector());
-//        s.setSupplierPhone(Integer.parseInt(S_TPhone.getText()));
-        s.setSalespersonName(S_TSaller.getText());
-        
-        boolean result = DataHelper.insertNewSupplier(s);
-        S_Table.getItems().add(s);
-        if(result){
-            Alert AT=new Alert(Alert.AlertType.INFORMATION);
-            AT.setHeaderText(null);
-            AT.setContentText("Successfully Added !!");
-            AT.showAndWait();
-            return;
-        }
-            }catch (NumberFormatException es)
-            {
-                Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
-            }
-         }
-        else {
-             Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
-                }
-        }catch (NullPointerException e){
-              Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
-         }
-
-    }
-    
+   
 
     private void chechbox(DragEvent event) {
         ChoiceBox cd = new ChoiceBox();
@@ -253,6 +306,40 @@ public class Manager_SuppliersController implements Initializable {
 
     @FXML
     private void selectFromTable(MouseEvent event) {
+        
+        Suppliers sup=S_Table.getSelectionModel().getSelectedItem();
+        S_Ctype.setValue(sup.getSupplierCategory());
+         S_Tname.setText(sup.getSupplierName());
+         
+        S_TPhone.setText(sup.getSupplierPhone());
+        S_TSaller.setText(sup.getSalespersonName());
+       // oldBar=E_Tcode.getText();
+    }
+    
+    
+    
+    /*
+        private TableView<Suppliers> S_Table;
+    @FXML
+    private TextField S_TSearch;
+    @FXML
+    private TextField S_Tname;
+    @FXML
+    private TextField S_TPhone;
+    @FXML
+    private TextField S_TSaller;
+    @FXML
+    */
+    
+    
+    /***************************************************TO clear what in TextFields*************************************************/
+    
+    private void clear()
+    {
+        S_Tname.setText("");
+        S_Phone.setText("");
+        S_TSaller.setText("");
+        
     }
 }
 

@@ -2,6 +2,9 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+        <group/>
+=======
         <group>
 <<<<<<< HEAD
             <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/buying/BuyingController.java</file>
@@ -14,5 +17,6 @@
             <file>file:/D:/FCIH/Level%202/Supermarket/Git/Supermarket_Management_System/src/Login/LoginController.java</file>
 >>>>>>> 37f0c3acaa65a9f70d1c1ebe9bb9b8ff35f31434
         </group>
+>>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
     </open-files>
 </project-private>
