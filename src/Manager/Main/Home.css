@@ -1,23 +1,25 @@
-.jfx-button
+.jfx-button 
 {
     -fx-background-color: #35889a;
     -fx-cursor: hand;
+   
 }
 .jfx-button:hover
 {
     -fx-background-color: #4aabc0;
-    -fx-cursor: hand;
+     -fx-cursor: hand;
 }
 .pane
 {
     -fx-background-color: #343642;
 }
 .btn{
-    
-    -fx-background-color: #343642;
     -fx-cursor: hand;
+    -fx-background-color: #343642;
+    
 }
 .btn:hover{
-    -fx-background-color: #343642;
     -fx-cursor: hand;
+    -fx-background-color: #343642;
+    
 }

@@ -3,9 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/F:/Dokkan/ProjectFinal/Supermarket_Management_System/src/Manager/Employee/Reports/Employee_ReportsController.java</file>
             <file>file:/F:/Dokkan/ProjectFinal/Supermarket_Management_System/src/Manager/Employee/Reports/Main.java</file>
             <file>file:/F:/Dokkan/ProjectFinal/Supermarket_Management_System/src/resources/tables.xml</file>
+=======
+            <file>file:/D:/FCIH/Level%202/Supermarket/Git/Supermarket_Management_System/src/Login/LoginController.java</file>
+            <file>file:/D:/FCIH/Level%202/Supermarket/Git/Supermarket_Management_System/src/Classes/Alerts.java</file>
+            <file>file:/D:/FCIH/Level%202/Supermarket/Git/Supermarket_Management_System/src/Login/Login.css</file>
+>>>>>>> 67d080e3c3f04010a3bc26ea35d3f2c554cba3b2
         </group>
     </open-files>
 </project-private>

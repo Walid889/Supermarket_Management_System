@@ -11,12 +11,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+
 
 
 public class HomeController implements Initializable {
@@ -64,6 +60,11 @@ public class HomeController implements Initializable {
     @FXML
     private void loadEmployee(ActionEvent event) {
         loadwindow(Home , "/employees/main/employees.fxml");
+    }
+
+    @FXML
+    private void loadManager_Account(ActionEvent event) {
+        loadwindow(Home ,"/Manager/Account/Manager_Account.fxml");
     }
     
 }

@@ -20,4 +20,10 @@
 .jfx-button-manger
 {
     -fx-background-color: none;
+    -fx-cursor: hand;
+}
+.jfx-button-manger:hover
+{
+    -fx-background-color: none;
+    -fx-cursor: hand;
 }
