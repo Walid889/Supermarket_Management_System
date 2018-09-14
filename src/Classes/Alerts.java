@@ -8,6 +8,8 @@ package Classes;
 import java.util.Optional;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
+import javafx.stage.Stage;
 
 /**
  *
@@ -24,7 +26,10 @@ public class Alerts extends Throwable{
     public static void showErrorAlert(String content){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("خطأ");
+        alert.setHeaderText(null);
         alert.setContentText(content);
+        
+       ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/icons/supermarket.png"));
         alert.showAndWait();
         return;
     }

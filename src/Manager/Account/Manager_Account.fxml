@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="Account" prefHeight="697.0" prefWidth="1366.0" styleClass="pane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Manager_Account.Manager_AccountController">
+    <stylesheets>
+        <URL value="@manager_account.css" />
+    </stylesheets>
+   <children>
+      <Label fx:id="Code" alignment="CENTER_RIGHT" layoutX="797.0" layoutY="156.0" prefHeight="45.0" prefWidth="166.0" text="كود الدخول :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="RPassword" alignment="CENTER_RIGHT" layoutX="750.0" layoutY="400.0" prefHeight="45.0" prefWidth="213.0" text="تأكيد كلمة السر :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label fx:id="Password" alignment="CENTER_RIGHT" layoutX="797.0" layoutY="280.0" prefHeight="45.0" prefWidth="166.0" text="كلمة السر :" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <JFXTextField fx:id="T_Code" alignment="CENTER_RIGHT" focusColor="#343642" layoutX="407.0" layoutY="159.0" prefHeight="44.0" prefWidth="301.0" styleClass="textfield" stylesheets="@manager_account.css" unFocusColor="#343642">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXPasswordField fx:id="T_Password" focusColor="#343642" layoutX="407.0" layoutY="285.0" prefHeight="45.0" prefWidth="301.0" styleClass="textfield" stylesheets="@manager_account.css" />
+      <JFXPasswordField fx:id="T_RPassword" focusColor="#343642" layoutX="407.0" layoutY="406.0" prefHeight="45.0" prefWidth="301.0" styleClass="textfield" stylesheets="@manager_account.css" />
+      <JFXButton layoutX="627.0" layoutY="560.0" onAction="#Edit_Account" prefHeight="55.0" prefWidth="145.0" text="تأكيد" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </JFXButton>
+      <JFXButton contentDisplay="RIGHT" layoutX="1207.0" layoutY="21.0" onAction="#Back" prefHeight="55.0" prefWidth="135.0" styleClass="back" stylesheets="@manager_account.css" text="رجوع" textFill="WHITE">
+         <graphic>
+            <ImageView fitHeight="29.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../icons/arrow.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
