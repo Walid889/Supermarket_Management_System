@@ -20,6 +20,7 @@ public class Main extends Application {
         Image icon = new Image("/icons/supermarket.png");
         stage.getIcons().add(icon);
         stage.setTitle("سوبر ماركت ابو طارق");
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
     }

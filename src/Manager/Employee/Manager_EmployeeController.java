@@ -270,9 +270,9 @@ public class Manager_EmployeeController implements Initializable {
 @FXML
     private void Key_pressed(KeyEvent event) {
             try{
-        if(event.getCode().equals(KeyCode.CONTROL.S)){
+        if(event.getCode().equals(KeyCode.S)){
           this.AddEmployee(); }
-        else if (event.getCode().equals(KeyCode.SHIFT.DELETE)){
+        else if (event.getCode().equals(KeyCode.DELETE)){
           this.Delete_Employee();
         }
     }catch(Exception e){}

@@ -18,7 +18,6 @@
     -fx-cursor: hand;
 }
 .btn:hover{
-    
     -fx-background-color: #343642;
     -fx-cursor: hand;
 }
