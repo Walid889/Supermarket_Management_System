@@ -164,4 +164,8 @@ public String getTimeDiff(Date dateOne, Date dateTwo) {
         TimeUnit.MILLISECONDS.toMinutes(timeDiff) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(timeDiff)));        
 return diff;}
 //////////////////////////////////////////////
+
+    public void setStart(String time2) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

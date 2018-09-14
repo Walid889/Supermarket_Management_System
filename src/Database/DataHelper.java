@@ -106,6 +106,20 @@ public class DataHelper {
         }
         return false;
     }
+    
+    public static boolean insertAttendence(Employee emp) {
+        try {
+            PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
+                    "INSERT INTO employee1(emp_start_time,emp_finish_time,emp_hours) VALUES(?,?,?)");
+            statement.setString(1, String.valueOf(emp.getStart()));
+            statement.setString(2, String.valueOf(emp.getEnd()));
+            statement.setString(3, String.valueOf(emp.getDifference()));
+            return statement.executeUpdate() > 0;
+        } catch (SQLException ex) {
+         System.out.print("Attendence not sorted");
+        }
+        return false;
+    }
     public static boolean deleteEmployee(Employee emp) {
         try {
             PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement( 
@@ -177,7 +191,11 @@ public class DataHelper {
         
         //TextFields.bindAutoCompletion(TF, list2);
     }
+<<<<<<< HEAD
     
+=======
+   
+>>>>>>> c932d025a9550de2528eb0d80b99b69d64a2c63f
     ///////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
@@ -761,6 +779,11 @@ public class DataHelper {
         return false;
     }
     
+<<<<<<< HEAD
+=======
+    
+
+>>>>>>> c932d025a9550de2528eb0d80b99b69d64a2c63f
     public static boolean insertNewPersonalExpences(Employee E)
     {
         try{
@@ -775,7 +798,12 @@ public class DataHelper {
         }
         return false;
     }
+<<<<<<< HEAD
 
+=======
+    
+    
+>>>>>>> c932d025a9550de2528eb0d80b99b69d64a2c63f
     public static void loadDamageData(TableView TV,String dat) {
         ObservableList<Damages> list = FXCollections.observableArrayList();
         list.clear();
@@ -800,7 +828,11 @@ public class DataHelper {
         TV.setItems(list);
     }
 
+<<<<<<< HEAD
 
+=======
+      
+>>>>>>> c932d025a9550de2528eb0d80b99b69d64a2c63f
     /****************************************************************************************************************/
     /****************************************************************************************************************/
     public static boolean insertNewExpences(Expences E)
@@ -818,6 +850,15 @@ public class DataHelper {
         }
         return false;
     }
+<<<<<<< HEAD
+=======
+    
+
+  
+    
+    
+    
+>>>>>>> c932d025a9550de2528eb0d80b99b69d64a2c63f
 
     public static void loadExpensesData(TableView TV,String dat) {
         ObservableList<Expences> list = FXCollections.observableArrayList();
@@ -837,6 +878,10 @@ public class DataHelper {
         }
         TV.setItems(list);
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> c932d025a9550de2528eb0d80b99b69d64a2c63f
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     /**************************************************************************************************************/
