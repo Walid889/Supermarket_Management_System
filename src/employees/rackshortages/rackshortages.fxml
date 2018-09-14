@@ -14,9 +14,13 @@
    <children>
       <TableView fx:id="rackshortagesTable" layoutX="379.0" layoutY="28.0" prefHeight="557.0" prefWidth="608.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="t_quan" prefWidth="75.0" text="الكمية بالوحدة" />
+          <TableColumn fx:id="t_cate" prefWidth="75.0" text="صنف" />
+            <TableColumn fx:id="t_bar" prefWidth="75.0" text="باركود" />
         </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
       </TableView>
       <JFXButton layoutX="605.0" layoutY="612.0" onAction="#loadRackMain" prefHeight="47.0" prefWidth="157.0" styleClass="jfx-button" stylesheets="@rackshortages.css" text="الرئيسية">
          <font>

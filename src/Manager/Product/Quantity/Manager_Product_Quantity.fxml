@@ -47,11 +47,13 @@
             <Font size="30.0" />
          </font>
       </JFXButton>
-      <Label fx:id="LName" layoutX="628.0" layoutY="291.0" textFill="#fffd00">
+      <Label fx:id="LName" layoutX="628.0" layoutY="291.0" textFill="#fff400">
          <font>
             <Font size="40.0" />
          </font>
       </Label>
+      <Label fx:id="L_InP" textFill="#343642" />
+      <Label fx:id="L_PnB" layoutX="37.0" layoutY="6.0" textFill="#343642" />
       <JFXButton contentDisplay="RIGHT" layoutX="1165.0" layoutY="22.0" onAction="#Back" prefHeight="25.0" prefWidth="160.0" styleClass="back" stylesheets="@manager_Product_Quantity.css" text="رجوع" textFill="WHITE">
          <font>
             <Font size="30.0" />
@@ -71,18 +73,10 @@
       </JFXButton>
       <RadioButton fx:id="R_packet" layoutX="757.0" layoutY="414.0" mnemonicParsing="false" onMouseClicked="#AllowEditRadio">
          <toggleGroup>
-            <ToggleGroup fx:id="T_R_quan" />
+            <ToggleGroup fx:id="choiceQuan" />
          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="R_item" layoutX="1012.0" layoutY="414.0" mnemonicParsing="false" onMouseClicked="#AllowEditRadio">
-         <toggleGroup>
-            <ToggleGroup fx:id="T_R_quan1" />
-         </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="R_box" layoutX="488.0" layoutY="415.0" mnemonicParsing="false" onMouseClicked="#AllowEditRadio">
-         <toggleGroup>
-            <ToggleGroup fx:id="T_R_quan2" />
-         </toggleGroup>
-      </RadioButton>
+      <RadioButton fx:id="R_item" layoutX="1012.0" layoutY="414.0" mnemonicParsing="false" onMouseClicked="#AllowEditRadio" toggleGroup="$choiceQuan" />
+      <RadioButton fx:id="R_box" layoutX="488.0" layoutY="415.0" mnemonicParsing="false" onMouseClicked="#AllowEditRadio" toggleGroup="$choiceQuan" />
    </children>
 </AnchorPane>

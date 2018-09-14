@@ -48,21 +48,21 @@ public class Manager_Product_QuantityController implements Initializable {
     @FXML
     private RadioButton R_packet;
     @FXML
-    private ToggleGroup T_R_quan;
-    @FXML
     private RadioButton R_item;
     @FXML
-    private ToggleGroup T_R_quan1;
-    @FXML
     private RadioButton R_box;
-    @FXML
-    private ToggleGroup T_R_quan2;
     /**
      * Initializes the controller class.
      */
     DatabaseHandler databaseHandler;
     @FXML
     private Label LName;
+    @FXML
+    private ToggleGroup choiceQuan;
+    @FXML
+    private Label L_InP;
+    @FXML
+    private Label L_PnB;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -70,7 +70,7 @@ public class Manager_Product_QuantityController implements Initializable {
         P_UQuantity.setEditable(false);
         P_BQuantity.setEditable(false);
         P_CQuantity.setEditable(false);
-        
+        DataHelper.getBarcodesInEditQuanPage(P_TSearch);
         P_TSearch.focusedProperty().addListener(new ChangeListener<Boolean>() {
         @Override
             public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
@@ -136,8 +136,10 @@ public class Manager_Product_QuantityController implements Initializable {
                   int it=Integer.parseInt(P_UQuantity.getText());
                   int pa=Integer.parseInt(P_BQuantity.getText());
                   int bo=Integer.parseInt(P_CQuantity.getText());
-                  int inp = 0,pnb = 0;
-                  DataHelper.getQuanDetails(P_TSearch.getText(), inp, pnb);
+                  
+                  DataHelper.getQuanDetails(P_TSearch.getText(), L_InP, L_PnB);
+                  int inp=Integer.parseInt(L_InP.getText());
+                  int pnb=Integer.parseInt(L_PnB.getText());
                   if(R_item.isSelected()){ 
                       DataHelper.QuickEditQuantity(it,P_TSearch.getText());  Alerts.showInfoAlert("تم التعديل");
                   }
@@ -160,6 +162,9 @@ public class Manager_Product_QuantityController implements Initializable {
 
     @FXML
     private void AllowEditRadio(MouseEvent event) {
+        selectRadio();
+    }
+    private void selectRadio(){
         if(R_item.isSelected()){
             P_UQuantity.setEditable(true);
             P_BQuantity.setEditable(false);
@@ -179,12 +184,62 @@ public class Manager_Product_QuantityController implements Initializable {
 
     @FXML
     private void EditByKey(KeyEvent event) {
+        
+        if(P_UQuantity.isFocused() && !R_item.isSelected()){
+            try{
+            if(event.getCode().equals(KeyCode.ENTER)) {
+                 R_item.setSelected(true);
+                 selectRadio();
+            }
+            }catch(Exception e){}
+        }
+        else if(P_BQuantity.isFocused() && !R_packet.isSelected()){
+            try{
+            if(event.getCode().equals(KeyCode.ENTER)) {
+                 R_packet.setSelected(true);
+                 selectRadio();
+            }
+            }catch(Exception e){}
+        }
+        else if(P_CQuantity.isFocused() && !R_box.isSelected()){
+            try{
+            if(event.getCode().equals(KeyCode.ENTER)) {
+                 R_box.setSelected(true);
+                 selectRadio();
+            }
+            }catch(Exception e){}
+        }
+        
+        else{
         try{
-        if(event.getCode().equals(KeyCode.SHIFT.ENTER)) {
-             this.Edit_Product();
+        if(event.getCode().equals(KeyCode.ENTER)) {
+             Edit_Product();
         }
         }catch(Exception e){}
+        }
+        
     }
     
-    
 }
+/*try{
+        if(event.getCode().equals(KeyCode.ENTER)) {
+             this.Edit_Product();
+        }
+        
+        
+        /*
+        else if(event.getCode().equals(KeyCode.ADD)){
+            if(P_UQuantity.isFocused()){
+                R_item.setSelected(true);
+                
+            }
+            else if(P_BQuantity.isFocused()){
+                R_packet.setSelected(true);
+            }
+            else if(P_CQuantity.isFocused()){
+                R_box.setSelected(true);
+                
+            }
+            selectRadio();
+        }
+        */ 

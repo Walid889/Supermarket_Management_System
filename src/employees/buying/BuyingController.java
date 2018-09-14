@@ -57,9 +57,7 @@ public class BuyingController  extends NewSerial implements Initializable {
     private Label productPrise;
     @FXML
     private TextField Quntity;
-    private TextField tatalPrice;
-    private TextField paid;
-    private TextField rest;
+
     @FXML
     private JFXComboBox<String> quntityComboBox;
     @FXML
@@ -74,8 +72,6 @@ public class BuyingController  extends NewSerial implements Initializable {
     private TableColumn<Buying, String> t_kquan;
     @FXML
     private TableColumn<Buying, String> t_quan;
-    @FXML
-    private TableColumn<Buying, String> t_price;
     @FXML
     private TableColumn<Buying, String> t_cate;
     
@@ -93,6 +89,8 @@ public class BuyingController  extends NewSerial implements Initializable {
     private TextField totalPrice;
     @FXML
     private Label productBarcode;
+    @FXML
+    private TableColumn<Buying, String> t_price;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -110,7 +108,7 @@ public class BuyingController  extends NewSerial implements Initializable {
     private  void initTableViewCols(){
         t_bar.setCellValueFactory(new PropertyValueFactory<>("barcodfiled"));
         t_cate.setCellValueFactory(new PropertyValueFactory<>("name"));
-        t_price.setCellValueFactory(new PropertyValueFactory<>("UnitPrice"));
+        t_price.setCellValueFactory(new PropertyValueFactory<>("UintPrice"));
         t_quan.setCellValueFactory(new PropertyValueFactory<>("CurrentQuantity"));
         t_kquan.setCellValueFactory(new PropertyValueFactory<>("quantityKind"));
         t_cost.setCellValueFactory(new PropertyValueFactory<>("cost"));
@@ -127,18 +125,6 @@ public class BuyingController  extends NewSerial implements Initializable {
         x.loadwindow(loadPane,"/employees/main/employees.fxml");
     }
     
-    
-   /* void loadWindow(String loc)
-    {
-        try {
-            AnchorPane pane = FXMLLoader.load(getClass().getResource(loc));
-            loadPane.getChildren().setAll(pane);
-           
-        } catch (IOException ex) {
-            Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }*/
-
     @FXML
     private void addBuying(ActionEvent event) {
         this.addBuying();

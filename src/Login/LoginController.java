@@ -4,19 +4,8 @@
  * and open the template in the editor.
  */
 package Login;
-<<<<<<< HEAD
-
-=======
->>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
-
 import Classes.Alerts;
-
 import Classes.Login;
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
 import Classes.Login;
 import Classes.Alerts;
 import Manager.Main.HomeController;
@@ -31,19 +20,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-<<<<<<< HEAD
-
 import javax.swing.JOptionPane;
 import org.apache.commons.codec.digest.DigestUtils;
-
-
-
-=======
- 
 import javax.swing.JOptionPane;
 import org.apache.commons.codec.digest.DigestUtils;
-
->>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
 
 /**
  * FXML Controller class
@@ -75,11 +55,6 @@ HomeController y = new HomeController();
 
     @FXML
     private void login(ActionEvent event) {
-<<<<<<< HEAD
-
-=======
- 
->>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
         Login a = new Login();
  
             
@@ -90,10 +65,6 @@ HomeController y = new HomeController();
         
     }
     private void login() {
-<<<<<<< HEAD
-
-=======
->>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
         //JOptionPane.showMessageDialog(null , "HI");
         //Alerts.ConfirmAlert("login with admin", "");    
        System.out.println("HI");

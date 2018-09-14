@@ -34,7 +34,7 @@ public class Suppliers{// Common_Methods is an Interface include Add , Update , 
     {}
     public Suppliers(String a,String b,String c,String d)
     {
-        this.salespersonName=a;
+        this.supplierName=a;
         this.supplierPhone=b;
         this.supplierCategory=c;
         this.salespersonName=d;

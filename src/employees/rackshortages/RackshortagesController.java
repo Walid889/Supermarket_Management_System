@@ -5,6 +5,8 @@
  */
 package employees.rackshortages;
 
+import Classes.Defects;
+import database.*;
 import employees.main.EmployeesController;
 import java.io.IOException;
 import java.net.URL;
@@ -13,7 +15,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -27,27 +31,34 @@ public class RackshortagesController implements Initializable {
     @FXML
     private AnchorPane loadPane;
     @FXML
-    private TableView<?> rackshortagesTable;
+    private TableView<Defects> rackshortagesTable;
+    @FXML
+    private TableColumn<Defects, String> t_quan;
+    @FXML
+    private TableColumn<Defects, String> t_cate;
+    @FXML
+    private TableColumn<Defects, String> t_bar;
 
     /**
      * Initializes the controller class.
      */
+        
+    DatabaseHandler databaseHandler;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        databaseHandler=DatabaseHandler.getInstance();
+        initTableViewCols();
+        DataHelper.loadDEFECTSData(rackshortagesTable);
     }    
-
+    private  void initTableViewCols(){
+        t_bar.setCellValueFactory(new PropertyValueFactory<>("barcode"));
+        t_cate.setCellValueFactory(new PropertyValueFactory<>("productName"));
+        t_quan.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+    }
     @FXML
     private void loadRackMain(ActionEvent event) {
     //loadWindow("/employees/main/employees.fxml");
         x.loadwindow(loadPane,"/employees/main/employees.fxml");
     }
-    
-   /* void loadWindow(String loc){
-        try{
-            AnchorPane pane = FXMLLoader.load(getClass().getResource(loc));
-            loadPane.getChildren().setAll(pane);
-           
-        }catch(IOException ex){}
-    }*/
 }

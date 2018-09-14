@@ -37,9 +37,8 @@
                         pro_minimum int
         "/>
     <table-entry name="suppliers1" col-data="
-                    
-                        sup_name varchar(200),
-                        sup_company_name varchar(200),
+                        sup_name varchar(200) ,
+                        sup_company_name varchar(200) primary key,
                         sup_category varchar(200),
                         sup_phone varchar(200)
 "/>
@@ -59,27 +58,11 @@
                         unit_price double,
                         current_qty int,
                         cost double,
-<<<<<<< HEAD
-                        t_time TIME,
-=======
-<<<<<<< HEAD
-
-                        t_time TIME
-    
-
                         t_time TIME,
                         s_bar varchar(200)
     "/>
 
-    <table-entry name="bills" col-data="
-=======
-
-                        t_time TIME
->>>>>>> d25453358208d7169092938a8921fe20e170648e
-                         s_bar varchar(200)
-"/>
    <table-entry name="bills" col-data="
->>>>>>> 2cb065b827b9180e87ff67366d2e5a1bccb3b1ac
                         sale_id int,
                         sale_date date,
                         t_time TIME,

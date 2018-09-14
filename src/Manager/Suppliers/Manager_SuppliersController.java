@@ -69,7 +69,7 @@ public class Manager_SuppliersController implements Initializable {
     @FXML
     private TableColumn<Suppliers, String> t_name;
     DatabaseHandler databaseHandler;
-    
+    private  String oldCompName="";
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -133,43 +133,24 @@ public class Manager_SuppliersController implements Initializable {
     
     private void AddSupplier()
     {
-        try {
-            if ( !S_Tname.getText().equals("") && !S_TPhone.getText().equals("") && !S_TSaller.getText().equals("")  && !S_Ctype.getValue().equals(""))
-            {
-            
-             try{
-                 
+        if ( !S_Tname.getText().equals("") && !S_TPhone.getText().equals("") && !S_TSaller.getText().equals("")  && !S_Ctype.getValue().equals(""))
+        {
+            try{
                     Suppliers s =new Suppliers();
                     s.setSupplierName(S_Tname.getText());
                     s.setSupplierCategory(S_Ctype.getValue());
                     s.setSupplierPhone(S_TPhone.getText());
                     s.setSalespersonName(S_TSaller.getText());
-        
                     boolean result = DataHelper.insertNewSupplier(s);
-                    
-                  
-                    if(result){
-                        Alert AT=new Alert(Alert.AlertType.INFORMATION);
-                        AT.setHeaderText(null);
-                        S_Table.getItems().add(s);
-                        AT.setContentText("تمت الأضافة بنجاح ");
-                        clear();
-                        AT.showAndWait();
-                        
-                    }else {
-                    Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
-                  }
-                        }catch (NumberFormatException es)
-                        {
-                            Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
-                        }
-        
-        
-            }
-        }catch (NullPointerException e){
-              Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
-         }
 
+                    if(result){
+                        S_Table.getItems().add(s);
+                        Alerts.showInfoAlert("تم الاضافة");
+                    }
+                    else 
+                        Alerts.showErrorAlert("خطأ فى الاضافة");
+            }catch (NumberFormatException es) {Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");}
+        }
     }
     
     
@@ -185,24 +166,22 @@ public class Manager_SuppliersController implements Initializable {
     
     
      private void Edit_Supplier() {
-         try {
          
-         if ( !S_Tname.getText().equals("") && !S_TPhone.getText().equals("") && !S_TSaller.getText().equals("") &&!S_Ctype.getValue().equals("")  ){
-            
-             try{
-                //yooooour coooode
-            }catch (NumberFormatException es)
+        if ( !S_Tname.getText().equals("") && !S_TPhone.getText().equals("") && !S_TSaller.getText().equals("") &&!S_Ctype.getValue().equals("")  ){  
+            try{
+                String name=S_Tname.getText();
+                String phone=S_TPhone.getText();
+                String cate=(String) S_Ctype.getValue();
+                String salesperson=S_TSaller.getText();
+                Suppliers S=new Suppliers(name, phone, cate, salesperson);
+                boolean R=DataHelper.updateSupplier(S, oldCompName);
+                if(R){Alerts.showInfoAlert("تم التعديل"); DataHelper.loadSuppliersData(S_Table);}
+            }
+            catch (NumberFormatException es)
             {
                 Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
             }
-         }else {
-             Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
-                }
-         }catch (NullPointerException e){
-              Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
-         }
-         
-        
+        }else { Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");}
     }
     
     
@@ -309,11 +288,10 @@ public class Manager_SuppliersController implements Initializable {
         
         Suppliers sup=S_Table.getSelectionModel().getSelectedItem();
         S_Ctype.setValue(sup.getSupplierCategory());
-         S_Tname.setText(sup.getSupplierName());
-         
+        S_Tname.setText(sup.getSupplierName());
         S_TPhone.setText(sup.getSupplierPhone());
         S_TSaller.setText(sup.getSalespersonName());
-       // oldBar=E_Tcode.getText();
+        oldCompName=S_Tname.getText();
     }
     
     

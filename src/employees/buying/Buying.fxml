@@ -77,7 +77,7 @@
                   <Font size="20.0" />
                </font>
             </JFXTextField>
-            <JFXComboBox fx:id="quntityComboBox" focusColor="#35889a" prefHeight="30.0" prefWidth="120.0" promptText="عنصر" unFocusColor="WHITE" visibleRowCount="3" />
+            <JFXComboBox fx:id="quntityComboBox" focusColor="#35889a" layoutX="799.0" layoutY="523.0" prefHeight="30.0" prefWidth="120.0" promptText="عنصر" unFocusColor="WHITE" visibleRowCount="3" />
             <JFXButton layoutX="390.0" layoutY="59.0" onAction="#B_SearchButton" prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@buying.css" text="بحث" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="20.0" />

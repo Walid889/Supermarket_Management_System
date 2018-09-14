@@ -74,7 +74,7 @@
       </VBox>
       <Pane layoutX="-14.0" prefHeight="697.0" prefWidth="1184.0" styleClass="pane" stylesheets="@recall.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-14.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label fx:id="date" layoutX="36.0" layoutY="21.0" prefHeight="36.0" prefWidth="140.0" textFill="WHITE">
+            <Label fx:id="date" layoutX="34.0" layoutY="33.0" prefHeight="36.0" prefWidth="140.0" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -82,33 +82,16 @@
                   <DropShadow height="9.0" radius="1.75" spread="0.2" width="0.0" />
                </effect>
             </Label>
-            <JFXButton layoutX="224.0" layoutY="12.0" onAction="#R_SearchButton" prefHeight="54.0" prefWidth="120.0" styleClass="jfx-button" stylesheets="@recall.css" text="بحث" textFill="WHITE">
+            <JFXButton layoutX="222.0" layoutY="24.0" onAction="#R_SearchButton" prefHeight="54.0" prefWidth="120.0" styleClass="jfx-button" stylesheets="@recall.css" text="بحث" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
             </JFXButton>
             <JFXListView layoutX="153.0" layoutY="44.0" prefHeight="400.0" prefWidth="262.0" visible="false" />
-<<<<<<< HEAD
-            <JFXRadioButton fx:id="R_FCustomer" contentDisplay="RIGHT" layoutX="975.0" layoutY="26.0" selected="true" text="من العميل" textFill="WHITE">
-=======
-            <Label layoutX="1044.0" layoutY="17.0" text="مسلسل :" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-               <effect>
-                  <DropShadow height="9.14" radius="1.8450000000000002" width="0.24" />
-               </effect>
-            </Label>
-            <TextField editable="false" layoutX="919.0" layoutY="15.0" prefHeight="30.0" prefWidth="100.0">
-               <font>
-                  <Font name="System Bold" size="20.0" />
-               </font></TextField>
-<<<<<<< HEAD
-            <JFXRadioButton fx:id="client_select" contentDisplay="RIGHT" layoutX="1012.0" layoutY="67.0" text="من العميل" textFill="WHITE">
-=======
-            <JFXRadioButton fx:id="R_FCustomer" contentDisplay="RIGHT" layoutX="1012.0" layoutY="67.0" text="من العميل" textFill="WHITE">
->>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
->>>>>>> 37f0c3acaa65a9f70d1c1ebe9bb9b8ff35f31434
+
+            
+            <JFXRadioButton fx:id="R_FCustomer" contentDisplay="RIGHT" layoutX="975.0" layoutY="33.0" text="من العميل" textFill="WHITE">
+
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -119,7 +102,7 @@
                   <ToggleGroup fx:id="RecallFrom" />
                </toggleGroup>
             </JFXRadioButton>
-            <JFXTextField fx:id="R_SearchField" alignment="CENTER_RIGHT" focusColor="#d0ff00" labelFloat="true" layoutX="356.0" layoutY="19.0" onKeyTyped="#R_SearchField" prefHeight="36.0" prefWidth="391.0" promptText="ادخل إسم المنتج .." unFocusColor="#867200">
+            <JFXTextField fx:id="R_SearchField" alignment="CENTER_RIGHT" focusColor="#d0ff00" labelFloat="true" layoutX="354.0" layoutY="31.0" onKeyTyped="#R_SearchField" prefHeight="36.0" prefWidth="391.0" promptText="ادخل إسم المنتج .." unFocusColor="#867200">
                <padding>
                   <Insets left="5.0" right="5.0" />
                </padding>
@@ -136,7 +119,7 @@
                <children>
                   <TableView fx:id="R_table" prefHeight="397.0" prefWidth="675.0">
                      <columns>
-<<<<<<< HEAD
+
                         <TableColumn fx:id="t_cost" prefWidth="75.0" text="تكلفة" />
                         <TableColumn fx:id="t_kquan" prefWidth="75.0" text="ن.كمية" />
                         <TableColumn fx:id="t_quan" prefWidth="75.0" text="كمية" />
@@ -144,13 +127,6 @@
                         <TableColumn fx:id="t_cate" prefWidth="75.0" text="صنف" />
                         <TableColumn fx:id="t_bar" prefWidth="75.0" text="باركود" />
                         <TableColumn fx:id="t_source" prefWidth="75.0" text="المصدر" />
-=======
-                        <TableColumn fx:id="t_code" prefWidth="101.0" text="الكود" />
-                        <TableColumn fx:id="t_product" prefWidth="193.0" text="اسم المنتج" />
-                        <TableColumn fx:id="t_price" prefWidth="100.0" text="السعر" />
-                        <TableColumn fx:id="t_qty" prefWidth="103.0" text="الكمية" />
-                        <TableColumn fx:id="t_recall" prefWidth="177.0" text="جهة المرتجع" />
->>>>>>> 37f0c3acaa65a9f70d1c1ebe9bb9b8ff35f31434
                      </columns>
                      <HBox.margin>
                         <Insets left="30.0" right="30.0" />
@@ -200,19 +176,8 @@
                   <DropShadow height="9.14" radius="4.07" width="9.14" />
                </effect>
             </Label>
-<<<<<<< HEAD
-            <JFXRadioButton fx:id="R_ToCampany" contentDisplay="RIGHT" layoutX="827.0" layoutY="26.0" text="للشركة" textFill="WHITE" toggleGroup="$RecallFrom">
-=======
-            <TextField fx:id="quantity" layoutX="176.0" layoutY="621.0" prefHeight="30.0" prefWidth="233.0">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font></TextField>
-<<<<<<< HEAD
-            <JFXRadioButton fx:id="company_select" contentDisplay="RIGHT" layoutX="1012.0" layoutY="107.0" text="للشركة" textFill="WHITE">
-=======
-            <JFXRadioButton fx:id="R_ToCampany" contentDisplay="RIGHT" layoutX="1012.0" layoutY="107.0" text="للشركة" textFill="WHITE" toggleGroup="$RecallFrom">
->>>>>>> 5585de7c90067c16b8ccbc677860fcec1baf875a
->>>>>>> 37f0c3acaa65a9f70d1c1ebe9bb9b8ff35f31434
+
+            <JFXRadioButton fx:id="R_ToCampany" contentDisplay="RIGHT" layoutX="850.0" layoutY="33.0" text="للشركة" textFill="WHITE" toggleGroup="$RecallFrom">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
