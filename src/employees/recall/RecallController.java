@@ -5,11 +5,7 @@
  */
 package employees.recall;
 
-<<<<<<< HEAD
-=======
-
 import com.jfoenix.controls.JFXRadioButton;
->>>>>>> c932d025a9550de2528eb0d80b99b69d64a2c63f
 import Classes.Alerts;
 import Classes.Price;
 import Classes.Recalls;
@@ -35,12 +31,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-<<<<<<< HEAD
-=======
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
->>>>>>> c932d025a9550de2528eb0d80b99b69d64a2c63f
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -61,14 +54,11 @@ public class RecallController extends NewSerial implements Initializable {
     @FXML
     private Label date;
     @FXML
-<<<<<<< HEAD
-=======
     private JFXRadioButton client_select;
     @FXML
     private TextField quantity;
     @FXML
     private JFXRadioButton company_select;
->>>>>>> c932d025a9550de2528eb0d80b99b69d64a2c63f
     private JFXTextField R_SearchField;
     @FXML
     private JFXRadioButton R_FCustomer;
@@ -102,11 +92,6 @@ public class RecallController extends NewSerial implements Initializable {
     private JFXComboBox<String> quntityComboBox;
     @FXML
     private TextField Quntity;
-<<<<<<< HEAD
-
-
-=======
->>>>>>> c932d025a9550de2528eb0d80b99b69d64a2c63f
     /**
      * Initializes the controller class.
      */

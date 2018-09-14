@@ -3,25 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Classes/Buying.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/buying/BuyingController.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Suppliers/Manager_SuppliersController.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Classes/Defects.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/buying/Buying.fxml</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/recall/RecallController.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/rackshortages/RackshortagesController.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/sales/SalesController.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/resources/tables.xml</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Product/Quantity/Manager_Product_QuantityController.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Database/DataHelper.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/buying/buying.css</file>
-=======
+            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/employees/personalexpenses/PersonalexpensesController.java</file>
             <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/employees/account/accept/attendence/AttendenceController.java</file>
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Manager/Employee/Manager_EmployeeController.java</file>
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/employees/account/accept/attendence/ATTEN.css</file>
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Manager/Suppliers/Manager_Suppliers.css</file>
->>>>>>> c932d025a9550de2528eb0d80b99b69d64a2c63f
         </group>
     </open-files>
 </project-private>

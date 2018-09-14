@@ -191,12 +191,7 @@ public class DataHelper {
         
         //TextFields.bindAutoCompletion(TF, list2);
     }
-<<<<<<< HEAD
-    
-=======
-   
->>>>>>> c932d025a9550de2528eb0d80b99b69d64a2c63f
-    ///////////////////////////////////////////////////////
+   ///////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
     /////////////////End employee///////////////////////////////
@@ -779,11 +774,6 @@ public class DataHelper {
         return false;
     }
     
-<<<<<<< HEAD
-=======
-    
-
->>>>>>> c932d025a9550de2528eb0d80b99b69d64a2c63f
     public static boolean insertNewPersonalExpences(Employee E)
     {
         try{
@@ -798,12 +788,6 @@ public class DataHelper {
         }
         return false;
     }
-<<<<<<< HEAD
-
-=======
-    
-    
->>>>>>> c932d025a9550de2528eb0d80b99b69d64a2c63f
     public static void loadDamageData(TableView TV,String dat) {
         ObservableList<Damages> list = FXCollections.observableArrayList();
         list.clear();
@@ -828,11 +812,6 @@ public class DataHelper {
         TV.setItems(list);
     }
 
-<<<<<<< HEAD
-
-=======
-      
->>>>>>> c932d025a9550de2528eb0d80b99b69d64a2c63f
     /****************************************************************************************************************/
     /****************************************************************************************************************/
     public static boolean insertNewExpences(Expences E)
@@ -850,15 +829,6 @@ public class DataHelper {
         }
         return false;
     }
-<<<<<<< HEAD
-=======
-    
-
-  
-    
-    
-    
->>>>>>> c932d025a9550de2528eb0d80b99b69d64a2c63f
 
     public static void loadExpensesData(TableView TV,String dat) {
         ObservableList<Expences> list = FXCollections.observableArrayList();
@@ -878,10 +848,6 @@ public class DataHelper {
         }
         TV.setItems(list);
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> c932d025a9550de2528eb0d80b99b69d64a2c63f
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     /**************************************************************************************************************/
