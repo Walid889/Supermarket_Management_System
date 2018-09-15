@@ -1,6 +1,7 @@
 .textfield
 {
-    -fx-text-fill: #FFF;
+    -fx-text-fill: #35889a;
+    -fx-background-color: #fff;
 }
 
 .buttons

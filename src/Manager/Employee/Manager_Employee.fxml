@@ -97,7 +97,7 @@
                   <Insets bottom="10.0" />
                </padding>
             </Label>
-            <TableView fx:id="E_tables" layoutX="33.0" layoutY="105.0"  onMouseClicked="#selectFromTable" prefHeight="468.0" prefWidth="663.0">
+            <TableView fx:id="E_tables" layoutX="33.0" layoutY="105.0" onMouseClicked="#selectFromTable" prefHeight="573.0" prefWidth="663.0">
                <columns>
                   <TableColumn fx:id="t_address" prefWidth="199.0" text="العنوان " />
                   <TableColumn fx:id="t_salary" prefWidth="95.0" text="الاجر بالساعة" />
@@ -106,11 +106,6 @@
                   <TableColumn fx:id="t_name" prefWidth="114.0" text="الأسم" />
                </columns>
             </TableView>
-            <JFXButton layoutX="275.0" layoutY="607.0" onAction="#Employee_Choice" prefHeight="25.0" prefWidth="160.0" styleClass="buttons" stylesheets="@Manager_Employee.css" text="إختيار" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="25.0" />
-               </font>
-            </JFXButton>
             <TextField fx:id="E_Tname" layoutX="728.0" layoutY="168.0" prefHeight="25.0" prefWidth="220.0">
                <padding>
                   <Insets bottom="10.0" />
