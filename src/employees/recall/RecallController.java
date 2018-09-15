@@ -57,11 +57,6 @@ public class RecallController extends NewSerial implements Initializable {
     @FXML
     private Label date;
     @FXML
-    private JFXRadioButton client_select;
-    @FXML
-    private TextField quantity;
-    @FXML
-    private JFXRadioButton company_select;
     private JFXTextField R_SearchField;
     @FXML
     private JFXRadioButton R_FCustomer;

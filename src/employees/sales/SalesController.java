@@ -20,10 +20,12 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.time.Duration;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -342,7 +344,16 @@ public class SalesController extends NewSerial implements Initializable {
         }
         else
         {
-            Alerts.showErrorAlert("لم يتم ادخال بيانات الفاتورة بشكل صحيح !!");
+            //Alerts.showErrorAlert("لم يتم ادخال بيانات الفاتورة بشكل صحيح !!");
+            Alert alert = new Alert(Alert.AlertType.NONE);
+            alert.setTitle("خطأ");
+            alert.setContentText("لم يتم ادخال بيانات الفاتورة بشكل صحيح!!");
+            alert.setHeaderText(null);
+            alert.setResult(ButtonType.CLOSE);
+            alert.show();
+            PauseTransition delay = new PauseTransition(javafx.util.Duration.seconds(1.5));
+            delay.setOnFinished( event -> alert.close() );
+            delay.play();
         }
     }
     private void AddQuantity() {

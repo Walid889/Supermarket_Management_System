@@ -131,9 +131,6 @@
                      <HBox.margin>
                         <Insets left="30.0" right="30.0" />
                      </HBox.margin>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
                   </TableView>
                   <VBox alignment="CENTER" maxHeight="308.0" prefHeight="308.0" prefWidth="333.0" styleClass="vboxrecall" stylesheets="@recall.css">
                      <HBox.margin>

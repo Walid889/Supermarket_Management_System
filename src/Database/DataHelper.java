@@ -36,7 +36,7 @@ public class DataHelper {
             statement.setString(1, go.getProductBarCode());
             statement.setString(2, go.getProductName());
             statement.setString(3, go.getProductCategory());
-            statement.setString(4, go.getProductSupplier());
+//            statement.setString(4, go.getProductSupplier());
             statement.setInt(5, go.getItemsInPacket());
             statement.setInt(6, go.getPacketsInBox());
             statement.setLong(7, go.getAllQuantity());
@@ -63,7 +63,7 @@ public class DataHelper {
             statement.setString(1, go.getProductBarCode());
             statement.setString(2, go.getProductName());
             statement.setString(3, go.getProductCategory());
-            statement.setString(4, go.getProductSupplier());
+         //   statement.setString(4, go.getProductSupplier());
             statement.setInt(5, go.getItemsInPacket());
             statement.setInt(6, go.getPacketsInBox());
             statement.setLong(7, go.getAllQuantity());
@@ -319,7 +319,7 @@ public class DataHelper {
                 double Pb=rs.getDouble("pro_price_box");
                 int mP=rs.getInt("pro_minimum");
                 int aq=rs.getInt("pro_All_qty");
-                list.add(new Goods(name, bar, cate, sup, it, pa, Pi, Pp, Pb, mP,aq));
+                list.add(new Goods(name, bar, cate,sup, it, pa, Pi, Pp, Pb, mP,aq));
                 list2.add(bar);
             }
         } catch (SQLException ex) {
@@ -346,7 +346,7 @@ public class DataHelper {
                 int mP=rs.getInt("pro_minimum");
                 //G.setProductExpirationdate(P_Tdate.getText());
                 int aq=rs.getInt("pro_All_qty");
-                list.add(new Goods(name, bar, cate, sup, it, pa, Pi, Pp, Pb, mP,aq));
+                list.add(new Goods(name, bar,sup, cate, it, pa, Pi, Pp, Pb, mP,aq));
             }
         } catch (SQLException ex) {
             Alerts.showInfoAlert("لا يوجد اصناف");
