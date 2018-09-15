@@ -78,8 +78,7 @@ public class Employee_ReportsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
        databaseHandler = DatabaseHandler.getInstance();
-       String qu="SELECT emp_name FROM employee1 ";
-       ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
+       
        fillComboBox(E_cname);
        
        
@@ -159,6 +158,7 @@ public static void fillComboBox(ComboBox C1){
         }
         C1.setItems(list);
     }
+ 
 
 
 
@@ -195,7 +195,7 @@ public static void fillComboBox(ComboBox C1){
 /******************************************* Attendance******************************************************************/
     
     private void attendance(String startDate ,String endDate) throws FileNotFoundException, DocumentException{
-        String qu="SELECT * FROM employee1 FULL OUTER JOIN employee2 on  employee1.emp_id = employee1.emp_id BETWEEN '"+startDate+"'AND '"+endDate+"'";  
+        String qu="SELECT * FROM employee1  RIGHT OUTER JOIN employee2 on  employee1.emp_id = employee1.emp_id BETWEEN '"+startDate+"'AND '"+endDate+"'";  
         ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
                 
         
@@ -450,7 +450,7 @@ public static void fillComboBox(ComboBox C1){
     
     
     private void employeeSalary(String startDate ,String endDate,String name) throws FileNotFoundException, DocumentException{
-        String qu="SELECT * FROM employee1 FULL OUTER JOIN employee2 on  employee1.emp_id = employee1.emp_id where emp_name = "+ name+" BETWEEN '"+startDate+"'AND '"+endDate+"'";  
+        String qu="SELECT * FROM employee1 RIGJT OUTER JOIN employee2 on  employee1.emp_id = employee1.emp_id where emp_name = "+ name+" BETWEEN '"+startDate+"'AND '"+endDate+"'";  
         ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
                 
         

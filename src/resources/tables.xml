@@ -73,7 +73,8 @@
     "/>
 
     <table-entry name="buy_bills" col-data="
-                        bill_id int,
+                        tab int ,
+                         bill_id int,
                         bill_date date,
                         t_time TIME,
                         supplier_name varchar(100),
@@ -120,6 +121,7 @@
     "/>
     
     <table-entry name="expenses" col-data="
+                        tab int primary key,
                         exp_date date,
                         e_reason varchar(200),
                         e_cost double
