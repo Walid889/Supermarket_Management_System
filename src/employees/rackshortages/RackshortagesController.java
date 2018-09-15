@@ -5,7 +5,7 @@
  */
 package employees.rackshortages;
 
-import Classes.Defects;
+import Classes.Common_Properties;
 import database.*;
 import employees.main.EmployeesController;
 import java.io.IOException;
@@ -31,13 +31,13 @@ public class RackshortagesController implements Initializable {
     @FXML
     private AnchorPane loadPane;
     @FXML
-    private TableView<Defects> rackshortagesTable;
+    private TableView<Common_Properties> rackshortagesTable;
     @FXML
-    private TableColumn<Defects, String> t_quan;
+    private TableColumn<Common_Properties, String> t_quan;
     @FXML
-    private TableColumn<Defects, String> t_cate;
+    private TableColumn<Common_Properties, String> t_cate;
     @FXML
-    private TableColumn<Defects, String> t_bar;
+    private TableColumn<Common_Properties, String> t_bar;
 
     /**
      * Initializes the controller class.
@@ -52,9 +52,9 @@ public class RackshortagesController implements Initializable {
         DataHelper.loadDEFECTSData(rackshortagesTable);
     }    
     private  void initTableViewCols(){
-        t_bar.setCellValueFactory(new PropertyValueFactory<>("barcode"));
-        t_cate.setCellValueFactory(new PropertyValueFactory<>("productName"));
-        t_quan.setCellValueFactory(new PropertyValueFactory<>("quantity"));
+        t_bar.setCellValueFactory(new PropertyValueFactory<>("barcodfiled"));
+        t_cate.setCellValueFactory(new PropertyValueFactory<>("name"));
+        t_quan.setCellValueFactory(new PropertyValueFactory<>("CurrentQuantity"));
     }
     @FXML
     private void loadRackMain(ActionEvent event) {

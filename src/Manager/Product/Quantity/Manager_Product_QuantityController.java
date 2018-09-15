@@ -31,7 +31,7 @@ import javafx.scene.layout.AnchorPane;
  * @author lolo
  */
 public class Manager_Product_QuantityController implements Initializable {
-    HomeController x = new HomeController ();
+    HomeController x = new HomeController (); // used for load main page
     
     @FXML
     private AnchorPane Product_Quantity;
@@ -51,22 +51,21 @@ public class Manager_Product_QuantityController implements Initializable {
     private RadioButton R_item;
     @FXML
     private RadioButton R_box;
-    /**
-     * Initializes the controller class.
-     */
-    DatabaseHandler databaseHandler;
     @FXML
     private Label LName;
     @FXML
     private ToggleGroup choiceQuan;
     @FXML
-    private Label L_InP;
+    private Label L_InP; // in this label I take the value of ItemInPackets of specific product From Database
     @FXML
-    private Label L_PnB;
+    private Label L_PnB; // like L_InP but take PacketsInBox 
+    
+    
+    DatabaseHandler databaseHandler;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         databaseHandler=DatabaseHandler.getInstance();
+        
         P_UQuantity.setEditable(false);
         P_BQuantity.setEditable(false);
         P_CQuantity.setEditable(false);
@@ -115,7 +114,6 @@ public class Manager_Product_QuantityController implements Initializable {
     private void Manager_Home(ActionEvent event) {
         x.loadwindow(Product_Quantity, "/Manager/Main/Home.fxml");
     }
-    
     
     
     
@@ -182,6 +180,7 @@ public class Manager_Product_QuantityController implements Initializable {
         }
     }
 
+
     @FXML
     private void EditByKey(KeyEvent event) {
         
@@ -219,7 +218,6 @@ public class Manager_Product_QuantityController implements Initializable {
         }
         
     }
-    
 }
 /*try{
         if(event.getCode().equals(KeyCode.ENTER)) {

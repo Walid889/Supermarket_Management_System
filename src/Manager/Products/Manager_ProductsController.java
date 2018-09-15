@@ -26,6 +26,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.BlendMode;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -37,7 +38,7 @@ import javafx.scene.layout.AnchorPane;
  * @author lolo
  */
 public class Manager_ProductsController implements Initializable {
-     HomeController x = new HomeController();
+    HomeController x = new HomeController(); // used for load windows
     @FXML
     private AnchorPane Manager_Products;
     @FXML
@@ -78,10 +79,6 @@ public class Manager_ProductsController implements Initializable {
     private TextField P_TCprice;
     @FXML
     private TextField P_Tminimun;
-    /**
-     * Initializes the controller class.
-     */
-    DatabaseHandler databaseHandler;
     @FXML
     private TableColumn<Goods, String> t_minimum_Q;
     @FXML
@@ -107,21 +104,16 @@ public class Manager_ProductsController implements Initializable {
     @FXML
     private TextField Q_packet;
     @FXML
-    private TextField Q_box;
-    private TableColumn<Goods, String> t_allQuan;
-    private TextField P_CQuan;
-    private static String oldBar="";
-    private TextField P_Qi;
-    private TextField P_Qp;
-    private TextField P_Qb;
-    private CheckBox allowEdit;
-  
+    private TextField Q_box;    
+    
+    private static String oldBar=""; // this var used foe edit .. when you focus on any row it take the barcode of the product from table
+    DatabaseHandler databaseHandler;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         databaseHandler=DatabaseHandler.getInstance();
         initTableViewCols();
-        ObservableList<String> list1= FXCollections.observableArrayList("مكرونات","عصائر","جبن");
+        ObservableList<String> list1= FXCollections.observableArrayList("مياه غازية","منظفات","مكرونات","عصائر","جبن");
         ObservableList<String> list2= FXCollections.observableArrayList("باندا","عبور لاند","جهينة");
         P_Ctype.setItems(list1);
         P_Csupplier.setItems(list2);
@@ -163,12 +155,19 @@ public class Manager_ProductsController implements Initializable {
     private void Add_Product(ActionEvent event) {
         this.Add_Product();
     }
+    @FXML
+    private void AddProduct(KeyEvent event) {
+        try{
+            if(event.getCode().equals(KeyCode.ENTER)){
+                this.Add_Product();
+            }
+        }catch(Exception e){}
+    }
     
     @FXML
     private void Edit_Product(ActionEvent event) {
         this.Edit_Product();
     }
-    
     @FXML
     private void Delete_Product(ActionEvent event) {
          this.Delete_Product();
@@ -181,118 +180,96 @@ public class Manager_ProductsController implements Initializable {
     
     
     private void Add_Product() {
-        
-        //try {
         if(!P_Tname.getText().equals("") && !P_Tcode.getText().equals("") && !P_Ctype.getValue().equals("")
                 && !P_Csupplier.getValue().equals("") && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
                 && !P_TUprice.getText().equals("") && !P_TBprice.getText().equals("") && !P_TCprice.getText().equals("")
                 && !P_Tminimun.getText().equals("")){
-            Goods G=new Goods();
-            G.setProductName(P_Tname.getText());
-            G.setProductBarCode(P_Tcode.getText());
-            G.setProductCategory((String) P_Ctype.getValue());
-            G.setProductSupplier((String) P_Csupplier.getValue());
-            G.setItemsInPacket(Integer.parseInt(Q_item.getText()));
-            G.setPacketsInBox(Integer.parseInt(Q_packet.getText()));
-            G.setItemPrice(Double.parseDouble(P_TUprice.getText()));
-            G.setPacketPrice(Double.parseDouble(P_TBprice.getText()));
-            G.setBoxPrice(Double.parseDouble(P_TCprice.getText()));
-            G.setProductMinQuantity(Integer.parseInt(P_Tminimun.getText()));
-            //G.setProductExpirationdate(P_Tdate.getText());
-            G.setAllQuantity(0);
-            boolean result=DataHelper.insertNewProduct(G);
-            if(result){
-                P_table.getItems().add(G);
-                Alerts.showInfoAlert("تم اضافة المنتج !!");
-                clear();
-            }
-            else
-                Alerts.showInfoAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
-        }
-          else {
-             Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
+            try {
+                Goods G=new Goods();
+                G.setProductName(P_Tname.getText());
+                G.setProductBarCode(P_Tcode.getText());
+                G.setProductCategory((String) P_Ctype.getValue());
+                G.setProductSupplier((String) P_Csupplier.getValue());
+                G.setItemsInPacket(Integer.parseInt(Q_item.getText()));
+                G.setPacketsInBox(Integer.parseInt(Q_packet.getText()));
+                G.setItemPrice(Double.parseDouble(P_TUprice.getText()));
+                G.setPacketPrice(Double.parseDouble(P_TBprice.getText()));
+                G.setBoxPrice(Double.parseDouble(P_TCprice.getText()));
+                G.setProductMinQuantity(Integer.parseInt(P_Tminimun.getText()));
+                G.setAllQuantity(0); // Set Quantity to ZERO in first time product entered to System
+                boolean result=DataHelper.insertNewProduct(G);
+                if(result){
+                    P_table.getItems().add(G);
+                    Alerts.showInfoAlert("تم اضافة المنتج !!");
+                    clear();
                 }
-//        }catch(NumberFormatException e) {
-//           Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة ");
-//        }
-      
+                else
+                    Alerts.showInfoAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
+                
+            }catch(NumberFormatException e) {Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة ");}
+        }
+        else 
+             Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
     }
 
     
 
-     private void Edit_Product() {
-        try {
-        if(!P_Tname.getText().equals("") && !P_Tcode.getText().equals("") && !P_Ctype.getValue().equals("")
-                && !P_Csupplier.getValue().equals("") && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
-                && !P_TUprice.getText().equals("") && !P_TBprice.getText().equals("") && !P_TCprice.getText().equals("")
-                && !P_Tminimun.getText().equals("")&&!P_CQuan.getText().equals("")){
-        
-            String name=P_Tname.getText();
-            String bar=P_Tcode.getText();
-            String cate=(String) P_Ctype.getValue();
-            String sup=(String) P_Csupplier.getValue();
-            int it=Integer.parseInt(Q_item.getText());
-            int pa=Integer.parseInt(Q_packet.getText());
-            double Pi=Double.parseDouble(P_TUprice.getText());
-            double Pp=Double.parseDouble(P_TBprice.getText());
-            double Pb=Double.parseDouble(P_TCprice.getText());
-            int mP=Integer.parseInt(P_Tminimun.getText());
-            //G.setProductExpirationdate(P_Tdate.getText());
-            long aq=Long.parseLong(P_CQuan.getText());
-            Goods G=new Goods(name, bar, cate, sup, it, pa, Pi, Pp, Pb, mP,aq);
-
-            boolean result=DataHelper.updateProductInfo(G,oldBar);
-            if(result){
-                Alerts.showInfoAlert("تم تعديل بيانات :"+G.getProductName());
-                clear();
-                DataHelper.loadProductsData(P_table,P_TSearch);
-            }
-
-        }
-        else {
-             Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
-                }
-        }catch (NullPointerException e) {
-            Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
-        }
-     }
-  
-    
-    private void Delete_Product() {
-            
-         try {
+    private void Edit_Product() {
         
         if(!P_Tname.getText().equals("") && !P_Tcode.getText().equals("") && !P_Ctype.getValue().equals("")
                 && !P_Csupplier.getValue().equals("") && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
                 && !P_TUprice.getText().equals("") && !P_TBprice.getText().equals("") && !P_TCprice.getText().equals("")
-                && !P_Tminimun.getText().equals("")&&!P_CQuan.getText().equals("")){
-        
-        try{
-             Goods G=P_table.getSelectionModel().getSelectedItem();
-        
-             if (Alerts.ConfirmAlert("هل تريد مسح"+":", G.getProductName())) {
-                Boolean result = DataHelper.deleteProduct(G);
-                if (result) {
-                    Alerts.showInfoAlert("تم المسح !!");
+                && !P_Tminimun.getText().equals("")){
+            try {
+                String name=P_Tname.getText();
+                String bar=P_Tcode.getText();
+                String cate=(String) P_Ctype.getValue();
+                String sup=(String) P_Csupplier.getValue();
+                int it=Integer.parseInt(Q_item.getText());
+                int pa=Integer.parseInt(Q_packet.getText());
+                double Pi=Double.parseDouble(P_TUprice.getText());
+                double Pp=Double.parseDouble(P_TBprice.getText());
+                double Pb=Double.parseDouble(P_TCprice.getText());
+                int mP=Integer.parseInt(P_Tminimun.getText());
+
+                Goods G=new Goods(name, bar, cate, sup, it, pa, Pi, Pp, Pb, mP);
+
+                boolean result=DataHelper.updateProductInfo(G,oldBar);
+                if(result){
+                    Alerts.showInfoAlert("تم تعديل بيانات :"+G.getProductName());
                     clear();
                     DataHelper.loadProductsData(P_table,P_TSearch);
                 }
-                 else 
-                    Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
-            }
-             System.out.println(oldBar);
-            }catch(Exception e)
-                 {
-                    Alerts.showErrorAlert("لم يتم تحديد منتج من الجدول");
-                 }
+            }catch (NumberFormatException e) {Alerts.showErrorAlert("لقد ادخللت قيمة غير صحيحة");}
         }
-        else {
-             Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
-                }
-    } catch (NullPointerException e) {
-               Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
-      }
+        else
+            Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة"); 
+    }
+  
+    
+    private void Delete_Product() {
+        if(!P_Tname.getText().equals("") && !P_Tcode.getText().equals("") && !P_Ctype.getValue().equals("")
+                && !P_Csupplier.getValue().equals("") && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
+                && !P_TUprice.getText().equals("") && !P_TBprice.getText().equals("") && !P_TCprice.getText().equals("")
+                && !P_Tminimun.getText().equals("")){
+            try{
+                Goods G=P_table.getSelectionModel().getSelectedItem();
 
+                if (Alerts.ConfirmAlert("هل تريد مسح"+":", G.getProductName())) {
+                   Boolean result = DataHelper.deleteProduct(G);
+                   if (result) {
+                       Alerts.showInfoAlert("تم المسح !!");
+                       clear();
+                       DataHelper.loadProductsData(P_table,P_TSearch);
+                   }
+                    else 
+                       Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
+                }
+                System.out.println(oldBar);
+            }catch(Exception e) {Alerts.showErrorAlert("لم يتم تحديد منتج من الجدول");}
+        }
+        else
+            Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
     }
     
     @FXML
@@ -326,11 +303,7 @@ public class Manager_ProductsController implements Initializable {
         P_Csupplier.setValue(good.getProductSupplier());
         P_Ctype.setValue(good.getProductCategory());
         P_Tminimun.setText(good.getProductMinQuantity()+"");
-        P_CQuan.setText(good.getAllQuantity()+"");
         oldBar=P_Tcode.getText();
-        P_Qi.setText(good.getAllQuantity()+"");
-        P_Qp.setText( ( good.getAllQuantity()/good.getItemsInPacket()) +"" );
-        P_Qb.setText( ( good.getAllQuantity()/ ( good.getItemsInPacket()*good.getPacketsInBox() ) ) +"" );
         }catch(Exception e){
             
         }
@@ -358,54 +331,10 @@ public class Manager_ProductsController implements Initializable {
         P_table.setItems(st);
     }
 
-
-  /*  private void Product_EditQuantity(ActionEvent event) {
-        if(R_item.isSelected() || R_packet.isSelected() || R_box.isSelected() ){
-            int it=Integer.parseInt(P_Qi.getText());
-            int pa=Integer.parseInt(P_Qp.getText());
-            int bo=Integer.parseInt(P_Qb.getText());
-
-            int InP=Integer.parseInt(Q_item.getText());
-            int PnB=Integer.parseInt(Q_packet.getText());
-
-
-            if(R_item.isSelected()){ 
-                DataHelper.QuickEditQuantity(it,P_Tcode.getText());  Alerts.showInfoAlert("تم التعديل");
-            }
-            else if(R_packet.isSelected()){
-                DataHelper.QuickEditQuantity(pa*InP,P_Tcode.getText());
-            }
-            else if(R_box.isSelected()){
-                DataHelper.QuickEditQuantity(bo*PnB*InP,P_Tcode.getText());
-            }
-            DataHelper.loadProductsData(P_table,P_TSearch);
-        }
-        else
-            Alerts.showErrorAlert("لم يتم تحديد خلية محددة");
-        
-    }
-    private void AllowEditRadio(MouseEvent event) {
-        if(R_item.isSelected()){
-            P_Qi.setEditable(true);
-            P_Qp.setEditable(false);
-            P_Qb.setEditable(false);
-        }
-        else if(R_packet.isSelected()){
-            P_Qi.setEditable(false);
-            P_Qp.setEditable(true);
-            P_Qb.setEditable(false);
-        }
-        else if(R_box.isSelected()){
-            P_Qi.setEditable(false);
-            P_Qp.setEditable(false);
-            P_Qb.setEditable(true);
-        }
-    }
-*/
     @FXML
     private void ClearNew(ActionEvent event){
         clear();
-    }
+    } 
 
     @FXML
     private void Key_Pressed(KeyEvent event) {

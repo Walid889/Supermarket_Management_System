@@ -6,6 +6,7 @@
 package employees.personalexpenses;
 
 import Classes.Employee;
+import static Serial_dinamic.NewSerial.gettDate;
 import database.*;
 import employees.main.EmployeesController;
 import java.io.IOException;
@@ -42,6 +43,7 @@ public class PersonalexpensesController implements Initializable {
     private TextField value;
     @FXML
     private TextArea reason;
+    DatabaseHandler databaseHandler;
     @FXML
     private TableView<Employee> personal_table;
     /**
@@ -50,6 +52,11 @@ public class PersonalexpensesController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        databaseHandler=DatabaseHandler.getInstance();
+        DataHelper.loadpersonalExpensesData(personal_table,gettDate());
+        showTable();
+    }
+    private void showTable(){
         t_value.setCellValueFactory(new PropertyValueFactory<>("employeeExpensesCost"));
         t_reason.setCellValueFactory(new PropertyValueFactory<>("employeeExpensesReason"));
     }    
@@ -83,6 +90,7 @@ public class PersonalexpensesController implements Initializable {
                 boolean result = DataHelper.insertNewPersonalExpences(e);
                 personal_table.getItems().add(e);
                 if(result){
+                    System.out.println("yeeeees");
                     Alert AT=new Alert(Alert.AlertType.INFORMATION);
                     AT.setHeaderText(null);
                     AT.setContentText("تم اضافة المصاريف الشخصية");

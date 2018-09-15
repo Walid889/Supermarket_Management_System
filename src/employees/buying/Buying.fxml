@@ -17,12 +17,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="loadPane" prefHeight="697.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employees.buying.BuyingController">
+<AnchorPane id="AnchorPane" fx:id="loadPane" onKeyPressed="#A_N_B" prefHeight="697.0" prefWidth="1366.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="employees.buying.BuyingController">
     <stylesheets>
         <URL value="@buying.css" />
     </stylesheets>
    <children>
-      <VBox layoutX="577.0" prefHeight="697.0" prefWidth="196.0" styleClass="vbox" stylesheets="@../sales/sales.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <VBox layoutX="577.0" onKeyPressed="#A_N_B" prefHeight="697.0" prefWidth="196.0" styleClass="vbox" stylesheets="@../sales/sales.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <JFXButton onAction="#addBuying" prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@buying.css" text="حفظ" textAlignment="JUSTIFY" textFill="WHITE">
                <font>
@@ -59,7 +59,7 @@
             </JFXButton>
          </children>
       </VBox>
-      <Pane prefHeight="697.0" prefWidth="1168.0" styleClass="pane" stylesheets="@../sales/sales.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane onKeyPressed="#A_N_B" prefHeight="697.0" prefWidth="1168.0" styleClass="pane" stylesheets="@../sales/sales.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label fx:id="date" alignment="CENTER" layoutX="14.0" layoutY="21.0" prefHeight="36.0" prefWidth="149.0" textFill="WHITE">
                <font>
@@ -98,7 +98,7 @@
                </font></TextField>
             <HBox alignment="CENTER_LEFT" layoutX="6.0" layoutY="119.0" prefHeight="363.0" prefWidth="1156.0" styleClass="pane" stylesheets="@buying.css">
                <children>
-                  <TableView fx:id="B_table" prefHeight="378.0" prefWidth="607.0">
+                  <TableView fx:id="B_table" onKeyPressed="#DelRow" prefHeight="378.0" prefWidth="607.0">
                      <columns>
                         <TableColumn fx:id="t_cost" prefWidth="75.0" text="التكلفة" />
                         <TableColumn fx:id="t_kquan" prefWidth="75.0" text="ن.كمية" />
@@ -114,7 +114,7 @@
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
                      </columnResizePolicy>
                   </TableView>
-                  <VBox alignment="CENTER" maxHeight="293.0" prefHeight="293.0" prefWidth="299.0" styleClass="vboxbuy" stylesheets="@buying.css">
+                  <VBox alignment="CENTER" maxHeight="293.0" prefHeight="293.0" prefWidth="278.0" styleClass="vboxbuy" stylesheets="@buying.css">
                      <HBox.margin>
                         <Insets left="30.0" right="90.0" />
                      </HBox.margin>
@@ -147,8 +147,8 @@
                   </VBox>
                </children>
             </HBox>
-            <JFXComboBox fx:id="supplier" focusColor="#35889a" layoutX="871.0" layoutY="67.0" prefHeight="30.0" prefWidth="149.0" unFocusColor="#f1ebc7" />
-            <Label layoutX="1051.0" layoutY="61.0" text="المورد :" textFill="WHITE">
+            <JFXComboBox fx:id="supplier" focusColor="#35889a" layoutX="877.0" layoutY="87.0" prefHeight="30.0" prefWidth="131.0" unFocusColor="#f1ebc7" />
+            <Label layoutX="1039.0" layoutY="81.0" text="المورد :" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -156,7 +156,7 @@
                   <DropShadow height="9.14" radius="1.8450000000000002" width="0.24" />
                </effect>
             </Label>
-            <TextField fx:id="Quntity" layoutX="685.0" layoutY="499.0" prefHeight="30.0" prefWidth="101.0">
+            <TextField fx:id="Quntity" layoutX="685.0" layoutY="499.0" onKeyPressed="#AddQuanPress" prefHeight="30.0" prefWidth="101.0">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font></TextField>
@@ -167,6 +167,11 @@
             <JFXButton layoutX="684.0" layoutY="561.0" onAction="#addQuntity" prefHeight="25.0" prefWidth="230.0" text="إدخال الكمية">
                <font>
                   <Font name="System Bold" size="25.0" />
+               </font>
+            </JFXButton>
+            <JFXButton layoutX="67.0" layoutY="494.0" onAction="#DeleteRow" prefHeight="44.0" prefWidth="131.0" text="مسح عنصر">
+               <font>
+                  <Font name="System Bold Italic" size="20.0" />
                </font>
             </JFXButton>
          </children>
