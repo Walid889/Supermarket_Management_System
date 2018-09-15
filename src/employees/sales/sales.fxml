@@ -125,12 +125,12 @@
                   <Font name="System Bold" size="20.0" />
                </font></TextField>
 
-            <JFXTextField fx:id="T_Search" accessibleRole="PARENT" alignment="CENTER_RIGHT" focusColor="#35889a" labelFloat="true" layoutX="340.0" layoutY="15.0" onKeyTyped="#S_Field" prefHeight="36.0" prefWidth="375.0" promptText="ادخل إسم المنتج .." unFocusColor="WHITE">
+            <JFXTextField fx:id="T_Search" accessibleRole="PARENT" alignment="CENTER_RIGHT" focusColor="#35889a" layoutX="340.0" layoutY="15.0" onKeyTyped="#S_Field" prefHeight="36.0" prefWidth="375.0" promptText="ادخل إسم المنتج .." styleClass="product-textfeild" stylesheets="@sales.css" unFocusColor="WHITE">
                <padding>
                   <Insets left="5.0" right="5.0" />
                </padding>
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </JFXTextField>
             <TextField fx:id="Quntity" accessibleRoleDescription="PARENT" layoutX="733.0" layoutY="508.0" onKeyPressed="#Q_A_K" prefHeight="34.0" prefWidth="75.0">

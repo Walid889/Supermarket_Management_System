@@ -3,16 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/PROJECT/Supermarket_Management_System/src/employees/recall/RecallController.java</file>
+            <file>file:/E:/PROJECT/Supermarket_Management_System/src/employees/sales/sales.css</file>
             <file>file:/E:/PROJECT/Supermarket_Management_System/src/employees/sales/SalesController.java</file>
-            <file>file:/E:/PROJECT/Supermarket_Management_System/src/Manager/Products/Manager_ProductsController.java</file>
-            <file>file:/E:/PROJECT/Supermarket_Management_System/src/Classes/Goods.java</file>
-            <file>file:/E:/PROJECT/Supermarket_Management_System/src/employees/main/EmployeesController.java</file>
-            <file>file:/E:/PROJECT/Supermarket_Management_System/src/employees/main/employees.css</file>
-            <file>file:/E:/PROJECT/Supermarket_Management_System/src/Database/DataHelper.java</file>
-            <file>file:/E:/PROJECT/Supermarket_Management_System/src/Manager/Products/Manager_Products.fxml</file>
-            <file>file:/E:/PROJECT/Supermarket_Management_System/src/Manager/Products/Main.java</file>
-            <file>file:/E:/PROJECT/Supermarket_Management_System/src/employees/recall/recall.fxml</file>
+            <file>file:/E:/PROJECT/Supermarket_Management_System/src/employees/buying/buying.css</file>
+            <file>file:/E:/PROJECT/Supermarket_Management_System/src/Opening/OpeningController.java</file>
+            <file>file:/E:/PROJECT/Supermarket_Management_System/src/employees/damage/damage.css</file>
+            <file>file:/E:/PROJECT/Supermarket_Management_System/src/Opening/opening.fxml</file>
+            <file>file:/E:/PROJECT/Supermarket_Management_System/src/Login/Main.java</file>
+            <file>file:/E:/PROJECT/Supermarket_Management_System/src/Opening/opening.css</file>
         </group>
     </open-files>
 </project-private>

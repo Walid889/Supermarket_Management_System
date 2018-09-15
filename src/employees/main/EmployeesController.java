@@ -52,8 +52,6 @@ public class EmployeesController implements Initializable {
     @FXML
     private JFXButton shortfallsButton;
     @FXML
-    private JFXButton signAsAdmin;
-    @FXML
     private AnchorPane loadPane;
     DatabaseHandler databaseHandler;
     /**
@@ -113,7 +111,7 @@ public class EmployeesController implements Initializable {
     private void signAsAdmin(ActionEvent event) {
         loadwindow(loadPane,"/Login/login.fxml");
     }
-    
+      
     public void loadwindow(AnchorPane p , String loc) { 
         AnchorPane pane = null;
            try {
@@ -145,7 +143,6 @@ public class EmployeesController implements Initializable {
         catch (IOException ex) {
             Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
         }*/
-
 
     }
 

@@ -8,6 +8,7 @@
             ,emp_salary_hours double
             "/>
     <table-entry name="employee2" col-data="
+            emp_id varchar(200) 
             emp_start_time timestamp not null default current_timestamp
             ,emp_finish_time timestamp not null default current_timestamp
             ,emp_salary double

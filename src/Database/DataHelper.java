@@ -190,7 +190,8 @@ public class DataHelper {
         TV.setItems(list);
         
         //TextFields.bindAutoCompletion(TF, list2);
-        }
+    }
+   ///////////////////////////////////////////////////////
         
         
         
@@ -793,7 +794,6 @@ public class DataHelper {
         return false;
     }
 
-    
     public static void loadDamageData(TableView TV,String dat) {
         ObservableList<Damages> list = FXCollections.observableArrayList();
         list.clear();
@@ -818,7 +818,6 @@ public class DataHelper {
         TV.setItems(list);
     }
 
-
     /****************************************************************************************************************/
     /****************************************************************************************************************/
     public static boolean insertNewExpences(Expences E)
@@ -836,7 +835,6 @@ public class DataHelper {
         }
         return false;
     }
-
 
     public static void loadExpensesData(TableView TV,String dat) {
         ObservableList<Expences> list = FXCollections.observableArrayList();
@@ -856,7 +854,6 @@ public class DataHelper {
         }
         TV.setItems(list);
     }
-
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     /**************************************************************************************************************/

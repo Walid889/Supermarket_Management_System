@@ -344,8 +344,8 @@ public class SalesController extends NewSerial implements Initializable {
         }
         else
         {
-            //Alerts.showErrorAlert("لم يتم ادخال بيانات الفاتورة بشكل صحيح !!");
-            Alert alert = new Alert(Alert.AlertType.NONE);
+            Alerts.showErrorAlert("لم يتم ادخال بيانات الفاتورة بشكل صحيح !!");
+            /*Alert alert = new Alert(Alert.AlertType.NONE);
             alert.setTitle("خطأ");
             alert.setContentText("لم يتم ادخال بيانات الفاتورة بشكل صحيح!!");
             alert.setHeaderText(null);
@@ -353,7 +353,7 @@ public class SalesController extends NewSerial implements Initializable {
             alert.show();
             PauseTransition delay = new PauseTransition(javafx.util.Duration.seconds(1.5));
             delay.setOnFinished( event -> alert.close() );
-            delay.play();
+            delay.play();*/
         }
     }
     private void AddQuantity() {

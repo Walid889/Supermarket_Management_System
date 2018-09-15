@@ -1,0 +1,30 @@
+.pane 
+{
+    -fx-background-color:#343642;
+}
+.textfield
+{
+  
+    -fx-background-color: #fff;
+    -fx-text-fill: #343642;
+}
+.button
+{
+    -fx-background-color: #35889a;
+    -fx-cursor: hand;
+}
+.button:hover
+{
+    -fx-background-color:#4aabc0;
+    -fx-cursor: hand;
+}
+.back
+{
+    -fx-background-color: #343642;
+    -fx-cursor: hand;
+}
+.back:hover
+{
+    -fx-background-color: #343642;
+    -fx-cursor: hand;
+}
