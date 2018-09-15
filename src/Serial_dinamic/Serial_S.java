@@ -24,6 +24,7 @@ public class Serial_S extends NewSerial{
 	}
     
     class RemindTask extends TimerTask {
+        @Override
         public void run() {
             setSalesSerial(1);
             rep_sales();

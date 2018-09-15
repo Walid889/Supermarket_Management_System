@@ -1,6 +1,3 @@
-/*
- This class to all things about the price of product
- */
 package Classes;
 
 
@@ -58,9 +55,11 @@ public class Price {
     public double getBoxPrice(){
             return boxPrice;
     }
-    
+ 
+}
+   
     //edit Price 
-    public void editPrice (double item , double packet,double box){
+    /*public void editPrice (double item , double packet,double box){
         if (item <0 || packet <0 || box <0){
             System.out.print("You Enter a negative Number");  // will be replaced by alert  
         }else{
@@ -69,6 +68,5 @@ public class Price {
         boxPrice=box;
         }
         
-    }
+    }*/
     
-}

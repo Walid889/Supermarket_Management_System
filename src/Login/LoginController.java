@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package Login;
+<<<<<<< HEAD
 
 import Classes.Alerts;
 import Classes.Login;
@@ -13,6 +14,14 @@ import Classes.Login;
 
 
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
+import Classes.Alerts;
+import Classes.Login;
+>>>>>>> 1cc71811968696962588f0dea65b00fde89717a3
 import Classes.Login;
 import Classes.Alerts;
 import Manager.Main.HomeController;

@@ -17,7 +17,7 @@ public class Goods{
     
     public Goods(){}
 
-    public Goods(String productName, String productBarCode, String productCategory, String productSupplier, int itemsInPacket, int PacketsInBox, double itemPrice, double packetPrice, double boxPrice, int productMinQuantity, long allQuantity) {
+    public Goods(String productName, String productBarCode, String productCategory, String productSupplier, int itemsInPacket, int PacketsInBox, double itemPrice, double packetPrice, double boxPrice, int productMinQuantity) {
         this.productName = productName;
         this.productBarCode = productBarCode;
         this.productCategory = productCategory;
@@ -29,7 +29,6 @@ public class Goods{
         this.boxPrice = boxPrice;
         this.productMinQuantity = productMinQuantity;
         //this.productExpirationdate = productExpirationdate;
-        this.allQuantity = allQuantity;
     }
     //private Price productPrice;
     //private Quantity productQuantity;

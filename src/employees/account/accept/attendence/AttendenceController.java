@@ -46,8 +46,6 @@ public class AttendenceController implements Initializable {
     EmployeesController x = new EmployeesController();
     @FXML
     private AnchorPane loadPane;
-    private TextField start;
-    private TextField end;
     @FXML
     private JFXTextField start_work;
     @FXML
@@ -85,22 +83,22 @@ public class AttendenceController implements Initializable {
     }*/
     private void attt()
     {
-        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss aa");
             Date cal = new Date();
         start_work.setText(dateFormat.format(cal.getTime()));
     }
+<<<<<<< HEAD
+    
+    public void left()
+=======
     private void left()
+>>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
     {
-        DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+        DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss aa");
             Date finish = new Date();
         finish_work.setText(dateFormat.format(finish.getTime()));
+    }
     
-    }
-    private void diff()
-    {
-        finish_work.setText("action works");
-        difference.setText("test");
-    }
     @FXML
     private void att_btn(ActionEvent event) {
         this.attt();
@@ -111,12 +109,25 @@ public class AttendenceController implements Initializable {
         this.left();
     }
     @FXML
+<<<<<<< HEAD
+    private void difference()      
+    {
+        String s=start_work.getText();
+        String f=finish_work.getText();
+        
+        int d1=Integer.parseInt(s.charAt(0)+""+s.charAt(1));
+        int d2=Integer.parseInt(f.charAt(0)+""+f.charAt(1));
+
+        difference.setText((d2-d1) +"");
+      //  difference.setText(String.valueOf(diff));
+=======
     private void differenceAction(ActionEvent event) {
+        double salary;
         String start = start_work.getText();
         String finish = finish_work.getText();
-        long differenceCalc=0;
+         long differenceCalc=0;
 
-        try{SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+        try{SimpleDateFormat format = new SimpleDateFormat("hh:mm:ss aa");
             Date date1 = format.parse(start);
             Date date2 = format.parse(finish);
             differenceCalc = date2.getTime() - date1.getTime(); 
@@ -127,9 +138,14 @@ public class AttendenceController implements Initializable {
         int h = (int) (timeDifference / (3600));
         int m = (int) ((timeDifference - (h * 3600)) / 60);
         int s = (int) (timeDifference - (h * 3600) - m * 60);
-        String finalTime = String.format("%02d:%02d:%02d", h,m,s);
-        System.out.println(finalTime);
+        
+         String finalTime = String.format("%02d:%02d:%02d", h,m,s);
+        
+        salary = h*m * 20;
+        
+        System.out.println(salary);
         differenceText.setText(finalTime);
         //this.diff();
+>>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
     }
 }

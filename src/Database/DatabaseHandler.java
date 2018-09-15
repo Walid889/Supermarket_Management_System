@@ -14,9 +14,6 @@ import java.util.Set;
 import javax.swing.JOptionPane;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
-//import library.assistant.ui.listbook.BookListController.Book; ليست الموظفين 
-//import library.assistant.ui.listmember.MemberListController; ليست الموردين 
-
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -44,7 +41,7 @@ public class DatabaseHandler {
         return handler;
     }
 
-    private static void inflateDB() {
+    private static void inflateDB() { // this method used to create tables or check if table created or not 
         List<String> tableData = new ArrayList<>();
         try {
             Set<String> loadedTables = getDBTables();
@@ -100,7 +97,7 @@ public class DatabaseHandler {
         }
     }
 
-    public ResultSet execQuery(String query) {
+    public ResultSet execQuery(String query) { // this method used to execute Query like " SELECT from table "
         ResultSet result;
         try {
             stmt = conn.createStatement();
@@ -115,7 +112,7 @@ public class DatabaseHandler {
         return result;
     }
 
-    public boolean execAction(String qu) {
+    public boolean execAction(String qu) { // this method used to execute Action like " Delete from table " UPDATE table SET var= ? "
         try {
             stmt = conn.createStatement();
             stmt.execute(qu);
@@ -130,39 +127,6 @@ public class DatabaseHandler {
         }
     }
 
-/*    public boolean deleteEmplyee(employee1 book) {
-        try {
-            String deleteStatement = "DELETE FROM employee1 WHERE ID = ?";
-            PreparedStatement stmt = conn.prepareStatement(deleteStatement);
-            stmt.setString(1, book.getId());
-            int res = stmt.executeUpdate();
-            if (res == 1) {
-                return true;
-            }
-        }
-        catch (SQLException ex) {
-            LOGGER.log(Level.ERROR, "{}", ex);
-        }
-        return false;
-    }*/
-    /*public boolean updateEmployee(employee1 emp) {
-        try {
-            String update = "UPDATE employee1 SET name=?, phone=?, address=? WHERE id=?";
-            PreparedStatement stmt = conn.prepareStatement(update);
-            stmt.setString(1, emp.getId());
-            stmt.setString(2, emp.getName());
-            stmt.setString(3, emp.getPhone());
-            stmt.setString(4, emp.getAddress());
-            int res = stmt.executeUpdate();
-            return (res > 0);
-        }
-        catch (SQLException ex) {
-            LOGGER.log(Level.ERROR, "{}", ex);
-        }
-        return false;
-    }*/
-
-    
     public static void main(String[] args) throws Exception {
         DatabaseHandler.getInstance();
     }

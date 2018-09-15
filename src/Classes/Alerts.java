@@ -6,6 +6,9 @@
 package Classes;
 
 import java.util.Optional;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
@@ -24,6 +27,26 @@ public class Alerts extends Throwable{
         return;
     }
     public static void showErrorAlert(String content){
+<<<<<<< HEAD
+        
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("خطأ");
+            alert.setContentText(content);
+            Thread thread = new Thread(() -> {
+            try {
+                // Wait for 5 secs
+                Thread.sleep(2000);
+                if (alert.isShowing()) {
+                    Platform.runLater(() -> alert.close());
+                }
+            } catch (Exception exp) {
+                exp.printStackTrace();
+            }
+        });
+        thread.setDaemon(true);
+        thread.start();
+        Optional<ButtonType> result = alert.showAndWait(); 
+=======
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("خطأ");
         alert.setHeaderText(null);
@@ -32,6 +55,7 @@ public class Alerts extends Throwable{
        ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/icons/supermarket.png"));
         alert.showAndWait();
         return;
+>>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
     }
     public static boolean ConfirmAlert(String content,String Choise){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -41,7 +65,13 @@ public class Alerts extends Throwable{
         Optional<ButtonType> answer = alert.showAndWait();
         return answer.get() == ButtonType.OK;
     }
-    
+    public static void showWorningAlert(String content){
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("رسالة تأكيد");
+        alert.setContentText(content);
+        alert.showAndWait();
+        
+    }
 }
 /*
     private void deleteAllRows(){

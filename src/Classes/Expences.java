@@ -12,10 +12,8 @@ import java.sql.Date;
  * @author Walid
  */
 public class Expences extends Common_Properties{// Common_Methods is an Interface include Add , Update , Delete
-    
     private String reason;
-    private double cost;
-
+    private double totalCost;
     public Date getDate() {
         return Date;
     }
@@ -33,7 +31,7 @@ public class Expences extends Common_Properties{// Common_Methods is an Interfac
     }
     
     
-    private double totalCost;
+    
 
     public double getCost() {
         return cost;
