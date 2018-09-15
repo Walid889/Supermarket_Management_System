@@ -5,6 +5,9 @@
  */
 package employees.account;
 
+import Classes.Alerts;
+import Classes.Employee;
+import database.DataHelper;
 import employees.main.EmployeesController;
 import java.io.IOException;
 import java.net.URL;
@@ -15,6 +18,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -26,6 +30,8 @@ public class AccountController implements Initializable {
     EmployeesController x = new EmployeesController();
     @FXML
     private AnchorPane loadPane;
+    @FXML
+    private TextField code_employee;
 
     /**
      * Initializes the controller class.
@@ -41,7 +47,6 @@ public class AccountController implements Initializable {
         x.loadwindow(loadPane,"/employees/main/employees.fxml");
     }
 
-    @FXML
     private void loadAccount(ActionEvent event) {
        // loadWindow("/employees/account/accepted/accountaccept.fxml");
         x.loadwindow(loadPane,"/employees/account/accepted/accountaccept.fxml");
@@ -57,5 +62,24 @@ public class AccountController implements Initializable {
             Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }*/
-    
+
+    private void login_employee()
+    {
+        Employee e = new Employee();
+        try{
+        e.setEmployeeId(code_employee.getText());
+        boolean result = DataHelper.isEmployeeRegistered(e.getEmployeeId());
+        if(result){
+           Alerts.showInfoAlert("كود صحيح");
+        }
+        }catch(Exception a)
+        {
+            Alerts.showErrorAlert("كود موظف خطأ");
+
+        }
+    }
+    @FXML
+    private void confirm(ActionEvent event) {
+    this.login_employee();
+    }
 }

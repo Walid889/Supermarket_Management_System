@@ -82,7 +82,7 @@
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Label fx:id="S_Phone" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="980.0" layoutY="405.0" minWidth="-Infinity" prefHeight="45.0" prefWidth="99.0" text="تليفون :" textAlignment="RIGHT" textFill="WHITE">
+            <Label fx:id="S_Phone" layoutX="990.0" layoutY="409.0" prefHeight="45.0" prefWidth="99.0" text="تليفون :" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -100,7 +100,7 @@
                   <TableColumn fx:id="t_name" prefWidth="184.0" text="الاسم" />
                </columns>
             </TableView>
-            <JFXTextField fx:id="S_TSearch" alignment="CENTER_RIGHT" focusColor="#4193c3" layoutX="500.0" layoutY="60.0" onKeyPressed="#key_Search" prefHeight="31.0" prefWidth="264.0" promptText="ادخل اسم المورد" styleClass="textfield" stylesheets="@Manager_Suppliers.css" unFocusColor="WHITE">
+            <JFXTextField fx:id="S_TSearch" alignment="CENTER_RIGHT" focusColor="#343642" layoutX="500.0" layoutY="60.0" onKeyPressed="#key_Search" prefHeight="44.0" prefWidth="283.0" styleClass="textfield" stylesheets="@Manager_Suppliers.css" unFocusColor="#343642">
                <font>
                   <Font size="20.0" />
                </font>

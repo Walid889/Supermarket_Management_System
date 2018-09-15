@@ -14,10 +14,10 @@ import java.util.Calendar;
 public class Time_Out {
     
     public int getHoursUntilTarget() {
-        int targetHour=10;
+        int targetHour=2;
         Calendar calendar = Calendar.getInstance();
-        int hour = calendar.get(Calendar.MINUTE);
-        return hour < targetHour ? targetHour - hour : targetHour - hour + 60;
+        int hour = calendar.get(Calendar.HOUR_OF_DAY); //21.....>> 22
+        return hour < targetHour ? targetHour - hour : targetHour - hour + 24;      // 4
     } 
     
 }

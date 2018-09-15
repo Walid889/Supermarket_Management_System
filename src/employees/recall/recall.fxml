@@ -90,7 +90,7 @@
             <JFXListView layoutX="153.0" layoutY="44.0" prefHeight="400.0" prefWidth="262.0" visible="false" />
 
             
-            <JFXRadioButton fx:id="R_FCustomer" contentDisplay="RIGHT" layoutX="975.0" layoutY="33.0" text="من العميل" textFill="WHITE">
+            <JFXRadioButton fx:id="R_FCustomer" contentDisplay="RIGHT" layoutX="975.0" layoutY="33.0" onMouseClicked="#AllowSuppliersCombobox" selected="true" text="من العميل" textFill="WHITE">
 
                <font>
                   <Font name="System Bold" size="25.0" />
@@ -110,14 +110,14 @@
                   <Font size="20.0" />
                </font>
             </JFXTextField>
-            <TextField fx:id="Quntity" layoutX="772.0" layoutY="589.0" prefHeight="54.0" prefWidth="108.0">
+            <TextField fx:id="Quntity" layoutX="772.0" layoutY="589.0" onKeyPressed="#Add_REC" prefHeight="54.0" prefWidth="108.0">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
             </TextField>
             <HBox alignment="CENTER_LEFT" layoutX="6.0" layoutY="155.0" prefHeight="441.0" prefWidth="1159.0">
                <children>
-                  <TableView fx:id="R_table" prefHeight="397.0" prefWidth="675.0">
+                  <TableView fx:id="R_table" onKeyPressed="#D_R_REC" prefHeight="397.0" prefWidth="675.0">
                      <columns>
 
                         <TableColumn fx:id="t_cost" prefWidth="75.0" text="تكلفة" />
@@ -174,7 +174,7 @@
                </effect>
             </Label>
 
-            <JFXRadioButton fx:id="R_ToCampany" contentDisplay="RIGHT" layoutX="850.0" layoutY="33.0" text="للشركة" textFill="WHITE" toggleGroup="$RecallFrom">
+            <JFXRadioButton fx:id="R_ToCampany" contentDisplay="RIGHT" layoutX="850.0" layoutY="33.0" onMouseClicked="#AllowSuppliersCombobox" text="للشركة" textFill="WHITE" toggleGroup="$RecallFrom">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -183,6 +183,7 @@
                </effect>
             </JFXRadioButton>
             <JFXComboBox fx:id="quntityComboBox" focusColor="#35889a" layoutX="887.0" layoutY="589.0" prefHeight="54.0" prefWidth="108.0" promptText="عنصر" unFocusColor="WHITE" visibleRowCount="3" />
+            <JFXComboBox fx:id="SuppliersComboBox" focusColor="#35889a" layoutX="847.0" layoutY="67.0" prefHeight="54.0" prefWidth="108.0" promptText="عنصر" unFocusColor="WHITE" visibleRowCount="3" />
          </children>
       </Pane>
    </children>

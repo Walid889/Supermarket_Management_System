@@ -8,16 +8,16 @@
             ,emp_salary_hours double
             "/>
     <table-entry name="employee2" col-data="
-            emp_id varchar(200) 
-            emp_start_time timestamp not null default current_timestamp
+            emp_exp_date date
+            ,emp_id varchar(200) 
+            ,emp_start_time timestamp not null default current_timestamp
             ,emp_finish_time timestamp not null default current_timestamp
             ,emp_salary double
             ,emp_hours integer
             ,emp_buy varchar(200)
             ,emp_net_salary double
             ,emp_date timestamp not null default current_timestamp
-            ,emp_product varchar(200)
-            ,emp_price_product double
+            
         "/>
     <table-entry name="login" col-data="
                      log_id varchar(200),
@@ -71,14 +71,10 @@
                         paid_money double,
                         reminder_money double
     "/>
-    
-    <table-entry name="recall" col-data="
-                        price double,
-                        quantity varchar(200),
-                        total double
-    "/>
+
     <table-entry name="buy_bills" col-data="
-                        bill_id int,
+                        tab int ,
+                         bill_id int,
                         bill_date date,
                         t_time TIME,
                         supplier_name varchar(100),
@@ -98,6 +94,7 @@
     "/>
     
     <table-entry name="damages" col-data="
+                        
                         dam_date date,
                         product_name varchar(200),
                         qty_kind varchar(200),
@@ -105,9 +102,11 @@
                         current_qty int,
                         cost double,
                         t_time TIME,
-                        d_bar varchar(200)
+                        d_bar varchar(200),
+                        number BIGINT not null primary key
     "/>
     <table-entry name="recalls" col-data="
+                        
                         rec_date date,
                         product_name varchar(200),
                         qty_kind varchar(200),
@@ -116,15 +115,21 @@
                         cost double,
                         t_time TIME,
                         r_bar varchar(200),
-                        source varchar(200)
+                        source varchar(200),
+                        number BIGINT not null primary key
                         
     "/>
     
     <table-entry name="expenses" col-data="
+                        tab int primary key,
                         exp_date date,
                         e_reason varchar(200),
                         e_cost double
     "/>
     
-    
+    <table-entry name="personal_expences" col-data="
+            emp_product varchar(200)
+            ,emp_date date
+            ,emp_price_product double
+    "/>
 </tables>

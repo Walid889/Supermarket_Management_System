@@ -132,9 +132,13 @@ public class Manager_SuppliersController implements Initializable {
     
     private void AddSupplier()
     {
+        try {
         if ( !S_Tname.getText().equals("") && !S_TPhone.getText().equals("") && !S_TSaller.getText().equals("")  && !S_Ctype.getValue().equals(""))
         {
-            try{
+           
+                 
+                         
+                  
                     Suppliers s =new Suppliers();
                     s.setSupplierName(S_Tname.getText());
                     s.setSupplierCategory(S_Ctype.getValue());
@@ -148,8 +152,12 @@ public class Manager_SuppliersController implements Initializable {
                     }
                     else 
                         Alerts.showErrorAlert("خطأ فى الاضافة");
-            }catch (NumberFormatException es) {Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");}
-        }
+                    }
+                
+          
+         } catch (NullPointerException e){                   
+                Alerts.showErrorAlert("برجاء التأكد من ملىء جميع الحقول المطلوبة ");
+                 }
     }
     
     
@@ -316,7 +324,7 @@ public class Manager_SuppliersController implements Initializable {
         S_Tname.setText("");
         S_Phone.setText("");
         S_TSaller.setText("");
-        
+        S_Ctype.setValue("");
     }
 }
 

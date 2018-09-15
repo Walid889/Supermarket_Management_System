@@ -116,7 +116,8 @@ public class Manager_EmployeeController implements Initializable {
     /***************************************************************************** Add new Employee*********************************************/
      private void AddEmployee(){
          if ( !E_Tname.getText().equals("") && !E_Tcode.getText().equals("") && !E_Tphone.getText().equals("") && !E_Taddress.getText().equals("") && !E_Tsalary.getText().equals("")  ){
-              try{
+              
+                   
                     Employee E =new Employee();
                     E.setEmployeeName(E_Tname.getText());
                     E.setEmployeeId(E_Tcode.getText());
@@ -135,16 +136,13 @@ public class Manager_EmployeeController implements Initializable {
                         clear();
                         return;
                     }
-                        }catch (NumberFormatException es)
-                        {
-                            Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
-                        }
+                       
 
-                     }
+                   }
+              
                     else 
                     {  
-                        Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
-                        
+                        Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");   
                     }
 
                 }

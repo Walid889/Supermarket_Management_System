@@ -25,7 +25,13 @@ import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+<<<<<<< HEAD
 import javafx.animation.PauseTransition;
+=======
+import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+>>>>>>> 466b013eafafe85a4d1f4dc326d4830440e57aec
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -80,7 +86,6 @@ public class SalesController extends NewSerial implements Initializable {
     private JFXComboBox<String> quntityComboBox;
     @FXML
     private AnchorPane loadPane;
-   
     @FXML
     private TableColumn<Sales, String> c_cost;
     @FXML
@@ -92,10 +97,13 @@ public class SalesController extends NewSerial implements Initializable {
     @FXML
     private TableColumn<Sales, String> c_quantityKind;
     @FXML
-    private TextField totalPrice;
-    private static double TOTAL=0;
+    private JFXTextField T_Search;
     @FXML
-    private CheckBox AllCheckbox;
+    private Label productBarcode;
+    @FXML
+    private TableColumn<Sales, String> c_bar;
+    @FXML
+    private TextField totalPrice;
     @FXML
     private TableColumn<Sales, String> c_num;
     @FXML
@@ -109,13 +117,8 @@ public class SalesController extends NewSerial implements Initializable {
     /***************************************************************************************************************/
 
     DatabaseHandler databaseHandler;
-    @FXML
-    private JFXTextField T_Search;
-    @FXML
-    private Label productBarcode;
-    @FXML
-    private TableColumn<Sales, String> c_bar;
-    ObservableList<String> listB=FXCollections.observableArrayList();
+    private static double TOTAL=0; // TOTAL is global var represents TotalPrice and it back to ZERO with new bill generated
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         databaseHandler = DatabaseHandler.getInstance();
@@ -127,8 +130,33 @@ public class SalesController extends NewSerial implements Initializable {
         billNumber.setText(getSalesSerial()+"");
         initTableViewCols();
         ser(); // Set Dinamic Serial Number and Date
-        DataHelper.checkDataBar(T_Search,listB); // get barcode of all products
-    }    
+        DataHelper.checkDataBar(T_Search); // get barcode of all products 
+        
+        SelectString();
+    }
+    private void SelectString(){
+        T_Search.focusedProperty().addListener(new ChangeListener<Boolean>() {
+        @Override
+            public void changed(ObservableValue<? extends Boolean> observable, Boolean oldValue, Boolean newValue) {
+                Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    if (T_Search.isFocused() && !T_Search.getText().isEmpty()) {
+                        T_Search.selectAll();
+                    }
+                }
+                });
+            }
+        });
+        
+    }
+    
+    private void DRR(){
+        String qu="DROP TABLE recall";
+        boolean r=databaseHandler.execAction(qu);
+        if(r)
+            System.out.println("    dedddddddddddddd");
+    }
     
     private  void initTableViewCols(){
         c_item.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -145,12 +173,13 @@ public class SalesController extends NewSerial implements Initializable {
         int s=t.getHoursUntilTarget();
         z=new Serial_S(s);
     }
+    
     /******************* Search with button or pressing enter ******************/
-    Price pra;
+    Price pri;
     @FXML
     private void S_Field(KeyEvent event) {
         searrch();
-        productPrice.setText(pra.getItemPrice()+"");
+        productPrice.setText(pri.getItemPrice()+"");
         
     }
 
@@ -162,35 +191,35 @@ public class SalesController extends NewSerial implements Initializable {
     }
     
     private void searrch(){
-        pra=new Price();
-        DataHelper.fillSalesWithInfoOfProduct(T_Search.getText(),productBarcode,productName,productPrice,pra);
-        System.out.println(pra.getItemPrice());  
+        pri=new Price();
+        DataHelper.fillSalesWithInfoOfProduct(T_Search.getText(),productBarcode,productName,productPrice,pri);
+        System.out.println(pri.getItemPrice());  
     }
-    /***************************************************************************/
-    /***************************************************************************************************************/
-    /***************************************************************************************************************/
-    /***************************************************************************************************************/
+    /**************************************************************************/
+    /**************************************************************************/
+    /**************************************************************************/
     
     
     
     
     
-    /************************* ADD BILL TO DATABASE ***************************************************************/
+    /************************* ADD OR DELETE BILL TO DATABASE *****************/
     @FXML
     private void AddNewBill(ActionEvent event) { // AddNewBill(); do it by mouse click on button "جديد"
         this.AddNewBill();
     }
     @FXML
-    private void A_N_B(KeyEvent event) {    // AddNewBill(); do it by pressing into enter key while focus on "جديد" Button
-        try{
-        if(event.getCode().equals(KeyCode.SHIFT.Z)) {
+    private void A_N_B(KeyEvent event) {    // AddNewBill(); do it by pressing in SHIFT with Z  keys 
+        try{                                // deleteAllRows(); impelemented by pressing in SHIFT with DELETE keys
+        if(event.getCode().equals(KeyCode.SHIFT.Z)) 
              this.AddNewBill();
-        }
+        else if(event.getCode().equals(KeyCode.SHIFT.DELETE))
+            this.deleteAllRows();
         }catch(Exception e){}
     }
-    /*************************************************************************************************************/
+    /**************************************************************************/
     
-    /************************* ADD ITEMS TO BILL TABLE VIEW ******************************************************/
+    /************************* ADD ITEMS TO BILL TABLE VIEW *******************/
     @FXML
     private void AddQuantity(ActionEvent event) { // AddQuantity(); do it by mouse click on button "إدخال الكمية"
         this.AddQuantity();
@@ -203,11 +232,11 @@ public class SalesController extends NewSerial implements Initializable {
         }
         }catch(Exception e){}
     }
-    /***************************************************************************************************/
+    /**************************************************************************/
     
-    /********************* DELETE ROW FROM TABLE VIEW **************************************************/
+    /********************* DELETE ROW FROM TABLE VIEW *************************/
     @FXML
-    private void DeleteRow(ActionEvent event) {
+    private void DeleteRow(ActionEvent event) { // DeleteRow(); do it by mouse click on button "مسح عنصر"
             this.DeleteRow(); 
     }
     
@@ -217,34 +246,23 @@ public class SalesController extends NewSerial implements Initializable {
         if(event.getCode().equals(KeyCode.DELETE)) { // DeleteRow(); do it by pressing in Delete key while focus on row in table view
              // do something
              this.DeleteRow();
-        }}catch(Exception e){
-            if(event.getCode().equals(KeyCode.DELETE)){
-            this.deleteAllRows();
-            }
-        }
-        
+        }}catch(Exception e){}
     }
-    /************************************************************************************************/
+    /**************************************************************************/
     
-    /********************* DELETE ALL ROWS FROM TABLE VIEW *************************/
-    @FXML
-    private void DeleteAllRows(ActionEvent event) { // it's KeyEvent in D_I_T method
-        deleteAllRows();
-    }
-    /*******************************************************************************/
     
     /*********************** ADD PAID MONEY ***********************************/
     @FXML
-    private void AddPaid(ActionEvent event) {
+    private void AddPaid(ActionEvent event) { // AddPaid(); do it by mouse click on button "ادخال المدفوع"
         this.AddPaid();
     }
     @FXML
     private void E_P(KeyEvent event) {
-        if(event.getCode().equals(KeyCode.ENTER)) {
+        if(event.getCode().equals(KeyCode.ENTER)) { // AddPaid(); do it by pressing into ENTER key while focus on field of paid money
              this.AddPaid();
         }
     }
-    
+    /**************************************************************************/
     
     /***************************** CANCEL BILL ********************************/
     @FXML
@@ -254,6 +272,9 @@ public class SalesController extends NewSerial implements Initializable {
         clear();
         }
     }
+    /**************************************************************************/
+    
+    
     /**************************************************************************/
                 /****************************************************/
                             /**********************/
@@ -287,6 +308,9 @@ public class SalesController extends NewSerial implements Initializable {
     
     /**************************************************************************/
     
+    
+    
+    
     private void checksales(){
         String qu="SELECT * FROM sales";
         ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
@@ -302,21 +326,30 @@ public class SalesController extends NewSerial implements Initializable {
                 double x8=rs.getDouble("cost");
                 Time t=rs.getTime("t_time");
                 
-                System.out.println(x1+" "+x2+" "+x3+" "+x4+" "+x5+" "+x6+" "+x7+" "+x8);
+                System.out.println(x1+" "+x2+" "+x3+" "+x4+" "+x5+" "+x6+" "+x7+" "+x8+"    "+t);
             }
             
         } catch (SQLException ex) {
             Logger.getLogger(SalesController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
+    
+    
+    
     /*****************************************************************************************************************/
     /*****************************************************************************************************************/
     /*****************************************************************************************************************/
     /*****************************************************************************************************************/
     /***************************************IMPLEMENTATION OF METHODS*************************************************/
     /*****************************************************************************************************************/
+    
+    
+    /********************************************* AddNewBill _________*/
     private void AddNewBill(){
         if(!totalPrice.getText().equals("")&&!this.paid.getText().equals("") && !this.rest.getText().equals("")){
+<<<<<<< HEAD
             billNumber.setText(getSalesSerial()+"");
             Sales S=new Sales();
             S.setSerial(Integer.parseInt(billNumber.getText()));
@@ -354,56 +387,91 @@ public class SalesController extends NewSerial implements Initializable {
             PauseTransition delay = new PauseTransition(javafx.util.Duration.seconds(1.5));
             delay.setOnFinished( event -> alert.close() );
             delay.play();*/
-        }
-    }
-    private void AddQuantity() {
-        
-            Sales S=new Sales(); 
+=======
             try{
-            S.setCurrentQuantity(Integer.parseInt(Quntity.getText()));
-            
-            S.setSerial(Integer.parseInt(billNumber.getText()));
-            Date JDBC_Date = Date.valueOf(this.date.getText());
-            S.setDate(JDBC_Date);
-            S.setBarcodfiled(productBarcode.getText());
-            S.setName(productName.getText());
-            S.setQuantityKind(quntityComboBox.getValue());
-            if(quntityComboBox.getValue().equals("قطعة")){
-            S.setUintPrice(pra.getItemPrice());
-            S.setCost(S.CalcCostOfSoldItem(pra.getItemPrice(),Double.parseDouble(Quntity.getText())));
-            }
-            else if(quntityComboBox.getValue().equals("علبة")){
-            S.setUintPrice(pra.getPacketPrice());
-            S.setCost(S.CalcCostOfSoldItem(pra.getPacketPrice(),Double.parseDouble(Quntity.getText())));
-            }
-            else if(quntityComboBox.getValue().equals("كرتونة")){
-            S.setUintPrice(pra.getBoxPrice());
-            S.setCost(S.CalcCostOfSoldItem(pra.getBoxPrice(),Double.parseDouble(Quntity.getText())));
-            }
-            long k=DataHelper.getLastOrderNumber();
-            S.setNumber(k);
-            boolean result = DataHelper.insertNewSale(S);
-            
-            System.out.println(k);
-            int qty=Integer.parseInt(Quntity.getText());
-            boolean s= DataHelper.InterAction_B_Sales__Products_addQuan(productBarcode,qty,quntityComboBox.getValue());
-            if(s){
+                billNumber.setText(getSalesSerial()+"");
+                Sales S=new Sales();
+                S.setSerial(Integer.parseInt(billNumber.getText()));
+                Date JDBC_Date = Date.valueOf(this.date.getText());
+                S.setDate(JDBC_Date);
+                S.setTime(gettTime());
+                S.setTotalPrice(Double.parseDouble(totalPrice.getText()));
+                S.setPaid(Double.parseDouble(this.paid.getText()));
+                S.setReminderMoney(Double.parseDouble(this.rest.getText()));
+
+                boolean result = DataHelper.insertNewBill(S);
+
+
                 if(result){
-                    SalesTabel.getItems().add(S);
-                    TOTAL+=S.getCost();
-                    totalPrice.setText(TOTAL+"");
-                    Alerts.showInfoAlert("تمت الاضافة !!");
+                    increment_Sales(); //
+                    billNumber.setText(getSalesSerial()+"");
+                    System.out.println(getSalesSerial());
+                    TOTAL=0;
+                    paid.setText(gettTime()+"");
+                    clear();
+                    Alerts.showInfoAlert("تم اضافة الفاتورة رقم  بنجاح !!");
                 }
                 else
-                Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
-            }
-            
+                    Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
+            }catch(Exception e){}
+>>>>>>> 466b013eafafe85a4d1f4dc326d4830440e57aec
+        }
+        
+        
+    }
+    
+    /********************************************* AddQuantity _________*/
+    private void AddQuantity() {
+        
+        Sales S=new Sales(); 
+        if(!productBarcode.getText().equals("") || !Quntity.getText().equals("")){
+            try{
+                S.setCurrentQuantity(Integer.parseInt(Quntity.getText()));
+                S.setSerial(Integer.parseInt(billNumber.getText()));
+                Date JDBC_Date = Date.valueOf(this.date.getText());// JDBC_Date: this var take value of date in "Date"data type to pass it to Date column in database
+                S.setDate(JDBC_Date);
+                S.setBarcodfiled(productBarcode.getText());
+                S.setName(productName.getText());
+                S.setQuantityKind(quntityComboBox.getValue());
+                if(quntityComboBox.getValue().equals("قطعة")){
+                S.setUintPrice(pri.getItemPrice());
+                S.setCost(S.CalcCostOfSoldItem(pri.getItemPrice(),Double.parseDouble(Quntity.getText())));
+                }
+                else if(quntityComboBox.getValue().equals("علبة")){
+                S.setUintPrice(pri.getPacketPrice());
+                S.setCost(S.CalcCostOfSoldItem(pri.getPacketPrice(),Double.parseDouble(Quntity.getText())));
+                }
+                else if(quntityComboBox.getValue().equals("كرتونة")){
+                S.setUintPrice(pri.getBoxPrice());
+                S.setCost(S.CalcCostOfSoldItem(pri.getBoxPrice(),Double.parseDouble(Quntity.getText())));
+                }
+                long k=DataHelper.getLastOrderNumber(); 
+                S.setNumber(k); // give number for every added item in bill .. 
+                boolean result = DataHelper.insertNewSale(S);
+
+                System.out.println(k);
+                int qty=Integer.parseInt(Quntity.getText());
+                if(DataHelper.CheckQuan(productBarcode.getText()))
+                    Alerts.showWorningAlert("لقد وصلت كمية هذا المنتج الى الحد الادنى !!");
+                boolean s= DataHelper.InterAction_B_Sales__Products_addQuan(productBarcode,qty,quntityComboBox.getValue());
+                if(s){
+                    if(result){
+                        SalesTabel.getItems().add(S);
+                        TOTAL+=S.getCost();
+                        totalPrice.setText(TOTAL+"");
+                        Alerts.showInfoAlert("تمت الاضافة !!");
+                    }
+                    else
+                        Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
+                }
             }catch(NumberFormatException es){
                 Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
             }
-            
+        }else Alerts.showErrorAlert("لايوجد منتج للأضافة");
     }
     
+    
+    /********************************************* AddPaid _________*/
     private void AddPaid(){
         Sales S=new Sales();
         try{
@@ -419,6 +487,8 @@ public class SalesController extends NewSerial implements Initializable {
         }
     }
     
+    
+    /********************************************* DeleteRow _________*/
     private void DeleteRow(){
         if(SalesTabel.getItems().isEmpty()){
             Alerts.showErrorAlert("لا يوجد بيانات فى الجدول !!");
@@ -426,7 +496,7 @@ public class SalesController extends NewSerial implements Initializable {
         else{
             double c=SalesTabel.getSelectionModel().getSelectedItem().getCost();
             Sales S =SalesTabel.getSelectionModel().getSelectedItem();
-            if (Alerts.ConfirmAlert("هل تريد مسح", S.getName())) {
+            if (Alerts.ConfirmAlert("هل تريد مسح  ", S.getName())) {
                 Boolean result = DataHelper.deleteSale(S);
                 if (result) {
                     try{
@@ -447,7 +517,6 @@ public class SalesController extends NewSerial implements Initializable {
                     SalesTabel.getItems().removeAll(SalesTabel.getSelectionModel().getSelectedItem()); // delete item from ui table
                     TOTAL-=c;
                     totalPrice.setText(TOTAL+"");
-                    AllCheckbox.setSelected(false); 
                     
                 } else {
                     Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
@@ -455,7 +524,83 @@ public class SalesController extends NewSerial implements Initializable {
             }
         }
     }
+    
+    
+    /********************************************* deleteAllRows _________*/
     private void deleteAllRows(){  
+        if(SalesTabel.getItems().isEmpty() || T_Search.getText().equals("")){
+            Alerts.showErrorAlert("لا يوجد بيانات لتتم عملية المسح !!");
+        }
+        else{
+                if(Alerts.ConfirmAlert("هل تريد مسح جميع عناصر الجدول ؟","")){
+                    SalesTabel.getItems().forEach((t) -> {
+                           boolean de=DataHelper.InterAction_B_Sales__Products_DeleteQuan(t.getBarcodfiled(), t.getCurrentQuantity(),t.getQuantityKind());
+                    });
+                    boolean result=DataHelper.deleteAllRowsInSalesTV(getSalesSerial());
+                    if(result){
+                        SalesTabel.getItems().clear();
+                        Alerts.showInfoAlert("تم مسح جميع العناصر");
+                    }
+                    else
+                        Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
+                }
+           TOTAL=0;
+        }
+    }
+    
+    /************************************CLEAR DATA FROM FIELDS _________*/
+    private void clear(){
+        T_Search.clear();
+        productName.setText("");
+        productPrice.setText("");
+        productBarcode.setText("");
+        Quntity.clear();
+        totalPrice.clear();
+        paid.clear();
+        rest.clear();
+        SalesTabel.getItems().clear();
+    }
+    
+    /**********************_____________END OF IMPELMTNTAION______________************************/
+    
+    
+    /*********************************      LOAD PAGES     ***************************************/
+    @FXML
+    private void loadMainOfSales(ActionEvent event) {
+        //loadWindow("/employees/main/employees.fxml");
+        x.loadwindow(loadPane, "/employees/main/employees.fxml");
+    }
+
+    /***************************_____________THE END______________********************************/    
+}
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /***************** DON'T DELETE THIS -->
+     * 
+     * 
+     */
+        /*private void deleteAllRows(){  
         if(SalesTabel.getItems().isEmpty()){
             Alerts.showErrorAlert("لا يوجد بيانات فى الجدول !!");
         }
@@ -479,54 +624,7 @@ public class SalesController extends NewSerial implements Initializable {
             }
             AllCheckbox.setSelected(false);
         }
-    }
-    private void clear(){
-        productName.setText("");
-        productPrice.setText("");
-        productBarcode.setText("");
-        Quntity.clear();
-        totalPrice.clear();
-        paid.clear();
-        rest.clear();
-        SalesTabel.getItems().clear();
-    }
-    
-    /**********************_____________END OF IMPELMTNTAION______________************************/
-    
-    
-    /********************************* LOAD PAGES ************************************************/
-    @FXML
-    private void loadMainOfSales(ActionEvent event) {
-        //loadWindow("/employees/main/employees.fxml");
-        x.loadwindow(loadPane, "/employees/main/employees.fxml");
-    }
-
-    
-    
-   /* void loadWindow(String loc){
-        try{
-            AnchorPane pane = FXMLLoader.load(getClass().getResource(loc));
-            loadPane.getChildren().setAll(pane);
-           
-        }catch(IOException ex){}
-<<<<<<< HEAD
-    }
-
-    @FXML
-    private void searchButton(ActionEvent event) {
-        String barkey=T_Search.getText();
-        DataHelper.fillSalesWithInfoOfProduct(barkey,productBarcode, productName, productPrice);
-    }
-=======
     }*/
-
-    /*********************************************************************************************/
-    
-}
-
-    
-    
-    
 
 
 

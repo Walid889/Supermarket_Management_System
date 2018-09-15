@@ -77,7 +77,11 @@
                   <Font size="20.0" />
                </font>
             </JFXTextField>
+<<<<<<< HEAD
             <TextField fx:id="Quntity" layoutX="694.0" layoutY="559.0" prefHeight="30.0" prefWidth="101.0">
+=======
+            <TextField fx:id="Quntity" layoutX="696.0" layoutY="549.0" onKeyPressed="#A_Q" prefHeight="54.0" prefWidth="94.0">
+>>>>>>> 466b013eafafe85a4d1f4dc326d4830440e57aec
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>

@@ -7,10 +7,7 @@ package Classes;
 import java.sql.Time;
 import javafx.scene.control.Alert;
 
-
-public class Buying extends Common_Properties{ // Common_Methods is an Interface include Add , Update , Delete
-    private long number;
-    
+/*
     private String barcodfiled;
     private String supplier;
     private double paid;
@@ -21,13 +18,17 @@ public class Buying extends Common_Properties{ // Common_Methods is an Interface
     private double cost;
     private double reminderMoney;
     private String quantityKind;
-    /*
-        this.Quan;
-        this.Serial;
-        this.Date;
-        
-        Are public variables extends from Common_Properties ..
-    */
+*/
+public class Buying extends Common_Properties{ // Common_Methods is an Interface include Add , Update , Delete
+    private String supplier;
+    
+    
+    public double getTotalPrice() {
+        return TotalPrice;
+    }
+    public void setTotalPrice(double TotalPrice) {
+        this.TotalPrice = TotalPrice;
+    }
 
     public String getQuantityKind() {
         return quantityKind;
@@ -69,22 +70,6 @@ public class Buying extends Common_Properties{ // Common_Methods is an Interface
         this.supplier = supplier;
     }
 
-    public double getPaid() {
-        return paid;
-    }
-
-    public void setPaid(double paid) {
-        this.paid = paid;
-    }
-
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
-    }
-
     public String getName() {
         return name;
     }
@@ -117,14 +102,6 @@ public class Buying extends Common_Properties{ // Common_Methods is an Interface
         this.cost = cost;
     }
 
-    public double getReminderMoney() {
-        return reminderMoney;
-    }
-
-    public void setReminderMoney(double reminderMoney) {
-        this.reminderMoney = reminderMoney;
-    }
-
     public int getSerial() {
         return Serial;
     }
@@ -140,22 +117,8 @@ public class Buying extends Common_Properties{ // Common_Methods is an Interface
     public void setDate(java.sql.Date Date) {
         this.Date = Date;
     }
-    
-    public double CalcCostOfSoldItem(double price,double quantity){
-       return price*quantity;
-   }
-   
-   public double CalcReminderMoney(double paid,double totalprice){
-       if(paid<totalprice){
-           Alerts.showErrorAlert("القيمة المدفوعة اقل من سعر المشتريات");
-           return 0;
-       }else{
-           return paid-totalprice;
-       }
-   }
-    
- 
-    }
+
+}
 
   
     

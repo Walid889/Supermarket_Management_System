@@ -109,9 +109,18 @@ public class EmployeesController implements Initializable {
     
     @FXML
     private void signAsAdmin(ActionEvent event) {
+<<<<<<< HEAD
         loadwindow(loadPane,"/Login/login.fxml");
     }
       
+=======
+        loadwindow(loadPane,"/Manager/Main/Home.fxml");
+    }
+  
+
+    
+    
+>>>>>>> 466b013eafafe85a4d1f4dc326d4830440e57aec
     public void loadwindow(AnchorPane p , String loc) { 
         AnchorPane pane = null;
            try {
@@ -144,6 +153,10 @@ public class EmployeesController implements Initializable {
             Logger.getLogger(EmployeesController.class.getName()).log(Level.SEVERE, null, ex);
         }*/
 
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 466b013eafafe85a4d1f4dc326d4830440e57aec
     }
 
     

@@ -198,7 +198,11 @@
                   <Insets bottom="-3.0" left="1.0" right="1.0" top="-3.0" />
                </padding>
             </TextField>
+<<<<<<< HEAD
             <TextField fx:id="P_Tminimun" alignment="CENTER" layoutX="788.0" layoutY="576.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="36.0" prefWidth="196.0">
+=======
+            <TextField fx:id="P_Tminimun" alignment="CENTER" layoutX="788.0" layoutY="594.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#AddProduct" prefHeight="36.0" prefWidth="196.0">
+>>>>>>> 466b013eafafe85a4d1f4dc326d4830440e57aec
                <font>
                   <Font size="25.0" />
                </font>

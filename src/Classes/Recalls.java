@@ -1,32 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Classes;
 
 import java.sql.Date;
 import java.sql.Time;
 
-/**
- *
- * @author Walid
- */
 public class Recalls extends Common_Properties{// Common_Methods is an Interface include Add , Update , Delete
-    private String barcodfiled;
-    private String name;
-    private double UintPrice;
-    private int CurrentQuantity;
-    private String quantityKind;
-    private double cost;
-    private Time time;
+ 
     private String source;
 
     public Recalls() {
     }
 
     
-    public Recalls(String barcodfiled, String name, double UintPrice, int CurrentQuantity, String quantityKind, double cost,Date d, Time time, String source) {
+    public Recalls(String barcodfiled, String name, double UintPrice, int CurrentQuantity, String quantityKind, double cost,Date d, Time time, String source,long num) {
         this.barcodfiled = barcodfiled;
         this.name = name;
         this.UintPrice = UintPrice;
@@ -36,6 +21,15 @@ public class Recalls extends Common_Properties{// Common_Methods is an Interface
         this.Date=d;
         this.time = time;
         this.source = source;
+        this.number=num;
+    }
+
+    public long getNumber() {
+        return number;
+    }
+
+    public void setNumber(long number) {
+        this.number = number;
     }
     
     public double getCost() {
@@ -110,9 +104,5 @@ public class Recalls extends Common_Properties{// Common_Methods is an Interface
     public void setDate(java.sql.Date Date) {
         this.Date = Date;
     }
-    
-    
-    public double CalcCostOfSoldItem(double price,double quantity){
-       return price*quantity;
-   }
+
 }
