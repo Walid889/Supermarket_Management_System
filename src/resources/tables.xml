@@ -8,16 +8,16 @@
             ,emp_salary_hours double
             "/>
     <table-entry name="employee2" col-data="
-            emp_id varchar(200) 
-            emp_start_time timestamp not null default current_timestamp
+            emp_exp_date date
+            ,emp_id varchar(200) 
+            ,emp_start_time timestamp not null default current_timestamp
             ,emp_finish_time timestamp not null default current_timestamp
             ,emp_salary double
             ,emp_hours integer
             ,emp_buy varchar(200)
             ,emp_net_salary double
             ,emp_date timestamp not null default current_timestamp
-            ,emp_product varchar(200)
-            ,emp_price_product double
+            
         "/>
     <table-entry name="login" col-data="
                      log_id varchar(200),
@@ -125,5 +125,9 @@
                         e_cost double
     "/>
     
-    
+    <table-entry name="personal_expences" col-data="
+            emp_product varchar(200)
+            ,emp_date date
+            ,emp_price_product double
+    "/>
 </tables>

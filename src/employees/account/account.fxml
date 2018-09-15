@@ -25,11 +25,11 @@
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <TextField layoutX="94.0" layoutY="23.0" prefHeight="33.0" prefWidth="216.0">
+            <TextField fx:id="code_employee" layoutX="94.0" layoutY="23.0" prefHeight="33.0" prefWidth="216.0">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font></TextField>
-            <JFXButton layoutX="94.0" layoutY="90.0" onAction="#loadAccount" prefHeight="33.0" prefWidth="86.0" text="تأكيد">
+            <JFXButton layoutX="94.0" layoutY="90.0" onAction="#confirm" prefHeight="33.0" prefWidth="86.0" text="تأكيد">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>

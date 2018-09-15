@@ -4,13 +4,9 @@
  * and open the template in the editor.
  */
 package employees.recall;
-<<<<<<< HEAD
-import com.jfoenix.controls.JFXRadioButton;
-=======
-
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXRadioButton;
->>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
+import com.jfoenix.controls.JFXRadioButton;
 import Classes.Alerts;
 import Classes.Price;
 import Classes.Recalls;
@@ -61,14 +57,11 @@ public class RecallController extends NewSerial implements Initializable {
     @FXML
     private Label date;
     @FXML
-<<<<<<< HEAD
-=======
     private JFXRadioButton client_select;
     @FXML
     private TextField quantity;
     @FXML
     private JFXRadioButton company_select;
->>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
     private JFXTextField R_SearchField;
     @FXML
     private JFXRadioButton R_FCustomer;

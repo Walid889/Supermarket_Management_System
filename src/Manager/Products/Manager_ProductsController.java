@@ -26,10 +26,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-<<<<<<< HEAD
 import javafx.scene.effect.BlendMode;
-=======
->>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -339,9 +336,6 @@ public class Manager_ProductsController implements Initializable {
         clear();
     } 
 
-<<<<<<< HEAD
-    
-=======
     @FXML
     private void Key_Pressed(KeyEvent event) {
           try{
@@ -354,5 +348,4 @@ public class Manager_ProductsController implements Initializable {
     }
 
    
->>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
 }
