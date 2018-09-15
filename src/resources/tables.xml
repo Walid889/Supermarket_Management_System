@@ -70,12 +70,7 @@
                         paid_money double,
                         reminder_money double
     "/>
-    
-    <table-entry name="recall" col-data="
-                        price double,
-                        quantity varchar(200),
-                        total double
-    "/>
+
     <table-entry name="buy_bills" col-data="
                         bill_id int,
                         bill_date date,
@@ -97,6 +92,7 @@
     "/>
     
     <table-entry name="damages" col-data="
+                        
                         dam_date date,
                         product_name varchar(200),
                         qty_kind varchar(200),
@@ -104,9 +100,11 @@
                         current_qty int,
                         cost double,
                         t_time TIME,
-                        d_bar varchar(200)
+                        d_bar varchar(200),
+                        number BIGINT not null primary key
     "/>
     <table-entry name="recalls" col-data="
+                        
                         rec_date date,
                         product_name varchar(200),
                         qty_kind varchar(200),
@@ -115,7 +113,8 @@
                         cost double,
                         t_time TIME,
                         r_bar varchar(200),
-                        source varchar(200)
+                        source varchar(200),
+                        number BIGINT not null primary key
                         
     "/>
     

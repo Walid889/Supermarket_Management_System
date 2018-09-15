@@ -1,26 +1,13 @@
 ----------------------------------------------------------------
-<<<<<<< HEAD
-Fri Sep 14 02:33:11 EET 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0165-d57e-f341-000002d22ff8 
+Sat Sep 15 16:31:28 EET 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0165-dda4-c58a-000002ceda18 
 on database directory D:\Work\programing workshop\PROJECT\Supermarket_Management\database with class loader sun.misc.Launcher$AppClassLoader@55f96302 
-Loaded from file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/dist/run55092853/lib/derby.jar
+Loaded from file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/dist/run1560657829/lib/derby.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.8.0_181-b13
 user.dir=D:\Work\programing workshop\PROJECT\Supermarket_Management
 os.name=Windows 7
 os.arch=amd64
 os.version=6.1
-=======
-Thu Sep 13 20:59:33 EET 2018:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.12.1.1 - (1704137): instance a816c00e-0165-d44d-7ef8-000005abbcf8 
-on database directory C:\Users\Younis\Desktop\new versioin\Supermarket_Management_System\database with class loader sun.misc.Launcher$AppClassLoader@55f96302 
-Loaded from file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/dist/run1928522118/lib/derby.jar
-java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_181-b13
-user.dir=C:\Users\Younis\Desktop\new versioin\Supermarket_Management_System
-os.name=Windows 10
-os.arch=amd64
-os.version=10.0
->>>>>>> c932d025a9550de2528eb0d80b99b69d64a2c63f
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''

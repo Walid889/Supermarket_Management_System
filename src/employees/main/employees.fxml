@@ -142,7 +142,7 @@
             </HBox>
          </children>
       </VBox>
-      <JFXButton fx:id="signAsAdmin" accessibleRole="PARENT" contentDisplay="TOP" layoutX="14.0" layoutY="525.0" prefHeight="151.0" prefWidth="204.0" style="-fx-background-color: none;" styleClass="jfx-button-manger" stylesheets="@employees.css" text="تسجيل كمدير" AnchorPane.leftAnchor="14.0">
+      <JFXButton accessibleRole="PARENT" contentDisplay="TOP" layoutX="14.0" layoutY="525.0" onAction="#signAsAdmin" prefHeight="151.0" prefWidth="204.0" style="-fx-background-color: none;" styleClass="jfx-button-manger" stylesheets="@employees.css" text="تسجيل كمدير" AnchorPane.leftAnchor="14.0">
          <graphic>
             <ImageView fitHeight="73.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true">
                <image>

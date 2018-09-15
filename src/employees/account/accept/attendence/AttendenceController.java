@@ -45,8 +45,6 @@ public class AttendenceController implements Initializable {
     EmployeesController x = new EmployeesController();
     @FXML
     private AnchorPane loadPane;
-    private TextField start;
-    private TextField end;
     @FXML
     private JFXTextField start_work;
     @FXML
@@ -85,12 +83,12 @@ public class AttendenceController implements Initializable {
             Date cal = new Date();
         start_work.setText(dateFormat.format(cal.getTime()));
     }
+    
     public void left()
     {
         DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
             Date finish = new Date();
         finish_work.setText(dateFormat.format(finish.getTime()));
-    
     }
     
     @FXML
@@ -103,10 +101,15 @@ public class AttendenceController implements Initializable {
         this.left();
     }
     @FXML
-    private void difference()
+    private void difference()      
     {
+        String s=start_work.getText();
+        String f=finish_work.getText();
         
-      
+        int d1=Integer.parseInt(s.charAt(0)+""+s.charAt(1));
+        int d2=Integer.parseInt(f.charAt(0)+""+f.charAt(1));
+
+        difference.setText((d2-d1) +"");
       //  difference.setText(String.valueOf(diff));
     }
     

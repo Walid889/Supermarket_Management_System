@@ -9,15 +9,11 @@ import java.sql.Time;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableView;
 
-/**
- *
- * @author Walid
- */
 public class Sales extends Common_Properties{// Common_Methods is an Interface include Add , Update , Delete
-    private long number;
-    private Time time;
-    private String barcodfiled;
-
+    
+    private double paid;
+    private double reminderMoney;
+    
     public String getBarcodfiled() {
         return barcodfiled;
     }
@@ -41,13 +37,7 @@ public class Sales extends Common_Properties{// Common_Methods is an Interface i
         this.number = number;
     }
     
-    private String name;
-    private double UintPrice;
-    private int CurrentQuantity;
-    private double cost;
-    private double TotalPrice;
-    private double paid;
-    private double reminderMoney;
+    
 
     public double getReminderMoney() {
         return reminderMoney;
@@ -71,7 +61,7 @@ public class Sales extends Common_Properties{// Common_Methods is an Interface i
     public void setCurrentQuantity(int CurrentQuantity) {
         this.CurrentQuantity = CurrentQuantity;
     }
-    private String quantityKind;
+    
 
     public String getQuantityKind() {
         return quantityKind;
@@ -106,9 +96,6 @@ public class Sales extends Common_Properties{// Common_Methods is an Interface i
         this.UintPrice = UintPrice;
     }
 
-    
-
-    
 
     public double getPaid() {
         return paid;
@@ -135,18 +122,11 @@ public class Sales extends Common_Properties{// Common_Methods is an Interface i
         this.Date = Date;
     }
 
-    
-   public double CalcCostOfSoldItem(double price,double quantity){
-       return price*quantity;
-   }
    
    public double CalcReminderMoney(double paid,double totalprice){
        if(paid<totalprice){
-           Alert AT=new Alert(Alert.AlertType.ERROR);
-            AT.setHeaderText(null);
-            AT.setContentText("القيمة المدفوعة اقل من سعر المشتريات");
-            AT.showAndWait();
-            return 0;
+           Alerts.showErrorAlert("القيمة المدفوعة اقل من سعر المشتريات");
+           return 0;
        }else{
            return paid-totalprice;
        }
