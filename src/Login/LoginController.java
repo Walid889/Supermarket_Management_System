@@ -5,15 +5,14 @@
  */
 package Login;
 
-<<<<<<< HEAD
 import Classes.Alerts;
 import Classes.Login;
-=======
 
 
 
 
->>>>>>> e4bd14a1d4d471d5ea2009e648976ccb737f172a
+
+
 import Classes.Login;
 import Classes.Alerts;
 import Manager.Main.HomeController;

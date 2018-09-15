@@ -190,16 +190,16 @@ public class DataHelper {
         TV.setItems(list);
         
         //TextFields.bindAutoCompletion(TF, list2);
-<<<<<<< HEAD
+
     }
    ///////////////////////////////////////////////////////
-=======
-        }
+
+        
         
         
         
     ///////////////////////////////////////////////////////
->>>>>>> e4bd14a1d4d471d5ea2009e648976ccb737f172a
+
     //////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
     /////////////////End employee///////////////////////////////
@@ -781,11 +781,7 @@ public class DataHelper {
         }
         return false;
     }
-    
-<<<<<<< HEAD
-=======
 
->>>>>>> e4bd14a1d4d471d5ea2009e648976ccb737f172a
     public static boolean insertNewPersonalExpences(Employee E)
     {
         try{
@@ -800,11 +796,10 @@ public class DataHelper {
         }
         return false;
     }
-<<<<<<< HEAD
-=======
+
 
     
->>>>>>> e4bd14a1d4d471d5ea2009e648976ccb737f172a
+
     public static void loadDamageData(TableView TV,String dat) {
         ObservableList<Damages> list = FXCollections.observableArrayList();
         list.clear();
@@ -829,10 +824,7 @@ public class DataHelper {
         TV.setItems(list);
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> e4bd14a1d4d471d5ea2009e648976ccb737f172a
     /****************************************************************************************************************/
     /****************************************************************************************************************/
     public static boolean insertNewExpences(Expences E)
@@ -850,10 +842,7 @@ public class DataHelper {
         }
         return false;
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> e4bd14a1d4d471d5ea2009e648976ccb737f172a
 
     public static void loadExpensesData(TableView TV,String dat) {
         ObservableList<Expences> list = FXCollections.observableArrayList();
@@ -873,10 +862,7 @@ public class DataHelper {
         }
         TV.setItems(list);
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> e4bd14a1d4d471d5ea2009e648976ccb737f172a
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     /**************************************************************************************************************/

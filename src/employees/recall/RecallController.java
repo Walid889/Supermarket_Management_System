@@ -5,14 +5,14 @@
  */
 package employees.recall;
 
-<<<<<<< HEAD
-import com.jfoenix.controls.JFXRadioButton;
-=======
-
 
 import com.jfoenix.controls.JFXRadioButton;
 
->>>>>>> e4bd14a1d4d471d5ea2009e648976ccb737f172a
+
+
+import com.jfoenix.controls.JFXRadioButton;
+
+
 import Classes.Alerts;
 import Classes.Price;
 import Classes.Recalls;
@@ -99,10 +99,7 @@ public class RecallController extends NewSerial implements Initializable {
     private JFXComboBox<String> quntityComboBox;
     @FXML
     private TextField Quntity;
-<<<<<<< HEAD
-=======
 
->>>>>>> e4bd14a1d4d471d5ea2009e648976ccb737f172a
     /**
      * Initializes the controller class.
      */
