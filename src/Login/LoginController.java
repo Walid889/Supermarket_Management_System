@@ -4,6 +4,10 @@
  * and open the template in the editor.
  */
 package Login;
+<<<<<<< HEAD
+=======
+
+>>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
 import Classes.Alerts;
 import Classes.Login;
 import Classes.Login;
@@ -15,15 +19,14 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javax.swing.JOptionPane;
-import org.apache.commons.codec.digest.DigestUtils;
-import javax.swing.JOptionPane;
-import org.apache.commons.codec.digest.DigestUtils;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -31,7 +34,8 @@ import org.apache.commons.codec.digest.DigestUtils;
  * @author lolo
  */
 public class LoginController implements Initializable {
-HomeController y = new HomeController();
+    
+HomeController y = new HomeController(); 
     @FXML
     private AnchorPane login;
     @FXML
@@ -88,15 +92,21 @@ HomeController y = new HomeController();
                    clear();
                    break;
             default : Alerts.showErrorAlert("خطا ف كود الدخول او كلمة السر");
+                      
                     clear();
                     break;
-    
     }
     
 }
     private void clear (){
         TEnterCode.setText("");
         TPassword.setText("");
+    }
+
+    @FXML
+    private void Key_Enter(KeyEvent event) {
+        if(event.getCode().equals(KeyCode.ENTER)){
+          this.login(); }
     }
 
   

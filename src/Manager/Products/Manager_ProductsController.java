@@ -2,18 +2,16 @@
 package Manager.Products;
 
 import Classes.*;
-import Classes.Quantity;
+
 import database.*;
 import Manager.Main.HomeController;
-import com.jfoenix.controls.JFXButton;
+
 import database.DatabaseHandler;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -22,16 +20,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+<<<<<<< HEAD
 import javafx.scene.effect.BlendMode;
+=======
+>>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -341,5 +339,20 @@ public class Manager_ProductsController implements Initializable {
         clear();
     } 
 
+<<<<<<< HEAD
     
+=======
+    @FXML
+    private void Key_Pressed(KeyEvent event) {
+          try{
+        if(event.getCode().equals(KeyCode.S)){
+          this.Add_Product(); }
+        else if (event.getCode().equals(KeyCode.DELETE)){
+          this.Delete_Product();
+        }
+    }catch(Exception e){}
+    }
+
+   
+>>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
 }

@@ -293,11 +293,24 @@ public class DataHelper {
         }
         TV.setItems(list);
     }
+<<<<<<< HEAD
     /********************************************END OF EMPLOYEE*****************************************************/
     /****************************************************************************************************************/
     /****************************************************************************************************************/
     /****************************************************************************************************************/
     
+=======
+   ///////////////////////////////////////////////////////
+        
+        
+        
+    ///////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////
+    /////////////////End employee///////////////////////////////
+    ///////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////
+>>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
     
     
     
@@ -840,6 +853,26 @@ public class DataHelper {
         }
         return false;
     }
+<<<<<<< HEAD
+=======
+    
+
+    public static boolean insertNewPersonalExpences(Employee E)
+    {
+        try{
+        PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
+                    "INSERT INTO employee2 (emp_reason,emp_price_product) VALUES(?,?)");
+        statement.setDouble(1, E.getEmployeeExpensesCost());
+        statement.setString(2, E.getEmployeeExpensesReason());
+       
+        return statement.executeUpdate() > 0;
+        } catch (SQLException ex)
+        {
+        }
+        return false;
+    }
+
+>>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
     public static void loadDamageData(TableView TV,String dat) {
         ObservableList<Common_Properties> list = FXCollections.observableArrayList();
         list.clear();
@@ -863,6 +896,7 @@ public class DataHelper {
         }
         TV.setItems(list);
     }
+<<<<<<< HEAD
         public static long getLastOrderNumberDamage(){
         String qu="SELECT number FROM damages ORDER BY number DESC FETCH FIRST ROW ONLY"; 
         ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
@@ -883,6 +917,9 @@ public class DataHelper {
         return num;
     }
     /*******************************************END OF DAMAGES*******************************************************/
+=======
+
+>>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
     /****************************************************************************************************************/
     /****************************************************************************************************************/
     
@@ -908,6 +945,10 @@ public class DataHelper {
         }
         return false;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
     public static void loadExpensesData(TableView TV,String dat) {
         ObservableList<Expences> list = FXCollections.observableArrayList();
         list.clear();
@@ -926,6 +967,7 @@ public class DataHelper {
         }
         TV.setItems(list);
     }
+<<<<<<< HEAD
     /****************************************END OF EXPENSES*********************************************************/
     /****************************************************************************************************************/
     /****************************************************************************************************************/
@@ -934,6 +976,9 @@ public class DataHelper {
     
     
     
+=======
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+>>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
     
     /**************************************************************************************************************/
     /**************************************************************************************************************/

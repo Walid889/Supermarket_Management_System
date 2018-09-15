@@ -29,7 +29,7 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </JFXButton>
-      <JFXButton contentDisplay="RIGHT" layoutX="1210.0" layoutY="21.0" onAction="#Back" style="-fx-cursor: hand;" text="رجوع" textFill="WHITE">
+      <JFXButton contentDisplay="RIGHT" layoutX="1210.0" layoutY="21.0" onAction="#Back" style="-fx-cursor: hand; -fx-background-color: #343642;" text="التقارير" textFill="WHITE">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>

@@ -66,7 +66,7 @@
             </JFXButton>
          </children>
       </VBox>
-      <Pane prefHeight="697.0" prefWidth="1173.0" styleClass="pane" stylesheets="@Manager_Products.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane onKeyPressed="#Key_Pressed" prefHeight="697.0" prefWidth="1173.0" styleClass="pane" stylesheets="@Manager_Products.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Label contentDisplay="CENTER" layoutX="592.0" layoutY="13.0" prefHeight="45.0" prefWidth="126.0" text="الاصناف" textAlignment="CENTER" textFill="WHITE">
                <font>

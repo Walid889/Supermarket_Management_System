@@ -35,7 +35,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton layoutX="734.0" layoutY="392.0" onAction="#difference" prefHeight="65.0" prefWidth="211.0" text="عدد الساعات">
+      <JFXButton fx:id="difference_btn" layoutX="734.0" layoutY="392.0" onAction="#differenceAction" prefHeight="65.0" prefWidth="211.0" text="عدد الساعات">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
@@ -45,14 +45,14 @@
             <Font name="Baskerville Old Face" size="24.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="finish_work" focusColor="#2045b5" labelFloat="true" layoutX="384.0" layoutY="297.0" prefHeight="39.0" prefWidth="211.0" styleClass="textfield" stylesheets="@ATTEN.css" unFocusColor="#f8f8f8">
+      <JFXTextField fx:id="differenceText" focusColor="#2045b5" labelFloat="true" layoutX="384.0" layoutY="405.0" prefHeight="39.0" prefWidth="211.0" styleClass="textfield" stylesheets="@ATTEN.css" unFocusColor="#f8f8f8">
+         <font>
+            <Font name="Baskerville Old Face" size="24.0" />
+         </font></JFXTextField>
+      <JFXTextField fx:id="finish_work" focusColor="#2045b5" labelFloat="true" layoutX="384.0" layoutY="295.0" prefHeight="39.0" prefWidth="211.0" styleClass="textfield" stylesheets="@ATTEN.css" unFocusColor="#f8f8f8">
          <font>
             <Font name="Baskerville Old Face" size="24.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="difference" focusColor="#2045b5" labelFloat="true" layoutX="384.0" layoutY="405.0" prefHeight="39.0" prefWidth="211.0" styleClass="textfield" stylesheets="@ATTEN.css" unFocusColor="#f8f8f8">
-         <font>
-            <Font name="Baskerville Old Face" size="24.0" />
-         </font></JFXTextField>
    </children>
 </AnchorPane>

@@ -1,20 +1,22 @@
 
-package employees.main;
+package Manager.Account;
+
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import static javafx.application.Application.launch;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class Main extends Application {
 
+public class Main extends Application {
+    
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("employees.fxml"));
-        
+        Parent root = FXMLLoader.load(getClass().getResource("Manager_Account.fxml"));
+       
         Scene scene = new Scene(root);
         Image icon = new Image("/icons/supermarket.png");
         stage.getIcons().add(icon);
@@ -23,7 +25,10 @@ public class Main extends Application {
         stage.setScene(scene);
         stage.show();
     }
-    
+
+    /**
+     * @param args the command line arguments
+     */
     public static void main(String[] args) {
         launch(args);
     }
