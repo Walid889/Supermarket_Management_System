@@ -292,7 +292,7 @@ public class DataHelper {
             Alerts.showInfoAlert("لا يوجد موظفين");
         }
         TV.setItems(list);
-<<<<<<< HEAD
+
         
         //TextFields.bindAutoCompletion(TF, list2);
 
@@ -300,8 +300,8 @@ public class DataHelper {
    ///////////////////////////////////////////////////////
 
         
-=======
-    }
+
+    
     public static boolean isEmployeeRegistered(String employeeId) {
         String query = "SELECT emp_id FROM employee2 WHERE emp_id='" + employeeId + "'";  //get username
         try {
@@ -323,15 +323,12 @@ public class DataHelper {
     /****************************************************************************************************************/
     /****************************************************************************************************************/
    ///////////////////////////////////////////////////////
->>>>>>> 1cc71811968696962588f0dea65b00fde89717a3
+
         
         
         
     ///////////////////////////////////////////////////////
-<<<<<<< HEAD
 
-=======
->>>>>>> 1cc71811968696962588f0dea65b00fde89717a3
     //////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
     /////////////////End employee///////////////////////////////
@@ -878,15 +875,9 @@ public class DataHelper {
         }
         return false;
     }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
+
     
->>>>>>> 1cc71811968696962588f0dea65b00fde89717a3
->>>>>>> df272cea69e327ce279b47f01e89bf80b882c748
+
 
     public static boolean insertNewPersonalExpences(Employee E)
     {
@@ -902,7 +893,7 @@ public class DataHelper {
         }
         return false;
     }
-<<<<<<< HEAD
+
     public static void loadpersonalExpensesData(TableView TV,String date) {
         ObservableList<Employee> list = FXCollections.observableArrayList();
         list.clear();
@@ -921,17 +912,12 @@ public class DataHelper {
         }
         TV.setItems(list);
     }
-=======
-<<<<<<< HEAD
+
 
 
     
 
-=======
 
->>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
->>>>>>> 1cc71811968696962588f0dea65b00fde89717a3
->>>>>>> df272cea69e327ce279b47f01e89bf80b882c748
     public static void loadDamageData(TableView TV,String dat) {
         ObservableList<Common_Properties> list = FXCollections.observableArrayList();
         list.clear();
@@ -955,14 +941,7 @@ public class DataHelper {
         }
         TV.setItems(list);
     }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 
-
-=======
-<<<<<<< HEAD
->>>>>>> df272cea69e327ce279b47f01e89bf80b882c748
         public static long getLastOrderNumberDamage(){
         String qu="SELECT number FROM damages ORDER BY number DESC FETCH FIRST ROW ONLY"; 
         ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
@@ -983,13 +962,7 @@ public class DataHelper {
         return num;
     }
     /*******************************************END OF DAMAGES*******************************************************/
-<<<<<<< HEAD
-=======
-=======
 
->>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
->>>>>>> 1cc71811968696962588f0dea65b00fde89717a3
->>>>>>> df272cea69e327ce279b47f01e89bf80b882c748
     /****************************************************************************************************************/
     /****************************************************************************************************************/
     
@@ -1015,15 +988,7 @@ public class DataHelper {
         }
         return false;
     }
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
-
-=======
->>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
->>>>>>> 1cc71811968696962588f0dea65b00fde89717a3
->>>>>>> df272cea69e327ce279b47f01e89bf80b882c748
     public static void loadExpensesData(TableView TV,String dat) {
         ObservableList<Expences> list = FXCollections.observableArrayList();
         list.clear();
@@ -1042,26 +1007,14 @@ public class DataHelper {
         }
         TV.setItems(list);
     }
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 
-=======
-<<<<<<< HEAD
->>>>>>> df272cea69e327ce279b47f01e89bf80b882c748
     /****************************************END OF EXPENSES*********************************************************/
     /****************************************************************************************************************/
     /****************************************************************************************************************/
     
     
     
-<<<<<<< HEAD
-=======
-    
-    
-=======
->>>>>>> 1cc71811968696962588f0dea65b00fde89717a3
->>>>>>> df272cea69e327ce279b47f01e89bf80b882c748
+
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
     /**************************************************************************************************************/

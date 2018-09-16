@@ -69,12 +69,12 @@
                   <DropShadow height="9.0" radius="1.75" spread="0.2" width="0.0" />
                </effect>
             </Label>
-            <JFXTextField fx:id="SearchField" alignment="CENTER_RIGHT" focusColor="#35889a" labelFloat="true" layoutX="376.0" layoutY="19.0" onKeyTyped="#D_SearchField" prefHeight="30.0" prefWidth="363.0" promptText="ادخل إسم المنتج .." unFocusColor="#f1ebc7">
+            <JFXTextField fx:id="SearchField" alignment="CENTER_RIGHT" focusColor="#35889a" layoutX="376.0" layoutY="19.0" onKeyTyped="#D_SearchField" prefHeight="35.0" prefWidth="363.0" promptText="ادخل إسم المنتج .." styleClass="product-textfeild" stylesheets="@damage.css" unFocusColor="#f1ebc7">
                <padding>
                   <Insets left="5.0" right="5.0" />
                </padding>
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </JFXTextField>
             <TextField fx:id="Quntity" layoutX="696.0" layoutY="549.0" onKeyPressed="#A_Q" prefHeight="54.0" prefWidth="94.0">
@@ -108,15 +108,12 @@
                         <TableColumn fx:id="t_kquan" prefWidth="70.0" text="ن.كمية" />
                         <TableColumn fx:id="t_quan" text="كمية" />
                         <TableColumn fx:id="t_price" prefWidth="78.0" text="سعر" />
-                        <TableColumn fx:id="t_cate" prefWidth="123.0" text="الصنف" />
-                        <TableColumn fx:id="t_bar" prefWidth="147.0" text="باركود" />
+                        <TableColumn fx:id="t_cate" prefWidth="153.0" text="الصنف" />
+                        <TableColumn fx:id="t_bar" prefWidth="149.0" text="باركود" />
                      </columns>
                      <HBox.margin>
                         <Insets left="60.0" right="60.0" />
                      </HBox.margin>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
                   </TableView>
                   <VBox alignment="CENTER" maxHeight="298.0" prefHeight="298.0" prefWidth="297.0" styleClass="vboxdamage" stylesheets="@damage.css">
                      <HBox.margin>
@@ -184,6 +181,6 @@
             <DropShadow height="9.14" radius="4.07" width="9.14" />
          </effect>
       </Label>
-      <JFXComboBox fx:id="quntityComboBox" focusColor="#35889a" layoutX="804.0" layoutY="571.0" prefHeight="30.0" prefWidth="120.0" promptText="عنصر" unFocusColor="WHITE" visibleRowCount="3" />
+      <JFXComboBox fx:id="quntityComboBox" focusColor="#35889a" layoutX="804.0" layoutY="571.0" prefHeight="30.0" prefWidth="120.0" promptText="عنصر" styleClass="quntityComboBox" stylesheets="@damage.css" unFocusColor="WHITE" visibleRowCount="3" />
    </children>
 </AnchorPane>

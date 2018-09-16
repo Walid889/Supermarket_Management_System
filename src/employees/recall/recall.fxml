@@ -90,7 +90,7 @@
             <JFXListView layoutX="153.0" layoutY="44.0" prefHeight="400.0" prefWidth="262.0" visible="false" />
 
             
-            <JFXRadioButton fx:id="R_FCustomer" contentDisplay="RIGHT" layoutX="975.0" layoutY="33.0" onMouseClicked="#AllowSuppliersCombobox" selected="true" text="من العميل" textFill="WHITE">
+            <JFXRadioButton fx:id="R_FCustomer" contentDisplay="RIGHT" layoutX="976.0" layoutY="33.0" onMouseClicked="#AllowSuppliersCombobox" selected="true" text="من العميل" textFill="WHITE">
 
                <font>
                   <Font name="System Bold" size="25.0" />
@@ -102,15 +102,15 @@
                   <ToggleGroup fx:id="RecallFrom" />
                </toggleGroup>
             </JFXRadioButton>
-            <JFXTextField fx:id="R_SearchField" alignment="CENTER_RIGHT" focusColor="#d0ff00" labelFloat="true" layoutX="354.0" layoutY="31.0" onKeyTyped="#R_SearchField" prefHeight="36.0" prefWidth="391.0" promptText="ادخل إسم المنتج .." unFocusColor="#867200">
+            <JFXTextField fx:id="R_SearchField" alignment="CENTER_RIGHT" focusColor="#35889a" layoutX="354.0" layoutY="31.0" onKeyTyped="#R_SearchField" prefHeight="36.0" prefWidth="391.0" promptText="ادخل إسم المنتج .." styleClass="product-textfeild" stylesheets="@recall.css" unFocusColor="WHITE">
                <padding>
                   <Insets left="5.0" right="5.0" />
                </padding>
                <font>
-                  <Font size="20.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </JFXTextField>
-            <TextField fx:id="Quntity" layoutX="772.0" layoutY="589.0" onKeyPressed="#Add_REC" prefHeight="54.0" prefWidth="108.0">
+            <TextField fx:id="Quntity" layoutX="772.0" layoutY="619.0" onKeyPressed="#Add_REC" prefHeight="54.0" prefWidth="108.0">
                <font>
                   <Font name="System Bold" size="25.0" />
                </font>
@@ -123,17 +123,14 @@
                         <TableColumn fx:id="t_cost" prefWidth="75.0" text="تكلفة" />
                         <TableColumn fx:id="t_kquan" prefWidth="75.0" text="ن.كمية" />
                         <TableColumn fx:id="t_quan" prefWidth="75.0" text="كمية" />
-                        <TableColumn fx:id="t_price" prefWidth="75.0" text="سعر" />
-                        <TableColumn fx:id="t_cate" prefWidth="75.0" text="صنف" />
-                        <TableColumn fx:id="t_bar" prefWidth="75.0" text="باركود" />
-                        <TableColumn fx:id="t_source" prefWidth="75.0" text="المصدر" />
+                        <TableColumn fx:id="t_price" prefWidth="95.0" text="سعر" />
+                        <TableColumn fx:id="t_cate" prefWidth="121.0" text="صنف" />
+                        <TableColumn fx:id="t_bar" prefWidth="123.0" text="باركود" />
+                        <TableColumn fx:id="t_source" prefWidth="110.0" text="المصدر" />
                      </columns>
                      <HBox.margin>
                         <Insets left="30.0" right="30.0" />
                      </HBox.margin>
-                     <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-                     </columnResizePolicy>
                   </TableView>
                   <VBox alignment="CENTER" maxHeight="308.0" prefHeight="308.0" prefWidth="333.0" styleClass="vboxrecall" stylesheets="@recall.css">
                      <HBox.margin>
@@ -168,7 +165,7 @@
                   </VBox>
                </children>
             </HBox>
-            <Label layoutX="1006.0" layoutY="596.0" text="الكمية :" textFill="WHITE">
+            <Label layoutX="1006.0" layoutY="622.0" text="الكمية :" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="35.0" />
                </font>
@@ -185,8 +182,7 @@
                   <DropShadow height="9.14" radius="4.07" width="9.14" />
                </effect>
             </JFXRadioButton>
-            <JFXComboBox fx:id="quntityComboBox" focusColor="#35889a" layoutX="887.0" layoutY="589.0" prefHeight="54.0" prefWidth="108.0" promptText="عنصر" unFocusColor="WHITE" visibleRowCount="3" />
-            <JFXComboBox fx:id="SuppliersComboBox" focusColor="#35889a" layoutX="847.0" layoutY="67.0" prefHeight="54.0" prefWidth="108.0" promptText="عنصر" unFocusColor="WHITE" visibleRowCount="3" />
+            <JFXComboBox fx:id="quntityComboBox" focusColor="#35889a" layoutX="887.0" layoutY="619.0" prefHeight="54.0" prefWidth="108.0" promptText="عنصر" styleClass="quntityComboBox" stylesheets="@recall.css" unFocusColor="WHITE" visibleRowCount="3" />
          </children>
       </Pane>
    </children>

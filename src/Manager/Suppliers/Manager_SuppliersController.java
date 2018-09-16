@@ -73,7 +73,7 @@ public class Manager_SuppliersController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         databaseHandler=DatabaseHandler.getInstance();
-         ObservableList<String> list= FXCollections.observableArrayList("جهينة","عبور لاند","نسكافية");
+         ObservableList<String> list= FXCollections.observableArrayList("أخرى","منظفات","معلبات","مجمدات","عصائر","شيكولاتات","شيبسي وحلويات","شاي وبن","سمنة وزيوت","جبن","ايس كريم","ألبان");
         S_Ctype.setItems(list);
         t_name.setCellValueFactory(new PropertyValueFactory<>("supplierName"));
         t_category.setCellValueFactory(new PropertyValueFactory<>("supplierCategory"));
@@ -322,7 +322,7 @@ public class Manager_SuppliersController implements Initializable {
     private void clear()
     {
         S_Tname.setText("");
-        S_Phone.setText("");
+        S_TPhone.setText("");
         S_TSaller.setText("");
         S_Ctype.setValue("");
     }

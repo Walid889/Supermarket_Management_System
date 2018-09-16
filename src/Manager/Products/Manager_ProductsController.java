@@ -46,15 +46,11 @@ public class Manager_ProductsController implements Initializable {
     @FXML
     private Label P_Type;
     @FXML
-    private Label P_Supplier;
-    @FXML
     private Label P_UPrice;
     @FXML
     private Label P_name;
     @FXML
     private Label P_Quantity;
-    @FXML
-    private ComboBox<String> P_Csupplier;
     @FXML
     private Label P_Bprice;
     @FXML
@@ -87,7 +83,6 @@ public class Manager_ProductsController implements Initializable {
     private TableColumn<Goods, String> t_p_packet;
     @FXML
     private TableColumn<Goods, String> t_p_item;
-    @FXML
     private TableColumn<Goods, String> t_supplier;
     @FXML
     private TableColumn<Goods, String> t_q_packet;
@@ -113,10 +108,8 @@ public class Manager_ProductsController implements Initializable {
         // TODO
         databaseHandler=DatabaseHandler.getInstance();
         initTableViewCols();
-        ObservableList<String> list1= FXCollections.observableArrayList("مياه غازية","منظفات","مكرونات","عصائر","جبن");
-        ObservableList<String> list2= FXCollections.observableArrayList("باندا","عبور لاند","جهينة");
+        ObservableList<String> list1= FXCollections.observableArrayList("أخرى","منظفات","معلبات","مجمدات","عصائر","شيكولاتات","شيبسي وحلويات","شاي وبن","سمنة وزيوت","جبن","ايس كريم","ألبان");
         P_Ctype.setItems(list1);
-        P_Csupplier.setItems(list2);
         Q_box.setText("1");
         DataHelper.loadProductsData(P_table,P_TSearch);
     } 
@@ -124,7 +117,6 @@ public class Manager_ProductsController implements Initializable {
         t_name.setCellValueFactory(new PropertyValueFactory<>("productName"));
         t_code.setCellValueFactory(new PropertyValueFactory<>("productBarCode"));
         t_cate.setCellValueFactory(new PropertyValueFactory<>("productCategory"));
-        t_supplier.setCellValueFactory(new PropertyValueFactory<>("productSupplier"));
         t_q_item.setCellValueFactory(new PropertyValueFactory<>("itemsInPacket"));
         t_q_packet.setCellValueFactory(new PropertyValueFactory<>("PacketsInBox"));
         t_p_item.setCellValueFactory(new PropertyValueFactory<>("itemPrice"));
@@ -181,7 +173,7 @@ public class Manager_ProductsController implements Initializable {
     
     private void Add_Product() {
         if(!P_Tname.getText().equals("") && !P_Tcode.getText().equals("") && !P_Ctype.getValue().equals("")
-                && !P_Csupplier.getValue().equals("") && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
+                && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
                 && !P_TUprice.getText().equals("") && !P_TBprice.getText().equals("") && !P_TCprice.getText().equals("")
                 && !P_Tminimun.getText().equals("")){
             try {
@@ -189,7 +181,6 @@ public class Manager_ProductsController implements Initializable {
                 G.setProductName(P_Tname.getText());
                 G.setProductBarCode(P_Tcode.getText());
                 G.setProductCategory((String) P_Ctype.getValue());
-                G.setProductSupplier((String) P_Csupplier.getValue());
                 G.setItemsInPacket(Integer.parseInt(Q_item.getText()));
                 G.setPacketsInBox(Integer.parseInt(Q_packet.getText()));
                 G.setItemPrice(Double.parseDouble(P_TUprice.getText()));
@@ -217,14 +208,13 @@ public class Manager_ProductsController implements Initializable {
     private void Edit_Product() {
         
         if(!P_Tname.getText().equals("") && !P_Tcode.getText().equals("") && !P_Ctype.getValue().equals("")
-                && !P_Csupplier.getValue().equals("") && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
+                && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
                 && !P_TUprice.getText().equals("") && !P_TBprice.getText().equals("") && !P_TCprice.getText().equals("")
                 && !P_Tminimun.getText().equals("")){
             try {
                 String name=P_Tname.getText();
                 String bar=P_Tcode.getText();
                 String cate=(String) P_Ctype.getValue();
-                String sup=(String) P_Csupplier.getValue();
                 int it=Integer.parseInt(Q_item.getText());
                 int pa=Integer.parseInt(Q_packet.getText());
                 double Pi=Double.parseDouble(P_TUprice.getText());
@@ -232,7 +222,7 @@ public class Manager_ProductsController implements Initializable {
                 double Pb=Double.parseDouble(P_TCprice.getText());
                 int mP=Integer.parseInt(P_Tminimun.getText());
 
-                Goods G=new Goods(name, bar, cate, sup, it, pa, Pi, Pp, Pb, mP);
+                Goods G=new Goods(name, bar, cate, "", it, pa, Pi, Pp, Pb, mP);
 
                 boolean result=DataHelper.updateProductInfo(G,oldBar);
                 if(result){
@@ -249,7 +239,7 @@ public class Manager_ProductsController implements Initializable {
     
     private void Delete_Product() {
         if(!P_Tname.getText().equals("") && !P_Tcode.getText().equals("") && !P_Ctype.getValue().equals("")
-                && !P_Csupplier.getValue().equals("") && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
+                && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
                 && !P_TUprice.getText().equals("") && !P_TBprice.getText().equals("") && !P_TCprice.getText().equals("")
                 && !P_Tminimun.getText().equals("")){
             try{
@@ -286,7 +276,6 @@ public class Manager_ProductsController implements Initializable {
         Q_item.clear();
         P_Tminimun.clear();
         P_Ctype.setValue("");
-        P_Csupplier.setValue("");
     }
 
     @FXML
@@ -300,7 +289,6 @@ public class Manager_ProductsController implements Initializable {
         P_TUprice.setText(good.getItemPrice()+"");
         P_TBprice.setText(good.getPacketPrice()+"");
         P_TCprice.setText(good.getBoxPrice()+"");
-        P_Csupplier.setValue(good.getProductSupplier());
         P_Ctype.setValue(good.getProductCategory());
         P_Tminimun.setText(good.getProductMinQuantity()+"");
         oldBar=P_Tcode.getText();

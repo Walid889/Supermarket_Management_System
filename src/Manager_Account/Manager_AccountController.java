@@ -5,7 +5,6 @@
  */
 package Manager_Account;
 
-import Manager.Main.HomeController;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
@@ -19,10 +18,10 @@ import javafx.scene.layout.AnchorPane;
 /**
  * FXML Controller class
  *
- * @author lolo
+ * @author NOUR
  */
 public class Manager_AccountController implements Initializable {
-    HomeController x = new HomeController();
+
     @FXML
     private AnchorPane Account;
     @FXML
@@ -37,6 +36,7 @@ public class Manager_AccountController implements Initializable {
     private JFXPasswordField T_Password;
     @FXML
     private JFXPasswordField T_RPassword;
+
     /**
      * Initializes the controller class.
      */
@@ -51,7 +51,6 @@ public class Manager_AccountController implements Initializable {
 
     @FXML
     private void Back(ActionEvent event) {
-        x.loadwindow(Account,"/Manager/Main/Home.fxml");
     }
     
 }

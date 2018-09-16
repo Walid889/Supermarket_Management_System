@@ -77,12 +77,12 @@
                   <Font name="System Bold" size="24.0" />
                </font>
             </Button>
-            <Label fx:id="S_Type" alignment="CENTER" contentDisplay="RIGHT" layoutX="780.0" layoutY="118.0" minWidth="-Infinity" prefHeight="45.0" prefWidth="109.0" text="تصنيف :" textAlignment="RIGHT" textFill="WHITE">
+            <Label fx:id="S_Type" alignment="CENTER" contentDisplay="RIGHT" layoutX="970.0" layoutY="595.0" minWidth="-Infinity" prefHeight="45.0" prefWidth="109.0" text="تصنيف :" textAlignment="RIGHT" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
             </Label>
-            <Label fx:id="S_Phone" layoutX="990.0" layoutY="409.0" prefHeight="45.0" prefWidth="99.0" text="تليفون :" textFill="WHITE">
+            <Label fx:id="S_Phone" layoutX="983.0" layoutY="409.0" prefHeight="45.0" prefWidth="99.0" text="تليفون :" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -100,24 +100,24 @@
                   <TableColumn fx:id="t_name" prefWidth="184.0" text="الاسم" />
                </columns>
             </TableView>
-            <JFXTextField fx:id="S_TSearch" alignment="CENTER_RIGHT" focusColor="#343642" layoutX="500.0" layoutY="60.0" onKeyPressed="#key_Search" prefHeight="44.0" prefWidth="283.0" styleClass="textfield" stylesheets="@Manager_Suppliers.css" unFocusColor="#343642">
+            <JFXTextField fx:id="S_TSearch" alignment="CENTER_RIGHT" focusColor="#343642" layoutX="509.0" layoutY="93.0" onKeyPressed="#key_Search" prefHeight="44.0" prefWidth="346.0" styleClass="textfield" stylesheets="@Manager_Suppliers.css" unFocusColor="#343642">
                <font>
                   <Font size="20.0" />
                </font>
             </JFXTextField>
-            <TextField fx:id="S_Tname" layoutX="723.0" layoutY="315.0" prefHeight="30.0" prefWidth="221.0">
+            <TextField fx:id="S_Tname" alignment="CENTER" layoutX="723.0" layoutY="315.0" prefHeight="30.0" prefWidth="221.0">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></TextField>
-            <TextField fx:id="S_TPhone" layoutX="723.0" layoutY="413.0" prefHeight="30.0" prefWidth="221.0">
+            <TextField fx:id="S_TPhone" alignment="CENTER" layoutX="723.0" layoutY="413.0" prefHeight="44.0" prefWidth="221.0">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></TextField>
-            <TextField fx:id="S_TSaller" layoutX="723.0" layoutY="509.0" prefHeight="30.0" prefWidth="221.0">
+            <TextField fx:id="S_TSaller" alignment="CENTER" layoutX="723.0" layoutY="509.0" prefHeight="44.0" prefWidth="221.0">
                <font>
                   <Font name="System Bold" size="20.0" />
                </font></TextField>
-            <JFXComboBox fx:id="S_Ctype" layoutX="500.0" layoutY="129.0" prefHeight="30.0" prefWidth="264.0" style="-fx-background-color: #fff;" unFocusColor="WHITE" />
+            <JFXComboBox fx:id="S_Ctype" layoutX="723.0" layoutY="599.0" prefHeight="35.0" prefWidth="221.0" style="-fx-background-color: #fff;" unFocusColor="WHITE" />
          </children>
       </Pane>
    </children>

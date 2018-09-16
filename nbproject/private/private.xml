@@ -3,34 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/Younis/Desktop/semi_final/Supermarket_Management_System/src/employees/personalexpenses/PersonalexpensesController.java</file>
-            <file>file:/C:/Users/Younis/Desktop/semi_final/Supermarket_Management_System/src/resources/tables.xml</file>
-            <file>file:/C:/Users/Younis/Desktop/semi_final/Supermarket_Management_System/src/Classes/Expences.java</file>
-            <file>file:/C:/Users/Younis/Desktop/semi_final/Supermarket_Management_System/src/employees/expenses/ExpensesController.java</file>
-            <file>file:/C:/Users/Younis/Desktop/semi_final/Supermarket_Management_System/src/employees/account/AccountController.java</file>
-            <file>file:/C:/Users/Younis/Desktop/semi_final/Supermarket_Management_System/src/Database/DataHelper.java</file>
-            <file>file:/C:/Users/Younis/Desktop/semi_final/Supermarket_Management_System/src/Classes/Employee.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/F:/Dokkan/ProjectFinal/Supermarket_Management_System/src/Manager/Employee/Reports/Employee_ReportsController.java</file>
-            <file>file:/F:/Dokkan/ProjectFinal/Supermarket_Management_System/src/Manager/Financial/Reports/Main.java</file>
-            <file>file:/F:/Dokkan/ProjectFinal/Supermarket_Management_System/src/resources/tables.xml</file>
-            <file>file:/F:/Dokkan/ProjectFinal/Supermarket_Management_System/src/Manager/Financial/Reports/Financial_ReportsController.java</file>
-=======
-<<<<<<< HEAD
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/buying/BuyingController.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/sales/SalesController.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/damage/DamageController.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Database/DataHelper.java</file>
-=======
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Login/LoginController.java</file>
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Database/DataHelper.java</file>
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/employees/account/accept/attendence/AttendenceController.java</file>
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Manager/Product/Quantity/Manager_Product_QuantityController.java</file>
->>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
->>>>>>> 1cc71811968696962588f0dea65b00fde89717a3
->>>>>>> df272cea69e327ce279b47f01e89bf80b882c748
+            <file>file:/C:/Users/NOUR/Desktop/209/Supermarket_Management_System/src/employees/sales/sales.fxml</file>
+            <file>file:/C:/Users/NOUR/Desktop/209/Supermarket_Management_System/src/employees/recall/recall.css</file>
+            <file>file:/C:/Users/NOUR/Desktop/209/Supermarket_Management_System/src/employees/main/employees.fxml</file>
+            <file>file:/C:/Users/NOUR/Desktop/209/Supermarket_Management_System/src/employees/damage/damage.css</file>
+            <file>file:/C:/Users/NOUR/Desktop/209/Supermarket_Management_System/src/employees/sales/sales.css</file>
+            <file>file:/C:/Users/NOUR/Desktop/209/Supermarket_Management_System/src/employees/buying/buying.css</file>
+            <file>file:/C:/Users/NOUR/Desktop/209/Supermarket_Management_System/src/employees/main/employees.css</file>
+            <file>file:/C:/Users/NOUR/Desktop/209/Supermarket_Management_System/src/employees/main/EmployeesController.java</file>
         </group>
     </open-files>
 </project-private>

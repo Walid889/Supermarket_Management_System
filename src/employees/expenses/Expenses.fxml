@@ -23,12 +23,9 @@
       </Label>
       <TableView fx:id="E_table" layoutX="248.0" layoutY="130.0" prefHeight="444.0" prefWidth="512.0">
         <columns>
-          <TableColumn fx:id="t_cost" prefWidth="150.0" text="القيمة" />
-            <TableColumn fx:id="t_reason" prefWidth="150.0" text="السبب" />
+          <TableColumn fx:id="t_cost" prefWidth="192.0" text="القيمة" />
+            <TableColumn fx:id="t_reason" prefWidth="318.0" text="السبب" />
         </columns>
-         <columnResizePolicy>
-            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-         </columnResizePolicy>
       </TableView>
       <Label layoutX="1016.0" layoutY="207.0" text="القيمة :" textFill="WHITE">
          <font>

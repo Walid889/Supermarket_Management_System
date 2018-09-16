@@ -143,10 +143,10 @@ public class DamageController extends NewSerial implements Initializable {
         this.addQuntity();
     } 
 
-    @FXML
-    private void addPaid(ActionEvent event) {
-        this.addPaid();
-    }
+//    @FXML
+//    private void addPaid(ActionEvent event) {
+//        this.addPaid();
+//    }
 
     
 
@@ -167,8 +167,12 @@ public class DamageController extends NewSerial implements Initializable {
     {
         if(!Quntity.getText().equals("") && !productBarcode.getText().equals(""))
         {
+            if (Integer.parseInt(Quntity.getText())>0){
+                
+            
             Common_Properties D =new Common_Properties() ,D1;
             double UintPrice=0,cost=0;
+            
             int CurrentQuantity=Integer.parseInt(Quntity.getText());
             Date JDBC_Date = Date.valueOf(this.date.getText());
             //D.setDate(JDBC_Date);
@@ -204,12 +208,13 @@ public class DamageController extends NewSerial implements Initializable {
                     Alerts.showInfoAlert("تمت الاضافة !!");
                 }
                 else
-                Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
+                Alerts.showErrorAlert("لم تتم العملية بشكل صحيح ");
             }
-        }
-        else
-            Alerts.showErrorAlert("لم يتم ادخال البيانات بشكل صحيح ! .. يرجى التأكد من ملئ جميع الحقول المطلوبه");
-        
+        }else  Alerts.showErrorAlert("البيانات الذي ادخلتها غير صحيحة");
+//        else
+//            Alerts.showErrorAlert("لم يتم ادخال البيانات بشكل صحيح ! .. يرجى التأكد من ملئ جميع الحقول المطلوبه");
+//        
+    }
     }
     
     private void cancelDamage()
@@ -246,18 +251,18 @@ public class DamageController extends NewSerial implements Initializable {
         }
     }
     
-    private void addPaid()
-    {
-        if(!paid.getText().equals(""))
-        {
-           //yooooooour coooooode 
-        }
-        else
-        {
-            Alerts.showErrorAlert("يرجى ادخال القيمة المدفوعة");
-        }
-        
-    }
+//    private void addPaid()
+//    {
+//        if(!paid.getText().equals(""))
+//        {
+//           //yooooooour coooooode 
+//        }
+//        else
+//        {
+//            Alerts.showErrorAlert("يرجى ادخال القيمة المدفوعة");
+//        }
+//        
+    
     
     /*********************************      LOAD PAGES     ***************************************/
     @FXML

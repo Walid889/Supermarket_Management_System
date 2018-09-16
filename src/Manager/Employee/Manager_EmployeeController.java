@@ -7,6 +7,8 @@ import Manager.Main.HomeController;
 import database.DataHelper;
 import database.DatabaseHandler;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -66,7 +68,8 @@ public class Manager_EmployeeController implements Initializable {
     private TableColumn<Employee, String> t_code;
      @FXML
     private TableColumn<Employee, String> t_name;
-    /**
+
+     /**
      * Initializes the controller class.
      */
     
@@ -74,31 +77,38 @@ public class Manager_EmployeeController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        
+   
      databaseHandler= DatabaseHandler.getInstance();
      t_name.setCellValueFactory(new PropertyValueFactory<>("employeeName"));
      t_code.setCellValueFactory(new PropertyValueFactory<>("employeeId"));
      t_phone.setCellValueFactory(new PropertyValueFactory<>("employeePhone"));
      t_salary.setCellValueFactory(new PropertyValueFactory<>("employeeSalaryHours"));
      t_address.setCellValueFactory(new PropertyValueFactory<>("employeeAddress"));
-     DataHelper.loadEmployeesData(E_tables);
-     
+     DataHelper.loadEmployeesData(E_tables);  
     }    
-
+    
+    
+    
+    
+    
+    //Method To load Employee Reports page
     @FXML
     private void Employee_Reports(ActionEvent event) {
         x.loadwindow(Manger_Employee,"/Manager/Employee/Reports/Employee_Reports.fxml");
     }
 
+    //Method To load Admin home page
     @FXML
     private void Manager_Home(ActionEvent event) {
         x.loadwindow(Manger_Employee,"/Manager/Main/Home.fxml");
     }
+    
+    //Method to call add employee method
     @FXML
-    private void Add_Employee(ActionEvent event) {
+    private void Add_Employee(ActionEvent event) throws SQLException {
         this.AddEmployee();
     }
+    //Method to call delete employee method
     @FXML
     private void Delete_Employee(ActionEvent event){
         this.Delete_Employee();
@@ -113,10 +123,43 @@ public class Manager_EmployeeController implements Initializable {
     
     
     
-    /***************************************************************************** Add new Employee*********************************************/
-     private void AddEmployee(){
-         if ( !E_Tname.getText().equals("") && !E_Tcode.getText().equals("") && !E_Tphone.getText().equals("") && !E_Taddress.getText().equals("") && !E_Tsalary.getText().equals("")  ){
-              
+    
+    
+    
+    /*
+    *
+    Let's Stsart to The implementation of methods
+    *
+    */
+    
+    
+    
+    /////////////////////////////////////////////////// Buttons Methods//////////////////////////////////////////////////////////////////
+    
+     String qu="SELECT emp_id FROM employee1 "; 
+               ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
+    
+    /******************************************************** Add new Employee****************************************************/
+      
+    
+    
+    private void AddEmployee() throws SQLException{
+         if ( !E_Tname.getText().equals("") && !E_Tcode.getText().equals("") && !E_Tphone.getText().equals("") 
+                 && !E_Taddress.getText().equals("") && !E_Tsalary.getText().equals("")  ){                    //TO check of text fields is empty
+             
+               
+               
+               //TO ckef if there another Employee with same ID 
+               while(rs.next()){
+                    String x1=rs.getString("emp_id"); 
+                   if (E_Tcode.getText().trim().equals(x1)){
+                       Alerts.showErrorAlert("يوجد موظف اخر بنفس الكود");
+                   }}
+
+                
+             
+             try{
+             if (Double.parseDouble(E_Tsalary.getText())>0  ){ //to make sure that salary is  a posutive number
                    
                     Employee E =new Employee();
                     E.setEmployeeName(E_Tname.getText());
@@ -124,8 +167,6 @@ public class Manager_EmployeeController implements Initializable {
                     E.setEmployeePhone(E_Tphone.getText());
                     E.setEmployeeSalaryHours(Double.parseDouble(E_Tsalary.getText()));
                     E.setEmployeeAddress(E_Taddress.getText());
-        
-        
                     boolean result = DataHelper.insertNewemployee(E);
                     E_tables.getItems().add(E);
                     if(result){
@@ -136,114 +177,141 @@ public class Manager_EmployeeController implements Initializable {
                         clear();
                         return;
                     }
-                       
-
-                   }
-              
-                    else 
-                    {  
-                        Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");   
-                    }
+             }else{  Alerts.showErrorAlert("لقد أدخلت قيما غير صحيحة");  }
+                
+             
+            } catch (NumberFormatException es){ Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!"); }
+                 
+             
+            } else {  Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة"); }
+                 
+                
 
                 }
 
      
-     
-     /*********************************************************************************Edit Employee************************************************/
+    
+    
+    
+    
+    
+     /********************************************************Edit Employee************************************************/
+    
+    
+    
+    
+    
     @FXML
-    private void Edit_Employee(ActionEvent event) {
-         if ( !E_Tname.getText().equals("") && !E_Tcode.getText().equals("") && !E_Tphone.getText().equals("") && !E_Taddress.getText().equals("") && !E_Tsalary.getText().equals("")  ){
+    private void Edit_Employee(ActionEvent event) throws SQLException {
+         if ( !E_Tname.getText().equals("") && !E_Tcode.getText().equals("") && !E_Tphone.getText().equals("") 
+             && !E_Taddress.getText().equals("") && !E_Tsalary.getText().equals("")  ){   //TO check of text fields is empty
             
-             try{
-           
+             //TO ckef if there another Employee with same ID 
+               while(rs.next()){
+                    String x1=rs.getString("emp_id"); 
+                   if (E_Tcode.getText().trim().equals(x1)){
+                       Alerts.showErrorAlert("يوجد موظف اخر بنفس الكود");
+                   }}
+               
+               
+            try{   
+            if (Double.parseDouble(E_Tsalary.getText())>0  ){
                  String name=E_Tname.getText();
                   String phone=E_Tphone.getText();
                   String id =E_Tcode.getText();
                   String address=E_Taddress.getText();
                   double salary=Double.parseDouble(E_Tsalary.getText());
-           
-                     
-                    Employee e = new Employee(id,name,phone,address,salary);
-                  
+      
+                 Employee e = new Employee(id,name,phone,address,salary);
                 boolean result=DataHelper.updateEmployee(e,oldBar);
-        if(result){
-            Alerts.showInfoAlert("تم تعديل بيانات :"+e.getEmployeeName());
-            DataHelper.loadEmployeesData(E_tables);
-        }
-        else
-            Alerts.showInfoAlert("لم تتم العملية بشكل صحيح ");
-    
-            }catch (NumberFormatException es)
-            {
-                Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
+                
+                if(result){
+                    Alerts.showInfoAlert("تم تعديل بيانات :"+e.getEmployeeName());
+                    DataHelper.loadEmployeesData(E_tables);
+                    
+                    
+                }else  { Alerts.showInfoAlert("لم تتم العملية بشكل صحيح "); }
+
+               }  else{ Alerts.showErrorAlert("لقد أدخلت قيما غير صحيحة"); }   
+                        
+               } catch (NumberFormatException es) { Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");}
+   
+                } else { Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");}
+
+                
+
             }
-         }
-         else 
-        {  
-            Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
-            
-        }
-         
-    }
     
     
     
-     /*********************************************************************************Delete Employee************************************************/
     
-    @FXML
+    
+    
+    
+    
+    
+    
+     /*********************************************************Delete Employee************************************************/
+    
     private void Delete_Employee() {
-        if ( !E_Tname.getText().equals("") && !E_Tcode.getText().equals("") && !E_Tphone.getText().equals("") && !E_Taddress.getText().equals("") && !E_Tsalary.getText().equals("")  ){  
+        if ( !E_Tname.getText().equals("") && !E_Tcode.getText().equals("") && !E_Tphone.getText().equals("")
+             && !E_Taddress.getText().equals("") && !E_Tsalary.getText().equals("")  ){  
+            
+            
            Employee G=E_tables.getSelectionModel().getSelectedItem();
-        
         if (Alerts.ConfirmAlert("هل تريد مسح"+":", G.getEmployeeId())) {
                 Boolean result = DataHelper.deleteEmployee(G);
+                
                 if (result) {
                     Alerts.showInfoAlert("تم المسح !!");
                     E_tables.getItems().removeAll(E_tables.getSelectionModel().getSelectedItem());
                     clear();
                 }
-                 else 
-                    Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
-            }
-    } else 
-        {
-             Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة");
-        }
-    }    
-
-    @FXML
-    private void Employee_Choice(ActionEvent event) {
+                 else {  Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");}
+            
+    } else {    Alerts.showErrorAlert("برجاءالتأكد من  ملىء جميع الحقول المطلوبة"); }
         
-        if(!E_tables.getItems().equals(""))
-        {
-            
-            Alerts.showErrorAlert("برجاء اختيار الصف ");
-          
-        }
-         else 
-        {  
-            
-            System.out.println("اكتب الكووووود");
-        }
+    }    
     }
+    
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /////////////////////////////////////////////////////Helper Methods///////////////////////////////////////////
+    
+    
+    
+    
+    
+    
+    
+    
      
-     /***************************************************TO get items of table in  textFields*************************************************/
+     /*****************************************TO get items of table in  textFields*************************************/
     
     @FXML
     private void selectFromTable(MouseEvent event) {
          Employee emp=E_tables.getSelectionModel().getSelectedItem();
-        
+         
          E_Tname.setText(emp.getEmployeeName());
         E_Tcode.setText(emp.getEmployeeId());
         E_Tphone.setText(emp.getEmployeePhone());
-        E_Tsalary.setText(""+emp.getEmployeeHourlyWage()+"");
+        E_Tsalary.setText(emp.getEmployeeSalaryHours()+"");
         E_Taddress.setText(emp.getEmployeeAddress());
         oldBar=E_Tcode.getText();
     }
     
 
-   /***************************************************TO clear what in TextFields*************************************************/
+   /****************************************TO clear what in TextFields*************************************************/
     
     private void clear()
     {
@@ -257,7 +325,7 @@ public class Manager_EmployeeController implements Initializable {
    
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
@@ -268,9 +336,9 @@ public class Manager_EmployeeController implements Initializable {
 @FXML
     private void Key_pressed(KeyEvent event) {
             try{
-        if(event.getCode().equals(KeyCode.S)){
+        if(event.getCode().equals(KeyCode.CONTROL)){  // Save when Pressing Control
           this.AddEmployee(); }
-        else if (event.getCode().equals(KeyCode.DELETE)){
+        else if (event.getCode().equals(KeyCode.DELETE)){ //Delet When Pressing Delete
           this.Delete_Employee();
         }
     }catch(Exception e){}

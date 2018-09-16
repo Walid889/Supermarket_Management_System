@@ -23,13 +23,13 @@
             <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <TableView fx:id="personal_table" layoutX="269.0" layoutY="128.0" prefHeight="453.0" prefWidth="513.0">
+      <TableView fx:id="personal_table" layoutX="269.0" layoutY="168.0" prefHeight="453.0" prefWidth="513.0">
          <columns>
-            <TableColumn fx:id="t_value" prefWidth="230.99996948242188" text="القيمة" />
-            <TableColumn fx:id="t_reason" prefWidth="281.0" text="السبب" />
+            <TableColumn fx:id="t_value" prefWidth="157.99996948242188" text="القيمة" />
+            <TableColumn fx:id="t_reason" prefWidth="354.0" text="السبب" />
          </columns>
       </TableView>
-      <Label layoutX="1035.0" layoutY="151.0" text="القيمة :" textFill="WHITE">
+      <Label layoutX="1035.0" layoutY="191.0" text="القيمة :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
@@ -37,11 +37,11 @@
             <DropShadow height="9.14" radius="4.07" width="9.14" />
          </effect>
       </Label>
-      <TextField fx:id="value" layoutX="803.0" layoutY="148.0" prefHeight="30.0" prefWidth="220.0">
+      <TextField fx:id="value" layoutX="803.0" layoutY="188.0" prefHeight="30.0" prefWidth="220.0">
          <font>
             <Font name="System Bold" size="25.0" />
          </font></TextField>
-      <Label layoutX="1037.0" layoutY="211.0" text="السبب :" textFill="WHITE">
+      <Label layoutX="1037.0" layoutY="251.0" text="السبب :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
@@ -49,16 +49,16 @@
             <DropShadow height="9.14" radius="4.07" width="9.14" />
          </effect>
       </Label>
-      <TextArea fx:id="reason" layoutX="803.0" layoutY="215.0" prefHeight="200.0" prefWidth="220.0">
+      <TextArea fx:id="reason" layoutX="803.0" layoutY="255.0" prefHeight="200.0" prefWidth="220.0">
          <font>
             <Font name="System Bold" size="25.0" />
          </font></TextArea>
-      <JFXButton layoutX="828.0" layoutY="426.0" onAction="#confirm" prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@../sales/sales.css" text="تأكيد">
+      <JFXButton layoutX="828.0" layoutY="466.0" onAction="#confirm" prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@../sales/sales.css" text="تأكيد">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="828.0" layoutY="491.0" onAction="#loadMAinOfExpenses" prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@../sales/sales.css" text="الرئيسية">
+      <JFXButton layoutX="828.0" layoutY="531.0" onAction="#loadMAinOfExpenses" prefHeight="25.0" prefWidth="160.0" styleClass="jfx-button" stylesheets="@../sales/sales.css" text="الرئيسية">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>

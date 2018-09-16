@@ -33,7 +33,7 @@ public class Alerts extends Throwable{
             Thread thread = new Thread(() -> {
             try {
                 // Wait for 5 secs
-                Thread.sleep(2000);
+                Thread.sleep(1400);
                 if (alert.isShowing()) {
                     Platform.runLater(() -> alert.close());
                 }
@@ -67,6 +67,16 @@ public class Alerts extends Throwable{
         alert.showAndWait();
         
     }
+    
+//    Alert alert = new Alert(Alert.AlertType.NONE);
+//            alert.setTitle("خطأ");
+//            alert.setContentText("لم يتم ادخال بيانات الفاتورة بشكل صحيح!!");
+//            alert.setHeaderText(null);
+//            alert.setResult(ButtonType.CLOSE);
+//            alert.show();
+//            PauseTransition delay = new PauseTransition(javafx.util.Duration.seconds(1.5));
+//            delay.setOnFinished( event -> alert.close() );
+//            delay.play();
 }
 /*
     private void deleteAllRows(){
