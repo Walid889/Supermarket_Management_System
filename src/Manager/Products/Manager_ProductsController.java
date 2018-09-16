@@ -8,6 +8,8 @@ import Manager.Main.HomeController;
 
 import database.DatabaseHandler;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import java.util.ResourceBundle;
 import java.util.function.Predicate;
@@ -25,6 +27,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+<<<<<<< HEAD
+=======
+import javafx.scene.effect.BlendMode;
+>>>>>>> fe0f9164e9b958f28dff5a1994cb130809846ff8
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -44,15 +50,11 @@ public class Manager_ProductsController implements Initializable {
     @FXML
     private Label P_Type;
     @FXML
-    private Label P_Supplier;
-    @FXML
     private Label P_UPrice;
     @FXML
     private Label P_name;
     @FXML
     private Label P_Quantity;
-    @FXML
-    private ComboBox<String> P_Csupplier;
     @FXML
     private Label P_Bprice;
     @FXML
@@ -85,7 +87,6 @@ public class Manager_ProductsController implements Initializable {
     private TableColumn<Goods, String> t_p_packet;
     @FXML
     private TableColumn<Goods, String> t_p_item;
-    @FXML
     private TableColumn<Goods, String> t_supplier;
     @FXML
     private TableColumn<Goods, String> t_q_packet;
@@ -111,10 +112,13 @@ public class Manager_ProductsController implements Initializable {
         // TODO
         databaseHandler=DatabaseHandler.getInstance();
         initTableViewCols();
+<<<<<<< HEAD
+        ObservableList<String> list1= FXCollections.observableArrayList("شبسى وحلويات","شاى وبن","سمنه وزيوت","ايس كريم","مجمدات","عصائر","حبن","ألبان","معلبات","شيكولاتات","منظفات");
+=======
         ObservableList<String> list1= FXCollections.observableArrayList("مياه غازية","منظفات","مكرونات","عصائر","جبن");
         ObservableList<String> list2= FXCollections.observableArrayList("باندا","عبور لاند","جهينة");
+>>>>>>> 466b013eafafe85a4d1f4dc326d4830440e57aec
         P_Ctype.setItems(list1);
-        P_Csupplier.setItems(list2);
         Q_box.setText("1");
         DataHelper.loadProductsData(P_table,P_TSearch);
     } 
@@ -122,7 +126,6 @@ public class Manager_ProductsController implements Initializable {
         t_name.setCellValueFactory(new PropertyValueFactory<>("productName"));
         t_code.setCellValueFactory(new PropertyValueFactory<>("productBarCode"));
         t_cate.setCellValueFactory(new PropertyValueFactory<>("productCategory"));
-        t_supplier.setCellValueFactory(new PropertyValueFactory<>("productSupplier"));
         t_q_item.setCellValueFactory(new PropertyValueFactory<>("itemsInPacket"));
         t_q_packet.setCellValueFactory(new PropertyValueFactory<>("PacketsInBox"));
         t_p_item.setCellValueFactory(new PropertyValueFactory<>("itemPrice"));
@@ -174,14 +177,36 @@ public class Manager_ProductsController implements Initializable {
     
     
      ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+    // فين الايرور ؟
     
     
     private void Add_Product() {
         if(!P_Tname.getText().equals("") && !P_Tcode.getText().equals("") && !P_Ctype.getValue().equals("")
-                && !P_Csupplier.getValue().equals("") && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
+                && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
                 && !P_TUprice.getText().equals("") && !P_TBprice.getText().equals("") && !P_TCprice.getText().equals("")
                 && !P_Tminimun.getText().equals("")){
+<<<<<<< HEAD
+            Goods G=new Goods();
+            G.setProductName(P_Tname.getText());
+            G.setProductBarCode(P_Tcode.getText());
+            G.setProductCategory((String) P_Ctype.getValue());
+            G.setItemsInPacket(Integer.parseInt(Q_item.getText()));
+            G.setPacketsInBox(Integer.parseInt(Q_packet.getText()));
+            G.setItemPrice(Double.parseDouble(P_TUprice.getText()));
+            G.setPacketPrice(Double.parseDouble(P_TBprice.getText()));
+            G.setBoxPrice(Double.parseDouble(P_TCprice.getText()));
+            G.setProductMinQuantity(Integer.parseInt(P_Tminimun.getText()));
+            //G.setProductExpirationdate(P_Tdate.getText());
+            G.setAllQuantity(0);
+            boolean result=DataHelper.insertNewProduct(G);
+            if(result){
+                P_table.getItems().add(G);
+                Alerts.showInfoAlert("تم اضافة المنتج !!");
+                clear();
+            }
+            else
+                Alerts.showInfoAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
+=======
             try {
                 Goods G=new Goods();
                 G.setProductName(P_Tname.getText());
@@ -205,6 +230,7 @@ public class Manager_ProductsController implements Initializable {
                     Alerts.showInfoAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
                 
             }catch(NumberFormatException e) {Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة ");}
+>>>>>>> 466b013eafafe85a4d1f4dc326d4830440e57aec
         }
         else 
              Alerts.showErrorAlert("برجاء ملىء جميع الحقول المطلوبة");
@@ -215,8 +241,25 @@ public class Manager_ProductsController implements Initializable {
     private void Edit_Product() {
         
         if(!P_Tname.getText().equals("") && !P_Tcode.getText().equals("") && !P_Ctype.getValue().equals("")
-                && !P_Csupplier.getValue().equals("") && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
+                && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
                 && !P_TUprice.getText().equals("") && !P_TBprice.getText().equals("") && !P_TCprice.getText().equals("")
+<<<<<<< HEAD
+                && !P_Tminimun.getText().equals("")&&!P_CQuan.getText().equals("")){
+        
+            String name=P_Tname.getText();
+            String TEST=P_Tname.getText();
+            String bar=P_Tcode.getText();
+            String cate=(String) P_Ctype.getValue();
+            int it=Integer.parseInt(Q_item.getText());
+            int pa=Integer.parseInt(Q_packet.getText());
+            double Pi=Double.parseDouble(P_TUprice.getText());
+            double Pp=Double.parseDouble(P_TBprice.getText());
+            double Pb=Double.parseDouble(P_TCprice.getText());
+            int mP=Integer.parseInt(P_Tminimun.getText());
+            //G.setProductExpirationdate(P_Tdate.getText());
+            long aq=Long.parseLong(P_CQuan.getText());
+            Goods G=new Goods(name, bar, TEST ,cate, it, pa, Pi, Pp, Pb, mP,aq);
+=======
                 && !P_Tminimun.getText().equals("")){
             try {
                 String name=P_Tname.getText();
@@ -229,6 +272,7 @@ public class Manager_ProductsController implements Initializable {
                 double Pp=Double.parseDouble(P_TBprice.getText());
                 double Pb=Double.parseDouble(P_TCprice.getText());
                 int mP=Integer.parseInt(P_Tminimun.getText());
+>>>>>>> 466b013eafafe85a4d1f4dc326d4830440e57aec
 
                 Goods G=new Goods(name, bar, cate, sup, it, pa, Pi, Pp, Pb, mP);
 
@@ -247,7 +291,7 @@ public class Manager_ProductsController implements Initializable {
     
     private void Delete_Product() {
         if(!P_Tname.getText().equals("") && !P_Tcode.getText().equals("") && !P_Ctype.getValue().equals("")
-                && !P_Csupplier.getValue().equals("") && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
+                && !Q_item.getText().equals("") && !Q_packet.getText().equals("")
                 && !P_TUprice.getText().equals("") && !P_TBprice.getText().equals("") && !P_TCprice.getText().equals("")
                 && !P_Tminimun.getText().equals("")){
             try{
@@ -284,7 +328,6 @@ public class Manager_ProductsController implements Initializable {
         Q_item.clear();
         P_Tminimun.clear();
         P_Ctype.setValue("");
-        P_Csupplier.setValue("");
     }
 
     @FXML
@@ -298,7 +341,6 @@ public class Manager_ProductsController implements Initializable {
         P_TUprice.setText(good.getItemPrice()+"");
         P_TBprice.setText(good.getPacketPrice()+"");
         P_TCprice.setText(good.getBoxPrice()+"");
-        P_Csupplier.setValue(good.getProductSupplier());
         P_Ctype.setValue(good.getProductCategory());
         P_Tminimun.setText(good.getProductMinQuantity()+"");
         oldBar=P_Tcode.getText();
@@ -328,13 +370,33 @@ public class Manager_ProductsController implements Initializable {
         st.comparatorProperty().bind(P_table.comparatorProperty());
         P_table.setItems(st);
     }
+    
+    
+    
+    public static void fillComboBox(ComboBox C1){
+        ObservableList<String> list = FXCollections.observableArrayList();
+        String qu = "SELECT sup_name FROM suppliers1";
+        ResultSet rs =DatabaseHandler.getInstance().execQuery(qu);
+        try {
+            while (rs.next()) {
+                String Ename=rs.getString("sup_name");
+                list.add(Ename);
+            }
+        } catch (SQLException ex) {
+            Alerts.showInfoAlert("لا يوجد موردين");
+        }
+        C1.setItems(list);
+    }
 
     @FXML
     private void ClearNew(ActionEvent event){
         clear();
     } 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> fe0f9164e9b958f28dff5a1994cb130809846ff8
     @FXML
     private void Key_Pressed(KeyEvent event) {
           try{
@@ -345,4 +407,9 @@ public class Manager_ProductsController implements Initializable {
         }
     }catch(Exception e){}
     }
+<<<<<<< HEAD
+=======
+
+   
+>>>>>>> fe0f9164e9b958f28dff5a1994cb130809846ff8
 }

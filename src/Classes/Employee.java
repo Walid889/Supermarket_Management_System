@@ -72,6 +72,11 @@ public class Employee{// Common_Methods is an Interface include Add , Update , D
        employeeAddress=address;
        employeeSalaryHours=salary;
     }
+    public Employee(double a , String b)
+    {
+        employeeExpensesCost=a;
+        employeeExpensesReason=b;
+    }
     public Employee(){
         
     }

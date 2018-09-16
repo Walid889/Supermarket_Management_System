@@ -6,7 +6,11 @@
 package employees.personalexpenses;
 
 import Classes.Employee;
+<<<<<<< HEAD
 import Serial_dinamic.NewSerial;
+=======
+import static Serial_dinamic.NewSerial.gettDate;
+>>>>>>> fe0f9164e9b958f28dff5a1994cb130809846ff8
 import database.*;
 import employees.main.EmployeesController;
 import java.io.IOException;
@@ -44,6 +48,7 @@ public class PersonalexpensesController extends NewSerial implements Initializab
     private TextField value;
     @FXML
     private TextArea reason;
+    DatabaseHandler databaseHandler;
     @FXML
     private TableView<Employee> personal_table;
     /**
@@ -54,6 +59,13 @@ public class PersonalexpensesController extends NewSerial implements Initializab
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         databaseHandler=DatabaseHandler.getInstance();
+<<<<<<< HEAD
+=======
+        DataHelper.loadpersonalExpensesData(personal_table,gettDate());
+        showTable();
+    }
+    private void showTable(){
+>>>>>>> fe0f9164e9b958f28dff5a1994cb130809846ff8
         t_value.setCellValueFactory(new PropertyValueFactory<>("employeeExpensesCost"));
         t_reason.setCellValueFactory(new PropertyValueFactory<>("employeeExpensesReason"));
         DataHelper.loadpersonalExpensesData(personal_table, gettDate());
@@ -91,6 +103,7 @@ public class PersonalexpensesController extends NewSerial implements Initializab
                 boolean result = DataHelper.insertNewPersonalExpences(e);
                 personal_table.getItems().add(e);
                 if(result){
+                    System.out.println("yeeeees");
                     Alert AT=new Alert(Alert.AlertType.INFORMATION);
                     AT.setHeaderText(null);
                     AT.setContentText("تم اضافة المصاريف الشخصية");

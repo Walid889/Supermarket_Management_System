@@ -20,13 +20,18 @@ import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Time;
+import java.time.Duration;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+<<<<<<< HEAD
+import javafx.animation.PauseTransition;
+=======
 import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+>>>>>>> 466b013eafafe85a4d1f4dc326d4830440e57aec
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -342,6 +347,45 @@ public class SalesController extends NewSerial implements Initializable {
     /********************************************* AddNewBill _________*/
     private void AddNewBill(){
         if(!totalPrice.getText().equals("")&&!this.paid.getText().equals("") && !this.rest.getText().equals("")){
+<<<<<<< HEAD
+            billNumber.setText(getSalesSerial()+"");
+            Sales S=new Sales();
+            S.setSerial(Integer.parseInt(billNumber.getText()));
+            Date JDBC_Date = Date.valueOf(this.date.getText());
+            S.setDate(JDBC_Date);
+            S.setTime(gettTime());
+            S.setTotalPrice(Double.parseDouble(totalPrice.getText()));
+            S.setPaid(Double.parseDouble(this.paid.getText()));
+            S.setReminderMoney(Double.parseDouble(this.rest.getText()));
+
+            boolean result = DataHelper.insertNewBill(S);
+            
+            increment_Sales(); //
+            billNumber.setText(getSalesSerial()+"");
+            System.out.println(getSalesSerial());
+            TOTAL=0;
+            
+            paid.setText(gettTime()+"");
+            clear();
+            if(result){
+                Alerts.showInfoAlert("تم اضافة الفاتورة رقم  بنجاح !!");
+            }
+            else
+                Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
+        }
+        else
+        {
+            Alerts.showErrorAlert("لم يتم ادخال بيانات الفاتورة بشكل صحيح !!");
+            /*Alert alert = new Alert(Alert.AlertType.NONE);
+            alert.setTitle("خطأ");
+            alert.setContentText("لم يتم ادخال بيانات الفاتورة بشكل صحيح!!");
+            alert.setHeaderText(null);
+            alert.setResult(ButtonType.CLOSE);
+            alert.show();
+            PauseTransition delay = new PauseTransition(javafx.util.Duration.seconds(1.5));
+            delay.setOnFinished( event -> alert.close() );
+            delay.play();*/
+=======
             try{
                 billNumber.setText(getSalesSerial()+"");
                 Sales S=new Sales();
@@ -368,6 +412,7 @@ public class SalesController extends NewSerial implements Initializable {
                 else
                     Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
             }catch(Exception e){}
+>>>>>>> 466b013eafafe85a4d1f4dc326d4830440e57aec
         }
         
         

@@ -36,7 +36,7 @@ public class DataHelper {
             statement.setString(1, go.getProductBarCode());
             statement.setString(2, go.getProductName());
             statement.setString(3, go.getProductCategory());
-            statement.setString(4, go.getProductSupplier());
+//            statement.setString(4, go.getProductSupplier());
             statement.setInt(5, go.getItemsInPacket());
             statement.setInt(6, go.getPacketsInBox());
             statement.setLong(7, go.getAllQuantity());
@@ -60,7 +60,7 @@ public class DataHelper {
             statement.setString(1, go.getProductBarCode());
             statement.setString(2, go.getProductName());
             statement.setString(3, go.getProductCategory());
-            statement.setString(4, go.getProductSupplier());
+         //   statement.setString(4, go.getProductSupplier());
             statement.setInt(5, go.getItemsInPacket());
             statement.setInt(6, go.getPacketsInBox());
             statement.setLong(7, go.getAllQuantity());
@@ -292,24 +292,57 @@ public class DataHelper {
             Alerts.showInfoAlert("لا يوجد موظفين");
         }
         TV.setItems(list);
+        
+        //TextFields.bindAutoCompletion(TF, list2);
+
     }
+<<<<<<< HEAD
+=======
+   ///////////////////////////////////////////////////////
+
+        
+    }
+    public static boolean isEmployeeRegistered(String employeeId) {
+        String query = "SELECT emp_id FROM employee2 WHERE emp_id='" + employeeId + "'";  //get username
+        try {
+      PreparedStatement preparedStatement = DatabaseHandler.getInstance().getConnection().prepareStatement(query);
+      preparedStatement.setString(1, employeeId);
+      ResultSet rs = preparedStatement.executeQuery() ;
+      if(rs.next()) {
+       return true ;
+      }else {
+       return false ;
+      }
+     } catch (SQLException e) {
+      e.printStackTrace();
+      return true ;
+     }
+       }
+>>>>>>> fe0f9164e9b958f28dff5a1994cb130809846ff8
     /********************************************END OF EMPLOYEE*****************************************************/
     /****************************************************************************************************************/
     /****************************************************************************************************************/
     /****************************************************************************************************************/
+<<<<<<< HEAD
     
 
+=======
+>>>>>>> fe0f9164e9b958f28dff5a1994cb130809846ff8
    ///////////////////////////////////////////////////////
         
         
         
     ///////////////////////////////////////////////////////
+
     //////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////
     /////////////////End employee///////////////////////////////
     ///////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////
+<<<<<<< HEAD
     
+=======
+>>>>>>> fe0f9164e9b958f28dff5a1994cb130809846ff8
     
     
     
@@ -406,6 +439,64 @@ public class DataHelper {
             }
         } catch (SQLException ex) {
             Alerts.showInfoAlert("لا يوجد موردين");
+        }
+        return list;
+    }
+    //////////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////
+    /////////////////////////End Suppliers///////////////////////////////
+    /////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////
+    public static void loadProductsData(TableView TV,TextField TF) {
+        ObservableList<Goods> list = FXCollections.observableArrayList();
+        ObservableList<String> list2 = FXCollections.observableArrayList();
+        list.clear();
+        String qu = "SELECT * FROM product";
+        ResultSet rs =DatabaseHandler.getInstance().execQuery(qu);
+        try {
+            while (rs.next()) {
+                String name=rs.getString("pro_name");
+                String bar=rs.getString("pro_bar");
+                String cate=rs.getString("pro_category");
+                String sup=rs.getString("pro_supplier_name");
+                int it=rs.getInt("pro_qty_item");
+                int pa=rs.getInt("pro_qty_packet");
+                double Pi=rs.getDouble("pro_price_item");
+                double Pp=rs.getDouble("pro_price_packet");
+                double Pb=rs.getDouble("pro_price_box");
+                int mP=rs.getInt("pro_minimum");
+                int aq=rs.getInt("pro_All_qty");
+                list.add(new Goods(name, bar, cate,sup, it, pa, Pi, Pp, Pb, mP,aq));
+                list2.add(bar);
+            }
+        } catch (SQLException ex) {
+            Alerts.showInfoAlert("لا يوجد اصناف");
+        }
+        TV.setItems(list);
+        TextFields.bindAutoCompletion(TF, list2);
+    }
+    public static ObservableList<Goods> autos(ObservableList<Goods> list){
+        list.clear();
+        String qu = "SELECT * FROM product";
+        ResultSet rs =DatabaseHandler.getInstance().execQuery(qu);
+        try {
+            while (rs.next()) {
+                String name=rs.getString("pro_name");
+                String bar=rs.getString("pro_bar");
+                String cate=rs.getString("pro_category");
+                String sup=rs.getString("pro_supplier_name");
+                int it=rs.getInt("pro_qty_item");
+                int pa=rs.getInt("pro_qty_packet");
+                double Pi=rs.getDouble("pro_price_item");
+                double Pp=rs.getDouble("pro_price_packet");
+                double Pb=rs.getDouble("pro_price_box");
+                int mP=rs.getInt("pro_minimum");
+                //G.setProductExpirationdate(P_Tdate.getText());
+                int aq=rs.getInt("pro_All_qty");
+                list.add(new Goods(name, bar,sup, cate, it, pa, Pi, Pp, Pb, mP,aq));
+            }
+        } catch (SQLException ex) {
+            Alerts.showInfoAlert("لا يوجد اصناف");
         }
         return list;
     }
@@ -905,7 +996,64 @@ public class DataHelper {
         }
         return false;
     }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    
+>>>>>>> 1cc71811968696962588f0dea65b00fde89717a3
+>>>>>>> df272cea69e327ce279b47f01e89bf80b882c748
+
+    public static boolean insertNewPersonalExpences(Employee E)
+    {
+        try{
+        PreparedStatement statement = DatabaseHandler.getInstance().getConnection().prepareStatement(
+                    "INSERT INTO personal_expences (emp_product,emp_price_product) VALUES(?,?)");
+        statement.setDouble(1, E.getEmployeeExpensesCost());
+        statement.setString(2, E.getEmployeeExpensesReason());
+       
+        return statement.executeUpdate() > 0;
+        } catch (SQLException ex)
+        {
+        }
+        return false;
+    }
+<<<<<<< HEAD
+    public static void loadpersonalExpensesData(TableView TV,String date) {
+        ObservableList<Employee> list = FXCollections.observableArrayList();
+        list.clear();
+        String qu = "SELECT * FROM personal_expences WHERE emp_date = '"+date+"'";
+        ResultSet rs =DatabaseHandler.getInstance().execQuery(qu);
+        try {
+            while (rs.next()) {
+                
+                double x1 =rs.getDouble("emp_price_product");
+                String x2 =rs.getString("emp_product");
+                
+                list.add(new Employee(x1,x2));
+            }
+        } catch (SQLException ex) {
+            Alerts.showInfoAlert("لا يوجد مصاريفس");
+        }
+        TV.setItems(list);
+    }
+=======
+<<<<<<< HEAD
+
+
+    
+
+=======
+
+>>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
+>>>>>>> 1cc71811968696962588f0dea65b00fde89717a3
+>>>>>>> df272cea69e327ce279b47f01e89bf80b882c748
+>>>>>>> fe0f9164e9b958f28dff5a1994cb130809846ff8
     public static void loadDamageData(TableView TV,String dat) {
         ObservableList<Common_Properties> list = FXCollections.observableArrayList();
         list.clear();
@@ -929,6 +1077,17 @@ public class DataHelper {
         }
         TV.setItems(list);
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+
+=======
+<<<<<<< HEAD
+>>>>>>> df272cea69e327ce279b47f01e89bf80b882c748
+>>>>>>> fe0f9164e9b958f28dff5a1994cb130809846ff8
         public static long getLastOrderNumberDamage(){
         String qu="SELECT number FROM damages ORDER BY number DESC FETCH FIRST ROW ONLY"; 
         ResultSet rs=DatabaseHandler.getInstance().execQuery(qu);
@@ -949,6 +1108,16 @@ public class DataHelper {
         return num;
     }
     /*******************************************END OF DAMAGES*******************************************************/
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+
+>>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
+>>>>>>> 1cc71811968696962588f0dea65b00fde89717a3
+>>>>>>> df272cea69e327ce279b47f01e89bf80b882c748
+>>>>>>> fe0f9164e9b958f28dff5a1994cb130809846ff8
     /****************************************************************************************************************/
     /****************************************************************************************************************/
     
@@ -974,7 +1143,19 @@ public class DataHelper {
         }
         return false;
     }
+<<<<<<< HEAD
     
+=======
+<<<<<<< HEAD
+=======
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
+>>>>>>> 1cc71811968696962588f0dea65b00fde89717a3
+>>>>>>> df272cea69e327ce279b47f01e89bf80b882c748
+>>>>>>> fe0f9164e9b958f28dff5a1994cb130809846ff8
     public static void loadExpensesData(TableView TV,String dat) {
         ObservableList<Expences> list = FXCollections.observableArrayList();
         list.clear();
@@ -993,14 +1174,33 @@ public class DataHelper {
         }
         TV.setItems(list);
     }
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+
+=======
+<<<<<<< HEAD
+>>>>>>> df272cea69e327ce279b47f01e89bf80b882c748
+>>>>>>> fe0f9164e9b958f28dff5a1994cb130809846ff8
     /****************************************END OF EXPENSES*********************************************************/
     /****************************************************************************************************************/
     /****************************************************************************************************************/
     
     
     
+<<<<<<< HEAD
+=======
     
     
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 1cc71811968696962588f0dea65b00fde89717a3
+>>>>>>> df272cea69e327ce279b47f01e89bf80b882c748
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+>>>>>>> fe0f9164e9b958f28dff5a1994cb130809846ff8
     
     /**************************************************************************************************************/
     /**************************************************************************************************************/
@@ -1123,6 +1323,7 @@ public class DataHelper {
     /**************************************************************************************************************/
     
         ///////////////*********************************************************************\\\\\\\\\\\\\\\
+<<<<<<< HEAD
     public static boolean insertNewPersonalExpences(Employee E)
     {
         try{
@@ -1158,6 +1359,9 @@ public class DataHelper {
         }
         TV.setItems(list);
     }
+=======
+        
+>>>>>>> fe0f9164e9b958f28dff5a1994cb130809846ff8
     ///////////////*********************************************************************\\\\\\\\\\\\\\\
 
     

@@ -19,6 +19,12 @@
 
 .jfx-button-manger
 {
+    -fx-background-color: #343642;
+}
+
+.jfx-button-manger:hover
+{
+    -fx-background-color: #757575;
     -fx-background-color: none;
     -fx-cursor: hand;
 }
