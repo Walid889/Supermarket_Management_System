@@ -27,7 +27,6 @@ public class Alerts extends Throwable{
         return;
     }
     public static void showErrorAlert(String content){
-<<<<<<< HEAD
         
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("خطأ");
@@ -46,16 +45,6 @@ public class Alerts extends Throwable{
         thread.setDaemon(true);
         thread.start();
         Optional<ButtonType> result = alert.showAndWait(); 
-=======
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("خطأ");
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        
-       ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/icons/supermarket.png"));
-        alert.showAndWait();
-        return;
->>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
     }
     public static boolean ConfirmAlert(String content,String Choise){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

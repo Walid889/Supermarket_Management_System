@@ -87,12 +87,8 @@ public class AttendenceController implements Initializable {
             Date cal = new Date();
         start_work.setText(dateFormat.format(cal.getTime()));
     }
-<<<<<<< HEAD
-    
-    public void left()
-=======
+
     private void left()
->>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
     {
         DateFormat dateFormat = new SimpleDateFormat("hh:mm:ss aa");
             Date finish = new Date();
@@ -108,8 +104,7 @@ public class AttendenceController implements Initializable {
     private void leave_dtn(ActionEvent event) {
         this.left();
     }
-    @FXML
-<<<<<<< HEAD
+    
     private void difference()      
     {
         String s=start_work.getText();
@@ -120,7 +115,8 @@ public class AttendenceController implements Initializable {
 
         difference.setText((d2-d1) +"");
       //  difference.setText(String.valueOf(diff));
-=======
+    }
+    @FXML
     private void differenceAction(ActionEvent event) {
         double salary;
         String start = start_work.getText();
@@ -146,6 +142,5 @@ public class AttendenceController implements Initializable {
         System.out.println(salary);
         differenceText.setText(finalTime);
         //this.diff();
->>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
     }
 }

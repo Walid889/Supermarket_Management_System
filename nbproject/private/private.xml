@@ -3,17 +3,45 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/buying/BuyingController.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/sales/SalesController.java</file>
-            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/damage/DamageController.java</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Employee/Manager_EmployeeController.java</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/account/accepted/accountaccept.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/rackshortages/rackshortages.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/main/employees.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Financial/Reports/Financial_Reports.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/rackshortages/RackshortagesController.java</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Suppliers/Reports/Sppliers_Reports.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Suppliers/Manager_Suppliers.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/personalexpenses/personalexpenses.fxml</file>
             <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Database/DataHelper.java</file>
-=======
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Login/LoginController.java</file>
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Database/DataHelper.java</file>
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/employees/account/accept/attendence/AttendenceController.java</file>
-            <file>file:/C:/Users/Younis/Desktop/new%20versioin/Supermarket_Management_System/src/Manager/Product/Quantity/Manager_Product_QuantityController.java</file>
->>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Database/DatabaseHandler.java</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Employee/Reports/Employee_Reports.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/buying/BuyingController.java</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/recall/recall.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/account/accept/attendence/AttendenceController.java</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Products/Reports/Products_Reports.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/account/accept/attendence/attendence.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/damage/damage.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Products/Manager_Products.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Account/Manager_Account.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Main/Main.java</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/main/EmployeesController.java</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/account/accepted/acoountaccept.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Classes/Alerts.java</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Product/Quantity/Manager_Product_Quantity.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/buying/Buying.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Login/login.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/sales/sales.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Reports/Reports.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Employee/Manager_Employee.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/account/account.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Classes/Common_Properties.java</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/expenses/Expenses.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Main/Home.fxml</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Classes/Sales.java</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Products/Reports/Products_ReportsController.java</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/employees/sales/SalesController.java</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/Manager/Main/HomeController.java</file>
+            <file>file:/D:/Work/programing%20workshop/PROJECT/Supermarket_Management/src/resources/tables.xml</file>
         </group>
     </open-files>
 </project-private>

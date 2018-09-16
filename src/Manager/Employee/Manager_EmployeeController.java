@@ -192,7 +192,6 @@ public class Manager_EmployeeController implements Initializable {
     
      /*********************************************************************************Delete Employee************************************************/
     
-    @FXML
     private void Delete_Employee() {
         if ( !E_Tname.getText().equals("") && !E_Tcode.getText().equals("") && !E_Tphone.getText().equals("") && !E_Taddress.getText().equals("") && !E_Tsalary.getText().equals("")  ){  
            Employee G=E_tables.getSelectionModel().getSelectedItem();

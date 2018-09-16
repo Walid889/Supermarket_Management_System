@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package employees.sales;
-
+/********************************************************************************/
 import Serial_dinamic.*;
 import Classes.*;
 import static Serial_dinamic.NewSerial.getSalesSerial;
@@ -145,13 +145,13 @@ public class SalesController extends NewSerial implements Initializable {
         });
         
     }
-    
-    private void DRR(){
-        String qu="DROP TABLE recall";
-        boolean r=databaseHandler.execAction(qu);
-        if(r)
-            System.out.println("    dedddddddddddddd");
-    }
+//    
+//    private void DRR(){
+//        String qu="DROP TABLE recall";
+//        boolean r=databaseHandler.execAction(qu);
+//        if(r)
+//            System.out.println("    dedddddddddddddd");
+//    }
     
     private  void initTableViewCols(){
         c_item.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -208,8 +208,6 @@ public class SalesController extends NewSerial implements Initializable {
         try{                                // deleteAllRows(); impelemented by pressing in SHIFT with DELETE keys
         if(event.getCode().equals(KeyCode.SHIFT.Z)) 
              this.AddNewBill();
-        else if(event.getCode().equals(KeyCode.SHIFT.DELETE))
-            this.deleteAllRows();
         }catch(Exception e){}
     }
     /**************************************************************************/
@@ -400,6 +398,7 @@ public class SalesController extends NewSerial implements Initializable {
                 S.setUintPrice(pri.getBoxPrice());
                 S.setCost(S.CalcCostOfSoldItem(pri.getBoxPrice(),Double.parseDouble(Quntity.getText())));
                 }
+                
                 long k=DataHelper.getLastOrderNumber(); 
                 S.setNumber(k); // give number for every added item in bill .. 
                 boolean result = DataHelper.insertNewSale(S);

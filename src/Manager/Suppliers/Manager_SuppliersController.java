@@ -8,8 +8,11 @@ import database.DataHelper;
 import database.DatabaseHandler;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -80,6 +83,7 @@ public class Manager_SuppliersController implements Initializable {
         t_phone.setCellValueFactory(new PropertyValueFactory<>("supplierPhone"));
         t_supplier.setCellValueFactory(new PropertyValueFactory<>("salespersonName"));
         DataHelper.loadSuppliersData(S_Table);
+        DataHelper.checkDataSupNames(S_TSearch);
          }    
     /**************************************Buttons to move to another Page*************************************/
     @FXML
@@ -236,10 +240,10 @@ public class Manager_SuppliersController implements Initializable {
     
     private void Suppliers_Search() {
         
-         if ( !S_TSearch.getText().equals("") && !S_Ctype.getValue().equals("") ){
+         if ( !S_TSearch.getText().equals("")){
             
              try{
-                //yooooour coooode
+                DataHelper.fillSupplierWithInfoOfSupp(S_TSearch.getText(), S_Tname, S_TPhone, S_TSaller, S_Ctype);
             }catch (NumberFormatException es)
             {
                 Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
@@ -273,15 +277,32 @@ public class Manager_SuppliersController implements Initializable {
        
     }
 
+    
+    ObservableList<Suppliers> list= FXCollections.observableArrayList();    
+    FilteredList filter=new FilteredList(list,e->true);
     @FXML
     private void key_Search(KeyEvent event) {
-        try{
-        if(event.getCode().equals(KeyCode.ENTER)){
-          this.Suppliers_Search();
-        }
-    }catch(Exception e){}
+        DataHelper.autoserSup(list);
+        S_TSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            filter.setPredicate(    (Predicate<? super Suppliers>)    (Suppliers go)->{
+                if(newValue.isEmpty() || newValue == null)
+                    return true;
+                if(newValue.contains(go.getSupplierName()))
+                    return true;
+                
+                return false;
+            });
+        });
+        
+        SortedList st=new SortedList(filter);
+        st.comparatorProperty().bind(S_Table.comparatorProperty());
+        S_Table.setItems(st);
     }
 
+    
+    
+    
+    
     @FXML
     private void selectFromTable(MouseEvent event) {
         

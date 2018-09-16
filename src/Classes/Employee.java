@@ -3,7 +3,7 @@ package Classes;
 
 import java.sql.Time;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Date;
 import java.util.concurrent.TimeUnit;
 import org.apache.derby.client.am.DateTime;
 
@@ -22,7 +22,24 @@ public class Employee{// Common_Methods is an Interface include Add , Update , D
     private Time start;
     private Time end ;
     private double difference;
+    private Date date;
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    
+    
+    public Employee(double a , String b)
+    {
+        employeeExpensesCost=a;
+        employeeExpensesReason=b;
+    }
+    
     public Time getStart() {
         return start;
     }

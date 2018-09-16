@@ -6,10 +6,12 @@
 package employees.personalexpenses;
 
 import Classes.Employee;
+import Serial_dinamic.NewSerial;
 import database.*;
 import employees.main.EmployeesController;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,12 +32,12 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author NOUR
  */
-public class PersonalexpensesController implements Initializable {
+public class PersonalexpensesController extends NewSerial implements Initializable {
     EmployeesController x = new EmployeesController();
     @FXML
     private AnchorPane loadPane;
     @FXML
-    private TableColumn<Employee, Double> t_value;
+    private TableColumn<Employee, String> t_value;
     @FXML
     private TableColumn<Employee, String> t_reason;
     @FXML
@@ -47,11 +49,15 @@ public class PersonalexpensesController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    DatabaseHandler databaseHandler;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        databaseHandler=DatabaseHandler.getInstance();
         t_value.setCellValueFactory(new PropertyValueFactory<>("employeeExpensesCost"));
         t_reason.setCellValueFactory(new PropertyValueFactory<>("employeeExpensesReason"));
+        DataHelper.loadpersonalExpensesData(personal_table, gettDate());
+        
     }    
 
     @FXML
@@ -80,6 +86,8 @@ public class PersonalexpensesController implements Initializable {
                 Employee e = new Employee();
                 e.setEmployeeExpensesCost(Double.parseDouble(value.getText()));
                 e.setEmployeeExpensesReason(reason.getText());
+                Date JDBC_Date = Date.valueOf(gettDate());
+                e.setDate(JDBC_Date);
                 boolean result = DataHelper.insertNewPersonalExpences(e);
                 personal_table.getItems().add(e);
                 if(result){
