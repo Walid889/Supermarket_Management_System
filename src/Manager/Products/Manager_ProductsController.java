@@ -113,7 +113,7 @@ public class Manager_ProductsController implements Initializable {
         // TODO
         databaseHandler=DatabaseHandler.getInstance();
         initTableViewCols();
-        ObservableList<String> list1= FXCollections.observableArrayList("مياه غازية","منظفات","مكرونات","عصائر","جبن");
+        ObservableList<String> list1= FXCollections.observableArrayList("أخرى","منظفات","معلبات","مجمدات","عصائر","شيكولاتات","شيبسي وحلويات","شاي وبن","سمنة وزيوت","جبن","ايس كريم","ألبان");
         ObservableList<String> list2= FXCollections.observableArrayList("باندا","عبور لاند","جهينة");
         P_Ctype.setItems(list1);
         P_Csupplier.setItems(list2);

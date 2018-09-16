@@ -4,30 +4,23 @@
  * and open the template in the editor.
  */
 package employees.recall;
-<<<<<<< HEAD
-import com.jfoenix.controls.JFXRadioButton;
-=======
-<<<<<<< HEAD
 
-
-=======
-<<<<<<< HEAD
->>>>>>> 1cc71811968696962588f0dea65b00fde89717a3
 import com.jfoenix.controls.JFXRadioButton;
 
 
->>>>>>> df272cea69e327ce279b47f01e89bf80b882c748
+
 import com.jfoenix.controls.JFXRadioButton;
-<<<<<<< HEAD
 
 
-=======
+
 import com.jfoenix.controls.JFXRadioButton;
-<<<<<<< HEAD
-=======
->>>>>>> e5317c64f9084381ea66bf14d8f0b3b80297a98c
->>>>>>> 1cc71811968696962588f0dea65b00fde89717a3
->>>>>>> df272cea69e327ce279b47f01e89bf80b882c748
+
+
+
+
+import com.jfoenix.controls.JFXRadioButton;
+
+
 import Classes.Alerts;
 import Classes.Price;
 import Classes.Recalls;
@@ -116,10 +109,7 @@ public class RecallController extends NewSerial implements Initializable {
     private JFXComboBox<String> quntityComboBox;
     @FXML
     private TextField Quntity;
-<<<<<<< HEAD
 
-=======
->>>>>>> 1cc71811968696962588f0dea65b00fde89717a3
     /**
      * Initializes the controller class.
      */

@@ -28,3 +28,8 @@
 {
     -fx-background-color: #343642;
 }
+
+.product-textfeild{
+    -fx-background-color: #FFF;
+    -fx-text-fill: #343642;
+}

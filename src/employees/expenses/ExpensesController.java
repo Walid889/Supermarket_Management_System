@@ -33,11 +33,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyCode;
 import static javafx.scene.input.KeyCode.S;
 import javafx.scene.input.KeyEvent;
-/**
- * FXML Controller class
- *
- * @author NOUR
- */
+
+
+
+
 public class ExpensesController extends NewSerial implements Initializable {
     EmployeesController x = new EmployeesController();
     @FXML
@@ -60,20 +59,28 @@ public class ExpensesController extends NewSerial implements Initializable {
     private TableColumn<Expences, String> t_reason;
     @FXML
     private TextArea reasonBox;
+    
+    private double total=0; // Define a total variable assigned with 0 to add cost to it.   
     @Override
+    
+    //What appears when page be opened
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
         databaseHandler=DatabaseHandler.getInstance();
         DataHelper.loadExpensesData(E_table, gettDate());
         
-        
-        initTableViewCols();
-        total();
+        initTableViewCols(); //Data in tabel
+        total();  // Total of Expenses
     }    
+    
+    
+    //To Make Data appear in table appear 
     private  void initTableViewCols(){
         t_cost.setCellValueFactory(new PropertyValueFactory<>("cost"));
         t_reason.setCellValueFactory(new PropertyValueFactory<>("reason"));
     }
+    
+    // To load A main  Employee Page
     @FXML
     private void loadMAinOfExpenses(ActionEvent event) {
     //loadWindow ("/employees/main/employees.fxml");
@@ -81,11 +88,13 @@ public class ExpensesController extends NewSerial implements Initializable {
     }
     
     
-    private double total=0;
+    
+    //The impementation of Add value method
     
     private void AddValue(){
         Expences E =new Expences();
         try{
+            if (Double.parseDouble(value.getText())> 0  ){
         Date JDBC_Date = Date.valueOf(gettDate());
         E.setDate(JDBC_Date);
         E.setCost(Double.parseDouble(value.getText()));
@@ -99,10 +108,17 @@ public class ExpensesController extends NewSerial implements Initializable {
         }
         total();
         clear();
-        }catch(NumberFormatException e){
-            Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة ..");
-        }
+            }else{  Alerts.showErrorAlert("لقد أدخلت قيما غير صحيحة");  }
+                
+        
+        }catch(NumberFormatException e){   Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة .."); }
+        
     }
+    
+    
+    
+    
+    //Method to calculate total
     private void total(){
         E_table.getItems().forEach((t) -> {
             total+=t.getCost();
@@ -111,27 +127,20 @@ public class ExpensesController extends NewSerial implements Initializable {
         total=0;
     }
     @FXML
+    
+    //Method with button action call add value method implementation
     private void AddValue(ActionEvent event) {
         this.AddValue();
         
     }
     
+    
+    //Method to clear Data from Text Fields
     private void clear(){
         value.clear();
         reasonBox.clear();
     }
     
-}
 
-/*
-String qu = "SELECT * FROM expenses";
-        ResultSet rs =DatabaseHandler.getInstance().execQuery(qu);
-        try {
-            while (rs.next()) {
-                String s1=rs.getString("e_reason");
-                double s2=rs.getDouble("e_cost");
-                System.out.println(s1+"    "+s2);
-            }
-        }
-            catch(Exception e){}
-*/
+
+}

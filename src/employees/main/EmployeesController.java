@@ -109,7 +109,7 @@ public class EmployeesController implements Initializable {
     
     @FXML
     private void signAsAdmin(ActionEvent event) {
-        loadwindow(loadPane,"/Manager/Main/Home.fxml");
+        loadwindow(loadPane,"/Login/login.fxml");
     }
   
 

@@ -104,6 +104,7 @@ public class AttendenceController implements Initializable {
     private void leave_dtn(ActionEvent event) {
         this.left();
     }
+    @FXML
     private void differenceAction(ActionEvent event) {
         double salary;
         String start = start_work.getText();

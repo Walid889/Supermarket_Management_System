@@ -26,3 +26,13 @@
 {
     -fx-background-color: #343642;
 }
+
+.quntityComboBox{
+    -fx-background-color: #fff;
+}
+
+
+.product-textfeild{
+    -fx-background-color: #FFF;
+    -fx-text-fill: #343642;
+}

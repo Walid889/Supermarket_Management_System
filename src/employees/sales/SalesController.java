@@ -381,6 +381,7 @@ public class SalesController extends NewSerial implements Initializable {
         Sales S=new Sales(); 
         if(!productBarcode.getText().equals("") || !Quntity.getText().equals("")){
             try{
+                if(Double.parseDouble(Quntity.getText())>0){
                 S.setCurrentQuantity(Integer.parseInt(Quntity.getText()));
                 S.setSerial(Integer.parseInt(billNumber.getText()));
                 Date JDBC_Date = Date.valueOf(this.date.getText());// JDBC_Date: this var take value of date in "Date"data type to pass it to Date column in database
@@ -419,6 +420,7 @@ public class SalesController extends NewSerial implements Initializable {
                     else
                         Alerts.showErrorAlert("لم تتم العملية بشكل صحيح .. يرجى التواصل مع الدعم الفنى");
                 }
+                }else{Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");}
             }catch(NumberFormatException es){
                 Alerts.showErrorAlert("لقد ادخلت قيمة غير صحيحة !!");
             }
