@@ -6,11 +6,13 @@
 package employees.personalexpenses;
 
 import Classes.Employee;
+import Serial_dinamic.NewSerial;
 import static Serial_dinamic.NewSerial.gettDate;
 import database.*;
 import employees.main.EmployeesController;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,7 +33,7 @@ import javafx.scene.layout.AnchorPane;
  *
  * @author NOUR
  */
-public class PersonalexpensesController implements Initializable {
+public class PersonalexpensesController extends NewSerial implements Initializable {
     EmployeesController x = new EmployeesController();
     @FXML
     private AnchorPane loadPane;
@@ -85,12 +87,14 @@ public class PersonalexpensesController implements Initializable {
     }*/
     private void add(){
                 Employee e = new Employee();
+                Date today = Date.valueOf(gettDate());
+                e.setDate(today);
                 e.setEmployeeExpensesCost(Double.parseDouble(value.getText()));
                 e.setEmployeeExpensesReason(reason.getText());
                 boolean result = DataHelper.insertNewPersonalExpences(e);
                 personal_table.getItems().add(e);
                 if(result){
-                    System.out.println("yeeeees");
+                    
                     Alert AT=new Alert(Alert.AlertType.INFORMATION);
                     AT.setHeaderText(null);
                     AT.setContentText("تم اضافة المصاريف الشخصية");

@@ -6,17 +6,12 @@
 package employees.account;
 
 import Classes.Alerts;
-import Classes.Employee;
 import database.DataHelper;
 import employees.main.EmployeesController;
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -64,22 +59,21 @@ public class AccountController implements Initializable {
     }*/
 
     private void login_employee()
-    {
-        Employee e = new Employee();
-        try{
-        e.setEmployeeId(code_employee.getText());
-        boolean result = DataHelper.isEmployeeRegistered(e.getEmployeeId());
-        if(result){
-           Alerts.showInfoAlert("كود صحيح");
-        }
-        }catch(Exception a)
+    { 
+        String id =  code_employee.getText();
+        if (DataHelper.isEmployeeisEXits(id))
         {
-            Alerts.showErrorAlert("كود موظف خطأ");
-
+            Alerts.showInfoAlert("كود صحيح");
+            x.loadwindow(loadPane,"/employees/account/accepted/accountaccept.fxml");
+        }
+        else{
+            Alerts.showErrorAlert("كود خطأ");
         }
     }
     @FXML
-    private void confirm(ActionEvent event) {
-    this.login_employee();
+    private void confirm(ActionEvent event){
+        
+            this.login_employee();
+        
     }
 }

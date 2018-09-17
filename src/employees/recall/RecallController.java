@@ -276,7 +276,6 @@ public class RecallController extends NewSerial implements Initializable {
     
     
     
-    
     /************************************CLEAR DATA FROM FIELDS _________*/
     private void clear(){
         R_SearchField.clear();

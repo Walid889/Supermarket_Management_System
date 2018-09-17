@@ -3,14 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/NOUR/Desktop/209/Supermarket_Management_System/src/employees/sales/sales.fxml</file>
-            <file>file:/C:/Users/NOUR/Desktop/209/Supermarket_Management_System/src/employees/recall/recall.css</file>
-            <file>file:/C:/Users/NOUR/Desktop/209/Supermarket_Management_System/src/employees/main/employees.fxml</file>
-            <file>file:/C:/Users/NOUR/Desktop/209/Supermarket_Management_System/src/employees/damage/damage.css</file>
-            <file>file:/C:/Users/NOUR/Desktop/209/Supermarket_Management_System/src/employees/sales/sales.css</file>
-            <file>file:/C:/Users/NOUR/Desktop/209/Supermarket_Management_System/src/employees/buying/buying.css</file>
-            <file>file:/C:/Users/NOUR/Desktop/209/Supermarket_Management_System/src/employees/main/employees.css</file>
-            <file>file:/C:/Users/NOUR/Desktop/209/Supermarket_Management_System/src/employees/main/EmployeesController.java</file>
+            <file>file:/F:/Dokkan/Last/Supermarket_Management_System/src/Manager/Financial/Reports/Main.java</file>
+            <file>file:/F:/Dokkan/Last/Supermarket_Management_System/src/resources/tables.xml</file>
+            <file>file:/F:/Dokkan/Last/Supermarket_Management_System/src/Manager/Suppliers/Main.java</file>
+            <file>file:/F:/Dokkan/Last/Supermarket_Management_System/src/Manager/Financial/Reports/Financial_ReportsController.java</file>
+            <file>file:/F:/Dokkan/Last/Supermarket_Management_System/src/Manager/Suppliers/Manager_Suppliers.fxml</file>
+            <file>file:/F:/Dokkan/Last/Supermarket_Management_System/src/Manager_Account/Manager_AccountController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -200,23 +200,26 @@ public class Financial_ReportsController implements Initializable {
         c1 = new PdfPCell(new Phrase("تسلسل ",normal));
         c1.setHorizontalAlignment(Element.ALIGN_CENTER);
         table.addCell(c1);
-        
+        PdfPCell d = new PdfPCell(new Phrase("---------------------------------------------",normal));
+        c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+        c1.setRunDirection(RUN_DIRECTION_RTL);
+        table2.addCell(d);
         table.setHeaderRows(1);
         
         /***********retrive data from database and but them in cells***************/
         try {
-            int x=1;
-            
-            while(rs.next()  ){
-               double y=rs.getDouble("sale_id"); 
-                if (y==x){
+           int u=1;
+                    double y=rs.getDouble("sale_id"); 
+            while(rs.next() && u==y){
+//               double y=rs.getDouble("sale_id"); 
+//                if (y==x){
                 String x1=rs.getString("product_name");        
                 double x2=rs.getDouble("unit_price");
                 int x3=rs.getInt("current_qty");
                 String x4=rs.getString("qty_kind");
                 double x5=rs.getDouble("cost");
                 double x6=rs.getDouble("sale_id");
-                
+                String o="----------------------------------";
                 System.out.println(x1+"  "+x2+" "+x3+"  "+x4+"  "+x5);
                 //cell 1
                 c1 = new PdfPCell(new Phrase(x1,normal));
@@ -245,14 +248,18 @@ public class Financial_ReportsController implements Initializable {
                 c1.setHorizontalAlignment(Element.ALIGN_CENTER);
                 table.addCell(c1);
               // Add table to document
-              document.add(table);
-              y++;
+//               c1 = new PdfPCell(new Phrase(o,normal));
+//                c1.setHorizontalAlignment(Element.ALIGN_CENTER);
+//                table2.addCell(c1);
+              //y++;
                 }
+            document.add(table);
+           // document.add(table2);
             
 //            addEmptyLine(preface, 2);
 //            preface.add("-------------------------------------");
 //            x++;
-            }
+            
             
  
             /////////////////ِTo show that pdf is printed///////////////
@@ -261,7 +268,7 @@ public class Financial_ReportsController implements Initializable {
             AT.setContentText("تمت طباعة التقرير");
             AT.showAndWait();
             
-                   } catch(Exception e){
+        } catch(Exception e){
             System.out.println(e);
         }
         // close document
